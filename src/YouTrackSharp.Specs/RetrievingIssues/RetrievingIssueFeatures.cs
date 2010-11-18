@@ -11,13 +11,17 @@ namespace YouTrackSharp.Specs.RetrievingIssues
     {
         Establish context = () =>
         {
-            youtrack = new YouTrackClient("youtrack.jetbrains.net");
+            youtrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+
+            youtrackConnection.Login("youtrackapi", "youtrackapi");
+            
+            youTrackIssues = new YouTrackIssues(youtrackConnection);
         };
 
         Because of = () =>
         {
 
-            issues = youtrack.GetIssues("SB", 10);
+            issues = youTrackIssues.GetIssues("SB", 10);
         };
 
         It should_return_list_of_issues_for_that_project = () =>
@@ -26,8 +30,9 @@ namespace YouTrackSharp.Specs.RetrievingIssues
             issues.Count.ShouldEqual(10);
         };
 
-        static YouTrackClient youtrack;
+        static YouTrackConnection youtrackConnection;
         static IList<Issue> issues;
+        static YouTrackIssues youTrackIssues;
     }
 
     [Subject("Retrieving issues")]
@@ -35,12 +40,16 @@ namespace YouTrackSharp.Specs.RetrievingIssues
     {
         Establish context = () =>
         {
-            youTrack = new YouTrackClient("youtrack.jetbrains.net");
+            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+
+            youTrackConnection.Login("youtrackapi", "youtrackapi");
+
+            youTrackIssues = new YouTrackIssues(youTrackConnection);
         };
 
         Because of = () =>
         {
-            issue = youTrack.GetIssue("SB-282");
+            issue = youTrackIssues.GetIssue("SB-282");
 
         };
 
@@ -52,7 +61,8 @@ namespace YouTrackSharp.Specs.RetrievingIssues
         };
 
         static Issue issue;
-        static YouTrackClient youTrack;
+        static YouTrackConnection youTrackConnection;
+        static YouTrackIssues youTrackIssues;
     }
 
     [Subject("Retrieving issues")]
@@ -60,12 +70,14 @@ namespace YouTrackSharp.Specs.RetrievingIssues
     {
         Establish context = () =>
         {
-            youTrack = new YouTrackClient("youtrack.jetbrains.net");
+            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+
+            youTrackIssues = new YouTrackIssues(youTrackConnection);
         };
 
         Because of = () =>
         {
-            exception = Catch.Exception(() => youTrack.GetIssue("fdfdfsdfsd"));
+            exception = Catch.Exception(() => youTrackIssues.GetIssue("fdfdfsdfsd"));
 
         };
 
@@ -86,7 +98,8 @@ namespace YouTrackSharp.Specs.RetrievingIssues
 
         };
 
-        static YouTrackClient youTrack;
+        static YouTrackConnection youTrackConnection;
+        static YouTrackIssues youTrackIssues;
         static Exception exception;
         static Exception innerException;
     }

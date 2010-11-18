@@ -59,7 +59,8 @@
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YouTrackClient.cs" />
+    <Compile Include="YouTrackConnection.cs" />
+    <Compile Include="YouTrackIssues.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Language.resx">

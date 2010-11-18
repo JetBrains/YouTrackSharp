@@ -45,14 +45,14 @@ namespace YouTrackPowerToy
 
                             model.Insert(null, parent);
 
-                            var youtrackClient = new YouTrackClient("youtrack.jetbrains.net");
+                            var youtrackClient = new YouTrackConnection("youtrack.jetbrains.net");
 
-                            var issues = youtrackClient.GetIssues(searchBox.SearchString);
+                            //var issues = youtrackClient.GetIssues(searchBox.SearchString);
 
-                            foreach(var issue in issues)
-                            {
-                                model.Insert(parent, issue);                                        
-                            }
+                            //foreach(var issue in issues)
+                            //{
+                            //    model.Insert(parent, issue);                                        
+                            //}
                             
                             var controller = new YouTrackTreeViewController(solution, model);
                             var browserPanel = new YouTrackTreeModelPanel(controller);

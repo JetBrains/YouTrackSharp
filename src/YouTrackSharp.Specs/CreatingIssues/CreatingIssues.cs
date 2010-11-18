@@ -8,7 +8,9 @@ namespace YouTrackSharp.Specs.CreatingIssues
     {
         Establish context = () =>
         {
-            youTrackClient = new YouTrackClient("youtrack.jetbrains.net");
+            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+
+            youTrackIssues = new YouTrackIssues(youTrackConnection);
         };
 
         Because of = () =>
@@ -18,7 +20,7 @@ namespace YouTrackSharp.Specs.CreatingIssues
             issue.Project = "SB";
             issue.Summary = "Issue Created";
 
-            exception = Catch.Exception(() => { youTrackClient.CreateIssue(issue); });
+            exception = Catch.Exception(() => { youTrackIssues.CreateIssue(issue); });
         };
 
         It should_throw_invalid_request_with_message_not_authenticated = () =>
@@ -27,10 +29,10 @@ namespace YouTrackSharp.Specs.CreatingIssues
             exception.Message.ShouldEqual("Not Logged In");
         };
 
-        static YouTrackClient youTrackClient;
+        static YouTrackConnection youTrackConnection;
         static object response;
         static Exception exception;
-
+        static YouTrackIssues youTrackIssues;
     } 
     
     [Subject("Creating Issues")]
@@ -38,9 +40,11 @@ namespace YouTrackSharp.Specs.CreatingIssues
     {
         Establish context = () =>
         {
-            youTrackClient = new YouTrackClient("youtrack.jetbrains.net");
+            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
 
-            youTrackClient.Login("youtrackapi", "youtrackapi");
+            youTrackConnection.Login("youtrackapi", "youtrackapi");
+
+            youTrackIssues = new YouTrackIssues(youTrackConnection);
         };
 
         Because of = () =>
@@ -50,7 +54,7 @@ namespace YouTrackSharp.Specs.CreatingIssues
             issue.Project = "SB";
             issue.Summary = "Issue Created";
 
-            response  = youTrackClient.CreateIssue(issue);
+            response  = youTrackIssues.CreateIssue(issue);
         };
 
         It should_return_issue = () =>
@@ -58,7 +62,8 @@ namespace YouTrackSharp.Specs.CreatingIssues
 
         };
 
-        static YouTrackClient youTrackClient;
+        static YouTrackConnection youTrackConnection;
+        static YouTrackIssues youTrackIssues;
         static object response;
 
     }
