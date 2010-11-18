@@ -17,7 +17,7 @@ namespace YouTrackSharp.Specs.RetrievingIssues
         Because of = () =>
         {
 
-            issues = youtrack.GetIssues("DCVR", 10);
+            issues = youtrack.GetIssues("SB", 10);
         };
 
         It should_return_list_of_issues_for_that_project = () =>
@@ -40,15 +40,15 @@ namespace YouTrackSharp.Specs.RetrievingIssues
 
         Because of = () =>
         {
-            issue = youTrack.GetIssue("RSRP-198145");
+            issue = youTrack.GetIssue("SB-282");
 
         };
 
         It should_return_the_issue = () =>
         {
             issue.ShouldNotBeNull();
-            issue.Id.ShouldEqual("RSRP-198145");
-            issue.ProjectShortName.ShouldEqual("RSRP");
+            issue.Id.ShouldEqual("SB-282");
+            issue.ProjectShortName.ShouldEqual("SB");
         };
 
         static Issue issue;
@@ -69,20 +69,25 @@ namespace YouTrackSharp.Specs.RetrievingIssues
 
         };
 
-        It should_throw_issue_not_found_exception = () =>
+        It should_throw_invalid_request_exception = () =>
         {
             exception.ShouldBeOfType(typeof(InvalidRequestException));
         }; 
 
-        It should_contain_inner_exception_with_404 = () =>
+        It should_contain_inner_exception_of_type_http_exception = () =>
         {
-            var innerException = exception.InnerException;
+            innerException = exception.InnerException;
             innerException.ShouldBeOfType(typeof(HttpException));
+        };
+
+        It inner_http_exception_should_contain_status_code_of_not_found = () =>
+        {
             ((HttpException) innerException).StatusCode.ShouldEqual(HttpStatusCode.NotFound);
 
         };
-        
+
         static YouTrackClient youTrack;
         static Exception exception;
+        static Exception innerException;
     }
 }

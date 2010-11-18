@@ -1,6 +1,6 @@
 using Machine.Specifications;
 
-namespace YouTrackSharp.Specs
+namespace YouTrackSharp.Specs.Authentication
 {
     [Subject("Authenticating")]
     public class when_provided_valid_username_and_password  
@@ -34,7 +34,7 @@ namespace YouTrackSharp.Specs
 
         Because of = () =>
         {
-            youtrack.Login("youtrackapi", "youtrackapi123");
+            youtrack.Login("YouTrackSelfTestUser", "fdfdfd");
 
         };
 

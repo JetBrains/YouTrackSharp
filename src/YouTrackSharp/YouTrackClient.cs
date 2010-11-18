@@ -55,9 +55,9 @@ namespace YouTrackSharp
         /// <returns>List of Issues</returns>
         public IList<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            var httpClient = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
-            dynamic response = httpClient.Get(ConstructUri("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
+            dynamic response = httpRequest.Get(ConstructUri("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
 
             dynamic issues = response.DynamicBody.issue;
 
@@ -92,9 +92,10 @@ namespace YouTrackSharp
         /// <param name="password">Passowrd</param>
         public void Login(string username, string password)
         {
-            var httpClient = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
-       
+            httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
+
             dynamic credentials = new ExpandoObject();
 
             credentials.login = username;
@@ -102,16 +103,16 @@ namespace YouTrackSharp
 
             try
             {
-                httpClient.Post(ConstructUri("user/login"), credentials, "application/x-www-form-urlencoded");
+                httpRequest.Post(ConstructUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
-                dynamic result = httpClient.Response.DynamicBody;
+                dynamic result = httpRequest.Response.DynamicBody;
 
                 if (String.Compare(result.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
                 {
                     throw new AuthenticationException(Language.YouTrackClient_Login_Authentication_Failed);
                 }
                 IsAuthenticated = true;
-                _authenticationCookie = httpClient.Response.Cookie;
+                _authenticationCookie = httpRequest.Response.Cookie;
             }
             catch (HttpException)
             {
@@ -128,13 +129,12 @@ namespace YouTrackSharp
         /// <returns>An instance of Issue if successful or InvalidRequestException if issues is not found</returns>
         public Issue GetIssue(string issueId)
         {
-            var httpClient = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
-            httpClient.ThrowExceptionOnHttpError = true;
-
+  
             try
             {
-                var response = httpClient.Get(ConstructUri("issue/{0}", issueId));
+                var response = httpRequest.Get(ConstructUri("issue/{0}", issueId));
 
                 return _jsonIssueConverter.ConvertFromDynamicFields(response.DynamicBody);
             }
@@ -144,13 +144,44 @@ namespace YouTrackSharp
             }
         }
 
-        static HttpClient CreateHttpRequest()
+        HttpClient CreateHttpRequest()
         {
             var httpClient = new HttpClient();
 
             httpClient.Request.Accept = HttpContentTypes.ApplicationJson;
+            httpClient.ThrowExceptionOnHttpError = true;
+            if (_authenticationCookie != null)
+            {
+                httpClient.Request.Cookies = new CookieCollection();
+                httpClient.Request.Cookies.Add(_authenticationCookie);
+            }
             
+
             return httpClient;
+        }
+
+        public string CreateIssue(NewIssue issue)
+        {
+            if (!IsAuthenticated)
+            {
+                throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
+            }
+
+            var httpRequest = CreateHttpRequest();
+
+            try
+            {
+                httpRequest.Post(ConstructUri("issue"), issue, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+
+                var response = httpRequest.Response.DynamicBody;
+
+                return response.issue.id;
+
+            }
+            catch (HttpException httpException)
+            {
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);
+            }
         }
     }
 }

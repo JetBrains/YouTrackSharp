@@ -32,10 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyHttp, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="EasyHttp, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\EasyHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx">
+      <HintPath>..\..\lib\JsonFx.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5c474de7a495cff1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Machine.Specifications.dll</HintPath>
+      <HintPath>..\..\lib\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,14 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationFeatures.cs" />
+    <Compile Include="Authentication\AuthenticationFeatures.cs" />
     <Compile Include="CreatingIssues\CreatingIssues.cs" />
     <Compile Include="RetrievingIssues\RetrievingIssueFeatures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Lib\Machine.Specifications.dll" />
-    <Content Include="Lib\Machine.Specifications.pdb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YouTrackSharp\YouTrackSharp.csproj">
@@ -61,7 +67,6 @@
       <Name>YouTrackSharp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

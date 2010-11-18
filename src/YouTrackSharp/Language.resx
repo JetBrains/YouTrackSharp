@@ -104,4 +104,7 @@
 	<data name="YouTrackClient_Login_Authentication_Failed">
 		<value xml:space="preserve">Authentication Failed</value>
 	</data>
+	<data name="YouTrackClient_CreateIssue_Not_Logged_In">
+		<value xml:space="preserve">Not Logged In</value>
+	</data>
 </root>

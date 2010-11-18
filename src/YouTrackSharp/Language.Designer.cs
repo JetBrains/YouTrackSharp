@@ -61,6 +61,15 @@ namespace YouTrackSharp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Logged In.
+        /// </summary>
+        internal static string YouTrackClient_CreateIssue_Not_Logged_In {
+            get {
+                return ResourceManager.GetString("YouTrackClient_CreateIssue_Not_Logged_In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Issue not found: {0}.
         /// </summary>
         internal static string YouTrackClient_GetIssue_Issue_not_found___0_ {

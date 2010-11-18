@@ -1,0 +1,1 @@
+C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\JetBrains.Platform.ReSharper.UI.dll

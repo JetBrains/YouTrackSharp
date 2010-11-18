@@ -1,0 +1,370 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="d:Miscellaneous Files/f:JetBrains.CommonControls.PresentableItem.cs/l:X!?Projects?YouTrack?src?_ReSharper.YouTrack?DecompilerCache?metadata?JetBrains.Platform.ReSharper.UI-5b4c?JetBrains.CommonControls.PresentableItem.cs" caret="542" fromTop="13" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackSolutionInitialization.cs" caret="0" fromTop="0" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackStatusPanel.cs" caret="91" fromTop="4" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackTreeViewController.cs" caret="577" fromTop="1" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:SearchBox.cs" caret="0" fromTop="0" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackTreeModelPanel.cs" caret="754" fromTop="14" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackIssueView.cs" caret="1599" fromTop="34" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackIssuePresenter.cs" caret="177" fromTop="5" />
+      <File id="10CEEC81-DFFA-40E2-B49F-D073A4488B04/f:YouTrackAction.cs" caret="316" fromTop="13" />
+      <File id="d:Miscellaneous Files/f:DynamicType.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Codecs?DynamicType.cs" caret="659" fromTop="22" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:IJsonIssueConverter.cs" caret="288" fromTop="9" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:JsonIssueConverter.cs" caret="1609" fromTop="42" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:InvalidRequestException.cs" caret="140" fromTop="6" />
+      <File id="d:Miscellaneous Files/f:ResolverCache.cs/l:X!?Libraries?jsonfx?src?JsonFx?Serialization?Resolvers?ResolverCache.cs" caret="11998" fromTop="21" />
+      <File id="d:Miscellaneous Files/f:DataWriterSettings.cs/l:X!?Libraries?jsonfx?src?JsonFx?Serialization?DataWriterSettings.cs" caret="2322" fromTop="34" />
+      <File id="d:Miscellaneous Files/f:JsonWriter.cs/l:X!?Libraries?jsonfx?src?JsonFx?Json?JsonWriter.cs" caret="2373" fromTop="23" />
+      <File id="d:Miscellaneous Files/f:XmlWriter.cs/l:X!?Libraries?jsonfx?src?JsonFx?Xml?XmlWriter.cs" caret="2301" fromTop="23" />
+      <File id="d:Miscellaneous Files/f:CommonWriter.cs/l:X!?Libraries?jsonfx?src?JsonFx?Common?CommonWriter.cs" caret="1803" fromTop="21" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/f:AuthenticationFeatures.cs" caret="397" fromTop="9" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:Issue.cs" caret="780" fromTop="22" />
+      <File id="d:Miscellaneous Files/f:DataWriter`1.cs/l:X!?Libraries?jsonfx?src?JsonFx?Serialization?DataWriter`1.cs" caret="4783" fromTop="17" />
+      <File id="d:Miscellaneous Files/f:DefaultCodec.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Codecs?DefaultCodec.cs" caret="1310" fromTop="31" />
+      <File id="d:Miscellaneous Files/f:UrlEncoderWriter.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Codecs?JsonFXExtensions?UrlEncoderWriter.cs" caret="152" fromTop="6" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="2495" fromTop="36" />
+      <File id="d:Miscellaneous Files/f:UrlEncoderTextFormatter.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Codecs?JsonFXExtensions?UrlEncoderTextFormatter.cs" caret="1375" fromTop="26" />
+      <File id="d:Miscellaneous Files/f:HttpClient.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Http?HttpClient.cs" caret="2489" fromTop="26" />
+      <File id="d:Miscellaneous Files/f:HttpRequest.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Http?HttpRequest.cs" caret="4746" fromTop="20" />
+      <File id="d:Miscellaneous Files/f:HttpResponse.cs/l:X!?Projects?EasyHttp?src?EasyHttp?Http?HttpResponse.cs" caret="3107" fromTop="26" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="3291" fromTop="6" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="665" fromTop="19" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="69" fromTop="3" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="2139" fromTop="22" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/f:AuthenticationFeatures.cs" caret="940" fromTop="21" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="3472" fromTop="14" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/f:AuthenticationFeatures.cs" caret="280" fromTop="9" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/f:AuthenticationFeatures.cs" caret="824" fromTop="22" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/f:AuthenticationFeatures.cs" caret="392" fromTop="5" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="344" fromTop="9" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:Issue.cs" caret="99" fromTop="5" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:Issue.cs" caret="1075" fromTop="29" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:Issue.cs" caret="614" fromTop="19" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="493" fromTop="19" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="1097" fromTop="27" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:RetrievingIssues/f:RetrievingIssueFeatures.cs" caret="1306" fromTop="35" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="6033" fromTop="20" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="568" fromTop="20" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="852" fromTop="26" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="6079" fromTop="19" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="5846" fromTop="23" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="6060" fromTop="28" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="5790" fromTop="21" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="1118" fromTop="34" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="218" fromTop="4" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="1311" fromTop="16" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="1516" fromTop="26" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="1620" fromTop="31" />
+      <File id="84C0D8A7-8E55-45F9-A929-DD99514E45E6/d:CreatingIssues/f:CreatingIssues.cs" caret="1716" fromTop="36" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="5205" fromTop="24" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="5511" fromTop="28" />
+      <File id="4E8C522A-20D3-474F-87B7-C5FBA96DFFF3/f:YouTrackClient.cs" caret="5496" fromTop="13" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="new" priority="34" />
+      <Item value="_treeModel" priority="1" />
+      <Item value="YouTrackTreeModel`0" priority="0" />
+      <Item value="YouTrackTreeModelPresenter`0" priority="2" />
+      <Item value="TreeSimpleModel`0" priority="3" />
+      <Item value="using" priority="0" />
+      <Item value="httpClient" priority="6" />
+      <Item value="HttpContentTypes`0" priority="5" />
+      <Item value="projectIdentifier" priority="0" />
+      <Item value="TreeViewController`0" priority="0" />
+      <Item value="Model" priority="0" />
+      <Item value="YouTrackTreeViewController" priority="0" />
+      <Item value="TreeModel`0" priority="1" />
+      <Item value="_presenter" priority="2" />
+      <Item value="return" priority="17" />
+      <Item value="TreeModelBrowserPresenter`0" priority="0" />
+      <Item value="YouTrackModelPresenter" priority="0" />
+      <Item value="model" priority="6" />
+      <Item value="browserDescriptor" priority="0" />
+      <Item value="Issue" priority="0" />
+      <Item value="issue" priority="12" />
+      <Item value="Descriptor" priority="1" />
+      <Item value="_issueView" priority="0" />
+      <Item value="TreeModelPresentableView`0" priority="0" />
+      <Item value="base" priority="2" />
+      <Item value="ModelColumn" priority="8" />
+      <Item value="Presenter" priority="0" />
+      <Item value="AddColumn`0" priority="0" />
+      <Item value="true" priority="4" />
+      <Item value="solution" priority="0" />
+      <Item value="Controls" priority="0" />
+      <Item value="YouTrackStatusPanel`0" priority="0" />
+      <Item value="YouTrackIssue`0" priority="4" />
+      <Item value="YouTrackIssue" priority="1" />
+      <Item value="parent" priority="5" />
+      <Item value="youTrackIssue" priority="0" />
+      <Item value="value" priority="4" />
+      <Item value="structureElement" priority="0" />
+      <Item value="item" priority="1" />
+      <Item value="controller" priority="3" />
+      <Item value="_controller" priority="0" />
+      <Item value="YouTrackTreeViewController`0" priority="0" />
+      <Item value="modelNode" priority="0" />
+      <Item value="Height" priority="0" />
+      <Item value="NewsStyleUriParser`0" priority="0" />
+      <Item value="YouTrackIssuePresenter" priority="0" />
+      <Item value="TreeSectionModel`0" priority="2" />
+      <Item value="TreeSection" priority="0" />
+      <Item value="var" priority="22" />
+      <Item value="treemodel" priority="0" />
+      <Item value="List&lt;TreeSection&gt;" priority="0" />
+      <Item value="MarkInvalid`0" priority="0" />
+      <Item value="prop" priority="4" />
+      <Item value="string" priority="8" />
+      <Item value="Id" priority="2" />
+      <Item value="entry" priority="8" />
+      <Item value="FixedInBuild" priority="1" />
+      <Item value="Priority" priority="1" />
+      <Item value="Description" priority="0" />
+      <Item value="Type" priority="0" />
+      <Item value="ReportedBy" priority="0" />
+      <Item value="Assignee" priority="2" />
+      <Item value="Project" priority="2" />
+      <Item value="State" priority="1" />
+      <Item value="Subsystem" priority="1" />
+      <Item value="Summary" priority="1" />
+      <Item value="YouTrack`0" priority="0" />
+      <Item value="youtrackClient" priority="0" />
+      <Item value="foreach" priority="1" />
+      <Item value="in" priority="1" />
+      <Item value="int" priority="1" />
+      <Item value="max" priority="0" />
+      <Item value="start" priority="0" />
+      <Item value="String`0" priority="5" />
+      <Item value="SearchBox`0" priority="0" />
+      <Item value="searchBox" priority="0" />
+      <Item value="password" priority="0" />
+      <Item value="spec" priority="0" />
+      <Item value="YouTrackClient`0" priority="0" />
+      <Item value="HttpClient`0" priority="1" />
+      <Item value="ConstructUri`0" priority="1" />
+      <Item value="issueId" priority="0" />
+      <Item value="response" priority="5" />
+      <Item value="data" priority="2" />
+      <Item value="for" priority="2" />
+      <Item value="fields" priority="4" />
+      <Item value="Console`0" priority="0" />
+      <Item value="youTrack" priority="1" />
+      <Item value="YouTrackClient" priority="0" />
+      <Item value="params" priority="0" />
+      <Item value="parameters" priority="1" />
+      <Item value="ProjectShortName" priority="4" />
+      <Item value="readonly" priority="0" />
+      <Item value="IIssueConverter`0" priority="0" />
+      <Item value="_issueConverter" priority="2" />
+      <Item value="IssueConverter" priority="0" />
+      <Item value="Issue`0" priority="5" />
+      <Item value="source" priority="13" />
+      <Item value="Array`0" priority="0" />
+      <Item value="field" priority="5" />
+      <Item value="Count`1" priority="0" />
+      <Item value="if" priority="5" />
+      <Item value="dynamic" priority="1" />
+      <Item value="fieldName" priority="0" />
+      <Item value="comparisonType" priority="0" />
+      <Item value="GetField`0" priority="7" />
+      <Item value="ReporterName" priority="0" />
+      <Item value="typeof" priority="4" />
+      <Item value="issueType" priority="1" />
+      <Item value="properties" priority="0" />
+      <Item value="property" priority="3" />
+      <Item value="BindingFlags`0" priority="1" />
+      <Item value="issues" priority="0" />
+      <Item value="Action`0" priority="0" />
+      <Item value="Func" priority="0" />
+      <Item value="ExpandoObject`0" priority="0" />
+      <Item value="Catch`0" priority="0" />
+      <Item value="Exception" priority="2" />
+      <Item value="Exception`0" priority="0" />
+      <Item value="OK" priority="0" />
+      <Item value="throw" priority="2" />
+      <Item value="It`0" priority="1" />
+      <Item value="exception" priority="3" />
+      <Item value="innerException" priority="3" />
+      <Item value="try" priority="0" />
+      <Item value="InvalidRequestException" priority="1" />
+      <Item value="HttpException`0" priority="1" />
+      <Item value="id" priority="0" />
+      <Item value="IsAuthenticated" priority="1" />
+      <Item value="CreateHttpRequest`0" priority="0" />
+      <Item value="httpRequest" priority="3" />
+      <Item value="public" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="InvalidRequestException`0" priority="0" />
+      <Item value="youTrackClient" priority="0" />
+      <Item value="CookieCollection" priority="0" />
+      <Item value="_authenticationCookie" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EasyHttp.Http.HttpClient">
+      <Item value="Request" priority="5" />
+      <Item value="Get`0" priority="0" />
+      <Item value="ThrowExceptionOnHttpError" priority="2" />
+      <Item value="Post`0" priority="0" />
+      <Item value="Response" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EasyHttp.Http.HttpRequest">
+      <Item value="Accept" priority="3" />
+      <Item value="Cookies" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EasyHttp.Http.HttpContentTypes">
+      <Item value="ApplicationJson" priority="1" />
+      <Item value="ApplicationXml" priority="1" />
+      <Item value="ApplicationXWwwFormUrlEncoded" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.TreeModels.TreeSimpleModel">
+      <Item value="Insert`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackClient.Issue">
+      <Item value="Description" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.UI.TreeView.TreeModelPresentableView">
+      <Item value="Initialize`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.UI.TreeView.TreeModelViewColumn">
+      <Item value="Name" priority="1" />
+      <Item value="Caption" priority="1" />
+      <Item value="Visible" priority="1" />
+      <Item value="FieldName" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Control+ControlCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.IDE.TreeBrowser.TreeModelBrowserPanel">
+      <Item value="InitializeCustomBar`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackClient.YouTrackIssue">
+      <Item value="Description" priority="1" />
+      <Item value="Summary" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.UI.TreeView.StructuredPresenter`2">
+      <Item value="UpdateItem`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackPowerToy.YouTrackTreeViewController">
+      <Item value="Presenter" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.TreeModels.TreeModelNode">
+      <Item value="Model" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.TreeModels.TreeSectionModel">
+      <Item value="Sections" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add`0" priority="0" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.CommonControls.IPresentableItem">
+      <Item value="RichText" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JetBrains.UI.RichText.RichText">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType`0" priority="0" />
+      <Item value="field" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackClient.YouTrack">
+      <Item value="GetIssues`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="MaxValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Empty" priority="1" />
+      <Item value="Format`0" priority="2" />
+      <Item value="Compare`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackPowerToy.SearchBox">
+      <Item value="SearchString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EasyHttp.Http.HttpResponse">
+      <Item value="DynamicBody" priority="3" />
+      <Item value="StatusCode" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="Write`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackSharp.IIssueConverter">
+      <Item value="ConvertFromDynamic`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackSharp.Issue">
+      <Item value="Id" priority="2" />
+      <Item value="Description" priority="0" />
+      <Item value="ProjectShortName" priority="1" />
+      <Item value="Summary" priority="0" />
+      <Item value="Project" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Globalization.CompareOptions">
+      <Item value="IgnoreCase" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="GetProperties`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.BindingFlags">
+      <Item value="Public" priority="0" />
+      <Item value="Instance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.PropertyInfo">
+      <Item value="SetValue`0" priority="0" />
+      <Item value="Name" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ShouldEqual`1" priority="1" />
+      <Item value="ShouldNotBeEmpty`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ShouldBe`0" priority="0" />
+      <Item value="ShouldEqual`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Machine.Specifications.Catch">
+      <Item value="Exception`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:YouTrackSharp.YouTrackClient">
+      <Item value="GetIssue`0" priority="0" />
+      <Item value="Login`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="InnerException" priority="0" />
+      <Item value="ShouldBeOfType`1" priority="2" />
+      <Item value="Message" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EasyHttp.Http.HttpException">
+      <Item value="StatusCode" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Net.HttpStatusCode">
+      <Item value="ShouldEqual`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Net.HttpStatusCode">
+      <Item value="NotFound" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Net.CookieCollection">
+      <Item value="Add`0" priority="2" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
