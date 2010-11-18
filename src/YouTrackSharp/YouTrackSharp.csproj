@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultUriConstructor.cs" />
     <Compile Include="IJsonIssueConverter.cs" />
     <Compile Include="InvalidRequestException.cs" />
+    <Compile Include="IUriConstructor.cs" />
     <Compile Include="JsonIssueConverter.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Language.Designer.cs">

@@ -14,6 +14,7 @@ namespace YouTrackSharp
         readonly int _port;
         CookieCollection _authenticationCookie;
         readonly IJsonIssueConverter _jsonIssueConverter;
+        IUriConstructor _uriConstructor;
 
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace YouTrackSharp
 
             // TODO: Refactor to IoC
             _jsonIssueConverter = new JsonIssueConverter();
+            _uriConstructor = new DefaultUriConstructor(_protocol, _host, _port);
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace YouTrackSharp
         {
             var httpRequest = CreateHttpRequest();
 
-            dynamic response = httpRequest.Get(ConstructUri("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
+            dynamic response = httpRequest.Get(_uriConstructor.ConstructUri("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
 
             dynamic issues = response.DynamicBody.issue;
 
@@ -73,17 +75,6 @@ namespace YouTrackSharp
             return list;
         }
 
-
-        /// <summary>
-        /// Create base Uri for YouTrackClient containing host, port and specific request
-        /// </summary>
-        /// <param name="request">Specific request</param>
-        /// <param name="parameters">List of parameters</param>
-        /// <returns>Uri</returns>
-        string ConstructUri(string request, params object[] parameters)
-        {
-            return String.Format("{0}://{1}:{2}/rest/{3}", _protocol, _host, _port, String.Format(request, parameters));
-        }
 
         /// <summary>
         /// Logs in to YouTrackClient provided the correct username and password. If successful, <see cref="IsAuthenticated"/>will be true
@@ -103,7 +94,7 @@ namespace YouTrackSharp
 
             try
             {
-                httpRequest.Post(ConstructUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+                httpRequest.Post(_uriConstructor.ConstructUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
                 dynamic result = httpRequest.Response.DynamicBody;
 
@@ -134,7 +125,7 @@ namespace YouTrackSharp
   
             try
             {
-                var response = httpRequest.Get(ConstructUri("issue/{0}", issueId));
+                var response = httpRequest.Get(_uriConstructor.ConstructUri("issue/{0}", issueId));
 
                 return _jsonIssueConverter.ConvertFromDynamicFields(response.DynamicBody);
             }
@@ -171,7 +162,7 @@ namespace YouTrackSharp
 
             try
             {
-                httpRequest.Post(ConstructUri("issue"), issue, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+                httpRequest.Post(_uriConstructor.ConstructUri("issue"), issue, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
                 var response = httpRequest.Response.DynamicBody;
 
