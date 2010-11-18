@@ -1,4 +1,6 @@
-﻿namespace YouTrackPowerToy
+﻿using YouTrackSharp;
+
+namespace YouTrackPowerToy
 {
     partial class SearchBox
     {
@@ -88,7 +90,7 @@
             // 
             // issueBindingSource
             // 
-            this.issueBindingSource.DataSource = typeof(YouTrackClient.Issue);
+            this.issueBindingSource.DataSource = typeof(Issue);
             // 
             // SearchBox
             // 

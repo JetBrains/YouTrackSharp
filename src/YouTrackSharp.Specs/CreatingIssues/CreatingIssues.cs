@@ -1,13 +1,13 @@
 using Machine.Specifications;
 
-namespace YouTrackClient.Specs
+namespace YouTrackSharp.Specs.CreatingIssues
 {
     [Subject("Creating Issues")]
     public class when_creating_a_new_issue_with_valid_information
     {
         Establish context = () =>
         {
-            youTrack = new YouTrack("youtrack.jetbrains.net");
+            _youTrackClient = new YouTrackClient("youtrack.jetbrains.net");
         };
 
         Because of = () =>
@@ -22,6 +22,6 @@ namespace YouTrackClient.Specs
 
         };
 
-        static YouTrack youTrack;
+        static YouTrackClient _youTrackClient;
     }
 }

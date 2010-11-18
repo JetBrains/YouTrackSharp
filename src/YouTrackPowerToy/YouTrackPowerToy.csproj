@@ -31,6 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\DevExpress.Data.v7.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\DevExpress.Utils.v7.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\DevExpress.XtraEditors.v7.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\DevExpress.XtraTreeList.v7.1.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Platform.ReSharper.ActionManagement">
       <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v5.1\Bin\JetBrains.Platform.ReSharper.ActionManagement.dll</HintPath>
     </Reference>
@@ -87,14 +103,19 @@
     <Compile Include="SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="TreeModelBrowserDescriptorYouTrack.cs" />
-    <Compile Include="TreeModelPanelYouTrack.cs">
+    <Compile Include="YouTrackAction.cs" />
+    <Compile Include="YouTrackIssuePresenter.cs" />
+    <Compile Include="YouTrackIssueView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="YouTrackSolutionInitialization.cs" />
+    <Compile Include="YouTrackStatusPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="YouTrackAction.cs" />
-    <Compile Include="YouTrackSolutionInitialization.cs" />
-    <Compile Include="YouTrackTreeModel.cs" />
-    <Compile Include="YouTrackTreeModelNode.cs" />
+    <Compile Include="YouTrackTreeModelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YouTrackTreeViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -107,9 +128,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YouTrackClient\YouTrackClient.csproj">
+    <ProjectReference Include="..\YouTrackSharp\YouTrackSharp.csproj">
       <Project>{4E8C522A-20D3-474F-87B7-C5FBA96DFFF3}</Project>
-      <Name>YouTrackClient</Name>
+      <Name>YouTrackSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

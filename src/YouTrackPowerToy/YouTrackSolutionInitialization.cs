@@ -4,7 +4,6 @@ using JetBrains.IDE.TreeBrowser;
 using JetBrains.ProjectModel;
 using JetBrains.UI.Controls;
 using JetBrains.UI.RichText;
-using YouTrackPowerToy.YouTrackPowerToy;
 
 namespace YouTrackPowerToy
 {

@@ -1,13 +1,13 @@
 using Machine.Specifications;
 
-namespace YouTrackClient.Specs
+namespace YouTrackSharp.Specs
 {
     [Subject("Authenticating")]
     public class when_provided_valid_username_and_password  
     {
         Establish context = () =>
         {
-            youtrack = new YouTrack("youtrack.jetbrains.net");
+            youtrack = new YouTrackClient("youtrack.jetbrains.net");
         };
 
         Because of = () =>
@@ -21,7 +21,7 @@ namespace YouTrackClient.Specs
             youtrack.IsAuthenticated.ShouldBeTrue();
         };
 
-        static YouTrack youtrack;
+        static YouTrackClient youtrack;
     }
 
     [Subject("Authenticating")]
@@ -29,7 +29,7 @@ namespace YouTrackClient.Specs
     {
         Establish context = () =>
         {
-            youtrack = new YouTrack("youtrack.jetbrains.net");
+            youtrack = new YouTrackClient("youtrack.jetbrains.net");
         };
 
         Because of = () =>
@@ -43,7 +43,7 @@ namespace YouTrackClient.Specs
             youtrack.IsAuthenticated.ShouldBeFalse();
         };
 
-        static YouTrack youtrack;
+        static YouTrackClient youtrack;
     }
 
 }

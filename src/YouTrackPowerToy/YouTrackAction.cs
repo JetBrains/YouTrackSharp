@@ -1,13 +1,16 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using JetBrains.ActionManagement;
 using JetBrains.IDE;
 using JetBrains.IDE.TreeBrowser;
+using JetBrains.TreeModels;
 using JetBrains.UI.Application;
+using YouTrackSharp;
 
 namespace YouTrackPowerToy
 {
-    namespace YouTrackPowerToy
-    {
+    
         [ActionHandler]
         public class YouTrackAction : IActionHandler
         {
@@ -35,16 +38,35 @@ namespace YouTrackPowerToy
                     {
                         if (searchBox.ShowDialog(UIApplicationShell.Instance.MainWindow) == DialogResult.OK)
                         {
-                            var browserDescriptor = new TreeModelBrowserDescriptorYouTrack(solution);
-                            var browserPanel = new TreeModelPanelYouTrack(browserDescriptor);
+                            var model = new TreeSimpleModel();
+                            
+                            
+                            Issue parent = new Issue {Summary = "Issues"};
+
+                            model.Insert(null, parent);
+
+                            var youtrackClient = new YouTrackClient("youtrack.jetbrains.net");
+
+                            var issues = youtrackClient.GetIssues(searchBox.SearchString);
+
+                            foreach(var issue in issues)
+                            {
+                                model.Insert(parent, issue);                                        
+                            }
+                            
+                            var controller = new YouTrackTreeViewController(solution, model);
+                            var browserPanel = new YouTrackTreeModelPanel(controller);
                             var browser = TreeModelBrowser.GetInstance(solution);
 
-                            browser.Show(YouTrackBrowserWindowID, browserDescriptor, browserPanel);
+                            browser.Show(YouTrackBrowserWindowID, controller, browserPanel);
                         }
                     }
 
                 }
             }
         }
-    }
 }
+
+
+
+
