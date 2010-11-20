@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
+using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp
 {

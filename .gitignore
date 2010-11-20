@@ -1,0 +1,15 @@
+*/bin/*
+*/obj/*
+**/bin/*
+**/obj/*
+**/*/obj/*
+**/*/bin/*
+_ReSharper.*
+*.csproj.user
+*.resharper.user
+*.resharper
+*.suo
+*.cache
+*.user
+~$*
+

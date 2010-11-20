@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultUriConstructor.cs" />
-    <Compile Include="IJsonIssueConverter.cs" />
-    <Compile Include="InvalidRequestException.cs" />
-    <Compile Include="IUriConstructor.cs" />
-    <Compile Include="JsonIssueConverter.cs" />
-    <Compile Include="Issue.cs" />
+    <Compile Include="Issues\IJsonIssueConverter.cs" />
+    <Compile Include="Issues\JsonIssueConverter.cs" />
+    <Compile Include="Issues\NewIssueMessage.cs" />
+    <Compile Include="Infrastructure\DefaultUriConstructor.cs" />
+    <Compile Include="Infrastructure\InvalidRequestException.cs" />
+    <Compile Include="Infrastructure\IUriConstructor.cs" />
+    <Compile Include="Issues\YouTrackIssues.cs" />
+    <Compile Include="Issues\Issue.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,7 +62,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YouTrackConnection.cs" />
-    <Compile Include="YouTrackIssues.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Language.resx">
