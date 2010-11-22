@@ -4,6 +4,8 @@
 **/obj/*
 **/*/obj/*
 **/*/bin/*
+src/**/bin/*
+src/**/obj/*
 _ReSharper.*
 *.csproj.user
 *.resharper.user

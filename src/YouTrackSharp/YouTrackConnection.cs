@@ -84,7 +84,7 @@ namespace YouTrackSharp
 
         }
 
-        public HttpClient CreateHttpRequest()
+        HttpClient CreateHttpRequest()
         {
             var httpClient = new HttpClient();
 
