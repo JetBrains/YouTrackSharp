@@ -8,7 +8,7 @@ using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp
 {
-    public class YouTrackConnection
+    public class YouTrackServer
     {
         readonly string _protocol;
         readonly string _host;
@@ -18,12 +18,12 @@ namespace YouTrackSharp
 
 
         /// <summary>
-        /// Creates a new instance of YouTrackConnection setting the appropriate host and port for successive calls. 
+        /// Creates a new instance of YouTrackServer setting the appropriate host and port for successive calls. 
         /// </summary>
         /// <param name="host"></param>
         /// <param name="port"></param>
         /// <param name="useSsl"></param>
-        public YouTrackConnection(string host, int port = 80, bool useSsl = false)
+        public YouTrackServer(string host, int port = 80, bool useSsl = false)
         {
             _host = host;
             _port = port;
@@ -48,7 +48,7 @@ namespace YouTrackSharp
 
 
         /// <summary>
-        /// Logs in to YouTrackConnection provided the correct username and password. If successful, <see cref="IsAuthenticated"/>will be true
+        /// Logs in to YouTrackServer provided the correct username and password. If successful, <see cref="IsAuthenticated"/>will be true
         /// </summary>
         /// <param name="username">Username</param>
         /// <param name="password">Passowrd</param>
@@ -65,7 +65,7 @@ namespace YouTrackSharp
 
             try
             {
-                httpRequest.Post(_uriConstructor.ConstructUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+                httpRequest.Post(_uriConstructor.ConstructBaseUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
                 dynamic result = httpRequest.Response.DynamicBody;
 
@@ -100,20 +100,21 @@ namespace YouTrackSharp
             return httpClient;
         }
 
+        
         public dynamic Get(string command, params object[] parameters)
         {
             var httpRequest = CreateHttpRequest();
 
             var request = String.Format(command, parameters);
 
-            return httpRequest.Get(_uriConstructor.ConstructUri(request)).DynamicBody;
+            return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).DynamicBody;
         }
 
         public dynamic Post(string command, object data)
         {
             var httpRequest = CreateHttpRequest();
 
-            httpRequest.Post(_uriConstructor.ConstructUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+            httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
             return httpRequest.Response.DynamicBody;
         }

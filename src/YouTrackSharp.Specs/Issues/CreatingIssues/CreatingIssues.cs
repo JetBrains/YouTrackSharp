@@ -10,9 +10,9 @@ namespace YouTrackSharp.Specs.Issues.CreatingIssues
     {
         Establish context = () =>
         {
-            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+            youTrackServer = new YouTrackServer("youtrack.jetbrains.net");
 
-            youTrackIssues = new YouTrackIssues(youTrackConnection);
+            youTrackIssues = new YouTrackIssues(youTrackServer);
         };
 
         Because of = () =>
@@ -31,7 +31,7 @@ namespace YouTrackSharp.Specs.Issues.CreatingIssues
             exception.Message.ShouldEqual("Not Logged In");
         };
 
-        static YouTrackConnection youTrackConnection;
+        static YouTrackServer youTrackServer;
         static object response;
         static Exception exception;
         static YouTrackIssues youTrackIssues;
@@ -42,11 +42,11 @@ namespace YouTrackSharp.Specs.Issues.CreatingIssues
     {
         Establish context = () =>
         {
-            youTrackConnection = new YouTrackConnection("youtrack.jetbrains.net");
+            youTrackServer = new YouTrackServer("youtrack.jetbrains.net");
 
-            youTrackConnection.Login("youtrackapi", "youtrackapi");
+            youTrackServer.Login("youtrackapi", "youtrackapi");
 
-            youTrackIssues = new YouTrackIssues(youTrackConnection);
+            youTrackIssues = new YouTrackIssues(youTrackServer);
         };
 
         Because of = () =>
@@ -74,7 +74,7 @@ namespace YouTrackSharp.Specs.Issues.CreatingIssues
 
         };
 
-        static YouTrackConnection youTrackConnection;
+        static YouTrackServer youTrackServer;
         static YouTrackIssues youTrackIssues;
         static object response;
 

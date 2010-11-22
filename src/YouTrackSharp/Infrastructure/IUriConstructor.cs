@@ -2,6 +2,6 @@
 {
     public interface IUriConstructor
     {
-        string ConstructUri(string request);
+        string ConstructBaseUri(string request);
     }
 }

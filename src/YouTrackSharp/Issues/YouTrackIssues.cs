@@ -7,12 +7,12 @@ namespace YouTrackSharp.Issues
 {
     public class YouTrackIssues
     {
-        readonly YouTrackConnection _youTrackConnection;
+        readonly YouTrackServer _youTrackServer;
         readonly IJsonIssueConverter _jsonIssueConverter;
 
-        public YouTrackIssues(YouTrackConnection youTrackConnection)
+        public YouTrackIssues(YouTrackServer youTrackServer)
         {
-            _youTrackConnection = youTrackConnection;
+            _youTrackServer = youTrackServer;
             _jsonIssueConverter = new JsonIssueConverter();
         }
 
@@ -27,8 +27,7 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                
-                var response = _youTrackConnection.Get("issue/{0}", issueId);
+                var response = _youTrackServer.Get("issue/{0}", issueId);
 
                 return _jsonIssueConverter.ConvertFromDynamicFields(response);
             }
@@ -40,14 +39,14 @@ namespace YouTrackSharp.Issues
 
         public string CreateIssue(NewIssueMessage issueMessage)
         {
-            if (!_youTrackConnection.IsAuthenticated)
+            if (!_youTrackServer.IsAuthenticated)
             {
                 throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
             }
 
             try
             {
-                var response = _youTrackConnection.Post("issue", issueMessage);
+                var response = _youTrackServer.Post("issue", issueMessage);
 
              
                 return response.issue.id;
@@ -68,7 +67,7 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IList<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            dynamic response = _youTrackConnection.Get("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
+            dynamic response = _youTrackServer.Get("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
 
             dynamic issues = response.issue;
 
