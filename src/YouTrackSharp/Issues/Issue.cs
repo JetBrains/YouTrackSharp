@@ -1,4 +1,7 @@
-﻿namespace YouTrackSharp
+﻿using System;
+using YouTrackSharp.DataModel;
+
+namespace YouTrackSharp
 {
     public class Issue
     {
@@ -13,5 +16,11 @@
         public string Subsystem { get; set; }
         public string Description { get; set; }
         public string State { get; set; }
+        public string AffectsVersion { get; set; }
+        public string FixedVersion { get; set; }
+        public YouTrackLink[] Links { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
+        public int CommentCount { get; set; }
     }
 }

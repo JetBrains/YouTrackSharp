@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\YouTrackAdministration.cs" />
+    <Compile Include="DataModel\YouTrackComment.cs" />
+    <Compile Include="DataModel\YouTrackFilter.cs" />
+    <Compile Include="DataModel\YouTrackIssueTypes.cs" />
+    <Compile Include="DataModel\YouTrackLink.cs" />
+    <Compile Include="DataModel\YouTrackNamedProperty.cs" />
+    <Compile Include="DataModel\YouTrackPriority.cs" />
+    <Compile Include="DataModel\YouTrackProjectBuild.cs" />
+    <Compile Include="DataModel\YouTrackProjectInformation.cs" />
+    <Compile Include="DataModel\YouTrackResolution.cs" />
+    <Compile Include="DataModel\YouTrackState.cs" />
+    <Compile Include="DataModel\YouTrackUser.cs" />
+    <Compile Include="Infrastructure\XmlConverter.cs" />
     <Compile Include="Issues\IJsonIssueConverter.cs" />
     <Compile Include="Issues\JsonIssueConverter.cs" />
     <Compile Include="Issues\NewIssueMessage.cs" />
@@ -60,7 +74,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
+    <Compile Include="Projects\YouTrackProjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\YouTrackUsers.cs" />
     <Compile Include="YouTrackServer.cs" />
   </ItemGroup>
   <ItemGroup>
