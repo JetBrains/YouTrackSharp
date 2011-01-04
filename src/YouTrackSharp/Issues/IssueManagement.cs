@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
 
@@ -50,7 +51,7 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                var response = _youTrackServer.Post("issue", issueMessage);
+                var response = _youTrackServer.Post("issue", issueMessage, HttpContentTypes.ApplicationXml);
 
              
                 return response.issue.id;

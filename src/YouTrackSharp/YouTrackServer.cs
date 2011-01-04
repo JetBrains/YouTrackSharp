@@ -56,9 +56,7 @@ namespace YouTrackSharp
         /// <param name="password">Passowrd</param>
         public void Login(string username, string password)
         {
-            var httpRequest = CreateHttpRequest();
 
-            httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
 
             dynamic credentials = new ExpandoObject();
 
@@ -67,16 +65,17 @@ namespace YouTrackSharp
 
             try
             {
-                httpRequest.Post(_uriConstructor.ConstructBaseUri("user/login"), credentials, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
-                dynamic result = httpRequest.Response.DynamicBody;
+            
+                var result = Post("user/login", credentials, HttpContentTypes.ApplicationXml);
 
                 if (String.Compare(result.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
                 {
                     throw new AuthenticationException(Language.YouTrackClient_Login_Authentication_Failed);
                 }
+ 
                 IsAuthenticated = true;
-                _authenticationCookie = httpRequest.Response.Cookie;
+            
             }
             catch (HttpException)
             {
@@ -93,6 +92,7 @@ namespace YouTrackSharp
             httpClient.Request.Accept = HttpContentTypes.ApplicationJson;
             
             httpClient.ThrowExceptionOnHttpError = true;
+            
             if (_authenticationCookie != null)
             {
                 httpClient.Request.Cookies = new CookieCollection();
@@ -104,15 +104,7 @@ namespace YouTrackSharp
         }
 
         
-        public dynamic Get(string command, params object[] parameters)
-        {
-            var httpRequest = CreateHttpRequest();
-
-            var request = String.Format(command, parameters);
-
-            return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).DynamicBody;
-        }
-
+      
         public T Get<T>(string command, params object[] parameters)
         {
             var httpRequest = CreateHttpRequest();
@@ -122,23 +114,20 @@ namespace YouTrackSharp
             return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
         }
 
-        public dynamic Post(string command, object data)
+        public dynamic Post(string command, object data, string accept)
         {
             var httpRequest = CreateHttpRequest();
+
+            httpRequest.Request.Accept = accept;
 
             httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
+            _authenticationCookie = httpRequest.Response.Cookie;
+ 
             return httpRequest.Response.DynamicBody;
 
         }
 
-        public dynamic Put(string command, object data)
-        {
-            var httpRequest = CreateHttpRequest();
-
-            httpRequest.Put(_uriConstructor.ConstructBaseUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
-
-            return httpRequest.Response.DynamicBody;
-        }
+       
     }
 }

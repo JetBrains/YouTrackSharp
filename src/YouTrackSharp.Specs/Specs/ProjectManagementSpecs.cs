@@ -6,7 +6,7 @@ using YouTrackSharp.Specs.Helpers;
 namespace YouTrackSharp.Specs.Specs
 {
 
-    [Subject("Projects")]
+    [Subject("Project Management")]
     public class when_retrieving_a_list_of_existing_projects: AuthenticatedYouTrackServerForProjectSpecsSetup
     {
         Because of = () =>
@@ -28,7 +28,7 @@ namespace YouTrackSharp.Specs.Specs
         static IList<Project> projects;
     }
 
-    [Subject("Projects")]
+    [Subject("Project Management")]
     public class when_retrieving_a_list_of_existing_priorities: AuthenticatedYouTrackServerForProjectSpecsSetup
     {
         Because of = () =>
@@ -50,7 +50,7 @@ namespace YouTrackSharp.Specs.Specs
         static IList<ProjectPriority> priorities;
     }
 
-    [Subject("Projects")]
+    [Subject("Project Management")]
     public class when_retrieving_a_list_of_existing_states: AuthenticatedYouTrackServerForProjectSpecsSetup
     {
         Because of = () =>
@@ -72,7 +72,7 @@ namespace YouTrackSharp.Specs.Specs
         static IList<ProjectState> states;
     }
 
-    [Subject("Projects")]
+    [Subject("Project Management")]
     public class when_retrieving_a_list_of_existing_issue_types: AuthenticatedYouTrackServerForProjectSpecsSetup
     {
         Because of = () =>
@@ -92,6 +92,28 @@ namespace YouTrackSharp.Specs.Specs
         };
 
         static IList<ProjectIssueTypes> issueTypes;
+    }
+
+    [Subject("Project Management")]
+    public class when_retrieving_a_list_of_resolution_states: AuthenticatedYouTrackServerForProjectSpecsSetup
+    {
+        Because of = () =>
+        {
+            resolutions = ProjectManagement.GetResolutions();
+
+        };
+
+        It should_return_all_resolution_states = () =>
+        {
+            resolutions.Count.ShouldBeGreaterThan(0);
+        };
+        
+        It should_contain_valid_resolution_state_data = () =>
+        {
+            resolutions[0].Name.ShouldNotBeEmpty();
+        };
+
+        static IList<ProjectResolutionTypes> resolutions;
     }
 
 }

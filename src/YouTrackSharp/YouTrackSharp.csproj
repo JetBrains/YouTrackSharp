@@ -68,11 +68,13 @@
     <Compile Include="Projects\IDataWrapper.cs" />
     <Compile Include="Projects\MultipleProjectIssueTypesWrapper.cs" />
     <Compile Include="Projects\MultipleProjectPriorityWrapper.cs" />
+    <Compile Include="Projects\MultipleProjectResolutionTypesWrapper.cs" />
     <Compile Include="Projects\MultipleProjectWrapper.cs" />
     <Compile Include="Projects\MultipleProjectStateWrapper.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Projects\ProjectIssueTypes.cs" />
     <Compile Include="Projects\ProjectPriority.cs" />
+    <Compile Include="Projects\ProjectResolutionTypes.cs" />
     <Compile Include="Projects\ProjectState.cs" />
     <Compile Include="Projects\ProjectManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -42,5 +42,10 @@ namespace YouTrackSharp.Projects
             }
             return new List<TInternal>();
         }
+
+        public IList<ProjectResolutionTypes> GetResolutions()
+        {
+            return GetProjectDataByType<MultipleProjectResolutionTypesWrapper, ProjectResolutionTypes>("resolutions");
+        }
     }
 }

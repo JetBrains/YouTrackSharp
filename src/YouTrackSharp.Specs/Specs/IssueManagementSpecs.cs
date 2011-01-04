@@ -9,7 +9,7 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject("Issues")]
+    [Subject("Issue Management")]
     public class when_requesting_list_of_issues_for_project: AuthenticatedYouTrackServerForIssueSpecsSetup
     {
      
@@ -28,7 +28,7 @@ namespace YouTrackSharp.Specs.Specs
         protected static IList<Issue> issues;
     }
 
-    [Subject("Issues")]
+    [Subject("Issue Management")]
     public class when_requesting_a_specific_issues_that_exists: AuthenticatedYouTrackServerForIssueSpecsSetup
     {
 
@@ -48,7 +48,7 @@ namespace YouTrackSharp.Specs.Specs
         static Issue issue;
     }
 
-    [Subject("Issues")]
+    [Subject("Issue Management")]
     public class when_requesting_a_specific_issues_that_does_not_exist: AuthenticatedYouTrackServerForIssueSpecsSetup
     {
         Because of = () =>
@@ -78,7 +78,7 @@ namespace YouTrackSharp.Specs.Specs
         static Exception innerException;
     }
 
-    [Subject("Issues")]
+    [Subject("Issue Management")]
     public class when_retrieving_comments_of_an_existing_issue_that_has_comments: AuthenticatedYouTrackServerForIssueSpecsSetup
     {
         Because of = () =>
@@ -96,7 +96,7 @@ namespace YouTrackSharp.Specs.Specs
     }
 
 
-    [Subject("Issues")]
+    [Subject("Issue Management")]
     public class when_creating_a_new_issue_with_valid_information_and_not_authenticated : YouTrackServerSetup
     {
 
@@ -126,9 +126,9 @@ namespace YouTrackSharp.Specs.Specs
         protected static IssueManagement IssueManagement;
         static object response;
         static Exception exception;
-    } 
-    
-    [Subject("Issues")]
+    }
+
+    [Subject("Issue Management")]
     public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackServerForIssueSpecsSetup
     {
         Because of = () =>
