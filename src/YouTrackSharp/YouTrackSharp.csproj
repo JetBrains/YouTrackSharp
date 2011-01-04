@@ -78,7 +78,8 @@
     <Compile Include="Projects\ProjectState.cs" />
     <Compile Include="Projects\ProjectManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YouTrackServer.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Language.resx">

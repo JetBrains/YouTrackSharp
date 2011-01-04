@@ -7,7 +7,7 @@ namespace YouTrackSharp.Specs.Helpers
     {
         Establish context = () =>
         {
-            IssueManagement = new IssueManagement(youTrackServer);
+            IssueManagement = new IssueManagement(Server.Connection);
         };
 
         protected static IssueManagement IssueManagement;

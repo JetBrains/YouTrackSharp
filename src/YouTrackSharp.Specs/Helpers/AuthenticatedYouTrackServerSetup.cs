@@ -6,7 +6,7 @@ namespace YouTrackSharp.Specs.Helpers
     {
         Establish context = () =>
         {
-            youTrackServer.Login("youtrackapi", "youtrackapi");
+            Server.Login("youtrackapi", "youtrackapi");
         };
     }
 }

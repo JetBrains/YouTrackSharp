@@ -16,7 +16,7 @@ namespace YouTrackSharp.Infrastructure
         }
 
         /// <summary>
-        /// Create base Uri for YouTrackServer containing host, port and specific request
+        /// Create base Uri for Server containing host, port and specific request
         /// </summary>
         /// <param name="request">Specific request</param>
         /// <returns>Uri</returns>

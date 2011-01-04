@@ -7,7 +7,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Establish context = () =>
         {
-            youtrack = new YouTrackServer("youtrack.jetbrains.net");
+            youtrack = new Server("youtrack.jetbrains.net");
         };
 
         Because of = () =>
@@ -21,7 +21,7 @@ namespace YouTrackSharp.Specs.Specs
             youtrack.IsAuthenticated.ShouldBeTrue();
         };
 
-        static YouTrackServer youtrack;
+        static Server youtrack;
     }
 
     [Subject("Server")]
@@ -29,7 +29,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Establish context = () =>
         {
-            youtrack = new YouTrackServer("youtrack.jetbrains.net");
+            youtrack = new Server("youtrack.jetbrains.net");
         };
 
         Because of = () =>
@@ -43,7 +43,7 @@ namespace YouTrackSharp.Specs.Specs
             youtrack.IsAuthenticated.ShouldBeFalse();
         };
 
-        static YouTrackServer youtrack;
+        static Server youtrack;
     }
 
 }

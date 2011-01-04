@@ -5,11 +5,11 @@ namespace YouTrackSharp.Projects
 {
     public class ProjectManagement
     {
-        readonly YouTrackServer _youTrackServer;
+        readonly Connection _connection;
 
-        public ProjectManagement(YouTrackServer youTrackServer)
+        public ProjectManagement(Connection connection)
         {
-            _youTrackServer = youTrackServer;
+            _connection = connection;
         }
 
         public IList<Project> GetProjects()
@@ -34,7 +34,7 @@ namespace YouTrackSharp.Projects
 
         IList<TInternal> GetProjectDataByType<TWrapper, TInternal>(string dataType) where TWrapper: IDataWrapper<TInternal>
         {
-            var response = _youTrackServer.Get<TWrapper>(String.Format("project/{0}", dataType));
+            var response = _connection.Get<TWrapper>(String.Format("project/{0}", dataType));
 
             if (response != null)
             {

@@ -6,9 +6,9 @@ namespace YouTrackSharp.Specs.Helpers
     {
         Establish context = () =>
         {
-            youTrackServer = new YouTrackServer("youtrack.jetbrains.net");
+            Server = new Server("youtrack.jetbrains.net");
         };
 
-        protected static YouTrackServer youTrackServer;
+        protected static Server Server;
     }
 }

@@ -102,7 +102,7 @@ namespace YouTrackSharp.Specs.Specs
 
         Establish context = () =>
         {
-            IssueManagement = new IssueManagement(youTrackServer);
+            IssueManagement = new IssueManagement(Server.Connection);
 
         };
 

@@ -10,11 +10,11 @@ namespace YouTrackSharp.Issues
 {
     public class IssueManagement
     {
-        readonly YouTrackServer _youTrackServer;
+        readonly Connection _connection;
 
-        public IssueManagement(YouTrackServer youTrackServer)
+        public IssueManagement(Connection connection)
         {
-            _youTrackServer = youTrackServer;
+            _connection = connection;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace YouTrackSharp.Issues
 
             try
             {
-               var response = _youTrackServer.Get<SingleIssueWrapper>("issue/{0}", issueId);
+               var response = _connection.Get<SingleIssueWrapper>("issue/{0}", issueId);
 
                 var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
 
@@ -44,14 +44,14 @@ namespace YouTrackSharp.Issues
 
         public string CreateIssue(NewIssueMessage issueMessage)
         {
-            if (!_youTrackServer.IsAuthenticated)
+            if (!_connection.IsAuthenticated)
             {
                 throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
             }
 
             try
             {
-                var response = _youTrackServer.Post("issue", issueMessage, HttpContentTypes.ApplicationXml);
+                var response = _connection.Post("issue", issueMessage, HttpContentTypes.ApplicationXml);
 
              
                 return response.issue.id;
@@ -72,7 +72,7 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IList<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            var response = _youTrackServer.Get<MultipleIssueWrapper>("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
+            var response = _connection.Get<MultipleIssueWrapper>("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
 
             return response.issue;
         }
@@ -87,7 +87,7 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                var response = _youTrackServer.Get<MultipleCommentWrapper>("issue/comments/{0}", issueId);
+                var response = _connection.Get<MultipleCommentWrapper>("issue/comments/{0}", issueId);
 
                 return response.comment;
 
