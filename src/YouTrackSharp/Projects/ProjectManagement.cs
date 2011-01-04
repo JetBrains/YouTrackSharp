@@ -13,40 +13,29 @@ namespace YouTrackSharp.Projects
             _connection = connection;
         }
 
-        public IList<Project> GetProjects()
+        public IEnumerable<Project> GetProjects()
         {
-            return GetProjectDataByType<MultipleProjectWrapper, Project>("all");
+            return _connection.Get<MultipleProjectWrapper, Project>("project/all");
         }
 
-        public IList<ProjectPriority> GetPriorities()
+        public IEnumerable<ProjectPriority> GetPriorities()
         {
-            return GetProjectDataByType<MultipleProjectPriorityWrapper, ProjectPriority>("priorities");
+            return _connection.Get<MultipleProjectPriorityWrapper, ProjectPriority>("project/priorities");
         }
 
-        public IList<ProjectState> GetStates()
+        public IEnumerable<ProjectState> GetStates()
         {
-            return GetProjectDataByType<MultipleProjectStateWrapper, ProjectState>("states");
+            return _connection.Get<MultipleProjectStateWrapper, ProjectState>("project/states");
         }
 
-        public IList<ProjectIssueTypes> GetIssueTypes()
+        public IEnumerable<ProjectIssueTypes> GetIssueTypes()
         {
-            return GetProjectDataByType<MultipleProjectIssueTypesWrapper, ProjectIssueTypes>("types");
+            return _connection.Get<MultipleProjectIssueTypesWrapper, ProjectIssueTypes>("project/types");
         }
 
-        IList<TInternal> GetProjectDataByType<TWrapper, TInternal>(string dataType) where TWrapper: IDataWrapper<TInternal>
+        public IEnumerable<ProjectResolutionTypes> GetResolutions()
         {
-            var response = _connection.Get<TWrapper>(String.Format("project/{0}", dataType));
-
-            if (response != null)
-            {
-                return response.Data;
-            }
-            return new List<TInternal>();
-        }
-
-        public IList<ProjectResolutionTypes> GetResolutions()
-        {
-            return GetProjectDataByType<MultipleProjectResolutionTypesWrapper, ProjectResolutionTypes>("resolutions");
+            return _connection.Get<MultipleProjectResolutionTypesWrapper, ProjectResolutionTypes>("project/resolutions");
         }
     }
 }

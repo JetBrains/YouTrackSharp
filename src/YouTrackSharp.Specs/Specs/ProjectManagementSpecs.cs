@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Machine.Specifications;
 using YouTrackSharp.Projects;
 using YouTrackSharp.Specs.Helpers;
@@ -17,15 +18,15 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_all_projects = () =>
         {
-            projects.Count.ShouldBeGreaterThan(0);
+            projects.Count().ShouldBeGreaterThan(0);
         };
 
         It should_contain_valid_project_data = () =>
         {
-            projects[0].Name.ShouldNotBeEmpty();
+            projects.First().Name.ShouldNotBeEmpty();
         };
 
-        static IList<Project> projects;
+        static IEnumerable<Project> projects;
     }
 
     [Subject("Project Management")]
@@ -39,15 +40,15 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_all_priorities = () =>
         {
-            priorities.Count.ShouldBeGreaterThan(0);
+            priorities.Count().ShouldBeGreaterThan(0);
         };
         
         It should_contain_valid_priority_data = () =>
         {
-            priorities[0].Name.ShouldNotBeEmpty();
-            priorities[0].NumericValue.ShouldNotBeEmpty();
+            priorities.First().Name.ShouldNotBeEmpty();
+            priorities.First().NumericValue.ShouldNotBeEmpty();
         };
-        static IList<ProjectPriority> priorities;
+        static IEnumerable<ProjectPriority> priorities;
     }
 
     [Subject("Project Management")]
@@ -61,15 +62,15 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_all_states = () =>
         {
-            states.Count.ShouldBeGreaterThan(0);
+            states.Count().ShouldBeGreaterThan(0);
         };
         
         It should_contain_valid_state_data = () =>
         {
-            states[0].Name.ShouldNotBeEmpty();
+            states.First().Name.ShouldNotBeEmpty();
         };
 
-        static IList<ProjectState> states;
+        static IEnumerable<ProjectState> states;
     }
 
     [Subject("Project Management")]
@@ -83,15 +84,15 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_all_issue_types = () =>
         {
-            issueTypes.Count.ShouldBeGreaterThan(0);
+            issueTypes.Count().ShouldBeGreaterThan(0);
         };
         
         It should_contain_valid_issue_type_data = () =>
         {
-            issueTypes[0].Name.ShouldNotBeEmpty();
+            issueTypes.First().Name.ShouldNotBeEmpty();
         };
 
-        static IList<ProjectIssueTypes> issueTypes;
+        static IEnumerable<ProjectIssueTypes> issueTypes;
     }
 
     [Subject("Project Management")]
@@ -105,15 +106,15 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_all_resolution_states = () =>
         {
-            resolutions.Count.ShouldBeGreaterThan(0);
+            resolutions.Count().ShouldBeGreaterThan(0);
         };
         
         It should_contain_valid_resolution_state_data = () =>
         {
-            resolutions[0].Name.ShouldNotBeEmpty();
+            resolutions.First().Name.ShouldNotBeEmpty();
         };
 
-        static IList<ProjectResolutionTypes> resolutions;
+        static IEnumerable<ProjectResolutionTypes> resolutions;
     }
 
 }

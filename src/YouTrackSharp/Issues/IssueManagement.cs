@@ -71,7 +71,7 @@ namespace YouTrackSharp.Issues
         /// <param name="max">[Optional] Maximum number of issues to return. Default is int.MaxValue</param>
         /// <param name="start">[Optional] The number by which to start the issues. Default is 0. Used for paging.</param>
         /// <returns>List of Issues</returns>
-        public IList<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
+        public IEnumerable<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
             var response = _connection.Get<MultipleIssueWrapper>("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
 
@@ -83,7 +83,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <param name="issueId"></param>
         /// <returns></returns>
-        public IList<Comment> GetCommentsForIssue(string issueId)
+        public IEnumerable<Comment> GetCommentsForIssue(string issueId)
         {
 
             try

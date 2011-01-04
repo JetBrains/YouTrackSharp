@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
+using YouTrackSharp.Projects;
 
 namespace YouTrackSharp.Server
 {
@@ -72,6 +74,17 @@ namespace YouTrackSharp.Server
                 }
                 throw;
             }
+        }
+        
+        public IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>
+        {
+            var response = Get<TWrapper>(command);
+
+            if (response != null)
+            {
+                return response.Data;
+            }
+            return new List<TInternal>();
         }
 
         public dynamic Post(string command, object data, string accept)

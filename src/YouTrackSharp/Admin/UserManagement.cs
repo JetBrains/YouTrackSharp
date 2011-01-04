@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using YouTrackSharp.Infrastructure;
+using YouTrackSharp.Server;
 
-namespace YouTrackSharp.Server
+namespace YouTrackSharp.Admin
 {
-    public class ServerManagement
+    public class UserManagement
     {
         readonly Connection _connection;
 
-        public ServerManagement(Connection connection)
+        public UserManagement(Connection connection)
         {
             _connection = connection;
         }
@@ -24,6 +26,11 @@ namespace YouTrackSharp.Server
                 return user;
             }
             throw new InvalidRequestException(Language.Server_GetUserByUserName_User_does_not_exist);
+        }
+
+        public IEnumerable<Filter> GetFiltersByUsername(string username)
+        {
+            return _connection.Get<MultipleFilterWrapper, Filter>(String.Format("user/filters/{0}", username));
         }
     }
 }

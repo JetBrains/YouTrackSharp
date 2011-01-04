@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Filter.cs" />
+    <Compile Include="Admin\MultipleFilterWrapper.cs" />
     <Compile Include="Infrastructure\SubValues.cs" />
     <Compile Include="Infrastructure\SubValuesArray.cs" />
     <Compile Include="Issues\Comment.cs" />
@@ -78,9 +80,9 @@
     <Compile Include="Projects\ProjectState.cs" />
     <Compile Include="Projects\ProjectManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server\Connection.cs" />
-    <Compile Include="Server\ServerManagement.cs" />
-    <Compile Include="Server\User.cs" />
+    <Compile Include="Admin\Connection.cs" />
+    <Compile Include="Admin\UserManagement.cs" />
+    <Compile Include="Admin\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Language.resx">

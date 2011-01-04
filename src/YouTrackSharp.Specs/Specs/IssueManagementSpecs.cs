@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using EasyHttp.Infrastructure;
 using Machine.Specifications;
@@ -22,10 +23,10 @@ namespace YouTrackSharp.Specs.Specs
         It should_return_list_of_issues_for_that_project = () =>
         {
             issues.ShouldNotBeNull();
-            issues.Count.ShouldEqual(10);
+            issues.Count().ShouldEqual(10);
         };
 
-        protected static IList<Issue> issues;
+        protected static IEnumerable<Issue> issues;
     }
 
     [Subject("Issue Management")]
@@ -92,7 +93,7 @@ namespace YouTrackSharp.Specs.Specs
             comments.ShouldNotBeNull();
         };
 
-        static IList<Comment> comments;
+        static IEnumerable<Comment> comments;
     }
 
 
