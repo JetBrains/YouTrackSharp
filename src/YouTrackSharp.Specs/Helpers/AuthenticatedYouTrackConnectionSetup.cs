@@ -2,13 +2,12 @@
 
 namespace YouTrackSharp.Specs.Helpers
 {
-    public class YouTrackServerSetup
+    public class AuthenticatedYouTrackConnectionSetup : YouTrackConnectionSetup
     {
         Establish context = () =>
         {
-            Server = new Server("youtrack.jetbrains.net");
+            connection.Authenticate("youtrackapi", "youtrackapi");
         };
 
-        protected static Server Server;
     }
 }

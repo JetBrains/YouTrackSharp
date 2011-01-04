@@ -61,6 +61,24 @@ namespace YouTrackSharp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Insufficient rights.
+        /// </summary>
+        internal static string Connection_Get_Insufficient_rights {
+            get {
+                return ResourceManager.GetString("Connection_Get_Insufficient_rights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User does not exist.
+        /// </summary>
+        internal static string Server_GetUserByUserName_User_does_not_exist {
+            get {
+                return ResourceManager.GetString("Server_GetUserByUserName_User_does_not_exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not Logged In.
         /// </summary>
         internal static string YouTrackClient_CreateIssue_Not_Logged_In {

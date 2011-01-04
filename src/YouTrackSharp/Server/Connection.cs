@@ -6,7 +6,7 @@ using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
 
-namespace YouTrackSharp
+namespace YouTrackSharp.Server
 {
     public class Connection
     {
@@ -14,8 +14,9 @@ namespace YouTrackSharp
         readonly int _port;
         CookieCollection _authenticationCookie;
         readonly IUriConstructor _uriConstructor;
+        string _username;
 
-        public Connection(string host, int port, bool useSSL)
+        public Connection(string host, int port = 80, bool useSSL = false)
         {
             var protocol = "http";
 
@@ -58,7 +59,19 @@ namespace YouTrackSharp
 
             var request = String.Format(command, parameters);
 
-            return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+
+            try
+            {
+                return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+            }
+            catch (HttpException httpException)
+            {
+                if (httpException.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    throw new InvalidRequestException(Language.Connection_Get_Insufficient_rights);
+                }
+                throw;
+            }
         }
 
         public dynamic Post(string command, object data, string accept)
@@ -95,16 +108,31 @@ namespace YouTrackSharp
                 }
 
                 IsAuthenticated = true;
-
+                _username = username;
             }
             catch (HttpException)
             {
                 IsAuthenticated = false;
+                _username = String.Empty;
             }
 
 
         }
 
         public bool IsAuthenticated { get; private set; }
+
+        public User GetCurrentAuthenticatedUser()
+        {
+            var user = Get<User>("user/current");
+
+            if (user != null)
+            {
+                user.Username = _username;
+
+                return user;
+            }
+
+            return null;
+        }
     }
 }

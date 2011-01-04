@@ -10,13 +10,13 @@ using YouTrackSharp.Specs.Helpers;
 namespace YouTrackSharp.Specs.Specs
 {
     [Subject("Issue Management")]
-    public class when_requesting_list_of_issues_for_project: AuthenticatedYouTrackServerForIssueSpecsSetup
+    public class when_requesting_list_of_issues_for_project: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
      
         Because of = () =>
         {
 
-            issues = IssueManagement.GetIssues("SB", 10);
+            issues = issueManagement.GetIssues("SB", 10);
         };
 
         It should_return_list_of_issues_for_that_project = () =>
@@ -29,12 +29,12 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Issue Management")]
-    public class when_requesting_a_specific_issues_that_exists: AuthenticatedYouTrackServerForIssueSpecsSetup
+    public class when_requesting_a_specific_issues_that_exists: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
 
         Because of = () =>
         {
-            issue = IssueManagement.GetIssue("SB-282");
+            issue = issueManagement.GetIssue("SB-282");
 
         };
 
@@ -49,11 +49,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Issue Management")]
-    public class when_requesting_a_specific_issues_that_does_not_exist: AuthenticatedYouTrackServerForIssueSpecsSetup
+    public class when_requesting_a_specific_issues_that_does_not_exist: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
         Because of = () =>
         {
-            exception = Catch.Exception(() => IssueManagement.GetIssue("fdfdfsdfsd"));
+            exception = Catch.Exception(() => issueManagement.GetIssue("fdfdfsdfsd"));
 
         };
 
@@ -79,11 +79,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Issue Management")]
-    public class when_retrieving_comments_of_an_existing_issue_that_has_comments: AuthenticatedYouTrackServerForIssueSpecsSetup
+    public class when_retrieving_comments_of_an_existing_issue_that_has_comments: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
         Because of = () =>
         {
-            comments = IssueManagement.GetCommentsForIssue("SB-560");
+            comments = issueManagement.GetCommentsForIssue("SB-560");
 
         };
 
@@ -97,12 +97,12 @@ namespace YouTrackSharp.Specs.Specs
 
 
     [Subject("Issue Management")]
-    public class when_creating_a_new_issue_with_valid_information_and_not_authenticated : YouTrackServerSetup
+    public class when_creating_a_new_issue_with_valid_information_and_not_authenticated : YouTrackConnectionSetup
     {
 
         Establish context = () =>
         {
-            IssueManagement = new IssueManagement(Server.Connection);
+            IssueManagement = new IssueManagement(connection);
 
         };
 
@@ -129,7 +129,7 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Issue Management")]
-    public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackServerForIssueSpecsSetup
+    public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
         Because of = () =>
         {
@@ -148,7 +148,7 @@ namespace YouTrackSharp.Specs.Specs
                         };
            
 
-            response  = IssueManagement.CreateIssue(issue);
+            response  = issueManagement.CreateIssue(issue);
         };
 
         It should_return_issue = () =>

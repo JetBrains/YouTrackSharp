@@ -107,4 +107,10 @@
 	<data name="YouTrackClient_CreateIssue_Not_Logged_In">
 		<value xml:space="preserve">Not Logged In</value>
 	</data>
+	<data name="Server_GetUserByUserName_User_does_not_exist">
+		<value xml:space="preserve">User does not exist</value>
+	</data>
+	<data name="Connection_Get_Insufficient_rights">
+		<value xml:space="preserve">Insufficient rights</value>
+	</data>
 </root>

@@ -7,11 +7,11 @@ namespace YouTrackSharp.Specs.Specs
 {
 
     [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_projects: AuthenticatedYouTrackServerForProjectSpecsSetup
+    public class when_retrieving_a_list_of_existing_projects: AuthenticatedYouTrackConnectionForProjectSpecsSetup
     {
         Because of = () =>
         {
-            projects = ProjectManagement.GetProjects();
+            projects = projectManagement.GetProjects();
 
         };
 
@@ -29,11 +29,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_priorities: AuthenticatedYouTrackServerForProjectSpecsSetup
+    public class when_retrieving_a_list_of_existing_priorities: AuthenticatedYouTrackConnectionForProjectSpecsSetup
     {
         Because of = () =>
         {
-            priorities = ProjectManagement.GetPriorities();
+            priorities = projectManagement.GetPriorities();
 
         };
 
@@ -51,11 +51,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_states: AuthenticatedYouTrackServerForProjectSpecsSetup
+    public class when_retrieving_a_list_of_existing_states: AuthenticatedYouTrackConnectionForProjectSpecsSetup
     {
         Because of = () =>
         {
-            states = ProjectManagement.GetStates();
+            states = projectManagement.GetStates();
 
         };
 
@@ -73,11 +73,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_issue_types: AuthenticatedYouTrackServerForProjectSpecsSetup
+    public class when_retrieving_a_list_of_existing_issue_types: AuthenticatedYouTrackConnectionForProjectSpecsSetup
     {
         Because of = () =>
         {
-            issueTypes = ProjectManagement.GetIssueTypes();
+            issueTypes = projectManagement.GetIssueTypes();
 
         };
 
@@ -95,11 +95,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject("Project Management")]
-    public class when_retrieving_a_list_of_resolution_states: AuthenticatedYouTrackServerForProjectSpecsSetup
+    public class when_retrieving_a_list_of_resolution_states: AuthenticatedYouTrackConnectionForProjectSpecsSetup
     {
         Because of = () =>
         {
-            resolutions = ProjectManagement.GetResolutions();
+            resolutions = projectManagement.GetResolutions();
 
         };
 
