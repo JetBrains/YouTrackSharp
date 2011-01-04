@@ -4,7 +4,9 @@ using System.Dynamic;
 using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
+using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
+using YouTrackSharp.Issues;
 
 namespace YouTrackSharp
 {
@@ -89,6 +91,7 @@ namespace YouTrackSharp
             var httpClient = new HttpClient();
 
             httpClient.Request.Accept = HttpContentTypes.ApplicationJson;
+            
             httpClient.ThrowExceptionOnHttpError = true;
             if (_authenticationCookie != null)
             {
@@ -110,11 +113,30 @@ namespace YouTrackSharp
             return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).DynamicBody;
         }
 
+        public T Get<T>(string command, params object[] parameters)
+        {
+            var httpRequest = CreateHttpRequest();
+
+            var request = String.Format(command, parameters);
+
+            return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+        }
+
         public dynamic Post(string command, object data)
         {
             var httpRequest = CreateHttpRequest();
 
             httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+
+            return httpRequest.Response.DynamicBody;
+
+        }
+
+        public dynamic Put(string command, object data)
+        {
+            var httpRequest = CreateHttpRequest();
+
+            httpRequest.Put(_uriConstructor.ConstructBaseUri(command), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
 
             return httpRequest.Response.DynamicBody;
         }

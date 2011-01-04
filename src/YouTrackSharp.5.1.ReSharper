@@ -1,0 +1,221 @@
+<Configuration>
+  <CustomStructuralPatterns>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Method StringBuilder.Append can be converted to StringBuilder.AppendFormat</Comment>
+      <ReplaceComment>Convert to StringBuilder.AppendFormat</ReplaceComment>
+      <ReplacePattern>$sb$.AppendFormat($args$)</ReplacePattern>
+      <SearchPattern>$sb$.Append(string.Format($args$))</SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="sb" ExpressionType="System.Text.StringBuilder" ExactType="True" />
+        <ArgumentPlaceholder Name="args" Minimal="-1" Maximal="-1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="WARNING">
+      <Comment>'try/finally' block can be converted to 'using' statement</Comment>
+      <ReplaceComment>Convert to 'using' statement</ReplaceComment>
+      <ReplacePattern><![CDATA[using($type$ $var$ = new $type$($args$))
+{
+  $stmt$
+}]]></ReplacePattern>
+      <SearchPattern><![CDATA[$type$ $var$ = new $type$($args$);
+try {
+  $stmt$
+} finally {
+  $var$.Dispose();
+}]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <IdentifierPlaceholder Name="var" Type="" ExactType="False" RegEx="" CaseSensitive="True" />
+        <TypePlaceholder Name="type" Type="System.IDisposable" ExactType="False" />
+        <ArgumentPlaceholder Name="args" Minimal="-1" Maximal="-1" />
+        <StatementPlaceholder Name="stmt" Minimal="-1" Maximal="-1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Comparison with true is redundant</Comment>
+      <ReplaceComment>Remove comparison with true</ReplaceComment>
+      <ReplacePattern>if($expr$) $stmt$</ReplacePattern>
+      <SearchPattern>if($expr$ == true) $stmt$</SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="expr" ExpressionType="System.Boolean" ExactType="True" />
+        <StatementPlaceholder Name="stmt" Minimal="1" Maximal="1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Conditional statement is redundant</Comment>
+      <ReplaceComment>Remove conditional statement</ReplaceComment>
+      <ReplacePattern>$stmt$</ReplacePattern>
+      <SearchPattern>if(true) $stmt$</SearchPattern>
+      <Params />
+      <Placeholders>
+        <StatementPlaceholder Name="stmt" Minimal="1" Maximal="1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Code is unreachable</Comment>
+      <ReplaceComment>Remove unreachable code</ReplaceComment>
+      <SearchPattern>if(false) $stmt$</SearchPattern>
+      <Params />
+      <Placeholders>
+        <StatementPlaceholder Name="stmt" Minimal="1" Maximal="1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>'if' block is never executed</Comment>
+      <ReplaceComment>Leave only statements from 'else' block</ReplaceComment>
+      <ReplacePattern>$else$</ReplacePattern>
+      <SearchPattern><![CDATA[if(false)
+  $stmt$
+else
+  $else$]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <StatementPlaceholder Name="stmt" Minimal="1" Maximal="1" />
+        <StatementPlaceholder Name="else" Minimal="1" Maximal="1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Identical branches in a conditional statement</Comment>
+      <ReplaceComment>Replace with a single branch</ReplaceComment>
+      <ReplacePattern>$stmt$</ReplacePattern>
+      <SearchPattern><![CDATA[if($expr$)
+  $stmt$
+else
+  $stmt$]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="expr" ExpressionType="System.Boolean" ExactType="True" />
+        <StatementPlaceholder Name="stmt" Minimal="1" Maximal="1" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Redundant compound assignment with |= operator</Comment>
+      <ReplaceComment>Replace with simple assignment</ReplaceComment>
+      <ReplacePattern>$bool$ = true</ReplacePattern>
+      <SearchPattern>$bool$ |= true</SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment><![CDATA[Redundant compound assignment with &= operator]]></Comment>
+      <ReplaceComment>Replace with simple assignment</ReplaceComment>
+      <ReplacePattern>$bool$ = false</ReplacePattern>
+      <SearchPattern><![CDATA[$bool$ &= false]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Redundant compound assignment with |= operator</Comment>
+      <ReplaceComment>Remove assignment</ReplaceComment>
+      <SearchPattern>$bool$ |= false;</SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment><![CDATA[Redundant compound assignment with &= operator]]></Comment>
+      <ReplaceComment>Remove assignment</ReplaceComment>
+      <SearchPattern><![CDATA[$bool$ &= true;]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Redundant initialization to false and condition block</Comment>
+      <ReplaceComment>Initialize with conditional statement</ReplaceComment>
+      <ReplacePattern>$T$ $x$ = $bool$;</ReplacePattern>
+      <SearchPattern><![CDATA[$T$ $x$ = false;
+if($bool$) $x$ = true;]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <TypePlaceholder Name="T" Type="" ExactType="True" />
+        <IdentifierPlaceholder Name="x" Type="" ExactType="False" RegEx="" CaseSensitive="True" />
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Redundant initialization to true and condition block</Comment>
+      <ReplaceComment>Initialize with conditional statement</ReplaceComment>
+      <ReplacePattern>$T$ $x$ = !$bool$;</ReplacePattern>
+      <SearchPattern><![CDATA[$T$ $x$ = true;
+if($bool$) $x$ = false;]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <TypePlaceholder Name="T" Type="" ExactType="True" />
+        <IdentifierPlaceholder Name="x" Type="" ExactType="False" RegEx="" CaseSensitive="True" />
+        <ExpressionPlaceholder Name="bool" ExpressionType="System.Boolean" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Method Array.CreateInstance can be replaced with an array creation expression</Comment>
+      <ReplaceComment>Use array creation expression</ReplaceComment>
+      <ReplacePattern>new $T$[$long$]</ReplacePattern>
+      <SearchPattern>Array.CreateInstance(typeof($T$), $long$)</SearchPattern>
+      <Params />
+      <Placeholders>
+        <TypePlaceholder Name="T" Type="" ExactType="True" />
+        <ExpressionPlaceholder Name="long" ExpressionType="System.Int64" ExactType="False" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Method Array.CreateInstance can be replaced with a two-dimensional array creation expression</Comment>
+      <ReplaceComment>Use two-dimensional array creation expression</ReplaceComment>
+      <ReplacePattern>new $T$[$long$, $long2$]</ReplacePattern>
+      <SearchPattern>Array.CreateInstance(typeof($T$), $long$, $long2$)</SearchPattern>
+      <Params />
+      <Placeholders>
+        <TypePlaceholder Name="T" Type="" ExactType="True" />
+        <ExpressionPlaceholder Name="long" ExpressionType="System.Int64" ExactType="False" />
+        <ExpressionPlaceholder Name="long2" ExpressionType="Int64" ExactType="False" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment>Redundant usage of GetType() == typeof() with a value type</Comment>
+      <ReplaceComment>Replace with 'is' operator</ReplaceComment>
+      <ReplacePattern>$expr$ is $S$</ReplacePattern>
+      <SearchPattern>$expr$.GetType() == typeof($S$)</SearchPattern>
+      <Params />
+      <Placeholders>
+        <ExpressionPlaceholder Name="expr" ExpressionType="" ExactType="True" />
+        <TypePlaceholder Name="S" Type="System.ValueType" ExactType="False" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="SUGGESTION">
+      <Comment><![CDATA[Method OfType<TResult> can be used for type-based filtering]]></Comment>
+      <ReplaceComment><![CDATA[Replace with OfType<TResult>]]></ReplaceComment>
+      <ReplacePattern><![CDATA[$seq$.OfType<$T$>()]]></ReplacePattern>
+      <SearchPattern><![CDATA[$seq$.Where($x$ => $x$ is $T$).Select($y$ => ($T$)$y$)]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <TypePlaceholder Name="T" Type="" ExactType="True" />
+        <ExpressionPlaceholder Name="seq" ExpressionType="System.Collections.IEnumerable" ExactType="False" />
+        <IdentifierPlaceholder Name="x" Type="" ExactType="False" RegEx="" CaseSensitive="True" />
+        <IdentifierPlaceholder Name="y" Type="" ExactType="False" RegEx="" CaseSensitive="True" />
+      </Placeholders>
+    </Pattern>
+    <Pattern Severity="DO_NOT_SHOW">
+      <SearchPattern><![CDATA[try
+{
+$someCode$
+}
+catch ($statement$ $statement1$)
+{
+}]]></SearchPattern>
+      <Params />
+      <Placeholders>
+        <IdentifierPlaceholder Name="ident" Type="" ExactType="False" RegEx="[a..z]" CaseSensitive="True" />
+        <StatementPlaceholder Name="someCode" Minimal="1" Maximal="1" />
+        <ExpressionPlaceholder Name="statement" ExpressionType="" ExactType="True" />
+        <ExpressionPlaceholder Name="statement1" ExpressionType="" ExactType="True" />
+      </Placeholders>
+    </Pattern>
+  </CustomStructuralPatterns>
+</Configuration>

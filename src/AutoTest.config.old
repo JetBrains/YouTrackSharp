@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<notify_on_run_started>false</notify_on_run_started>
+
+	<notify_on_run_completed>false</notify_on_run_completed>
+
+</configuration>

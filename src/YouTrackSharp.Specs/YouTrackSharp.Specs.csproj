@@ -34,18 +34,11 @@
   <ItemGroup>
     <Reference Include="EasyHttp, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\EasyHttp.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx">
-      <HintPath>..\..\lib\JsonFx.dll</HintPath>
+      <HintPath>..\packages\EasyHttp\EasyHttp.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Specifications, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5c474de7a495cff1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Machine.Specifications.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\StructureMap.dll</HintPath>
+      <HintPath>..\packages\MSpec\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,10 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationFeatures.cs" />
-    <Compile Include="Issues\CreatingIssues\CreatingIssues.cs" />
-    <Compile Include="Issues\RetrievingIssues\RetrievingIssueFeatures.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackServerForProjectSpecsSetup.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackServerSetup.cs" />
+    <Compile Include="Helpers\YouTrackServerSetup.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackServerForIssueSpecsSetup.cs" />
+    <Compile Include="Specs\ServerSpecs.cs" />
+    <Compile Include="Specs\IssueSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\ProjectSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YouTrackSharp\YouTrackSharp.csproj">

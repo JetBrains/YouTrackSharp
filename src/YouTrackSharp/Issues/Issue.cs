@@ -1,6 +1,10 @@
-﻿namespace YouTrackSharp
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace YouTrackSharp.Issues
 {
-    public class Issue
+    [TypeConverter(typeof(IssueTypeConverter))]
+    public class Issue 
     {
         public string Id { get; set; }
         public string ReporterName { get; set; }

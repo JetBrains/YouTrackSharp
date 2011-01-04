@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using EasyHttp.Http;
+using System.ComponentModel;
+using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
+
 
 namespace YouTrackSharp.Issues
 {
     public class YouTrackIssues
     {
         readonly YouTrackServer _youTrackServer;
-        readonly IJsonIssueConverter _jsonIssueConverter;
 
         public YouTrackIssues(YouTrackServer youTrackServer)
         {
             _youTrackServer = youTrackServer;
-            _jsonIssueConverter = new JsonIssueConverter();
         }
 
         /// <summary>
@@ -27,9 +27,13 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                var response = _youTrackServer.Get("issue/{0}", issueId);
+               var response = _youTrackServer.Get<SingleIssueWrapper>("issue/{0}", issueId);
 
-                return _jsonIssueConverter.ConvertFromDynamicFields(response);
+                var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
+
+                issue.Id = response.id;
+
+                return issue;
             }
             catch (HttpException exception)
             {
@@ -67,22 +71,31 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IList<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            dynamic response = _youTrackServer.Get("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
+            var response = _youTrackServer.Get<MultipleIssueWrapper>("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
 
-            dynamic issues = response.issue;
-
-            var list = new List<Issue>();
-
-            foreach (dynamic entry in issues)
-            {
-                var issue = _jsonIssueConverter.ConvertFromDynamic(entry);
-
-                list.Add(issue);
-            }
-
-            return list;
+            return response.issue;
         }
 
+        /// <summary>
+        /// Retrieve comments for a particular issue
+        /// </summary>
+        /// <param name="issueId"></param>
+        /// <returns></returns>
+        public IList<Comment> GetCommentsForIssue(string issueId)
+        {
 
+            try
+            {
+                var response = _youTrackServer.Get<MultipleCommentWrapper>("issue/comments/{0}", issueId);
+
+                return response.comment;
+
+            }
+            catch (HttpException httpException)
+            {
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);   
+            }
+
+        }
     }
 }

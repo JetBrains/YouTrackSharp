@@ -1,9 +1,9 @@
 using Machine.Specifications;
 
-namespace YouTrackSharp.Specs.Authentication
+namespace YouTrackSharp.Specs.Specs
 {
-    [Subject("Authenticating")]
-    public class when_provided_valid_username_and_password  
+    [Subject("Server")]
+    public class when_provided_valid_username_and_password
     {
         Establish context = () =>
         {
@@ -24,7 +24,7 @@ namespace YouTrackSharp.Specs.Authentication
         static YouTrackServer youtrack;
     }
 
-    [Subject("Authenticating")]
+    [Subject("Server")]
     public class when_provided_invalid_username_and_password
     {
         Establish context = () =>

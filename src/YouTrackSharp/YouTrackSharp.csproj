@@ -33,13 +33,12 @@
   <ItemGroup>
     <Reference Include="EasyHttp, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\EasyHttp.dll</HintPath>
+      <HintPath>..\packages\EasyHttp\EasyHttp.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\..\lib\StructureMap.dll</HintPath>
-    </Reference>
+    <Reference Include="JsonFx, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,12 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Issues\IJsonIssueConverter.cs" />
-    <Compile Include="Issues\JsonIssueConverter.cs" />
+    <Compile Include="Infrastructure\SubValues.cs" />
+    <Compile Include="Infrastructure\SubValuesArray.cs" />
+    <Compile Include="Issues\Comment.cs" />
+    <Compile Include="Issues\Field.cs" />
+    <Compile Include="Issues\IssueTypeConverter.cs" />
+    <Compile Include="Issues\MultipleCommentWrapper.cs" />
+    <Compile Include="Issues\MultipleIssueWrapper.cs" />
     <Compile Include="Issues\NewIssueMessage.cs" />
     <Compile Include="Infrastructure\DefaultUriConstructor.cs" />
     <Compile Include="Infrastructure\InvalidRequestException.cs" />
     <Compile Include="Infrastructure\IUriConstructor.cs" />
+    <Compile Include="Issues\SingleIssueWrapper.cs" />
     <Compile Include="Issues\YouTrackIssues.cs" />
     <Compile Include="Issues\Issue.cs" />
     <Compile Include="Language.Designer.cs">
@@ -60,6 +65,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
+    <Compile Include="Projects\MultipleProjectIssueTypesWrapper.cs" />
+    <Compile Include="Projects\MultipleProjectPriorityWrapper.cs" />
+    <Compile Include="Projects\MultipleProjectWrapper.cs" />
+    <Compile Include="Projects\MultipleProjectStateWrapper.cs" />
+    <Compile Include="Projects\Project.cs" />
+    <Compile Include="Projects\ProjectIssueTypes.cs" />
+    <Compile Include="Projects\ProjectPriority.cs" />
+    <Compile Include="Projects\ProjectState.cs" />
+    <Compile Include="Projects\YouTrackProjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YouTrackServer.cs" />
   </ItemGroup>
