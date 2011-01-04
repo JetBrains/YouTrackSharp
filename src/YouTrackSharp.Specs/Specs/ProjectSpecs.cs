@@ -11,7 +11,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            projects = youTrackProjects.GetProjects();
+            projects = ProjectManagement.GetProjects();
 
         };
 
@@ -33,7 +33,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            priorities = youTrackProjects.GetPriorities();
+            priorities = ProjectManagement.GetPriorities();
 
         };
 
@@ -55,7 +55,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            states = youTrackProjects.GetStates();
+            states = ProjectManagement.GetStates();
 
         };
 
@@ -77,7 +77,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            issueTypes = youTrackProjects.GetIssueTypes();
+            issueTypes = ProjectManagement.GetIssueTypes();
 
         };
 

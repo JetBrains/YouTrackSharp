@@ -7,11 +7,11 @@ using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Issues
 {
-    public class YouTrackIssues
+    public class IssueManagement
     {
         readonly YouTrackServer _youTrackServer;
 
-        public YouTrackIssues(YouTrackServer youTrackServer)
+        public IssueManagement(YouTrackServer youTrackServer)
         {
             _youTrackServer = youTrackServer;
         }

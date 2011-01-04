@@ -1,7 +1,10 @@
-﻿namespace YouTrackSharp.Projects
+﻿using JsonFx.Json;
+
+namespace YouTrackSharp.Projects
 {
-    public class MultipleProjectPriorityWrapper
+    public class MultipleProjectPriorityWrapper: IDataWrapper<ProjectPriority>
     {
-        public ProjectPriority[] Priority { get; set; }
+        [JsonName("priority")]
+        public ProjectPriority[] Data { get; set; }
     }
 }

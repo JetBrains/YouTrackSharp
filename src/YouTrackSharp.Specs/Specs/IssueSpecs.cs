@@ -16,7 +16,7 @@ namespace YouTrackSharp.Specs.Specs
         Because of = () =>
         {
 
-            issues = youTrackIssues.GetIssues("SB", 10);
+            issues = IssueManagement.GetIssues("SB", 10);
         };
 
         It should_return_list_of_issues_for_that_project = () =>
@@ -34,7 +34,7 @@ namespace YouTrackSharp.Specs.Specs
 
         Because of = () =>
         {
-            issue = youTrackIssues.GetIssue("SB-282");
+            issue = IssueManagement.GetIssue("SB-282");
 
         };
 
@@ -53,7 +53,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            exception = Catch.Exception(() => youTrackIssues.GetIssue("fdfdfsdfsd"));
+            exception = Catch.Exception(() => IssueManagement.GetIssue("fdfdfsdfsd"));
 
         };
 
@@ -83,7 +83,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            comments = youTrackIssues.GetCommentsForIssue("SB-560");
+            comments = IssueManagement.GetCommentsForIssue("SB-560");
 
         };
 
@@ -102,7 +102,7 @@ namespace YouTrackSharp.Specs.Specs
 
         Establish context = () =>
         {
-            youTrackIssues = new YouTrackIssues(youTrackServer);
+            IssueManagement = new IssueManagement(youTrackServer);
 
         };
 
@@ -114,7 +114,7 @@ namespace YouTrackSharp.Specs.Specs
             issue.Summary = "Issue Created";
 
 
-            exception = Catch.Exception(() => { youTrackIssues.CreateIssue(issue); });
+            exception = Catch.Exception(() => { IssueManagement.CreateIssue(issue); });
         };
 
         It should_throw_invalid_request_with_message_not_authenticated = () =>
@@ -123,7 +123,7 @@ namespace YouTrackSharp.Specs.Specs
             exception.Message.ShouldEqual("Not Logged In");
         };
 
-        protected static YouTrackIssues youTrackIssues;
+        protected static IssueManagement IssueManagement;
         static object response;
         static Exception exception;
     } 
@@ -148,7 +148,7 @@ namespace YouTrackSharp.Specs.Specs
                         };
            
 
-            response  = youTrackIssues.CreateIssue(issue);
+            response  = IssueManagement.CreateIssue(issue);
         };
 
         It should_return_issue = () =>

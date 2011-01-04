@@ -8,9 +8,9 @@ namespace YouTrackSharp.Specs.Helpers
     {
         Establish context = () =>
         {
-            youTrackProjects = new YouTrackProjects(youTrackServer);
+            ProjectManagement = new ProjectManagement(youTrackServer);
         };
 
-        protected static YouTrackProjects youTrackProjects;
+        protected static ProjectManagement ProjectManagement;
     }
 }

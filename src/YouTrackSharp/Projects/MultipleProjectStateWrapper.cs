@@ -1,8 +1,11 @@
-﻿namespace YouTrackSharp.Projects
+﻿using JsonFx.Json;
+
+namespace YouTrackSharp.Projects
 {
-    public class MultipleProjectStateWrapper
+    public class MultipleProjectStateWrapper: IDataWrapper<ProjectState>
     {
-        public ProjectState[] State { get; set; }
+        [JsonName("state")]
+        public ProjectState[] Data { get; set; }
         
     }
 }

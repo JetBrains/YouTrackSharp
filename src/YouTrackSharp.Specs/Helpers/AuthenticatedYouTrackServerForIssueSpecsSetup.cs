@@ -7,9 +7,9 @@ namespace YouTrackSharp.Specs.Helpers
     {
         Establish context = () =>
         {
-            youTrackIssues = new YouTrackIssues(youTrackServer);
+            IssueManagement = new IssueManagement(youTrackServer);
         };
 
-        protected static YouTrackIssues youTrackIssues;
+        protected static IssueManagement IssueManagement;
     }
 }
