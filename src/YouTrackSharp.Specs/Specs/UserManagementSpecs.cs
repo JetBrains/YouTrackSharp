@@ -45,11 +45,10 @@ namespace YouTrackSharp.Specs.Specs
             exception = Catch.Exception(() => userManagement.GetUserByUserName("jdklgjdfklgjfld"));
         };
 
-        It should_throw_invalid_authorization_exception_with_message_insufficient_rights = () =>
-        {
-            exception.ShouldBeOfType<InvalidRequestException>();
-            exception.Message.ShouldEqual("Insufficient rights");
-        };
+        It should_throw_invalid_authorization_exception = () => exception.ShouldBeOfType<InvalidRequestException>();
+
+        It should_contain_message_insufficient_rights = () => exception.Message.ShouldEqual("Insufficient rights");
+
 
         static Exception exception;
         static UserManagement userManagement;
@@ -89,7 +88,7 @@ namespace YouTrackSharp.Specs.Specs
             filters = userManagement.GetFiltersByUsername("youtrackapi");
         };
 
-        It should_return_a_list_of_filters_for_the_specified_user = () => filters.Count().ShouldBeGreaterThan(0);
+        It should_return_a_list_of_filters_for_the_specified_user = () => filters.ShouldNotBeEmpty();
 
         It should_contain_valid_name = () => filters.First().Name.ShouldNotBeEmpty();
 
