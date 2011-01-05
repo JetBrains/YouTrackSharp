@@ -1,11 +1,21 @@
-using System.Collections.Generic;
-using System.Linq;
-using Machine.Specifications;
-using YouTrackSharp.Projects;
-using YouTrackSharp.Specs.Helpers;
+#region Settings
+#pragma warning disable 169
+// ReSharper disable InconsistentNaming
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMember.Local
+#endregion
 
 namespace YouTrackSharp.Specs.Specs
 {
+    #region Using Directives
+
+    using System.Collections.Generic;
+    using System.Linq;
+    using Machine.Specifications;
+    using YouTrackSharp.Projects;
+    using YouTrackSharp.Specs.Helpers;
+
+    #endregion
 
     [Subject("Project Management")]
     public class when_retrieving_a_list_of_existing_projects: AuthenticatedYouTrackConnectionForProjectSpecsSetup

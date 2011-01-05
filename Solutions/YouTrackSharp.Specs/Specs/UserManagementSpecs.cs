@@ -1,14 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Machine.Specifications;
-using YouTrackSharp.Admin;
-using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Server;
-using YouTrackSharp.Specs.Helpers;
+#region Settings
+#pragma warning disable 169
+// ReSharper disable InconsistentNaming
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMember.Local
+#endregion
 
 namespace YouTrackSharp.Specs.Specs
 {
+    #region Using Directives
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Machine.Specifications;
+    using YouTrackSharp.Admin;
+    using YouTrackSharp.Infrastructure;
+    using YouTrackSharp.Server;
+    using YouTrackSharp.Specs.Helpers;
+
+    #endregion
+
     [Subject("User Management")]
     public class when_requesting_user_information_of_existing_user_with_valid_authorization: AuthenticatedYouTrackConnectionSetup
     {

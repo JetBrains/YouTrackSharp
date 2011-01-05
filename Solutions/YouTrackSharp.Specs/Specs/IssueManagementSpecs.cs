@@ -1,16 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Net;
-using EasyHttp.Infrastructure;
-using Machine.Specifications;
-using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Issues;
-using YouTrackSharp.Specs.Helpers;
+#region Settings
+#pragma warning disable 169
+// ReSharper disable InconsistentNaming
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMember.Local
+#endregion
 
 namespace YouTrackSharp.Specs.Specs
 {
+    #region Using Directives
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using EasyHttp.Infrastructure;
+    using Machine.Specifications;
+    using YouTrackSharp.Infrastructure;
+    using YouTrackSharp.Issues;
+    using YouTrackSharp.Specs.Helpers;
+
+    #endregion
+
     [Subject("Issue Management")]
     public class when_requesting_list_of_issues_for_project: AuthenticatedYouTrackConnectionForIssueSpecsSetup
     {
