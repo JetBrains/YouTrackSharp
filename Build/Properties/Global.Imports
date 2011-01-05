@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <!-- Import Project Properties -->
+  <Import Project="$(PropertiesPath)\Build.properties" />
+  <Import Project="$(PropertiesPath)\Common.properties" />
+  <Import Project="$(PropertiesPath)\CPUArchitecture.properties" />
+
+  <!-- Import Custom MSBuild Tasks -->
+  <Import Project="$(TasksPath)\Microsoft.Sdc.Common.tasks" />
+  <Import Project="$(TasksPath)\MSBuild.Community.tasks" />
+
+  <!-- Import Custom Project Targets -->
+  <Import Project="$(TargetsPath)\BuildSolutions.target" />
+  <Import Project="$(TargetsPath)\BuildSuccess.target" />
+  <Import Project="$(TargetsPath)\CleanSolution.target" />
+  <Import Project="$(TargetsPath)\CodeCoverage.target" />
+  <Import Project="$(TargetsPath)\CreateDrops.target" />
+  <Import Project="$(TargetsPath)\Package.target" />
+  <Import Project="$(TargetsPath)\RunSpecs.target" />
+  <Import Project="$(TargetsPath)\VersionNumberGenerate.target" />
+  <Import Project="$(TargetsPath)\VersionNumberGetLast.target" />
+  <Import Project="$(TargetsPath)\VersionNumberIncrement.target" />
+
+</Project>

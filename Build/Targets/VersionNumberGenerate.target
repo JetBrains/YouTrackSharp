@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <Target Name="VersionNumberGenerate">
+
+    <attrib Files="$(BuildPath)\Versioning\VersionNumber.exe.config" ReadOnly="False"/>
+    
+    <!-- plug in a custom version of VersionNumber.exe to fix "Y2k7" bug -->
+    <Exec Command="&quot;$(BuildPath)\Versioning\VersionNumber.exe&quot; &quot;$(AssemblyVersionFile)&quot;" 
+          ContinueOnError="false"/>
+
+    <VersionNumber.Load ConfigFileLocation="$(VersionXmlFile)">
+      <Output TaskParameter="VersionNumber" PropertyName="GlobalBuildVersionNumber" />
+    </VersionNumber.Load>
+
+    <attrib Files="$(BuildPath)\Versioning\VersionNumber.exe.config" ReadOnly="True"/>
+
+    <Message Text="GlobalBuildVersionNumber is now $(GlobalBuildVersionNumber)" Importance="HIGH" />
+
+  </Target>
+
+</Project>

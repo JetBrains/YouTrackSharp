@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <Target Name="Package"
+          DependsOnTargets="CreateDrops">
+
+    <Zip ZipFileName="$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip" 
+         Files="@(TargetOutputs)"
+         WorkingDirectory="$(DropsPath)\$(GlobalBuildVersionNumber)\"
+         Flatten ="True"
+         ZipLevel="10"/>
+
+  </Target>
+
+</Project>

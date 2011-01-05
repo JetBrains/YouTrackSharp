@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="All" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+  <PropertyGroup>
+    <PropertiesPath>$(MSBuildProjectDirectory)\Properties</PropertiesPath>
+  </PropertyGroup>
+
+  <Import Project="$(PropertiesPath)\Global.Imports" />
+
+  <Target Name="All" 
+          DependsOnTargets="Build" />
+
+  <Target Name="ConfigureSolution" 
+          DependsOnTargets="VersionNumberGenerate;" />
+
+  <Target Name="Build" 
+          DependsOnTargets="PreBuild;
+                            BuildSolutions;
+                            RunSpecs;
+                            CodeCoverage;
+                            Package;
+                            BuildSuccess" />
+
+  <Target Name="PreBuild" 
+          DependsOnTargets="CleanSolution;
+                            ConfigureSolution;
+                            VersionNumberIncrement;" />
+
+</Project>

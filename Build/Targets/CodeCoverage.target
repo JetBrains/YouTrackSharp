@@ -1,0 +1,22 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <Target Name="CodeCoverage"
+          DependsOnTargets="RunSpecs"
+          Condition="'$(IsDesktopBuild)' != 'true'">
+    
+    <PropertyGroup>
+      <DotCoverToolPath>C:\Program Files (x86)\JetBrains\TeamCity\buildAgent\plugins\dotCover\bin\dotCover.exe</DotCoverToolPath>
+      <CoverageOptions>c</CoverageOptions>
+      <CoverageArgs>$(ToolsPath)\DotCover\dotcover.xml</CoverageArgs>
+      <CoverageCommand>&quot;$(DotCoverToolPath)&quot; $(CoverageOptions) &quot;$(CoverageArgs)&quot;</CoverageCommand>
+    </PropertyGroup>
+    
+    <Message Importance="high" Text="Running Coverage with this command: $(CoverageCommand)"/>
+    
+    <Exec Command="$(CoverageCommand)" />
+
+    <Message Text="##teamcity[importData type='dotNetCoverage' tool='dotcover' path='<YOUR_PATH_HERE>\YouTrackSharp\Solutions\YouTrackSharp.Specs\bin\Release\coverage.xml']"/>
+  
+  </Target>
+
+</Project>

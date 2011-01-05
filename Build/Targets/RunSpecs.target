@@ -1,0 +1,45 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Choose>
+      <When Condition="('$(OutputPath)'!='')">
+      </When>
+      <!-- Running outside of the build -->
+      <Otherwise>
+        <PropertyGroup>
+          <OutputPath>bin\debug</OutputPath>
+        </PropertyGroup>
+      </Otherwise>
+  </Choose>
+
+  <Choose>
+    <When Condition="('$(IsDesktopBuild)' != 'true')">
+      <PropertyGroup>
+        <ServerMSpecArg>--teamcity</ServerMSpecArg>
+      </PropertyGroup>
+    </When>
+    <!-- Running outside of the build -->
+    <Otherwise>
+      <PropertyGroup>
+        <ServerMSpecArg></ServerMSpecArg>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
+  <Target Name="RunSpecs"
+          DependsOnTargets="CreateDrops">
+
+    <MakeDir Directories="$(DropsPath)\$(GlobalBuildVersionNumber)\BDDSpecs"/>
+    
+    <PropertyGroup>
+      <MSpecOptions>$(ServerMSpecArg) --html $(DropsPath)\$(GlobalBuildVersionNumber)\BDDSpecs\Specs.html</MSpecOptions>
+      <MSpecArgs>$(SolutionsPath)\$(SolutionName).Specs\Bin\Release\$(SolutionName).Specs.dll</MSpecArgs>
+      <MSpecCommand>$(ReferencedAssembliesPath)\Machine.Specifications\MSpec.exe $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
+    </PropertyGroup>
+    
+    <Message Importance="high" Text="Running Specs with this command: $(MSpecCommand)"/>
+    
+    <Exec Command="$(MSpecCommand)" />
+  
+  </Target>
+
+</Project>
