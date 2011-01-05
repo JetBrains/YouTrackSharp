@@ -9,18 +9,12 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject(typeof(UserManagement), "given authenticated connection and existing users")]
+    [Subject(typeof (UserManagement), "given authenticated connection and existing users")]
     public class when_requesting_user_information_of_existing_user : AuthenticatedYouTrackConnection
     {
-        Establish context = () =>
-        {
-            userManagement = new UserManagement(connection);
-        };
+        Establish context = () => { userManagement = new UserManagement(connection); };
 
-        Because of = () =>
-        {
-            user = userManagement.GetUserByUserName("youtrackapi");
-        };
+        Because of = () => { user = userManagement.GetUserByUserName("youtrackapi"); };
 
         It should_return_user_information = () => user.ShouldNotBeNull();
 
@@ -32,18 +26,12 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof(UserManagement), "given non-authenticated connection and existing users")]
-    public class when_requesting_user_information_of_non_existing_user: AuthenticatedYouTrackConnection
+    [Subject(typeof (UserManagement), "given non-authenticated connection and existing users")]
+    public class when_requesting_user_information_of_non_existing_user : AuthenticatedYouTrackConnection
     {
-        Establish context = () =>
-        {
-            userManagement = new UserManagement(connection);
-        };
-        
-        Because of = () =>
-        {
-            exception = Catch.Exception(() => userManagement.GetUserByUserName("jdklgjdfklgjfld"));
-        };
+        Establish context = () => { userManagement = new UserManagement(connection); };
+
+        Because of = () => { exception = Catch.Exception(() => userManagement.GetUserByUserName("jdklgjdfklgjfld")); };
 
         It should_throw_invalid_authorization_exception = () => exception.ShouldBeOfType<InvalidRequestException>();
 
@@ -54,18 +42,12 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof(UserManagement), "given non-authenticated connection and existing users")]
-    public class when_requesting_user_information_of_a_user: YouTrackConnection
+    [Subject(typeof (UserManagement), "given non-authenticated connection and existing users")]
+    public class when_requesting_user_information_of_a_user : YouTrackConnection
     {
-        Establish context = () =>
-        {
-            userManagement = new UserManagement(connection);
-        };
+        Establish context = () => { userManagement = new UserManagement(connection); };
 
-        Because of = () =>
-        {
-            exception = Catch.Exception(() => userManagement.GetUserByUserName("root"));
-        };
+        Because of = () => { exception = Catch.Exception(() => userManagement.GetUserByUserName("root")); };
 
         It should_throw_invalid_authorization_exception = () => exception.ShouldBeOfType<InvalidRequestException>();
 
@@ -75,25 +57,19 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof(UserManagement), "given authenticated connection and existing users")]
+    [Subject(typeof (UserManagement), "given authenticated connection and existing users")]
     public class when_requesting_saved_filters_for_a_specific_user : AuthenticatedYouTrackConnection
     {
-        Establish context = () =>
-        {
-            userManagement = new UserManagement(connection);
-        };
+        Establish context = () => { userManagement = new UserManagement(connection); };
 
-        Because of = () =>
-        {
-            filters = userManagement.GetFiltersByUsername("youtrackapi");
-        };
+        Because of = () => { filters = userManagement.GetFiltersByUsername("youtrackapi"); };
 
         It should_return_a_list_of_filters_for_the_specified_user = () => filters.ShouldNotBeEmpty();
 
         It should_contain_valid_name = () => filters.First().Name.ShouldNotBeEmpty();
 
         It should_contain_valid_query = () => filters.First().Query.ShouldNotBeEmpty();
-        
+
         static UserManagement userManagement;
         static IEnumerable<Filter> filters;
     }

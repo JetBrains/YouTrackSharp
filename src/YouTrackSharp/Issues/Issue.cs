@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using JsonFx.Json;
+﻿using System.ComponentModel;
 
 namespace YouTrackSharp.Issues
 {
-    [TypeConverter(typeof(IssueTypeConverter))]
-    public class Issue 
+    [TypeConverter(typeof (IssueTypeConverter))]
+    public class Issue
     {
         public string Id { get; set; }
         public string ReporterName { get; set; }

@@ -5,8 +5,6 @@ using System.Dynamic;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Server;
-
 
 namespace YouTrackSharp.Issues
 {
@@ -26,11 +24,9 @@ namespace YouTrackSharp.Issues
         /// <returns>An instance of Issue if successful or InvalidRequestException if issues is not found</returns>
         public Issue GetIssue(string issueId)
         {
- 
-
             try
             {
-               var response = _connection.Get<SingleIssueWrapper>("issue/{0}", issueId);
+                var response = _connection.Get<SingleIssueWrapper>("issue/{0}", issueId);
 
                 var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
 
@@ -40,7 +36,8 @@ namespace YouTrackSharp.Issues
             }
             catch (HttpException exception)
             {
-                throw new InvalidRequestException(String.Format(Language.YouTrackClient_GetIssue_Issue_not_found___0_, issueId), exception);
+                throw new InvalidRequestException(
+                    String.Format(Language.YouTrackClient_GetIssue_Issue_not_found___0_, issueId), exception);
             }
         }
 
@@ -60,11 +57,10 @@ namespace YouTrackSharp.Issues
                 newIssueMessage.summary = issue.Summary;
                 newIssueMessage.assignee = issue.Assignee;
 
-                var response = _connection.Post<dynamic>("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
+                dynamic response = _connection.Post<dynamic>("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
 
-             
+
                 return response.id;
-
             }
             catch (HttpException httpException)
             {
@@ -81,7 +77,9 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IEnumerable<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            return _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
+            return
+                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
+                                                                           projectIdentifier, max, start));
         }
 
         /// <summary>
@@ -91,19 +89,16 @@ namespace YouTrackSharp.Issues
         /// <returns></returns>
         public IEnumerable<Comment> GetCommentsForIssue(string issueId)
         {
-
             try
             {
                 var response = _connection.Get<MultipleCommentWrapper>("issue/comments/{0}", issueId);
 
                 return response.comment;
-
             }
             catch (HttpException httpException)
             {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);   
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);
             }
-
         }
     }
 }

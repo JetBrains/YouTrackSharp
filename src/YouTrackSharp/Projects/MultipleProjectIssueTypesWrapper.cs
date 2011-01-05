@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
-using JsonFx.Json;
+﻿using JsonFx.Json;
 
 namespace YouTrackSharp.Projects
 {
-    public class MultipleProjectIssueTypesWrapper: IDataWrapper<ProjectIssueTypes>
+    public class MultipleProjectIssueTypesWrapper : IDataWrapper<ProjectIssueTypes>
     {
+        #region IDataWrapper<ProjectIssueTypes> Members
+
         [JsonName("type")]
         public ProjectIssueTypes[] Data { get; set; }
+
+        #endregion
     }
 }

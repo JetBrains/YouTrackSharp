@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace YouTrackSharp.Infrastructure
 {
-    public class InvalidRequestException: Exception
+    public class InvalidRequestException : Exception
     {
         public InvalidRequestException()
         {

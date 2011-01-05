@@ -2,11 +2,11 @@
 
 namespace YouTrackSharp.Infrastructure
 {
-    class DefaultUriConstructor : IUriConstructor
+    internal class DefaultUriConstructor : IUriConstructor
     {
-        readonly string _protocol;
         readonly string _host;
         readonly int _port;
+        readonly string _protocol;
 
         public DefaultUriConstructor(string protocol, string host, int port)
         {
@@ -14,6 +14,8 @@ namespace YouTrackSharp.Infrastructure
             _port = port;
             _host = host;
         }
+
+        #region IUriConstructor Members
 
         /// <summary>
         /// Create base Uri for Server containing host, port and specific request
@@ -24,5 +26,7 @@ namespace YouTrackSharp.Infrastructure
         {
             return String.Format("{0}://{1}:{2}/rest/{3}", _protocol, _host, _port, request);
         }
+
+        #endregion
     }
 }

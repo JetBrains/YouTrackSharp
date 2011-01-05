@@ -2,6 +2,6 @@
 {
     public class MultipleCommentWrapper
     {
-        public Comment[] comment { get; set; }    
+        public Comment[] comment { get; set; }
     }
 }

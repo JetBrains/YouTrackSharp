@@ -6,6 +6,7 @@ namespace YouTrackSharp.Server
     {
         [JsonIgnore]
         public string Username { get; set; }
+
         public string FullName { get; set; }
         public string Email { get; set; }
         public string LastCreatedProject { get; set; }

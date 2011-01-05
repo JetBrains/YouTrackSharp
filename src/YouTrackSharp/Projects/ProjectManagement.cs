@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Server;
 
 namespace YouTrackSharp.Projects
 {

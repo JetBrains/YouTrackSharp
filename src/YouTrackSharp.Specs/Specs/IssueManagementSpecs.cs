@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 using System.Net;
 using EasyHttp.Infrastructure;
 using Machine.Specifications;
@@ -11,30 +9,20 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
-    public class when_requesting_list_of_issues_for_a_project: AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
+    public class when_requesting_list_of_issues_for_a_project : AuthenticatedYouTrackConnectionForIssue
     {
-     
-        Because of = () =>
-        {
-
-            issues = issueManagement.GetIssues("SB", 10);
-        };
+        Because of = () => { issues = issueManagement.GetIssues("SB", 10); };
 
         It should_return_list_of_issues_for_that_project = () => issues.ShouldNotBeNull();
 
         protected static IEnumerable<Issue> issues;
     }
 
-    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues") ]
-    public class when_requesting_a_specific_issue: AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
+    public class when_requesting_a_specific_issue : AuthenticatedYouTrackConnectionForIssue
     {
-
-        Because of = () =>
-        {
-            issue = issueManagement.GetIssue("SB-282");
-
-        };
+        Because of = () => { issue = issueManagement.GetIssue("SB-282"); };
 
         It should_return_issue_with_correct_id = () => issue.Id.ShouldEqual("SB-282");
 
@@ -44,32 +32,26 @@ namespace YouTrackSharp.Specs.Specs
         static Issue issue;
     }
 
-    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
+    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
     public class when_requesting_a_specific_issues_that_does_not_exist : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () =>
-        {
-            exception = Catch.Exception(() => issueManagement.GetIssue("fdfdfsdfsd"));
+        Because of = () => { exception = Catch.Exception(() => issueManagement.GetIssue("fdfdfsdfsd")); };
 
-        };
+        It should_throw_invalid_request_exception = () => exception.ShouldBeOfType<InvalidRequestException>();
 
-        It should_throw_invalid_request_exception = () => exception.ShouldBeOfType(typeof(InvalidRequestException));
+        It should_contain_inner_exception_of_type_http_exception =
+            () => exception.InnerException.ShouldBeOfType<HttpException>();
 
-        It should_contain_inner_exception_of_type_http_exception = () => exception.InnerException.ShouldBeOfType(typeof(HttpException));
-
-        It inner_http_exception_should_contain_status_code_of_not_found = () => ((HttpException)exception.InnerException).StatusCode.ShouldEqual(HttpStatusCode.NotFound);
+        It inner_http_exception_should_contain_status_code_of_not_found =
+            () => ((HttpException) exception.InnerException).StatusCode.ShouldEqual(HttpStatusCode.NotFound);
 
         static Exception exception;
     }
 
-    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
-    public class when_retrieving_comments_of_issue_that_has_comments: AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
+    public class when_retrieving_comments_of_issue_that_has_comments : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () =>
-        {
-            comments = issueManagement.GetCommentsForIssue("SB-560");
-
-        };
+        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-560"); };
 
         It should_return_the_comments = () => comments.ShouldNotBeNull();
 
@@ -77,15 +59,10 @@ namespace YouTrackSharp.Specs.Specs
     }
 
 
-    [Subject(typeof(IssueManagement), "given non-authenticated connection")]
-    public class when_creating_a_new_issue_with_valid_information: YouTrackConnection
+    [Subject(typeof (IssueManagement), "given non-authenticated connection")]
+    public class when_creating_a_new_issue_with_valid_information : YouTrackConnection
     {
-
-        Establish context = () =>
-        {
-            IssueManagement = new IssueManagement(connection);
-
-        };
+        Establish context = () => { IssueManagement = new IssueManagement(connection); };
 
         Because of = () =>
         {
@@ -95,7 +72,8 @@ namespace YouTrackSharp.Specs.Specs
             exception = Catch.Exception(() => { IssueManagement.CreateIssue(issue); });
         };
 
-        It should_throw_invalid_request_with_message_not_authenticated = () => exception.ShouldBeOfType(typeof(InvalidRequestException));
+        It should_throw_invalid_request_with_message_not_authenticated =
+            () => exception.ShouldBeOfType(typeof (InvalidRequestException));
 
         It should_contain_message_not_logged_in = () => exception.Message.ShouldEqual("Not Logged In");
 
@@ -104,12 +82,12 @@ namespace YouTrackSharp.Specs.Specs
         static Exception exception;
     }
 
-    [Subject(typeof(IssueManagement), "given authenticated connection")]
-    public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement), "given authenticated connection")]
+    public class when_creating_a_new_issue_with_valid_information_and_authenticated :
+        AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
-
             var issue = new Issue
                         {
                             ProjectShortName = "SB",
@@ -118,12 +96,11 @@ namespace YouTrackSharp.Specs.Specs
                             Assignee = "youtrackapi"
                         };
 
-            id  = issueManagement.CreateIssue(issue);
+            id = issueManagement.CreateIssue(issue);
         };
 
         It should_return_issue = () => id.ShouldNotBeEmpty();
-        
-        static string id;
 
+        static string id;
     }
 }

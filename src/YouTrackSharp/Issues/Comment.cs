@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace YouTrackSharp.Issues
+﻿namespace YouTrackSharp.Issues
 {
     public class Comment
     {

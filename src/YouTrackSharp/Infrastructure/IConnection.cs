@@ -11,6 +11,6 @@ namespace YouTrackSharp.Infrastructure
         T Post<T>(string command, object data, string accept);
         void Authenticate(string username, string password);
         User GetCurrentAuthenticatedUser();
-        bool IsAuthenticated { get;  }
+        bool IsAuthenticated { get; }
     }
 }

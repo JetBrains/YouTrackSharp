@@ -5,11 +5,11 @@ using System.Reflection;
 
 namespace YouTrackSharp.Issues
 {
-    public class IssueTypeConverter: TypeConverter
+    public class IssueTypeConverter : TypeConverter
     {
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            if (value.GetType() == typeof(Field[]))
+            if (value.GetType() == typeof (Field[]))
             {
                 return ConvertFromFields((Field[]) value);
             }
@@ -17,13 +17,13 @@ namespace YouTrackSharp.Issues
         }
 
 
-        private Issue ConvertFromFields(Field[] source)
+        Issue ConvertFromFields(Field[] source)
         {
             var issue = new Issue();
 
-            var properties = typeof(Issue).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo[] properties = typeof (Issue).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-            foreach (var property in properties)
+            foreach (PropertyInfo property in properties)
             {
                 property.SetValue(issue, GetValueByName(property.Name, source), null);
             }
@@ -32,11 +32,11 @@ namespace YouTrackSharp.Issues
             return issue;
         }
 
-        static string GetValueByName(string fieldName,Field[] fields)
+        static string GetValueByName(string fieldName, Field[] fields)
         {
-            for (var i = 0; i < fields.Length- 1; i++)
+            for (int i = 0; i < fields.Length - 1; i++)
             {
-                var field = fields[i];
+                Field field = fields[i];
 
                 if (String.Compare(field.name, fieldName, true) == 0)
                 {

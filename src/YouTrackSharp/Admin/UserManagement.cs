@@ -15,7 +15,6 @@ namespace YouTrackSharp.Admin
         }
 
 
-      
         public User GetUserByUserName(string username)
         {
             var user = _connection.Get<User>(String.Format("user/bylogin/{0}", username));

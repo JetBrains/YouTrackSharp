@@ -1,5 +1,4 @@
-﻿using JsonFx.Json;
-using YouTrackSharp.Infrastructure;
+﻿using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Projects
 {
@@ -8,6 +7,6 @@ namespace YouTrackSharp.Projects
         public string Name { get; set; }
         public string ShortName { get; set; }
         public bool IsImporting { get; set; }
-        public SubValuesArray AssigneesFullname   { get; set; }
+        public SubValuesArray AssigneesFullname { get; set; }
     }
 }
