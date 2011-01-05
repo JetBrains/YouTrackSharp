@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\AuthenticatedYouTrackConnectionForProjectSpecsSetup.cs" />
-    <Compile Include="Helpers\AuthenticatedYouTrackConnectionSetup.cs" />
-    <Compile Include="Helpers\YouTrackConnectionSetup.cs" />
-    <Compile Include="Helpers\AuthenticatedYouTrackConnectionForIssueSpecsSetup.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackConnectionForProjectSpecs.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackConnection.cs" />
+    <Compile Include="Helpers\YouTrackConnection.cs" />
+    <Compile Include="Helpers\AuthenticatedYouTrackConnectionForIssue.cs" />
     <Compile Include="Specs\ConnectionSpecs.cs" />
     <Compile Include="Specs\IssueManagementSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

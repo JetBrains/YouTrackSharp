@@ -3,7 +3,7 @@ using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Specs.Helpers
 {
-    public class YouTrackConnectionSetup
+    public class YouTrackConnection
     {
         Establish context = () =>
         {

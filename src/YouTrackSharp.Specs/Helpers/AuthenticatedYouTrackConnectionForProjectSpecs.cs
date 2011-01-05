@@ -4,7 +4,7 @@ using YouTrackSharp.Projects;
 
 namespace YouTrackSharp.Specs.Helpers
 {
-    public class AuthenticatedYouTrackConnectionForProjectSpecsSetup : AuthenticatedYouTrackConnectionSetup
+    public class AuthenticatedYouTrackConnectionForProjectSpecs : AuthenticatedYouTrackConnection
     {
         Establish context = () =>
         {

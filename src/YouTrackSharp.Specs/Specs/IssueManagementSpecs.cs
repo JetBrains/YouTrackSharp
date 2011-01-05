@@ -11,8 +11,8 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject("Issue Management")]
-    public class when_requesting_list_of_issues_for_project: AuthenticatedYouTrackConnectionForIssueSpecsSetup
+    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
+    public class when_requesting_list_of_issues_for_a_project: AuthenticatedYouTrackConnectionForIssue
     {
      
         Because of = () =>
@@ -21,17 +21,13 @@ namespace YouTrackSharp.Specs.Specs
             issues = issueManagement.GetIssues("SB", 10);
         };
 
-        It should_return_list_of_issues_for_that_project = () =>
-        {
-            issues.ShouldNotBeNull();
-            issues.Count().ShouldEqual(10);
-        };
+        It should_return_list_of_issues_for_that_project = () => issues.ShouldNotBeNull();
 
         protected static IEnumerable<Issue> issues;
     }
 
-    [Subject("Issue Management")]
-    public class when_requesting_a_specific_issues_that_exists: AuthenticatedYouTrackConnectionForIssueSpecsSetup
+    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues") ]
+    public class when_requesting_a_specific_issue: AuthenticatedYouTrackConnectionForIssue
     {
 
         Because of = () =>
@@ -40,18 +36,16 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_the_issue = () =>
-        {
-            issue.ShouldNotBeNull();
-            issue.Id.ShouldEqual("SB-282");
-            issue.ProjectShortName.ShouldEqual("SB");
-        };
+        It should_return_issue_with_correct_id = () => issue.Id.ShouldEqual("SB-282");
+
+        It should_return_issue_with_correct_project_name = () => issue.ProjectShortName.ShouldEqual("SB");
+
 
         static Issue issue;
     }
 
-    [Subject("Issue Management")]
-    public class when_requesting_a_specific_issues_that_does_not_exist: AuthenticatedYouTrackConnectionForIssueSpecsSetup
+    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
+    public class when_requesting_a_specific_issues_that_does_not_exist : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
@@ -59,29 +53,17 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_throw_invalid_request_exception = () =>
-        {
-            exception.ShouldBeOfType(typeof(InvalidRequestException));
-        };
+        It should_throw_invalid_request_exception = () => exception.ShouldBeOfType(typeof(InvalidRequestException));
 
-        It should_contain_inner_exception_of_type_http_exception = () =>
-        {
-            innerException = exception.InnerException;
-            innerException.ShouldBeOfType(typeof(HttpException));
-        };
+        It should_contain_inner_exception_of_type_http_exception = () => exception.InnerException.ShouldBeOfType(typeof(HttpException));
 
-        It inner_http_exception_should_contain_status_code_of_not_found = () =>
-        {
-            ((HttpException)innerException).StatusCode.ShouldEqual(HttpStatusCode.NotFound);
-
-        };
+        It inner_http_exception_should_contain_status_code_of_not_found = () => ((HttpException)exception.InnerException).StatusCode.ShouldEqual(HttpStatusCode.NotFound);
 
         static Exception exception;
-        static Exception innerException;
     }
 
-    [Subject("Issue Management")]
-    public class when_retrieving_comments_of_an_existing_issue_that_has_comments: AuthenticatedYouTrackConnectionForIssueSpecsSetup
+    [Subject(typeof(IssueManagement), "given authenticated connection and existing issues")]
+    public class when_retrieving_comments_of_issue_that_has_comments: AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
@@ -89,17 +71,14 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_the_comments = () =>
-        {
-            comments.ShouldNotBeNull();
-        };
+        It should_return_the_comments = () => comments.ShouldNotBeNull();
 
         static IEnumerable<Comment> comments;
     }
 
 
-    [Subject("Issue Management")]
-    public class when_creating_a_new_issue_with_valid_information_and_not_authenticated : YouTrackConnectionSetup
+    [Subject(typeof(IssueManagement), "given non-authenticated connection")]
+    public class when_creating_a_new_issue_with_valid_information: YouTrackConnection
     {
 
         Establish context = () =>
@@ -116,19 +95,17 @@ namespace YouTrackSharp.Specs.Specs
             exception = Catch.Exception(() => { IssueManagement.CreateIssue(issue); });
         };
 
-        It should_throw_invalid_request_with_message_not_authenticated = () =>
-        {
-            exception.ShouldBeOfType(typeof(InvalidRequestException));
-            exception.Message.ShouldEqual("Not Logged In");
-        };
+        It should_throw_invalid_request_with_message_not_authenticated = () => exception.ShouldBeOfType(typeof(InvalidRequestException));
+
+        It should_contain_message_not_logged_in = () => exception.Message.ShouldEqual("Not Logged In");
 
         protected static IssueManagement IssueManagement;
         static object response;
         static Exception exception;
     }
 
-    [Subject("Issue Management")]
-    public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackConnectionForIssueSpecsSetup
+    [Subject(typeof(IssueManagement), "given authenticated connection")]
+    public class when_creating_a_new_issue_with_valid_information_and_authenticated: AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
@@ -144,11 +121,7 @@ namespace YouTrackSharp.Specs.Specs
             id  = issueManagement.CreateIssue(issue);
         };
 
-        It should_return_issue = () =>
-        {
-
-            id.ShouldNotBeEmpty();
-        };
+        It should_return_issue = () => id.ShouldNotBeEmpty();
         
         static string id;
 

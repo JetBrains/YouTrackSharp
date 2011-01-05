@@ -7,8 +7,8 @@ using YouTrackSharp.Specs.Helpers;
 namespace YouTrackSharp.Specs.Specs
 {
 
-    [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_projects: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    [Subject(typeof(ProjectManagement), "given authenticated connection and existing projects")]
+    public class when_retrieving_a_list_of_projects: AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -29,8 +29,8 @@ namespace YouTrackSharp.Specs.Specs
         static IEnumerable<Project> projects;
     }
 
-    [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_priorities: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    [Subject(typeof(ProjectManagement), "given authenticated connection and existing projects")]
+    public class when_retrieving_a_list_of_priorities : AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -38,21 +38,17 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_all_priorities = () =>
-        {
-            priorities.Count().ShouldBeGreaterThan(0);
-        };
+        It should_return_all_priorities = () => priorities.Count().ShouldBeGreaterThan(0);
         
-        It should_contain_valid_priority_data = () =>
-        {
-            priorities.First().Name.ShouldNotBeEmpty();
-            priorities.First().NumericValue.ShouldNotBeEmpty();
-        };
+        It should_contain_correct_name = () => priorities.First().Name.ShouldNotBeEmpty();
+
+        It should_contain_correct_numericvalue = () => priorities.First().NumericValue.ShouldNotBeEmpty();
+  
         static IEnumerable<ProjectPriority> priorities;
     }
 
-    [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_states: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    [Subject(typeof(ProjectManagement), "given authenticated connection and existing projects")]
+    public class when_retrieving_a_list_of_states: AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -60,21 +56,15 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_all_states = () =>
-        {
-            states.Count().ShouldBeGreaterThan(0);
-        };
+        It should_return_all_states = () => states.Count().ShouldBeGreaterThan(0);
         
-        It should_contain_valid_state_data = () =>
-        {
-            states.First().Name.ShouldNotBeEmpty();
-        };
+        It should_contain_valid_state_data = () => states.First().Name.ShouldNotBeEmpty();
 
         static IEnumerable<ProjectState> states;
     }
 
-    [Subject("Project Management")]
-    public class when_retrieving_a_list_of_existing_issue_types: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    [Subject(typeof(ProjectManagement), "given authenticated connection and existing projects")]
+    public class when_retrieving_a_list_of_issue_types: AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -82,21 +72,15 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_all_issue_types = () =>
-        {
-            issueTypes.Count().ShouldBeGreaterThan(0);
-        };
+        It should_return_all_issue_types = () => issueTypes.ShouldNotBeNull();
         
-        It should_contain_valid_issue_type_data = () =>
-        {
-            issueTypes.First().Name.ShouldNotBeEmpty();
-        };
+        It should_contain_valid_issue_type_data = () => issueTypes.First().Name.ShouldNotBeEmpty();
 
         static IEnumerable<ProjectIssueTypes> issueTypes;
     }
 
-    [Subject("Project Management")]
-    public class when_retrieving_a_list_of_resolution_states: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    [Subject(typeof(ProjectManagement), "given authenticated connection and existing projects")]
+    public class when_retrieving_a_list_of_resolution_states: AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -104,22 +88,16 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_all_resolution_states = () =>
-        {
-            resolutions.Count().ShouldBeGreaterThan(0);
-        };
+        It should_return_all_resolution_states = () => resolutions.Count().ShouldBeGreaterThan(0);
         
-        It should_contain_valid_resolution_state_data = () =>
-        {
-            resolutions.First().Name.ShouldNotBeEmpty();
-        };
+        It should_contain_valid_resolution_state_data = () => resolutions.First().Name.ShouldNotBeEmpty();
 
         static IEnumerable<ProjectResolutionTypes> resolutions;
     }
 
     [Ignore]
     [Subject("Project Management")]
-    public class when_retrieving_an_existing_project_by_name: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    public class when_retrieving_an_existing_project_by_name: AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>
         {
@@ -127,10 +105,7 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_the_specified_project = () =>
-        {
-            project.Name.ShouldEqual("SB");
-        };
+        It should_return_the_specified_project = () => project.Name.ShouldEqual("SB");
 
         static Project project;
     }

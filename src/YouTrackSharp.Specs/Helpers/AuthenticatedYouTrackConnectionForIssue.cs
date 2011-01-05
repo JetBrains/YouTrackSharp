@@ -3,7 +3,7 @@ using YouTrackSharp.Issues;
 
 namespace YouTrackSharp.Specs.Helpers
 {
-    public class AuthenticatedYouTrackConnectionForIssueSpecsSetup : AuthenticatedYouTrackConnectionSetup
+    public class AuthenticatedYouTrackConnectionForIssue : AuthenticatedYouTrackConnection
     {
         Establish context = () =>
         {

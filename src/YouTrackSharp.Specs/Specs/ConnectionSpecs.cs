@@ -5,8 +5,8 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject("Connection")]
-    public class when_provided_valid_username_and_password
+    [Subject(typeof(Connection), "given valid connection details")]
+    public class when_authenticating_with_valid_username_and_password
     {
         Establish context = () =>
         {
@@ -14,22 +14,15 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        Because of = () =>
-        {
-            connection.Authenticate("youtrackapi", "youtrackapi");
+        Because of = () => connection.Authenticate("youtrackapi", "youtrackapi");
 
-        };
-
-        It should_have_property_IsAuthenticated_set_to_true = () =>
-        {
-            connection.IsAuthenticated.ShouldBeTrue();
-        };
+        It should_succeed = () => connection.IsAuthenticated.ShouldBeTrue();
 
         static Connection connection;
     }
 
-    [Subject("Connection")]
-    public class when_provided_invalid_username_and_password
+    [Subject(typeof(Connection), "given valid connection details")]
+    public class when_authenticating_with_invalid_username_and_or_password
     {
         Establish context = () =>
         {
@@ -43,16 +36,13 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_have_property_IsAuthenticated_set_to_false = () =>
-        {
-            connection.IsAuthenticated.ShouldBeFalse();
-        };
+        It should_not_succeed = () => connection.IsAuthenticated.ShouldBeFalse();
 
         static Connection connection;
     }
 
-    [Subject("Connection")]
-    public class when_requesting_current_logged_user
+    [Subject(typeof(Connection), "given authenticated connection")]
+    public class when_requesting_current_logged_in_user
     {
         Establish context = () =>
         {
@@ -69,11 +59,9 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-        It should_return_user_information = () =>
-        {
-            user.Username.ShouldEqual("youtrackapi");
-            user.FullName.ShouldEqual("YouTrack API");
-        };
+        It should_contain_valid_username = () => user.Username.ShouldEqual("youtrackapi");
+
+        It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YouTrack API");
 
         static IConnection connection;
         static User user;
