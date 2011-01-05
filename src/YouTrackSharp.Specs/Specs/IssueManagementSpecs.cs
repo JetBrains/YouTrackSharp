@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using EasyHttp.Infrastructure;
@@ -109,10 +110,7 @@ namespace YouTrackSharp.Specs.Specs
 
         Because of = () =>
         {
-            var issue = new NewIssueMessage();
-
-            issue.Project = "SB";
-            issue.Summary = "Issue Created";
+            var issue = new Issue {ProjectShortName = "SB", Summary = "Issue Created"};
 
 
             exception = Catch.Exception(() => { IssueManagement.CreateIssue(issue); });
@@ -134,30 +132,25 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            var issue = new NewIssueMessage
-                        {
-                            Project = "SB",
-                            Summary = "Issue Created",
-                      //      Assignee = "youtrackapi",
-                            Description = "Some description",
-                        //    FixedInBuild = "1.0",
-                          //  Priority = "1",
-                            //ReporterName = "youtrackapi",
-                            //State = "Submitted",
-                           // Subsystem = "Unassigned"
-                            //Type = "Bug"
-                        };
-           
 
-            response  = issueManagement.CreateIssue(issue);
+            var issue = new Issue
+                        {
+                            ProjectShortName = "SB",
+                            Summary = "something new ",
+                            Description = "somethingelse new too",
+                            Assignee = "youtrackapi"
+                        };
+
+            id  = issueManagement.CreateIssue(issue);
         };
 
         It should_return_issue = () =>
         {
 
+            id.ShouldNotBeEmpty();
         };
         
-        static object response;
+        static string id;
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Machine.Specifications;
-using YouTrackSharp.Server;
+using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Specs.Helpers
 {

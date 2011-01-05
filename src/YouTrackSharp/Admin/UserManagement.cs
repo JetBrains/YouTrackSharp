@@ -7,9 +7,9 @@ namespace YouTrackSharp.Admin
 {
     public class UserManagement
     {
-        readonly Connection _connection;
+        readonly IConnection _connection;
 
-        public UserManagement(Connection connection)
+        public UserManagement(IConnection connection)
         {
             _connection = connection;
         }

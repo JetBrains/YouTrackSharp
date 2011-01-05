@@ -5,12 +5,12 @@ using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
-using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Projects;
+using YouTrackSharp.Server;
 
-namespace YouTrackSharp.Server
+namespace YouTrackSharp.Infrastructure
 {
-    public class Connection
+    public class Connection : IConnection
     {
         readonly string _host;
         readonly int _port;
@@ -87,7 +87,7 @@ namespace YouTrackSharp.Server
             return new List<TInternal>();
         }
 
-        public dynamic Post(string command, object data, string accept)
+        public T Post<T>(string command, object data, string accept)
         {
             var httpRequest = CreateHttpRequest();
 
@@ -113,7 +113,7 @@ namespace YouTrackSharp.Server
             {
 
 
-                var result = Post("user/login", credentials, HttpContentTypes.ApplicationXml);
+                var result = Post<dynamic>("user/login", credentials, HttpContentTypes.ApplicationXml);
 
                 if (String.Compare(result.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
                 {

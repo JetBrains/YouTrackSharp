@@ -1,4 +1,5 @@
 using Machine.Specifications;
+using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Server;
 using YouTrackSharp.Specs.Helpers;
 
@@ -74,7 +75,7 @@ namespace YouTrackSharp.Specs.Specs
             user.FullName.ShouldEqual("YouTrack API");
         };
 
-        static Connection connection;
+        static IConnection connection;
         static User user;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
@@ -11,9 +12,9 @@ namespace YouTrackSharp.Issues
 {
     public class IssueManagement
     {
-        readonly Connection _connection;
+        readonly IConnection _connection;
 
-        public IssueManagement(Connection connection)
+        public IssueManagement(IConnection connection)
         {
             _connection = connection;
         }
@@ -43,7 +44,7 @@ namespace YouTrackSharp.Issues
             }
         }
 
-        public string CreateIssue(NewIssueMessage issueMessage)
+        public string CreateIssue(Issue issue)
         {
             if (!_connection.IsAuthenticated)
             {
@@ -52,10 +53,17 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                var response = _connection.Post("issue", issueMessage, HttpContentTypes.ApplicationXml);
+                dynamic newIssueMessage = new ExpandoObject();
+
+                newIssueMessage.project = issue.ProjectShortName;
+                newIssueMessage.description = issue.Description;
+                newIssueMessage.summary = issue.Summary;
+                newIssueMessage.assignee = issue.Assignee;
+
+                var response = _connection.Post<dynamic>("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
 
              
-                return response.issue.id;
+                return response.id;
 
             }
             catch (HttpException httpException)
@@ -73,9 +81,7 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IEnumerable<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            var response = _connection.Get<MultipleIssueWrapper>("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start);
-
-            return response.issue;
+            return _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}", projectIdentifier, max, start));
         }
 
         /// <summary>

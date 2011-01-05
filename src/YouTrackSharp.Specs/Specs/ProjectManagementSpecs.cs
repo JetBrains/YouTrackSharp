@@ -117,4 +117,22 @@ namespace YouTrackSharp.Specs.Specs
         static IEnumerable<ProjectResolutionTypes> resolutions;
     }
 
+    [Ignore]
+    [Subject("Project Management")]
+    public class when_retrieving_an_existing_project_by_name: AuthenticatedYouTrackConnectionForProjectSpecsSetup
+    {
+        Because of = () =>
+        {
+            project = projectManagement.GetProject("SB");
+
+        };
+
+        It should_return_the_specified_project = () =>
+        {
+            project.Name.ShouldEqual("SB");
+        };
+
+        static Project project;
+    }
+
 }

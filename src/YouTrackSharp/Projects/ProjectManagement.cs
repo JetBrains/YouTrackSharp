@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Server;
 
 namespace YouTrackSharp.Projects
 {
     public class ProjectManagement
     {
-        readonly Connection _connection;
+        readonly IConnection _connection;
 
-        public ProjectManagement(Connection connection)
+        public ProjectManagement(IConnection connection)
         {
             _connection = connection;
         }
@@ -17,6 +18,7 @@ namespace YouTrackSharp.Projects
         {
             return _connection.Get<MultipleProjectWrapper, Project>("project/all");
         }
+
 
         public IEnumerable<ProjectPriority> GetPriorities()
         {
@@ -36,6 +38,11 @@ namespace YouTrackSharp.Projects
         public IEnumerable<ProjectResolutionTypes> GetResolutions()
         {
             return _connection.Get<MultipleProjectResolutionTypesWrapper, ProjectResolutionTypes>("project/resolutions");
+        }
+
+        public Project GetProject(string projectName)
+        {
+            return _connection.Get<Project>(String.Format("admin/project/{0}", projectName));
         }
     }
 }

@@ -1,8 +1,12 @@
-﻿namespace YouTrackSharp.Issues
+﻿using JsonFx.Json;
+using YouTrackSharp.Projects;
+
+namespace YouTrackSharp.Issues
 {
-    public class MultipleIssueWrapper
+    public class MultipleIssueWrapper: IDataWrapper<Issue>
     {
-        public Issue[] issue { get; set; }
+        [JsonName("issue")]
+        public Issue[] Data { get; set; }
 
     }
 }
