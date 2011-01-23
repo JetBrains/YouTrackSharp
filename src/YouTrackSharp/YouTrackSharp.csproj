@@ -77,7 +77,7 @@
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Projects\ProjectIssueTypes.cs" />
     <Compile Include="Projects\ProjectPriority.cs" />
-    <Compile Include="Projects\ProjectResolutionTypes.cs" />
+    <Compile Include="Projects\ProjectResolutionType.cs" />
     <Compile Include="Projects\ProjectState.cs" />
     <Compile Include="Projects\ProjectManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

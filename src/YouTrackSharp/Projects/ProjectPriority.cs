@@ -37,6 +37,6 @@ namespace YouTrackSharp.Projects
         public string Name { get; set; }
 
         [JsonName("priority")]
-        public string NumericValue { get; set; }
+        public int NumericValue { get; set; }
     }
 }

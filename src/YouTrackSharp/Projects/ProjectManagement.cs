@@ -30,6 +30,7 @@
 #endregion
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Projects
@@ -64,9 +65,9 @@ namespace YouTrackSharp.Projects
             return _connection.Get<MultipleProjectIssueTypesWrapper, ProjectIssueTypes>("project/types");
         }
 
-        public IEnumerable<ProjectResolutionTypes> GetResolutions()
+        public IEnumerable<ProjectResolutionType> GetResolutions()
         {
-            return _connection.Get<MultipleProjectResolutionTypesWrapper, ProjectResolutionTypes>("project/resolutions");
+            return _connection.Get<MultipleProjectResolutionTypesWrapper, ProjectResolutionType>("project/resolutions");
         }
 
         public Project GetProject(string projectName)

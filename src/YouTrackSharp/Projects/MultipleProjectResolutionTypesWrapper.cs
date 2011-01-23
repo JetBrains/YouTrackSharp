@@ -32,12 +32,12 @@ using JsonFx.Json;
 
 namespace YouTrackSharp.Projects
 {
-    public class MultipleProjectResolutionTypesWrapper : IDataWrapper<ProjectResolutionTypes>
+    public class MultipleProjectResolutionTypesWrapper : IDataWrapper<ProjectResolutionType>
     {
-        #region IDataWrapper<ProjectResolutionTypes> Members
+        #region IDataWrapper<ProjectResolutionType> Members
 
         [JsonName("resolution")]
-        public ProjectResolutionTypes[] Data { get; set; }
+        public ProjectResolutionType[] Data { get; set; }
 
         #endregion
     }
