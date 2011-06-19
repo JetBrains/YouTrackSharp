@@ -34,8 +34,8 @@ using YouTrackSharp.Server;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject(typeof (Connection), "given valid connection details")]
-    public class when_authenticating_with_valid_username_and_password
+    [Subject(typeof (Connection))]
+    public class when_authenticating_with_valid_username_and_password_given_valid_connection_details
     {
         Establish context = () => { connection = new Connection("youtrack.jetbrains.net"); };
 
@@ -46,8 +46,8 @@ namespace YouTrackSharp.Specs.Specs
         static Connection connection;
     }
 
-    [Subject(typeof (Connection), "given valid connection details")]
-    public class when_authenticating_with_invalid_username_and_or_password
+    [Subject(typeof (Connection))]
+    public class when_authenticating_with_invalid_username_and_or_password_given_valid_connection_details
     {
         Establish context = () => { connection = new Connection("youtrack.jetbrains.net"); };
 
@@ -58,8 +58,8 @@ namespace YouTrackSharp.Specs.Specs
         static Connection connection;
     }
 
-    [Subject(typeof (Connection), "given authenticated connection")]
-    public class when_requesting_current_logged_in_user
+    [Subject(typeof (Connection))]
+    public class when_requesting_current_logged_in_user_given_authenticated_details
     {
         Establish context = () =>
         {

@@ -39,8 +39,8 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject(typeof (UserManagement), "given authenticated connection and existing users")]
-    public class when_requesting_user_information_of_existing_user : AuthenticatedYouTrackConnection
+    [Subject(typeof (UserManagement))]
+    public class when_requesting_user_information_of_existing_user_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
     {
         Establish context = () => { userManagement = new UserManagement(connection); };
 
@@ -56,8 +56,8 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof (UserManagement), "given non-authenticated connection and existing users")]
-    public class when_requesting_user_information_of_non_existing_user : AuthenticatedYouTrackConnection
+    [Subject(typeof (UserManagement))]
+    public class when_requesting_user_information_of_non_existing_user_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
     {
         Establish context = () => { userManagement = new UserManagement(connection); };
 
@@ -72,8 +72,8 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof (UserManagement), "given non-authenticated connection and existing users")]
-    public class when_requesting_user_information_of_a_user : YouTrackConnection
+    [Subject(typeof (UserManagement))]
+    public class when_requesting_user_information_of_a_user_given_authenticated_connection_and_existing_users : YouTrackConnection
     {
         Establish context = () => { userManagement = new UserManagement(connection); };
 
@@ -87,8 +87,8 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
     }
 
-    [Subject(typeof (UserManagement), "given authenticated connection and existing users")]
-    public class when_requesting_saved_filters_for_a_specific_user : AuthenticatedYouTrackConnection
+    [Subject(typeof (UserManagement))]
+    public class when_requesting_saved_filters_for_a_specific_user_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
     {
         Establish context = () => { userManagement = new UserManagement(connection); };
 

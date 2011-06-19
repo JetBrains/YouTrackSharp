@@ -39,8 +39,8 @@ using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
-    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
-    public class when_requesting_list_of_issues_for_a_project : AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement))]
+    public class when_requesting_list_of_issues_for_a_project_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () => { issues = issueManagement.GetIssues("SB", 10); };
 
@@ -49,8 +49,8 @@ namespace YouTrackSharp.Specs.Specs
         protected static IEnumerable<Issue> issues;
     }
 
-    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
-    public class when_requesting_a_specific_issue : AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement))]
+    public class when_requesting_a_specific_issue_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () => { issue = issueManagement.GetIssue("SB-282"); };
 
@@ -62,8 +62,8 @@ namespace YouTrackSharp.Specs.Specs
         static Issue issue;
     }
 
-    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
-    public class when_requesting_a_specific_issues_that_does_not_exist : AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement))]
+    public class when_requesting_a_specific_issues_that_does_not_exist_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () => { exception = Catch.Exception(() => issueManagement.GetIssue("fdfdfsdfsd")); };
 
@@ -78,8 +78,8 @@ namespace YouTrackSharp.Specs.Specs
         static Exception exception;
     }
 
-    [Subject(typeof (IssueManagement), "given authenticated connection and existing issues")]
-    public class when_retrieving_comments_of_issue_that_has_comments : AuthenticatedYouTrackConnectionForIssue
+    [Subject(typeof (IssueManagement))]
+    public class when_retrieving_comments_of_issue_that_has_comments_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-560"); };
 
@@ -89,8 +89,8 @@ namespace YouTrackSharp.Specs.Specs
     }
 
 
-    [Subject(typeof (IssueManagement), "given non-authenticated connection")]
-    public class when_creating_a_new_issue_with_valid_information : YouTrackConnection
+    [Subject(typeof (IssueManagement))]
+    public class when_creating_a_new_issue_with_valid_information_given_a_non_authenticated_connection : YouTrackConnection
     {
         Establish context = () => { IssueManagement = new IssueManagement(connection); };
 
@@ -112,7 +112,7 @@ namespace YouTrackSharp.Specs.Specs
         static Exception exception;
     }
 
-    [Subject(typeof (IssueManagement), "given authenticated connection")]
+    [Subject(typeof (IssueManagement))]
     public class when_creating_a_new_issue_with_valid_information_and_authenticated :
         AuthenticatedYouTrackConnectionForIssue
     {
