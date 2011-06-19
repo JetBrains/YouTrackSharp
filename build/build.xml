@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectFolder>..\src\</ProjectFolder>
+  </PropertyGroup>
+  <Target Name="Build">
+    <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln"/>
+  </Target>
+  <Target Name="Release">
+    <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
+    <Exec Command="NuGet pack ..\build\Package.nuspec -o ..\build\Release\"/>
+  </Target>
+
+</Project>

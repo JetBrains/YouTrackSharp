@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>YouTrackSharp</id>
+    <version>0.9</version>
+    <authors>Hadi Hariri</authors>
+    <owners>Hadi Hariri</owners>
+    <licenseUrl>https://github.com/hhariri/YouTrackSharp/blob/master/LICENSE.TXT</licenseUrl>
+    <projectUrl>https://github.com/hhariri/YouTrackSharp</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A .NET Client for YouTrack</description>
+    <tags>YouTrack</tags>
+    <dependencies>
+      <dependency id="EasyHttp" version="1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Release\YouTrackSharp.dll" target="lib" />
+    <file src="Release\YouTrackSharp.pdb" target="lib" />
+  </files>
+</package>
