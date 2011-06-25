@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
+using System.IO;
 using System.Net;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
@@ -88,7 +89,7 @@ namespace YouTrackSharp.Issues
                 newIssueMessage.summary = issue.Summary;
                 newIssueMessage.assignee = issue.Assignee;
 
-                dynamic response = _connection.Post<dynamic>("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
+                var response = _connection.Post("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
 
 
                 return response.id;
@@ -136,8 +137,7 @@ namespace YouTrackSharp.Issues
         {
             try
             {
-                _connection.Get<dynamic>("issue/{0}/exists", issueId);
-                // TODO: Don't like this at all
+                _connection.Head(string.Format("issue/{0}/exists", issueId));
                 return _connection.HttpStatusCode == HttpStatusCode.OK;
             }
             catch (HttpException httpException)
@@ -146,9 +146,39 @@ namespace YouTrackSharp.Issues
             }
         }
 
-        public void AttachFileToIssue(string issuedId, string filename)
+        public void AttachFileToIssue(string issuedId, string path)
         {
-            _connection.PostFile(string.Format("issue/{0}/attachment?name={1}", issuedId, filename), filename);
+            _connection.PostFile(string.Format("issue/{0}/attachment", issuedId), path);
+            
+            if (_connection.HttpStatusCode != HttpStatusCode.Created)
+            {
+                throw new InvalidRequestException(_connection.HttpStatusCode.ToString());
+            }
+        }
+
+        public void ApplyCommand(string issueId, string command, string comment)
+        {
+            if (!_connection.IsAuthenticated)
+            {
+                throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
+            }
+
+            try
+            {
+                dynamic commandMessage = new ExpandoObject();
+
+
+                commandMessage.command = command;
+                commandMessage.comment = comment;
+                
+                _connection.Post(string.Format("issue/{0}/execute", issueId), commandMessage);
+
+            }
+            catch (HttpException httpException)
+            {
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);
+            }
+                
         }
     }
 }

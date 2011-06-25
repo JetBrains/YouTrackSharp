@@ -39,11 +39,13 @@ namespace YouTrackSharp.Infrastructure
     {
         T Get<T>(string command, params object[] parameters);
         IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>;
-        T Post<T>(string command, object data, string accept);
+        dynamic Post(string command, object data, string accept);
         void Authenticate(string username, string password);
         User GetCurrentAuthenticatedUser();
         bool IsAuthenticated { get; }
         HttpStatusCode HttpStatusCode { get; }
-        void PostFile(string command, string filename);
+        void PostFile(string command, string path);
+        void Head(string command);
+        void Post(string command, object data);
     }
 }

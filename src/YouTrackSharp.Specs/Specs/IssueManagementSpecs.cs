@@ -139,7 +139,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            var result = issueManagement.CheckIfIssueExists("SB-560");
+            result = issueManagement.CheckIfIssueExists("SB-560");
 
         };
 
@@ -149,18 +149,33 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    public class when_adding_an_attachment_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
+    public class when_adding_an_attachment_to_an_existing_issue: AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
-            issueManagement.AttachFileToIssue("SB-560", "image.png");
+            issueManagement.AttachFileToIssue("SB-560", @"Helpers\TestAtt.txt");
         };
 
         It should_be_successful = () =>
         {
 
         };
-    } 
+    }
 
+    [Subject(typeof (IssueManagement))]
+    public class when_applying_a_command_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () =>
+        {
+            issueManagement.ApplyCommand("SB-560", "Fixed", "");
+
+        };
+
+        It should_be_successful = () =>
+        {
+
+        };
+
+    } 
 
 }

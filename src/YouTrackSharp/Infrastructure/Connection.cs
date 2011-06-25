@@ -31,6 +31,7 @@
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.IO;
 using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
@@ -65,7 +66,6 @@ namespace YouTrackSharp.Infrastructure
 
             _uriConstructor = new DefaultUriConstructor(protocol, _host, _port);
         }
-
 
         public T Get<T>(string command, params object[] parameters)
         {
@@ -103,16 +103,32 @@ namespace YouTrackSharp.Infrastructure
             }
             return new List<TInternal>();
         }
+  
 
-        public void PostFile(string command, string filename)
+        public void PostFile(string command, string path)
         {
             HttpClient httpRequest = CreateHttpRequest();
 
-            var contentType = GetFileContentType(filename);
+            httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
+  
 
-            var files = new List<FileData>() { new FileData() { Filename = filename, ContentTransferEncoding = "binary", ContentType = contentType}};
-            
-            httpRequest.Post(command, null, files);
+            var contentType = GetFileContentType(path);
+
+            var files = new List<FileData>() { new FileData() { Filename = path, ContentTransferEncoding = "binary", ContentType = contentType}};
+
+
+            httpRequest.Post(_uriConstructor.ConstructBaseUri(command), null, files);
+            HttpStatusCode = httpRequest.Response.StatusCode;
+
+        }
+
+        public void Head(string command)
+        {
+            HttpClient httpRequest = CreateHttpRequest();
+
+            httpRequest.Head(_uriConstructor.ConstructBaseUri(command));
+            HttpStatusCode = httpRequest.Response.StatusCode;
+
         }
 
         string GetFileContentType(string filename)
@@ -125,7 +141,20 @@ namespace YouTrackSharp.Infrastructure
             return mime;
         }
 
-        public T Post<T>(string command, object data, string accept)
+        public void Post(string command, object data)
+        {
+            // This actually doesn't return Application/XML...Bug in YouTrack
+            MakePostRequest(command, data, HttpContentTypes.ApplicationXml);
+        }
+
+        public dynamic Post(string command, object data, string accept)
+        {
+            var httpRequest = MakePostRequest(command, data, accept);
+
+            return httpRequest.Response.DynamicBody;
+        }
+
+        HttpClient MakePostRequest(string command, object data, string accept)
         {
             HttpClient httpRequest = CreateHttpRequest();
 
@@ -137,10 +166,8 @@ namespace YouTrackSharp.Infrastructure
             HttpStatusCode = httpRequest.Response.StatusCode;
 
             _authenticationCookie = httpRequest.Response.Cookie;
-
-            return httpRequest.Response.DynamicBody;
+            return httpRequest;
         }
-
 
         public void Authenticate(string username, string password)
         {
@@ -151,7 +178,7 @@ namespace YouTrackSharp.Infrastructure
 
             try
             {
-                dynamic result = Post<dynamic>("user/login", credentials, HttpContentTypes.ApplicationXml);
+                var result = Post("user/login", credentials, HttpContentTypes.ApplicationXml);
 
                 if (String.Compare(result.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
                 {
@@ -195,8 +222,7 @@ namespace YouTrackSharp.Infrastructure
 
             if (_authenticationCookie != null)
             {
-                httpClient.Request.Cookies = new CookieCollection();
-                httpClient.Request.Cookies.Add(_authenticationCookie);
+                httpClient.Request.Cookies = new CookieCollection {_authenticationCookie};
             }
 
 
