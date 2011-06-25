@@ -48,6 +48,8 @@ namespace YouTrackSharp.Infrastructure
         CookieCollection _authenticationCookie;
         string _username;
 
+        public HttpStatusCode HttpStatusCode { get; private set; }
+
         public Connection(string host, int port = 80, bool useSSL = false)
         {
             string protocol = "http";
@@ -64,7 +66,6 @@ namespace YouTrackSharp.Infrastructure
             _uriConstructor = new DefaultUriConstructor(protocol, _host, _port);
         }
 
-        #region IConnection Members
 
         public T Get<T>(string command, params object[] parameters)
         {
@@ -75,7 +76,11 @@ namespace YouTrackSharp.Infrastructure
 
             try
             {
-                return httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+                var staticBody = httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+
+                HttpStatusCode = httpRequest.Response.StatusCode;
+                
+                return staticBody;
             }
             catch (HttpException httpException)
             {
@@ -93,9 +98,31 @@ namespace YouTrackSharp.Infrastructure
 
             if (response != null)
             {
+                
                 return response.Data;
             }
             return new List<TInternal>();
+        }
+
+        public void PostFile(string command, string filename)
+        {
+            HttpClient httpRequest = CreateHttpRequest();
+
+            var contentType = GetFileContentType(filename);
+
+            var files = new List<FileData>() { new FileData() { Filename = filename, ContentTransferEncoding = "binary", ContentType = contentType}};
+            
+            httpRequest.Post(command, null, files);
+        }
+
+        string GetFileContentType(string filename)
+        {
+            var mime = "application/octetstream";
+            var ext = System.IO.Path.GetExtension(filename).ToLower();
+            Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(ext);
+            if (rk != null && rk.GetValue("Content Type") != null)
+            mime = rk.GetValue("Content Type").ToString();
+            return mime;
         }
 
         public T Post<T>(string command, object data, string accept)
@@ -106,6 +133,8 @@ namespace YouTrackSharp.Infrastructure
 
             httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data,
                              HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+
+            HttpStatusCode = httpRequest.Response.StatusCode;
 
             _authenticationCookie = httpRequest.Response.Cookie;
 
@@ -155,7 +184,6 @@ namespace YouTrackSharp.Infrastructure
             return null;
         }
 
-        #endregion
 
         HttpClient CreateHttpRequest()
         {

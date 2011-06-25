@@ -29,6 +29,7 @@
 // =============================================================
 #endregion
 using System.Collections.Generic;
+using System.Net;
 using YouTrackSharp.Projects;
 using YouTrackSharp.Server;
 
@@ -42,5 +43,7 @@ namespace YouTrackSharp.Infrastructure
         void Authenticate(string username, string password);
         User GetCurrentAuthenticatedUser();
         bool IsAuthenticated { get; }
+        HttpStatusCode HttpStatusCode { get; }
+        void PostFile(string command, string filename);
     }
 }

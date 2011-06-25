@@ -133,4 +133,34 @@ namespace YouTrackSharp.Specs.Specs
 
         static string id;
     }
+
+    [Subject(typeof (IssueManagement))]
+    public class when_checking_to_see_if_an_existing_issue_exists: AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () =>
+        {
+            var result = issueManagement.CheckIfIssueExists("SB-560");
+
+        };
+
+        It should_return_true = () => result.ShouldBeTrue();
+
+        static bool result;
+    }
+
+    [Subject(typeof (IssueManagement))]
+    public class when_adding_an_attachment_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () =>
+        {
+            issueManagement.AttachFileToIssue("SB-560", "image.png");
+        };
+
+        It should_be_successful = () =>
+        {
+
+        };
+    } 
+
+
 }

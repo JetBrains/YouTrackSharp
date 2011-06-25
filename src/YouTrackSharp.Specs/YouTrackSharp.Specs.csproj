@@ -70,10 +70,14 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Helpers\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>X:\Projects\YouTrackSharp\src\packages\Machine.Specifications.0.4.13.0\tools\mspec-clr4.exe  ..\..\..\YouTrackSharp.Specs\bin\Debug\YouTrackSharp.Specs.dll --html X:\Temp\output
-.html</PostBuildEvent>
+    <PostBuildEvent>X:\Projects\YouTrackSharp\src\packages\Machine.Specifications.0.4.13.0\tools\mspec-clr4.exe  ..\..\..\YouTrackSharp.Specs\bin\Debug\YouTrackSharp.Specs.dll --html X:\Temp\output.html</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

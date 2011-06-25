@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
+using System.Net;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
@@ -129,6 +130,25 @@ namespace YouTrackSharp.Issues
             {
                 throw new InvalidRequestException(httpException.StatusDescription, httpException);
             }
+        }
+
+        public bool CheckIfIssueExists(string issueId)
+        {
+            try
+            {
+                _connection.Get<dynamic>("issue/{0}/exists", issueId);
+                // TODO: Don't like this at all
+                return _connection.HttpStatusCode == HttpStatusCode.OK;
+            }
+            catch (HttpException httpException)
+            {
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);
+            }
+        }
+
+        public void AttachFileToIssue(string issuedId, string filename)
+        {
+            _connection.PostFile(string.Format("issue/{0}/attachment?name={1}", issuedId, filename), filename);
         }
     }
 }
