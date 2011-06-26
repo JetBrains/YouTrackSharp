@@ -51,7 +51,7 @@ namespace YouTrackSharp.Infrastructure
 
         public HttpStatusCode HttpStatusCode { get; private set; }
 
-        public Connection(string host, int port = 80, bool useSSL = false)
+        public Connection(string host, int port = 80, bool useSSL = false, string path = null)
         {
             string protocol = "http";
 
@@ -64,7 +64,7 @@ namespace YouTrackSharp.Infrastructure
                 protocol = "https";
             }
 
-            _uriConstructor = new DefaultUriConstructor(protocol, _host, _port);
+            _uriConstructor = new DefaultUriConstructor(protocol, _host, _port, path);
         }
 
         public T Get<T>(string command, params object[] parameters)

@@ -32,20 +32,39 @@ using System;
 
 namespace YouTrackSharp.Infrastructure
 {
-    internal class DefaultUriConstructor : IUriConstructor
+    public class DefaultUriConstructor : IUriConstructor
     {
         readonly string _host;
         readonly int _port;
         readonly string _protocol;
+        readonly string _path;
 
-        public DefaultUriConstructor(string protocol, string host, int port)
+        public DefaultUriConstructor(string protocol, string host, int port, string path)
         {
             _protocol = protocol;
             _port = port;
             _host = host;
+            if (!String.IsNullOrEmpty(path))
+            {
+                _path = AddPrefixBar(path);
+            } else
+            {
+                _path = "";
+            }
         }
 
-        #region IUriConstructor Members
+        string AddPrefixBar(string path)
+        {
+            if (path.Length > 0)
+            {
+                if (path[0] != '/')
+                {
+                    return '/' + path;
+                }
+            }
+            return path;
+        }
+
 
         /// <summary>
         /// Create base Uri for Server containing host, port and specific request
@@ -54,9 +73,7 @@ namespace YouTrackSharp.Infrastructure
         /// <returns>Uri</returns>
         public string ConstructBaseUri(string request)
         {
-            return String.Format("{0}://{1}:{2}/rest/{3}", _protocol, _host, _port, request);
+            return String.Format("{0}://{1}:{2}{3}/rest/{4}", _protocol, _host, _port, _path, request);
         }
-
-        #endregion
     }
 }
