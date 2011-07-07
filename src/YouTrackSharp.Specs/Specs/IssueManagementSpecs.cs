@@ -42,7 +42,7 @@ namespace YouTrackSharp.Specs.Specs
     [Subject(typeof (IssueManagement))]
     public class when_requesting_list_of_issues_for_a_project_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { issues = issueManagement.GetIssues("SB", 10); };
+        Because of = () => { issues = issueManagement.GetAllIssuesForProject("SB", 10); };
 
         It should_return_list_of_issues_for_that_project = () => issues.ShouldNotBeNull();
 
@@ -176,6 +176,22 @@ namespace YouTrackSharp.Specs.Specs
 
         };
 
-    } 
+    }
+
+    [Subject(typeof (IssueManagement))]
+    public class when_searching_for_an_issue_given_some_text : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () =>
+        {
+            issues = issueManagement.GetIssuesBySearch("some new issue", 100, 0);
+        };
+
+        It should_return_list_of_issues = () =>
+        {
+            issues.ShouldNotBeNull();
+        };
+
+        static IEnumerable<Issue> issues;
+    }
 
 }

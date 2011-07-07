@@ -34,9 +34,13 @@ using System.ComponentModel;
 using System.Dynamic;
 using System.IO;
 using System.Net;
+using System.Web;
+using System.Xml;
+using System.Xml.Linq;
+using EasyHttp.Codecs.JsonFXExtensions;
 using EasyHttp.Http;
-using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
+using HttpException = EasyHttp.Infrastructure.HttpException;
 
 namespace YouTrackSharp.Issues
 {
@@ -88,6 +92,10 @@ namespace YouTrackSharp.Issues
                 newIssueMessage.description = issue.Description;
                 newIssueMessage.summary = issue.Summary;
                 newIssueMessage.assignee = issue.Assignee;
+                newIssueMessage.state = issue.State;
+                newIssueMessage.priority = issue.Priority;
+                newIssueMessage.type = issue.Type;
+
 
                 var response = _connection.Post("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
 
@@ -107,7 +115,7 @@ namespace YouTrackSharp.Issues
         /// <param name="max">[Optional] Maximum number of issues to return. Default is int.MaxValue</param>
         /// <param name="start">[Optional] The number by which to start the issues. Default is 0. Used for paging.</param>
         /// <returns>List of Issues</returns>
-        public IEnumerable<Issue> GetIssues(string projectIdentifier, int max = int.MaxValue, int start = 0)
+        public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
             return
                 _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
@@ -179,6 +187,16 @@ namespace YouTrackSharp.Issues
                 throw new InvalidRequestException(httpException.StatusDescription, httpException);
             }
                 
+        }
+
+        public IEnumerable<Issue> GetIssuesBySearch(string searchString, int max = int.MaxValue, int start = 0)
+        {
+          
+            var encodedURL = HttpUtility.UrlEncode(searchString);
+            
+            return
+                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
+                                                                           encodedURL, max, start));
         }
     }
 }

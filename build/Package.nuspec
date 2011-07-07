@@ -2,7 +2,7 @@
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>YouTrackSharp</id>
-    <version>1.0.3</version>
+    <version>1.0.8</version>
     <authors>Hadi Hariri</authors>
     <owners>Hadi Hariri</owners>
     <licenseUrl>https://github.com/hhariri/YouTrackSharp/blob/master/LICENSE.TXT</licenseUrl>
@@ -11,7 +11,7 @@
     <description>A .NET Client for YouTrack</description>
     <tags>YouTrack</tags>
     <dependencies>
-      <dependency id="EasyHttp" version="1.0.3" />
+      <dependency id="EasyHttp" version="1.0.6" />
     </dependencies>
   </metadata>
   <files>

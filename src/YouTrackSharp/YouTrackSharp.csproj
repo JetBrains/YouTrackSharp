@@ -32,12 +32,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyHttp, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EasyHttp.1.0.3\lib\EasyHttp.dll</HintPath>
+      <HintPath>..\packages\EasyHttp.1.0.6\lib\EasyHttp.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx, Version=2.0.1106.2515, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\JsonFx.2.0.1106.2515\lib\net40\JsonFx.dll</HintPath>
+      <HintPath>..\packages\JsonFx.2.0.1106.2610\lib\net40\JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.2.9.2.2\lib\Lucene.Net.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
@@ -56,6 +58,8 @@
     <Compile Include="Admin\MultipleFilterWrapper.cs" />
     <Compile Include="Infrastructure\Connection.cs" />
     <Compile Include="Infrastructure\IConnection.cs" />
+    <Compile Include="Infrastructure\ISearchEngine.cs" />
+    <Compile Include="Infrastructure\LuceneSearchEngine.cs" />
     <Compile Include="Infrastructure\SubValues.cs" />
     <Compile Include="Infrastructure\SubValuesArray.cs" />
     <Compile Include="Issues\Comment.cs" />
@@ -99,6 +103,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
