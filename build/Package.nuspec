@@ -12,6 +12,7 @@
     <tags>YouTrack</tags>
     <dependencies>
       <dependency id="EasyHttp" version="1.0.6" />
+      <dependency id="Lucene" version="2.9"/>
     </dependencies>
   </metadata>
   <files>
