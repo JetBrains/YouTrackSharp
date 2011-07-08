@@ -46,7 +46,7 @@ namespace YouTrackSharp.Infrastructure
 
                     if (propertyValue != null)
                     {
-                        var field = new Field(searchField, propertyValue.ToString(), String.Compare(searchField, _keyField , true) == 0 ? Field.Store.YES: Field.Store.NO, Field.Index.ANALYZED);
+                        var field = new Field(searchField, propertyValue.ToString(), String.Compare(searchField, _keyField ,true ) == 0 ? Field.Store.YES: Field.Store.NO, Field.Index.ANALYZED);
 
                         document.Add(field);
                     }
