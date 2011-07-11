@@ -70,7 +70,7 @@ namespace YouTrackSharp.Issues
 
                 if (String.Compare(field.name, fieldName, true) == 0)
                 {
-                    return field.value;
+                    return field.value.ToString();
                 }
             }
             return String.Empty;
