@@ -61,8 +61,10 @@
     <Compile Include="Admin\MultipleFilterWrapper.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandException.cs" />
+    <Compile Include="Commands\CommandOptions\ApplyCommandCommandOptions.cs" />
+    <Compile Include="Commands\CommandOptions\CreateIssueCommandOptions.cs" />
+    <Compile Include="Commands\CommandOptions\DeleteIssueCommandOptions.cs" />
     <Compile Include="Commands\CommandParser.cs" />
-    <Compile Include="Commands\CreateIssueCommandOptions.cs" />
     <Compile Include="Infrastructure\Connection.cs" />
     <Compile Include="Infrastructure\IConnection.cs" />
     <Compile Include="Infrastructure\ISearchEngine.cs" />

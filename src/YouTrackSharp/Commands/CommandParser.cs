@@ -20,7 +20,7 @@ namespace YouTrackSharp.Commands
                     select new { Name = split.First(), Parameters = split.Skip(1) }).FirstOrDefault();
 
             var commandOptionsType =
-                 Assembly.GetExecutingAssembly().GetType(string.Format("{0}.{1}.{2}CommandOptions", Assembly.GetExecutingAssembly().GetName().Name, "Commands", commandAndParams.Name));
+                 Assembly.GetExecutingAssembly().GetType(string.Format("{0}.{1}.{2}CommandOptions", Assembly.GetExecutingAssembly().GetName().Name, "Commands.CommandOptions", commandAndParams.Name));
              
             if (commandOptionsType == null)
             {

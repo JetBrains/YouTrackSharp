@@ -1,12 +1,13 @@
 ﻿using System;
 using Machine.Specifications;
 using YouTrackSharp.Commands;
+using YouTrackSharp.Commands.CommandOptions;
 using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Specs.Specs
 {
     [Subject(typeof (CommandParser))]
-    public class when_parsing_a_non_existing_command
+    public class when_parsing_an_invalid_command
     {
         Establish context = () =>
         {

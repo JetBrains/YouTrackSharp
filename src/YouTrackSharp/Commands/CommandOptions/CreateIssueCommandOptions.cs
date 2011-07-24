@@ -1,6 +1,6 @@
 using CommandLine;
 
-namespace YouTrackSharp.Commands
+namespace YouTrackSharp.Commands.CommandOptions
 {
     public class CreateIssueCommandOptions
     {
