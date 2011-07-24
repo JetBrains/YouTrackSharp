@@ -35,12 +35,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("YouTrackClient")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("YouTrackSharp")]
+[assembly: AssemblyDescription("A .NET Library to talk to JetBrains YouTrack")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("YouTrackClient")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2010")]
+[assembly: AssemblyCompany("Hadi Hariri and Contributors")]
+[assembly: AssemblyProduct("YouTrackSharp")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2011 Hadi Hariri and Contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -65,5 +65,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("0.9.0.0")]
-[assembly: AssemblyFileVersion("0.9.0.0")]
+[assembly: AssemblyVersion("1.0.11.0")]
+[assembly: AssemblyFileVersion("1.0.11.0")]
