@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>lib\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="EasyHttp, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyHttp.1.0.6\lib\EasyHttp.dll</HintPath>
     </Reference>
@@ -56,6 +59,10 @@
   <ItemGroup>
     <Compile Include="Admin\Filter.cs" />
     <Compile Include="Admin\MultipleFilterWrapper.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandException.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Commands\CreateIssueCommandOptions.cs" />
     <Compile Include="Infrastructure\Connection.cs" />
     <Compile Include="Infrastructure\IConnection.cs" />
     <Compile Include="Infrastructure\ISearchEngine.cs" />

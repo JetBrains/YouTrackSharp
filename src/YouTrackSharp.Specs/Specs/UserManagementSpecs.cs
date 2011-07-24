@@ -88,7 +88,7 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (UserManagement))]
-    public class when_requesting_saved_filters_for_a_specific_user_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
+    public class when_requesting_saved_filters_for_a_specific_user_given_authenticated_connection : AuthenticatedYouTrackConnection
     {
         Establish context = () => { userManagement = new UserManagement(connection); };
 

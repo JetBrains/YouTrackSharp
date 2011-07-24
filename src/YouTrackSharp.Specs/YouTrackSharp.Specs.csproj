@@ -32,15 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyHttp, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyHttp.1.0.6\lib\EasyHttp.dll</HintPath>
+    <Reference Include="EasyHttp, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EasyHttp.1.0.7\lib\EasyHttp.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\JsonFx.2.0.1106.2610\lib\net40\JsonFx.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications, Version=0.4.13.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Machine.Specifications.0.4.13.0\lib\Machine.Specifications.dll</HintPath>
+    <Reference Include="Machine.Specifications, Version=0.4.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Machine.Specifications.0.4.21.0\lib\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
@@ -59,6 +61,7 @@
     <Compile Include="Helpers\AuthenticatedYouTrackConnection.cs" />
     <Compile Include="Helpers\YouTrackConnection.cs" />
     <Compile Include="Helpers\AuthenticatedYouTrackConnectionForIssue.cs" />
+    <Compile Include="Specs\CommandParserSpecs.cs" />
     <Compile Include="Specs\ConnectionSpecs.cs" />
     <Compile Include="Specs\IssueManagementSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
