@@ -1,7 +1,7 @@
 ﻿#region License
 // Distributed under the BSD License
 //  
-// YouTrackSharp Copyright (c) 2010-2011, Hadi Hariri and Contributors
+// YouTrackSharp Copyright (c) 2011-2011, Hadi Hariri and Contributors
 // All rights reserved.
 //  
 // Redistribution and use in source and binary forms, with or without
@@ -28,23 +28,28 @@
 //  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //  
 #endregion
-using System.ComponentModel;
 
-namespace YouTrackSharp.Issues
+using System.ComponentModel;
+using System.Management.Automation;
+
+namespace YouTrackSharp.CmdLets
 {
-    [TypeConverter(typeof (IssueTypeConverter))]
-    public class Issue
+    [RunInstaller(true)]
+    public class YouTrackPSSnapIn: PSSnapIn
     {
-        public string Id { get; set; }
-        public string ReporterName { get; set; }
-        public string FixedInBuild { get; set; }
-        public string ProjectShortName { get; set; }
-        public string Summary { get; set; }
-        public string Assignee { get; set; }
-        public string Priority { get; set; }
-        public string Type { get; set; }
-        public string Subsystem { get; set; }
-        public string Description { get; set; }
-        public string State { get; set; }
+        public override string Name
+        {
+            get { return "YouTrackCmdlets"; }
+        }
+
+        public override string Vendor
+        {
+            get { return "Hadi Hariri and YouTrackSharp Contributors"; }
+        }
+
+        public override string Description
+        {
+            get { return "Powershell Cmdlets for JetBrains YouTrack"; }
+        }
     }
 }

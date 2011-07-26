@@ -1,7 +1,7 @@
 ﻿#region License
 // Distributed under the BSD License
 //  
-// YouTrackSharp Copyright (c) 2010-2011, Hadi Hariri and Contributors
+// YouTrackSharp Copyright (c) 2011-2011, Hadi Hariri and Contributors
 // All rights reserved.
 //  
 // Redistribution and use in source and binary forms, with or without
@@ -28,23 +28,27 @@
 //  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //  
 #endregion
-using System.ComponentModel;
 
-namespace YouTrackSharp.Issues
+using System.Management.Automation;
+using YouTrackSharp.Infrastructure;
+using YouTrackSharp.Issues;
+
+namespace YouTrackSharp.CmdLets
 {
-    [TypeConverter(typeof (IssueTypeConverter))]
-    public class Issue
+    [Cmdlet(VerbsCommon.Get, "issue")]
+    public class GetIssueCmdlet: YouTrackCmdlet
     {
-        public string Id { get; set; }
-        public string ReporterName { get; set; }
-        public string FixedInBuild { get; set; }
-        public string ProjectShortName { get; set; }
-        public string Summary { get; set; }
-        public string Assignee { get; set; }
-        public string Priority { get; set; }
-        public string Type { get; set; }
-        public string Subsystem { get; set; }
-        public string Description { get; set; }
-        public string State { get; set; }
+        [Parameter(Mandatory = true, HelpMessage = "Please specify issue id")]
+        [ValidateNotNull]
+        public string IssueId { get; set; }
+
+        protected override void ProcessRecord()
+        {
+            var issueManagement = new IssueManagement(Connection);
+
+            var issue = issueManagement.GetIssue(IssueId);
+
+            WriteObject(issue);
+        }
     }
 }

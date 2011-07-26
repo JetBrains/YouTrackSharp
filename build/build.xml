@@ -6,7 +6,7 @@
   <Target Name="Build">
     <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln"/>
   </Target>
-  <Target Name="Release">
+  <Target Name="NuGet">
     <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
     <Exec Command="NuGet pack ..\build\Package.nuspec -o ..\build\Release\"/>
   </Target>

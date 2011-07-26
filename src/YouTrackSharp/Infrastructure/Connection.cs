@@ -228,5 +228,7 @@ namespace YouTrackSharp.Infrastructure
 
             return httpClient;
         }
+
+  
     }
 }

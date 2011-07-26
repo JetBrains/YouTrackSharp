@@ -48,7 +48,10 @@
       <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,6 +62,11 @@
   <ItemGroup>
     <Compile Include="Admin\Filter.cs" />
     <Compile Include="Admin\MultipleFilterWrapper.cs" />
+    <Compile Include="Cmdlets\GetIssueCmdlet.cs" />
+    <Compile Include="Cmdlets\YouTrackCmdlet.cs" />
+    <Compile Include="Cmdlets\YouTrackPSSnapIn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandException.cs" />
     <Compile Include="Commands\CommandOptions\ApplyCommandCommandOptions.cs" />
