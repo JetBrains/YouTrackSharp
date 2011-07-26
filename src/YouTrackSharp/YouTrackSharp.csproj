@@ -62,8 +62,11 @@
   <ItemGroup>
     <Compile Include="Admin\Filter.cs" />
     <Compile Include="Admin\MultipleFilterWrapper.cs" />
+    <Compile Include="Cmdlets\SetCommandCmdlet.cs" />
+    <Compile Include="Cmdlets\NewIssueCmdlet.cs" />
     <Compile Include="Cmdlets\GetIssueCmdlet.cs" />
     <Compile Include="Cmdlets\YouTrackCmdlet.cs" />
+    <Compile Include="Cmdlets\YouTrackIssueCmdlet.cs" />
     <Compile Include="Cmdlets\YouTrackPSSnapIn.cs">
       <SubType>Component</SubType>
     </Compile>

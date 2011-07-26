@@ -36,17 +36,15 @@ using YouTrackSharp.Issues;
 namespace YouTrackSharp.CmdLets
 {
     [Cmdlet(VerbsCommon.Get, "issue")]
-    public class GetIssueCmdlet: YouTrackCmdlet
+    public class GetIssueCmdlet: YouTrackIssueCmdlet
     {
-        [Parameter(Mandatory = true, HelpMessage = "Please specify issue id")]
+        [Parameter(Mandatory = true, HelpMessage = "Issue Id")]
         [ValidateNotNull]
         public string IssueId { get; set; }
 
         protected override void ProcessRecord()
         {
-            var issueManagement = new IssueManagement(Connection);
-
-            var issue = issueManagement.GetIssue(IssueId);
+            var issue = IssueManagement.GetIssue(IssueId);
 
             WriteObject(issue);
         }
