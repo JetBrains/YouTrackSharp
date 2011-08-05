@@ -1,18 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Release">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildOnly">
   <PropertyGroup>
     <ProjectFolder>..\src\</ProjectFolder>
-    <NuGet>Nuget</NuGet>
   </PropertyGroup>
-  <PropertyGroup Condition="$(run)=='Server'">
-    <NuGet>C:\Tools\nuget.exe</NuGet>
-  </PropertyGroup>
-  
-  
+ 
   <Target Name="BuildOnly">
     <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
-  </Target>
-  <Target Name="Release" DependsOnTargets="BuildOnly">
-	  <Exec Command="$(NuGet) pack -sym $(ProjectFolder)YouTrackSharp\YouTrackSharp.csproj -o ..\build\release\"/>
   </Target>
 </Project>
