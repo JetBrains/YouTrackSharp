@@ -45,7 +45,7 @@ namespace YouTrackSharp.CmdLets
         protected override void ProcessRecord()
         {
             var issue = IssueManagement.GetIssue(IssueId);
-
+            var s = "abc def";
             WriteObject(issue);
         }
     }

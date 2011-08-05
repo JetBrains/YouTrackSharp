@@ -4,12 +4,11 @@
     <ProjectFolder>..\src\</ProjectFolder>
   </PropertyGroup>
   <Target Name="Build">
-    <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
+    <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln"/>
   </Target>
   <Target Name="NuGet">
+    <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
     <Exec Command="NuGet pack ..\build\Package.nuspec -o ..\build\Release\"/>
   </Target>
-  <Target Name="Server" DependsOnTarget="Build">
-	<Exec Command="C:\Tools\nuget.exe pack ..\build\Package.nuspec -o ..\build\release\"/>
-  </Target>
+
 </Project>
