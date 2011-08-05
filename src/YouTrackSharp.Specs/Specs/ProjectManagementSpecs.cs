@@ -98,7 +98,7 @@ namespace YouTrackSharp.Specs.Specs
         static IEnumerable<ProjectResolutionType> resolutions;
     }
 
-   
+    [Ignore("Permissions changed on server")]
     [Subject(typeof(ProjectManagement))]
     public class when_retrieving_an_existing_project_by_name : AuthenticatedYouTrackConnectionForProjectSpecs
     {

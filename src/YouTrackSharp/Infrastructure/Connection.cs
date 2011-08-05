@@ -114,7 +114,7 @@ namespace YouTrackSharp.Infrastructure
 
             var contentType = GetFileContentType(path);
 
-            var files = new List<FileData>() { new FileData() { Filename = path, ContentTransferEncoding = "binary", ContentType = contentType}};
+            var files = new List<FileData>() { new FileData() { FieldName ="file", Filename = path, ContentTransferEncoding = "binary", ContentType = contentType}};
 
 
             httpRequest.Post(_uriConstructor.ConstructBaseUri(command), null, files);

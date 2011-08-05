@@ -39,6 +39,7 @@ using System.Xml;
 using System.Xml.Linq;
 using EasyHttp.Codecs.JsonFXExtensions;
 using EasyHttp.Http;
+using EasyHttp.Infrastructure;
 using YouTrackSharp.Infrastructure;
 using HttpException = EasyHttp.Infrastructure.HttpException;
 
