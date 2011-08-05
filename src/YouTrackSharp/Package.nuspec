@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$(id)</id>
+    <version>$(version)</version>
+    <authors>$(author)</authors>
+    <owners>$(author)</owners>
+    <licenseUrl>https://github.com/hhariri/YouTrackSharp/blob/master/LICENSE.TXT</licenseUrl>
+    <projectUrl>https://github.com/hhariri/YouTrackSharp</projectUrl>
+    <iconUrl>http://nuget.org/Media/Default/Packages/YouTrackSharp/1.0.11/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$(description)</description>
+    <tags>YouTrack</tags>
+  </metadata>
+</package>
