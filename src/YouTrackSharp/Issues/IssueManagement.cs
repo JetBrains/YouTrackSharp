@@ -63,7 +63,7 @@ namespace YouTrackSharp.Issues
         {
             try
             {
-                var response = _connection.Get<SingleIssueWrapper>("issue/{0}", issueId);
+                var response = _connection.Get<SingleIssueWrapper>(String.Format("issue/{0}", issueId));
 
                 var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
 
@@ -132,7 +132,7 @@ namespace YouTrackSharp.Issues
         {
             try
             {
-                var response = _connection.Get<MultipleCommentWrapper>("issue/comments/{0}", issueId);
+                var response = _connection.Get<MultipleCommentWrapper>(String.Format("issue/comments/{0}", issueId));
 
                 return response.comment;
             }

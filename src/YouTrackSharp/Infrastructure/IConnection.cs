@@ -37,7 +37,7 @@ namespace YouTrackSharp.Infrastructure
 {
     public interface IConnection
     {
-        T Get<T>(string command, params object[] parameters);
+        T Get<T>(string command);
         IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>;
         dynamic Post(string command, object data, string accept);
         void Authenticate(string username, string password);

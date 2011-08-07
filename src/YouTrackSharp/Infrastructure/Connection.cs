@@ -34,8 +34,10 @@ using System.Dynamic;
 using System.IO;
 using System.Net;
 using System.Security.Authentication;
+using EasyHttp.Codecs;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
+using JsonFx.Serialization;
 using YouTrackSharp.Projects;
 using YouTrackSharp.Server;
 
@@ -67,16 +69,39 @@ namespace YouTrackSharp.Infrastructure
             _uriConstructor = new DefaultUriConstructor(protocol, _host, _port, path);
         }
 
-        public T Get<T>(string command, params object[] parameters)
+        public dynamic Get(string command)
         {
-            HttpClient httpRequest = CreateHttpRequest();
-
-            string request = String.Format(command, parameters);
-
+            var httpRequest = CreateHttpRequest();
 
             try
             {
-                var staticBody = httpRequest.Get(_uriConstructor.ConstructBaseUri(request)).StaticBody<T>();
+
+                var dynamicBody = httpRequest.Get(_uriConstructor.ConstructBaseUri(command)).DynamicBody();
+
+                HttpStatusCode = httpRequest.Response.StatusCode;
+
+                return dynamicBody;
+            }
+            catch (HttpException httpException)
+            {
+                if (httpException.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    throw new InvalidRequestException(Language.Connection_Get_Insufficient_rights);
+                }
+                throw;
+            }
+
+        }
+
+        public T Get<T>(string command)
+        {
+            var httpRequest = CreateHttpRequest();
+
+            
+            try
+            {
+                
+                var staticBody = httpRequest.Get(_uriConstructor.ConstructBaseUri(command)).StaticBody<T>();
 
                 HttpStatusCode = httpRequest.Response.StatusCode;
                 
@@ -94,12 +119,24 @@ namespace YouTrackSharp.Infrastructure
 
         public IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>
         {
-            var response = Get<TWrapper>(command);
-
-            if (response != null)
+            try
             {
-                
-                return response.Data;
+                var response = Get<TWrapper>(command);
+            
+                if (response != null)
+                {
+                    return response.Data;
+                }
+            }
+            catch (DeserializationException conversionException)
+            {
+                // TODO: This is a horrible hack because among other things, it requires
+                // a second round-trip to server. Leaving it for now until custom decoder
+                // is implemented and we work around this issue with YouTrack. This cropped
+                // up when a single issue was returned from GetAllIssuesForProject but 
+                // can happen anytime a single row is returned (GetCommentsForIssue, etc.)
+                var response = Get<TInternal>(command);
+                return new List<TInternal>() { response };
             }
             return new List<TInternal>();
         }
