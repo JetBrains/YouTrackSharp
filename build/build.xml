@@ -7,4 +7,9 @@
   <Target Name="BuildOnly">
     <MSBuild Projects="$(ProjectFolder)\YouTrackSharp.sln" Properties="Configuration=Release;OutputPath=..\..\build\Release"/>
   </Target>
+  <Target Name="NuGet" DependsOnTargets="BuildOnly">
+
+    <Exec Command="nuget pack -sym $(ProjectFolder)\YouTrackSharp\YouTrackSharp.csproj -o ..\build\Release"/>
+    
+  </Target>
 </Project>
