@@ -28,6 +28,11 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+
+using System;
+using System.Net;
+using System.Security.Authentication;
+using EasyHttp.Infrastructure;
 using Machine.Specifications;
 using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Server;
@@ -51,11 +56,13 @@ namespace YouTrackSharp.Specs.Specs
     {
         Establish context = () => { connection = new Connection("youtrack.jetbrains.net"); };
 
-        Because of = () => { connection.Authenticate("YouTrackSelfTestUser", "fdfdfd"); };
+        Because of = () => { exception = Catch.Exception( () => connection.Authenticate("YouTrackSelfTestUser", "fdfdfd")); };
 
-        It should_not_succeed = () => connection.IsAuthenticated.ShouldBeFalse();
+        It should_throw_authentication_exception = () => exception.ShouldBeOfType<AuthenticationException>();
+       
 
         static Connection connection;
+        static Exception exception;
     }
 
     [Subject(typeof (Connection))]
