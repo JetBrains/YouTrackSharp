@@ -81,6 +81,7 @@
     <Compile Include="Infrastructure\IConnection.cs" />
     <Compile Include="Infrastructure\ISearchEngine.cs" />
     <Compile Include="Infrastructure\LuceneIssuePatternMatching.cs" />
+    <Compile Include="Issues\SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed.cs" />
     <Compile Include="Infrastructure\SubValues.cs" />
     <Compile Include="Infrastructure\SubValuesArray.cs" />
     <Compile Include="Issues\Comment.cs" />

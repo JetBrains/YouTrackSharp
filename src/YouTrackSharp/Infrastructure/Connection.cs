@@ -117,26 +117,13 @@ namespace YouTrackSharp.Infrastructure
             }
         }
 
-        public IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>
+        public IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : class, IDataWrapper<TInternal>
         {
-            try
-            {
-                var response = Get<TWrapper>(command);
+            var response = Get<TWrapper>(command);
             
-                if (response != null)
-                {
-                    return response.Data;
-                }
-            }
-            catch (DeserializationException conversionException)
+            if (response != null)
             {
-                // TODO: This is a horrible hack because among other things, it requires
-                // a second round-trip to server. Leaving it for now until custom decoder
-                // is implemented and we work around this issue with YouTrack. This cropped
-                // up when a single issue was returned from GetAllIssuesForProject but 
-                // can happen anytime a single row is returned (GetCommentsForIssue, etc.)
-                var response = Get<TInternal>(command);
-                return new List<TInternal>() { response };
+                return response.Data;
             }
             return new List<TInternal>();
         }
@@ -202,12 +189,15 @@ namespace YouTrackSharp.Infrastructure
 
             HttpStatusCode = httpRequest.Response.StatusCode;
 
-            _authenticationCookie = httpRequest.Response.Cookie;
             return httpRequest;
         }
 
         public void Authenticate(string username, string password)
         {
+            IsAuthenticated = false;
+            _username = String.Empty;
+            _authenticationCookie = null;
+
             dynamic credentials = new ExpandoObject();
 
             credentials.login = username;
@@ -215,21 +205,34 @@ namespace YouTrackSharp.Infrastructure
 
             try
             {
-                var result = Post("user/login", credentials, HttpContentTypes.ApplicationXml);
+                HttpClient response = MakePostRequest("user/login", credentials, HttpContentTypes.ApplicationXml);
 
-                if (String.Compare(result.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
+                if (response.Response.StatusCode == HttpStatusCode.OK)
                 {
-                    throw new AuthenticationException(Language.YouTrackClient_Login_Authentication_Failed);
+                    if (String.Compare(response.Response.DynamicBody.login, "ok", StringComparison.CurrentCultureIgnoreCase) != 0)
+                    {
+                        throw new AuthenticationException(Language.YouTrackClient_Login_Authentication_Failed);
+                    }
+                    IsAuthenticated = true;
+                    _authenticationCookie = response.Response.Cookie;
+                    _username = username;
+                } else
+                {
+                    throw new AuthenticationException(response.Response.StatusDescription);
                 }
 
-                IsAuthenticated = true;
-                _username = username;
             }
-            catch (HttpException)
+            catch (HttpException exception)
             {
-                IsAuthenticated = false;
-                _username = String.Empty;
+                throw new AuthenticationException(exception.StatusDescription);
             }
+        }
+
+        public void Logout()
+        {
+            IsAuthenticated = false;
+            _username = null;
+            _authenticationCookie = null;
         }
 
         public bool IsAuthenticated { get; private set; }

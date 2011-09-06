@@ -38,9 +38,10 @@ namespace YouTrackSharp.Infrastructure
     public interface IConnection
     {
         T Get<T>(string command);
-        IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : IDataWrapper<TInternal>;
+        IEnumerable<TInternal> Get<TWrapper, TInternal>(string command) where TWrapper : class, IDataWrapper<TInternal>;
         dynamic Post(string command, object data, string accept);
         void Authenticate(string username, string password);
+        void Logout();
         User GetCurrentAuthenticatedUser();
         bool IsAuthenticated { get; }
         HttpStatusCode HttpStatusCode { get; }

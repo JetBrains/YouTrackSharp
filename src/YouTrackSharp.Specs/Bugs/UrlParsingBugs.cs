@@ -4,7 +4,7 @@ using YouTrackSharp.Infrastructure;
 namespace YouTrackSharp.Specs.Bugs
 {
     [Subject("DefaultUrlConstructor")]
-    public class when_providing_a_path
+    public class YTSRP5A
     {
         Establish context = () =>
         {
@@ -25,7 +25,7 @@ namespace YouTrackSharp.Specs.Bugs
     }
 
     [Subject("DefaultUrlConstructor")]
-    public class when_not_providing_a_path
+    public class YTSRP5B
     {
         Establish context = () =>
         {

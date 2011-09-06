@@ -40,6 +40,7 @@ using System.Xml.Linq;
 using EasyHttp.Codecs.JsonFXExtensions;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
+using JsonFx.Serialization;
 using YouTrackSharp.Infrastructure;
 using HttpException = EasyHttp.Infrastructure.HttpException;
 
@@ -118,9 +119,24 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            return
-                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
-                                                                           projectIdentifier, max, start));
+            try
+            {
+                return
+                    _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
+                                                                               projectIdentifier, max, start));
+
+            }
+            catch (DeserializationException deserializationException)
+            {
+                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
+                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
+                var issues = _connection.Get<SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("project/issues/{0}?max={1}&after={2}",
+                                                                         projectIdentifier, max, start));
+
+              
+
+                return new List<Issue>() { issues.issue };
+            }
         }
 
         /// <summary>

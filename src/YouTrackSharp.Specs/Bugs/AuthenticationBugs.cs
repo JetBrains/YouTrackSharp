@@ -29,24 +29,46 @@
 //  
 #endregion
 
-using System.Collections.Generic;
-using System.Linq;
 using Machine.Specifications;
+using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Issues;
-using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Bugs
 {
-    public class YTSRP9 :AuthenticatedYouTrackConnectionForIssue
+    public class YTSRP8
     {
-        Because of = () => { issues = issueManagement.GetAllIssuesForProject("SB", 1); };
+        Establish context = () =>
+        {
+            connection = new Connection("youtrack.jetbrains.net");
+            connection.Authenticate("youtrackapi", "youtrackapi");
 
-        It should_return_single_issue = () => issues.Count().ShouldEqual(1);
+        };
 
-        It should_contain_valid_issue_id = () => issues.First().Id.ShouldNotBeEmpty();
+        Because of = () =>
+        {
+            var issueManagement = new IssueManagement(connection);
+            var issue = new Issue
+            {
+                Summary = "authbug1",
+                Description = "description1",
+                ProjectShortName = "SB"
+            };
+            var issue2 = new Issue
+            {
+                Summary = "authbug2",
+                Description = "description2",
+                ProjectShortName = "SB"
+            };
+            issueId1 = issueManagement.CreateIssue(issue);
+            issueId2 = issueManagement.CreateIssue(issue2);
 
-        protected static IEnumerable<Issue> issues;
+        };
+
+        It should_create_issue1 = () => issueId1.ShouldNotBeNull();
+        It should_create_issue2 = () => issueId2.ShouldNotBeNull();
+
+        static Connection connection;
+        static string issueId1;
+        static string issueId2;
     }
-
-
 }

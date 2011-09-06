@@ -35,4 +35,6 @@ namespace YouTrackSharp.Issues
         public string id { get; set; }
         public Field[] field { get; set; }
     }
+
+
 }
