@@ -34,9 +34,9 @@
     <Reference Include="CommandLine">
       <HintPath>lib\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="EasyHttp, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EasyHttp, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EasyHttp.1.0.7\lib\EasyHttp.dll</HintPath>
+      <HintPath>..\packages\EasyHttp.1.0.8\lib\EasyHttp.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
