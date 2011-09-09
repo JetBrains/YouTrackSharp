@@ -210,10 +210,26 @@ namespace YouTrackSharp.Issues
         {
           
             var encodedURL = HttpUtility.UrlEncode(searchString);
-            
-            return
-                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
-                                                                           encodedURL, max, start));
+
+            try
+            {
+                return
+                    _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
+                                                                               encodedURL, max, start));
+
+            }
+            catch (DeserializationException deserializationException)
+            {
+                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
+                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
+                var issues = _connection.Get<SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("project/issues?filter={0}&max={1}&after={2}",
+                                                                               encodedURL, max, start));
+
+              
+
+                return new List<Issue>() { issues.issue };
+            }                
+                
         }
     }
 }
