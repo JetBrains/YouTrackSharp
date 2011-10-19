@@ -50,7 +50,7 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_contain_valid_username = () => user.Username.ShouldEqual("youtrackapi");
 
-        It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YouTrack API");
+        It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YoutrackAPI User");
 
         static User user;
         static UserManagement userManagement;

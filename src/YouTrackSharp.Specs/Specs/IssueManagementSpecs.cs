@@ -52,9 +52,9 @@ namespace YouTrackSharp.Specs.Specs
     [Subject(typeof (IssueManagement))]
     public class when_requesting_a_specific_issue_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { issue = issueManagement.GetIssue("SB-282"); };
+        Because of = () => { issue = issueManagement.GetIssue("SB-1"); };
 
-        It should_return_issue_with_correct_id = () => issue.Id.ShouldEqual("SB-282");
+        It should_return_issue_with_correct_id = () => issue.Id.ShouldEqual("SB-1");
 
         It should_return_issue_with_correct_project_name = () => issue.ProjectShortName.ShouldEqual("SB");
 
@@ -79,10 +79,9 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    [Ignore("Need to fix permissions on server")]
     public class when_retrieving_comments_of_issue_that_has_comments_given_authenticated_connection : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-560"); };
+        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-1"); };
 
         It should_return_the_comments = () => comments.ShouldNotBeNull();
 
@@ -140,7 +139,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            result = issueManagement.CheckIfIssueExists("SB-560");
+            result = issueManagement.CheckIfIssueExists("SB-1");
 
         };
 
@@ -150,12 +149,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    [Ignore("Need to fix permissions on server")]
     public class when_adding_an_attachment_to_an_existing_issue: AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
-            issueManagement.AttachFileToIssue("SB-560", @"Helpers\TestAtt.txt");
+            issueManagement.AttachFileToIssue("SB-1", @"Helpers\TestAtt.txt");
         };
 
         It should_be_successful = () =>
@@ -165,12 +163,11 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    [Ignore("Need to fix permissions on server")]
     public class when_applying_a_command_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
-            issueManagement.ApplyCommand("SB-560", "Fixed", "");
+            issueManagement.ApplyCommand("SB-1", "Fixed", "");
 
         };
 

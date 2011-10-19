@@ -48,5 +48,12 @@ namespace YouTrackSharp.Specs.Bugs
         protected static IEnumerable<Issue> issues;
     }
 
+    public class YTSRP15: AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () => { issue = issueManagement.GetIssue("SB-2"); };
 
+        It should_contain_assignee = () => { issue.Assignee.ShouldEqual("hhariri"); };
+
+        static Issue issue;
+    }
 }
