@@ -71,7 +71,7 @@ namespace YouTrackSharp.Issues
 
             foreach (PropertyInfo property in properties)
             {
-                if (String.Compare(property.Name, "Links") == 0)
+                if (String.Compare(property.Name, "Links") == 0 && fields["Links"] != null)
                 {
                     issue.Links = ConvertLinks(fields["Links"]);
 
