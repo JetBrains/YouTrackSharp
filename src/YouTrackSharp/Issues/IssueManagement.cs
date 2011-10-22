@@ -69,9 +69,14 @@ namespace YouTrackSharp.Issues
                
                  response.field.Add(new Field() { name = "Id", value = response.id });
 
-                var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
+                var typeConverter = TypeDescriptor.GetConverter(typeof (Issue));
+                if (typeConverter != null)
+                {
+                    var issue = typeConverter.ConvertFrom(response.field) as Issue;
 
-                return issue;
+                    return issue;
+                }
+                throw new InvalidRequestException("TypeConverter for Issue not found");
             }
             catch (HttpException exception)
             {
@@ -127,7 +132,7 @@ namespace YouTrackSharp.Issues
                                                                                projectIdentifier, max, start));
 
             }
-            catch (DeserializationException deserializationException)
+            catch (DeserializationException)
             {
                 // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
                 // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
@@ -219,7 +224,7 @@ namespace YouTrackSharp.Issues
                                                                                encodedURL, max, start));
 
             }
-            catch (DeserializationException deserializationException)
+            catch (DeserializationException)
             {
                 // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
                 // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9

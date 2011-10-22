@@ -12,10 +12,10 @@ namespace YouTrackSharp.Specs.Specs
         Establish context = () =>
         {
             items = new List<Issue> {
-                new Issue() {Id= "ID1", Summary = "A general exception has been raised"}, 
-                new Issue() {Id= "ID2", Summary = "Method to invocate has failed while connecting"}, 
-                new Issue() {Id= "ID3", Summary = "Failure when connecting to service"}, 
-                new Issue() {Id = "ID4", Summary = "Failure when trying to ping a connection"}};
+                new Issue {Id= "ID1", Summary = "A general exception has been raised"}, 
+                new Issue {Id= "ID2", Summary = "Method to invocate has failed while connecting"}, 
+                new Issue {Id= "ID3", Summary = "Failure when connecting to service"}, 
+                new Issue {Id = "ID4", Summary = "Failure when trying to ping a connection"}};
 
             luceneSearchEngine = new LuceneSearchEngine();
 

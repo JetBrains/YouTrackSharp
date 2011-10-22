@@ -28,16 +28,15 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
 using System.Net;
 using System.Security.Authentication;
-using EasyHttp.Codecs;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
-using JsonFx.Serialization;
 using YouTrackSharp.Projects;
 using YouTrackSharp.Server;
 
@@ -55,7 +54,7 @@ namespace YouTrackSharp.Infrastructure
 
         public Connection(string host, int port = 80, bool useSSL = false, string path = null)
         {
-            string protocol = "http";
+            var protocol = "http";
 
             _host = host;
             _port = port;
@@ -131,7 +130,7 @@ namespace YouTrackSharp.Infrastructure
 
         public void PostFile(string command, string path)
         {
-            HttpClient httpRequest = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
             httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
   
@@ -148,7 +147,7 @@ namespace YouTrackSharp.Infrastructure
 
         public void Head(string command)
         {
-            HttpClient httpRequest = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
             httpRequest.Head(_uriConstructor.ConstructBaseUri(command));
             HttpStatusCode = httpRequest.Response.StatusCode;
@@ -158,10 +157,14 @@ namespace YouTrackSharp.Infrastructure
         string GetFileContentType(string filename)
         {
             var mime = "application/octetstream";
-            var ext = System.IO.Path.GetExtension(filename).ToLower();
-            Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(ext);
-            if (rk != null && rk.GetValue("Content Type") != null)
-            mime = rk.GetValue("Content Type").ToString();
+            var extension = Path.GetExtension(filename);
+            if (extension != null)
+            {
+                var ext = extension.ToLower();
+                var rk = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(ext);
+                if (rk != null && rk.GetValue("Content Type") != null)
+                    mime = rk.GetValue("Content Type").ToString();
+            }
             return mime;
         }
 
@@ -180,7 +183,7 @@ namespace YouTrackSharp.Infrastructure
 
         HttpClient MakePostRequest(string command, object data, string accept)
         {
-            HttpClient httpRequest = CreateHttpRequest();
+            var httpRequest = CreateHttpRequest();
 
             httpRequest.Request.Accept = accept;
 

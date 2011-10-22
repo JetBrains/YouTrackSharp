@@ -30,8 +30,6 @@
 #endregion
 
 using System.Management.Automation;
-using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Issues;
 
 namespace YouTrackSharp.CmdLets
 {
@@ -45,7 +43,6 @@ namespace YouTrackSharp.CmdLets
         protected override void ProcessRecord()
         {
             var issue = IssueManagement.GetIssue(IssueId);
-            var s = "abc def";
             WriteObject(issue);
         }
     }

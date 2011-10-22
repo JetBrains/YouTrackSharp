@@ -30,9 +30,7 @@
 #endregion
 
 using System;
-using System.Net;
 using System.Security.Authentication;
-using EasyHttp.Infrastructure;
 using Machine.Specifications;
 using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Server;

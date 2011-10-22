@@ -19,6 +19,11 @@ namespace YouTrackSharp.Commands
                     let split = inputString.Split(' ')
                     select new { Name = split.First(), Parameters = split.Skip(1) }).FirstOrDefault();
 
+            if (commandAndParams == null)
+            {
+                throw new CommandException("Invalid Command");
+            }
+
             var commandOptionsType =
                  Assembly.GetExecutingAssembly().GetType(string.Format("{0}.{1}.{2}CommandOptions", Assembly.GetExecutingAssembly().GetName().Name, "Commands.CommandOptions", commandAndParams.Name));
              

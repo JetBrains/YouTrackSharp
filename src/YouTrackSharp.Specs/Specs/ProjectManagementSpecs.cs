@@ -103,7 +103,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () => { project = projectManagement.GetProject("SB"); };
 
-        It should_return_the_specified_project = () => {};
+        It should_return_the_specified_project = () => { project.Name.ShouldEqual("Sandbox"); };
 
         static Project project;
     }

@@ -2,7 +2,6 @@
 using Machine.Specifications;
 using YouTrackSharp.Commands;
 using YouTrackSharp.Commands.CommandOptions;
-using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Specs.Specs
 {

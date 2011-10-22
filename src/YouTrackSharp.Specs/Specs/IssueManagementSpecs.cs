@@ -183,7 +183,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            issues = issueManagement.GetIssuesBySearch("some new issue", 100, 0);
+            issues = issueManagement.GetIssuesBySearch("some new issue", 100);
         };
 
         It should_return_list_of_issues = () =>
