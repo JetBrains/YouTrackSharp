@@ -32,6 +32,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Globalization;
 using System.Reflection;
 
@@ -70,20 +71,27 @@ namespace YouTrackSharp.Issues
 
             foreach (PropertyInfo property in properties)
             {
-                property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
-                if (String.Compare(property.Name, "Links", true) == 0)
+                if (String.Compare(property.Name, "Links") == 0)
                 {
+                    issue.Links = ConvertLinks(fields["Links"]);
+
+                } else
+                {
+                    property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
                 }
             }
-
-
             return issue;
         }
 
-        void ProcessLinkValues(PropertyInfo property, string source)
+        IList<Link> ConvertLinks(dynamic values)
         {
-            
+            var links = new List<Link>();
+            for (int i = 0; i < values.Length; i++)
+            {
+                var link = new Link() {Type = values[i].type, Role = values[i].role, Value = values[i].value};
+                links.Add(link);
+            }
+            return links;
         }
-
     }
 }

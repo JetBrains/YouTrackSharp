@@ -1,7 +1,7 @@
 {"@id":"SB-12","field":[{"@name":"Priority","value":"Normal"},{"@name":"Type","value":"Bug"},{"@name":"State","value":"Submitted"},{"@name":"Assignee","value":"hhariri"},{"@name":"Subsystem","value":"No subsystem"},
 
 
-{"@name":"links","value":[{"@type":"Relates","@role":"relates to","$":"SB-10"},{"@type":"Relates","@role":"relates to","$":"SB-8"}]},
+	{"@name":"links","value":[{"@type":"Relates","@role":"relates to","$":"SB-10"},{"@type":"Relates","@role":"relates to","$":"SB-8"}]},
 
 
 

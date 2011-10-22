@@ -29,8 +29,10 @@
 //  
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using JsonFx.Json;
 
 namespace YouTrackSharp.Issues
@@ -50,15 +52,6 @@ namespace YouTrackSharp.Issues
         public string Description { get; set; }
         public string State { get; set; }
         public int Votes { get; set; }
-        // TODO: not supported
-        //public IEnumerable<Link> Links {get;set;}
-    }   
-
-    public class Link
-    {
-        public string Type { get; set; }
-        public string Role { get; set; }
-        [JsonName("$")]
-        public string Value { get; set; }
+        public IList<Link> Links {get;set;}
     }
 }
