@@ -88,7 +88,9 @@ namespace YouTrackSharp.Issues
             var links = new List<Link>();
             for (int i = 0; i < values.Length; i++)
             {
-                var link = new Link() {Type = values[i].type, Role = values[i].role, Value = values[i].value};
+                var value = (IDictionary<string,object>)values[i];
+                // THe reason for the casting is because there's a field called $ that you cannot access otherwise.
+                var link = new Link() {Type = value["type"].ToString(), Role = value["role"].ToString(), Value = value["$"].ToString()};
                 links.Add(link);
             }
             return links;
