@@ -1,0 +1,16 @@
+{"@id":"SB-12","field":[{"@name":"Priority","value":"Normal"},{"@name":"Type","value":"Bug"},{"@name":"State","value":"Submitted"},{"@name":"Assignee","value":"hhariri"},{"@name":"Subsystem","value":"No subsystem"},
+
+
+{"@name":"links","value":[{"@type":"Relates","@role":"relates to","$":"SB-10"},{"@type":"Relates","@role":"relates to","$":"SB-8"}]},
+
+
+
+
+
+
+
+
+
+
+
+{"@name":"projectShortName","value":"SB"},{"@name":"numberInProject","value":"12"},{"@name":"summary","value":"issues with links"},{"@name":"description","value":"gdfgdffgdf"},{"@name":"created","value":"1319221283203"},{"@name":"updated","value":"1319221283203"},{"@name":"updaterName","value":"root"},{"@name":"reporterName","value":"root"},{"@name":"commentsCount","value":"0"},{"@name":"votes","value":"0"}]}

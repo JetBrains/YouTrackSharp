@@ -50,10 +50,10 @@ namespace YouTrackSharp.Specs.Bugs
 
     public class YTSRP15: AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { issue = issueManagement.GetIssue("SB-2"); };
+        Because of = () => { issue = issueManagement.GetIssue("SB-12"); };
 
         It should_contain_assignee = () => { issue.Assignee.ShouldEqual("hhariri"); };
 
         static Issue issue;
-    }
+    }   
 }

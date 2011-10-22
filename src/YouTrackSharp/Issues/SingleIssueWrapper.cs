@@ -28,12 +28,16 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+
+using System.Collections;
+using System.Collections.Generic;
+
 namespace YouTrackSharp.Issues
 {
     public class SingleIssueWrapper
     {
         public string id { get; set; }
-        public Field[] field { get; set; }
+        public List<Field> field { get; set; }
     }
 
 

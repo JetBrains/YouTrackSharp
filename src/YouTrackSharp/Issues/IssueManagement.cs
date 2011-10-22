@@ -66,9 +66,10 @@ namespace YouTrackSharp.Issues
             {
                 var response = _connection.Get<SingleIssueWrapper>(String.Format("issue/{0}", issueId));
 
-                var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
+               
+                 response.field.Add(new Field() { name = "Id", value = response.id });
 
-                issue.Id = response.id;
+                var issue = TypeDescriptor.GetConverter(typeof (Issue)).ConvertFrom(response.field) as Issue;
 
                 return issue;
             }

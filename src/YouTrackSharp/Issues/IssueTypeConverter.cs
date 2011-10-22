@@ -29,6 +29,8 @@
 // =============================================================
 #endregion
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
@@ -39,15 +41,28 @@ namespace YouTrackSharp.Issues
     {
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            if (value.GetType() == typeof (Field[]))
+            if (value.GetType() == typeof (List<Field>))
             {
-                return ConvertFromFields((Field[]) value);
+                var hashValues = CreateHashOfFields((List<Field>) value);
+                
+                return ConvertFromFields(hashValues);
             }
             throw new InvalidCastException("Cannot convert from type: " + value.GetType());
         }
 
+        Hashtable CreateHashOfFields(List<Field> value)
+        {
+            
+            var hashTable = new Hashtable(value.Count, StringComparer.InvariantCultureIgnoreCase);
+            foreach (var field in value)
+            {
+                hashTable.Add(field.name, field.value);
+            }
+            return hashTable;
+        }
 
-        Issue ConvertFromFields(Field[] source)
+
+        Issue ConvertFromFields(Hashtable fields)
         {
             var issue = new Issue();
 
@@ -55,25 +70,20 @@ namespace YouTrackSharp.Issues
 
             foreach (PropertyInfo property in properties)
             {
-                property.SetValue(issue, GetValueByName(property.Name, source), null);
+                property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
+                if (String.Compare(property.Name, "Links", true) == 0)
+                {
+                }
             }
 
 
             return issue;
         }
 
-        static string GetValueByName(string fieldName, Field[] fields)
+        void ProcessLinkValues(PropertyInfo property, string source)
         {
-            for (int i = 0; i < fields.Length - 1; i++)
-            {
-                Field field = fields[i];
-
-                if (String.Compare(field.name, fieldName, true) == 0)
-                {
-                    return field.value.ToString();
-                }
-            }
-            return String.Empty;
+            
         }
+
     }
 }
