@@ -9,8 +9,6 @@ http://www.jetbrains.com/youtrack
 ##Usage##
 
 
-
-
-##Issue Tracking and Feature Requests##
+##Issue and Feature Requests##
 
 Please log all issues in YouTrack on Codebetter: http://youtrack.codebetter.com/issues/YTSRP
