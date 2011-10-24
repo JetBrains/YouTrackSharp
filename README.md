@@ -13,4 +13,4 @@ http://www.jetbrains.com/youtrack
 
 ##Issue Tracking and Feature Requests##
 
-Please log all issues here: http://youtrack.codebetter.com/issues/YTSRP
+Please log all issues in YouTrack on Codebetter: http://youtrack.codebetter.com/issues/YTSRP
