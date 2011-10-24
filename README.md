@@ -1,4 +1,4 @@
-**YouTrackSharp**
+#YouTrackSharp#
 
 
 
@@ -9,7 +9,7 @@ For more information on YouTrack visit:
 
 http://www.jetbrains.com/youtrack
 
-
+##Usage##
 
 
 
