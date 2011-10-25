@@ -8,6 +8,7 @@ http://www.jetbrains.com/youtrack
 
 ##Usage##
 
+Explanation of how to use YouTrackSharp
 
 ##Issue and Feature Requests##
 
