@@ -157,6 +157,18 @@ namespace YouTrackSharp.Issues
                 var response = _connection.Get<MultipleCommentWrapper>(String.Format("issue/comments/{0}", issueId));
 
                 return response.comment;
+
+            }
+            catch (DeserializationException)
+            {
+                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
+                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-17
+                var comments  = _connection.Get<SingleCommentWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("issue/comments/{0}",
+                                                                         issueId));
+
+
+
+                return new List<Comment>() { comments.comment };
             }
             catch (HttpException httpException)
             {

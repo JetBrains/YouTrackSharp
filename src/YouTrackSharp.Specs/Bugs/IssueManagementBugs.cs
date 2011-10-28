@@ -55,5 +55,17 @@ namespace YouTrackSharp.Specs.Bugs
         It should_contain_assignee = () => { issue.Assignee.ShouldEqual("hhariri"); };
 
         static Issue issue;
+    }
+
+
+    public class YTSRP17 : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-35"); };
+
+        It should_retrieve_one_comment = () => { comments.First().Text.ShouldNotBeEmpty(); };
+
+        static IEnumerable<Comment> comments;
     }   
+
+
 }
