@@ -66,17 +66,20 @@ namespace YouTrackSharp.Issues
             {
                 var response = _connection.Get<SingleIssueWrapper>(String.Format("issue/{0}", issueId));
 
-               
-                 response.field.Add(new Field() { name = "Id", value = response.id });
-
-                var typeConverter = TypeDescriptor.GetConverter(typeof (Issue));
-                if (typeConverter != null)
+                if (response != null)
                 {
-                    var issue = typeConverter.ConvertFrom(response.field) as Issue;
+                    response.field.Add(new Field() { name = "Id", value = response.id });
 
-                    return issue;
+                    var typeConverter = TypeDescriptor.GetConverter(typeof(Issue));
+                    if (typeConverter != null)
+                    {
+                        var issue = typeConverter.ConvertFrom(response.field) as Issue;
+
+                        return issue;
+                    }
+                    throw new InvalidRequestException("TypeConverter for Issue not found");
                 }
-                throw new InvalidRequestException("TypeConverter for Issue not found");
+                return null;
             }
             catch (HttpException exception)
             {
@@ -156,8 +159,11 @@ namespace YouTrackSharp.Issues
             {
                 var response = _connection.Get<MultipleCommentWrapper>(String.Format("issue/comments/{0}", issueId));
 
-                return response.comment;
-
+                if (response != null)
+                {
+                    return response.comment;
+                }
+                return new List<Comment>();
             }
             catch (DeserializationException)
             {

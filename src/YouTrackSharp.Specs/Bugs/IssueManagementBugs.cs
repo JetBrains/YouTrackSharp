@@ -67,5 +67,14 @@ namespace YouTrackSharp.Specs.Bugs
         static IEnumerable<Comment> comments;
     }   
 
+    public class YTSRP18 : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-36"); };
+
+        It should_return_zero_comments = () => { comments.Count().ShouldEqual(0); };
+
+        static IEnumerable<Comment> comments;
+    }   
+
 
 }
