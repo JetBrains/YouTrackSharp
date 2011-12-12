@@ -86,14 +86,32 @@ namespace YouTrackSharp.Issues
         IList<Link> ConvertLinks(dynamic values)
         {
             var links = new List<Link>();
-            for (int i = 0; i < values.Length; i++)
+
+            if (values.GetType() == typeof(ExpandoObject[]))
             {
-                var value = (IDictionary<string,object>)values[i];
-                // THe reason for the casting is because there's a field called $ that you cannot access otherwise.
-                var link = new Link() {Type = value["type"].ToString(), Role = value["role"].ToString(), Value = value["$"].ToString()};
+              for (int i = 0; i < values.Length; i++)
+              {
+                var link = ConvertLink(values[i]);
                 links.Add(link);
+              }
             }
-            return links;
+            else
+              links.Add(ConvertLink(values));
+
+          return links;
         }
+
+      private static Link ConvertLink(dynamic val)
+      {
+        var value = (IDictionary<string, object>) val;
+        // THe reason for the casting is because there's a field called $ that you cannot access otherwise.
+        var link = new Link()
+                     {
+                       Type = value["type"].ToString(),
+                       Role = value["role"].ToString(),
+                       Value = value["$"].ToString()
+                     };
+        return link;
+      }
     }
 }
