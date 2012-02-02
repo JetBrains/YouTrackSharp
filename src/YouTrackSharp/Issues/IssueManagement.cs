@@ -233,13 +233,13 @@ namespace YouTrackSharp.Issues
         public IEnumerable<Issue> GetIssuesBySearch(string searchString, int max = int.MaxValue, int start = 0)
         {
           
-            var encodedURL = HttpUtility.UrlEncode(searchString);
+            var encodedQuery = HttpUtility.UrlEncode(searchString);
 
             try
             {
                 return
                     _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
-                                                                               encodedURL, max, start));
+                                                                               encodedQuery, max, start));
 
             }
             catch (DeserializationException)
@@ -247,7 +247,7 @@ namespace YouTrackSharp.Issues
                 // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
                 // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
                 var issues = _connection.Get<SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("project/issues?filter={0}&max={1}&after={2}",
-                                                                               encodedURL, max, start));
+                                                                               encodedQuery, max, start));
 
               
 
@@ -255,5 +255,28 @@ namespace YouTrackSharp.Issues
             }                
                 
         }
+
+        public int GetIssueCount(string searchString)
+        {
+            var encodedQuery = HttpUtility.UrlEncode(searchString);
+
+            try
+            {
+                var count = -1;
+
+                while (count < 0) {
+
+                    count = _connection.Get<int>(string.Format("issue/count?filter={0}", encodedQuery));
+
+                }
+                
+                return count;
+
+            }
+            catch (HttpException httpException)
+            {
+                throw new InvalidRequestException(httpException.StatusDescription, httpException);
+            }
+        } 
     }
 }

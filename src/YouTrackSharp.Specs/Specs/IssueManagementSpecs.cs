@@ -194,4 +194,20 @@ namespace YouTrackSharp.Specs.Specs
         static IEnumerable<Issue> issues;
     }
 
+    [Subject(typeof(IssueManagement))]
+    public class when_getting_issue_count_by_search_string : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () =>
+        {
+            count = issueManagement.GetIssueCount("some new issue");
+        };
+
+        It should_return_number_of_matching_issues = () =>
+        {
+            count.ShouldBeGreaterThan(0);
+        };
+
+        static int count;
+    }
+
 }
