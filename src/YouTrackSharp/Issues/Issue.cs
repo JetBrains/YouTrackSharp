@@ -45,7 +45,7 @@ namespace YouTrackSharp.Issues
         public string FixedInBuild { get; set; }
         public string ProjectShortName { get; set; }
         public string Summary { get; set; }
-        public string Assignee { get; set; }
+        public string AssigneeName { get; set; }
         public string Priority { get; set; }
         public string Type { get; set; }
         public string Subsystem { get; set; }

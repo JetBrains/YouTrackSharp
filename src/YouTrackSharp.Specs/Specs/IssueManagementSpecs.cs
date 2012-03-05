@@ -46,6 +46,8 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_return_list_of_issues_for_that_project = () => issues.ShouldNotBeNull();
 
+
+
         protected static IEnumerable<Issue> issues;
     }
 
@@ -123,7 +125,7 @@ namespace YouTrackSharp.Specs.Specs
                             ProjectShortName = "SB",
                             Summary = "something new ",
                             Description = "somethingelse new too",
-                            Assignee = "youtrackapi"
+                            AssigneeName = "youtrackapi"
                         };
 
             id = issueManagement.CreateIssue(issue);

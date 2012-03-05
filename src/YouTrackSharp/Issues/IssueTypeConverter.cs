@@ -78,11 +78,11 @@ namespace YouTrackSharp.Issues
                 } else
                 {
                     // Special case. Assignee is Assignee on single and AssigneeName on multiple
-                    if (String.Compare(property.Name, "Assignee") == 0)
+                    if (String.Compare(property.Name, "AssigneeName") == 0)
                     {
                         if (fields["Assignee"] != null)
                         {
-                            property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
+                            property.SetValue(issue, Convert.ChangeType(fields["Assignee"], property.PropertyType), null);
                         } else if (fields["AssigneeName"] != null)
                         {
                             property.SetValue(issue, Convert.ChangeType(fields["AssigneeName"], property.PropertyType), null);
