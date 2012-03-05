@@ -32,6 +32,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
+using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Specs.Helpers;
 
@@ -57,6 +58,8 @@ namespace YouTrackSharp.Specs.Bugs
         static Issue issue;
     }
 
+
+    
 
     public class YTSRP17 : AuthenticatedYouTrackConnectionForIssue
     {
