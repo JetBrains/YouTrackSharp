@@ -34,6 +34,7 @@ namespace YouTrackSharp.Specs.Specs
         It should_find_all_matching_issues = () =>
         {
             issues.First().ShouldEqual("ID3");
+            
           
         };
 

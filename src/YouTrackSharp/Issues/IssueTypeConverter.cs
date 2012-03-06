@@ -71,28 +71,40 @@ namespace YouTrackSharp.Issues
 
             foreach (PropertyInfo property in properties)
             {
-                if (String.Compare(property.Name, "Links") == 0 && fields["Links"] != null)
+                if (String.Compare(property.Name, "CustomFields") != 0)
                 {
-                    issue.Links = ConvertLinks(fields["Links"]);
-
-                } else
-                {
-                    // Special case. Assignee is Assignee on single and AssigneeName on multiple
-                    if (String.Compare(property.Name, "AssigneeName") == 0)
+                    if (String.Compare(property.Name, "Links") == 0 && fields["Links"] != null)
                     {
-                        if (fields["Assignee"] != null)
-                        {
-                            property.SetValue(issue, Convert.ChangeType(fields["Assignee"], property.PropertyType), null);
-                        } else if (fields["AssigneeName"] != null)
-                        {
-                            property.SetValue(issue, Convert.ChangeType(fields["AssigneeName"], property.PropertyType), null);
-                            
-                        }
+                        issue.Links = ConvertLinks(fields["Links"]);
+                        fields.Remove("Links");
                     } else
                     {
-                        property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
+                        // Special case. Assignee is Assignee on single and AssigneeName on multiple
+                        if (String.Compare(property.Name, "AssigneeName") == 0)
+                        {
+                            if (fields["Assignee"] != null)
+                            {
+                                property.SetValue(issue, Convert.ChangeType(fields["Assignee"], property.PropertyType), null);
+                            } else if (fields["AssigneeName"] != null)
+                            {
+                                property.SetValue(issue, Convert.ChangeType(fields["AssigneeName"], property.PropertyType), null);
+                            
+                            }
+                            fields.Remove("AssigneeName");
+                        } else
+                        {
+                            property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
+                            fields.Remove(property.Name);
+                        }
                     }
                 }
+            }
+
+            issue.CustomFields = new Dictionary<string, object>();
+
+            foreach (DictionaryEntry field in fields)
+            {
+                issue.CustomFields[field.Key.ToString()] = field.Value;
             }
             return issue;
         }

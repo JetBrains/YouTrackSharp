@@ -32,6 +32,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Globalization;
 using JsonFx.Json;
 
@@ -53,5 +54,8 @@ namespace YouTrackSharp.Issues
         public string State { get; set; }
         public int Votes { get; set; }
         public IList<Link> Links {get;set;}
+        [JsonName("field")]
+        public Dictionary<string, object> CustomFields { get; set; }
     }
+
 }
