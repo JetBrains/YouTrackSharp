@@ -76,7 +76,6 @@ namespace YouTrackSharp.Issues
                     if (String.Compare(property.Name, "Links") == 0 && fields["Links"] != null)
                     {
                         issue.Links = ConvertLinks(fields["Links"]);
-                        fields.Remove("Links");
                     } else
                     {
                         // Special case. Assignee is Assignee on single and AssigneeName on multiple
@@ -90,22 +89,15 @@ namespace YouTrackSharp.Issues
                                 property.SetValue(issue, Convert.ChangeType(fields["AssigneeName"], property.PropertyType), null);
                             
                             }
-                            fields.Remove("AssigneeName");
                         } else
                         {
                             property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
-                            fields.Remove(property.Name);
                         }
                     }
                 }
             }
 
-            issue.CustomFields = new Dictionary<string, object>();
 
-            foreach (DictionaryEntry field in fields)
-            {
-                issue.CustomFields[field.Key.ToString()] = field.Value;
-            }
             return issue;
         }
 

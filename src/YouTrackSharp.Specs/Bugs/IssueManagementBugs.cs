@@ -68,7 +68,10 @@ namespace YouTrackSharp.Specs.Bugs
 
         protected static IEnumerable<Issue> issues;
     }
+    
 
+
+    
     
     
 

@@ -53,9 +53,11 @@ namespace YouTrackSharp.Issues
         public string Description { get; set; }
         public string State { get; set; }
         public int Votes { get; set; }
+        public string Created { get; set; }
+        public string Update { get; set; }
         public IList<Link> Links {get;set;}
-        [JsonName("field")]
-        public Dictionary<string, object> CustomFields { get; set; }
+        //[JsonName("field")]
+        //public Dictionary<string, string> CustomFields { get; set; }
     }
 
 }
