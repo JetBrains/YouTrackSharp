@@ -123,17 +123,34 @@ namespace YouTrackSharp.Specs.Specs
             var issue = new Issue
                         {
                             ProjectShortName = "SB",
-                            Summary = "something new ",
+                            Summary = "something new",
                             Description = "somethingelse new too",
-                            AssigneeName = "youtrackapi"
+                            AssigneeName = "youtrackapi",
+                            Priority = "Minor",
+                            Type = "Task",
+                            Subsystem = "Machine Specs",
+                            State = "New"
                         };
 
-            id = issueManagement.CreateIssue(issue);
+            string issueId = issueManagement.CreateIssue(issue);
+            newIssue = issueManagement.GetIssue(issueId);
         };
 
-        It should_return_issue = () => id.ShouldNotBeEmpty();
+        It should_return_issue = () => newIssue.ShouldNotBeNull();
 
-        static string id;
+        It should_have_assignee_name = () => newIssue.AssigneeName.ShouldBeEqualIgnoringCase("youtrackapi");
+        It should_have_created = () => newIssue.Created.ShouldNotBeNull();
+        It should_have_description = () => newIssue.Description = "somethingelse new too";
+        It should_have_id = () => newIssue.Id.ShouldNotBeNull();
+        It should_have_project_short_name = () => newIssue.ProjectShortName.ShouldBeEqualIgnoringCase("SB");
+        It should_have_reporter_name = () => newIssue.ReporterName.ShouldBeEqualIgnoringCase("youtrackapi");
+        It should_have_summary = () => newIssue.Summary.ShouldBeEqualIgnoringCase("something new");
+        It should_have_priority = () => newIssue.Priority.ShouldBeEqualIgnoringCase("Minor");
+        It should_have_type = () => newIssue.Type.ShouldBeEqualIgnoringCase("Task");
+        It should_have_subsystem = () => newIssue.Subsystem.ShouldBeEqualIgnoringCase("Machine Specs");
+        It should_have_state = () => newIssue.State.ShouldBeEqualIgnoringCase("New");
+
+        static Issue newIssue;
     }
 
     [Subject(typeof (IssueManagement))]
