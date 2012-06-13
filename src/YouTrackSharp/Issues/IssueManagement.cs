@@ -106,6 +106,7 @@ namespace YouTrackSharp.Issues
                 newIssueMessage.state = issue.State;
                 newIssueMessage.priority = issue.Priority;
                 newIssueMessage.type = issue.Type;
+                newIssueMessage.subsystem = issue.Subsystem;
 
 
                 var response = _connection.Post("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
