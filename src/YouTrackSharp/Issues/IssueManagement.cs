@@ -34,6 +34,7 @@ using System.ComponentModel;
 using System.Dynamic;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Xml;
 using System.Xml.Linq;
@@ -267,7 +268,7 @@ namespace YouTrackSharp.Issues
                 while (count < 0) {
 
                     count = _connection.Get<int>(string.Format("issue/count?filter={0}", encodedQuery));
-
+                    Thread.Sleep(3000);
                 }
                 
                 return count;
