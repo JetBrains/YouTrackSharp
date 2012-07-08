@@ -103,10 +103,11 @@ namespace YouTrackSharp.Issues
                 newIssueMessage.project = issue.ProjectShortName;
                 newIssueMessage.description = issue.Description;
                 newIssueMessage.summary = issue.Summary;
-                newIssueMessage.assignee = issue.Assignee;
+                newIssueMessage.assignee = issue.AssigneeName;
                 newIssueMessage.state = issue.State;
                 newIssueMessage.priority = issue.Priority;
                 newIssueMessage.type = issue.Type;
+                newIssueMessage.subsystem = issue.Subsystem;
 
 
                 var response = _connection.Post("issue", newIssueMessage, HttpContentTypes.ApplicationJson);

@@ -32,6 +32,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
+using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Specs.Helpers;
 
@@ -52,11 +53,27 @@ namespace YouTrackSharp.Specs.Bugs
     {
         Because of = () => { issue = issueManagement.GetIssue("SB-12"); };
 
-        It should_contain_assignee = () => { issue.Assignee.ShouldEqual("hhariri"); };
+        It should_contain_assignee = () => { issue.AssigneeName.ShouldEqual("hhariri"); };
 
         static Issue issue;
     }
 
+    public class YTSRP26 : AuthenticatedYouTrackConnectionForIssue
+    {
+        Because of = () => { issues = issueManagement.GetAllIssuesForProject("SB", 1); };
+
+        It should_contain_assignee = () => issues.First().AssigneeName.ShouldNotBeEmpty();
+
+
+
+        protected static IEnumerable<Issue> issues;
+    }
+    
+
+
+    
+    
+    
 
     public class YTSRP17 : AuthenticatedYouTrackConnectionForIssue
     {
