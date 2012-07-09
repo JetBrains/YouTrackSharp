@@ -34,53 +34,41 @@ using System.Security.Authentication;
 using Machine.Specifications;
 using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Server;
+using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
 {
     [Subject(typeof (Connection))]
-    public class when_authenticating_with_valid_username_and_password_given_valid_connection_details
+    public class when_authenticating_with_valid_username_and_password_given_valid_connection_details:  YouTrackConnection
     {
-        Establish context = () => { connection = new Connection("youtrack.jetbrains.net"); };
 
         Because of = () => connection.Authenticate("youtrackapi", "youtrackapi");
 
         It should_succeed = () => connection.IsAuthenticated.ShouldBeTrue();
 
-        static Connection connection;
     }
 
     [Subject(typeof (Connection))]
-    public class when_authenticating_with_invalid_username_and_or_password_given_valid_connection_details
+    public class when_authenticating_with_invalid_username_and_or_password_given_valid_connection_details:YouTrackConnection
     {
-        Establish context = () => { connection = new Connection("youtrack.jetbrains.net"); };
 
         Because of = () => { exception = Catch.Exception( () => connection.Authenticate("YouTrackSelfTestUser", "fdfdfd")); };
 
         It should_throw_authentication_exception = () => exception.ShouldBeOfType<AuthenticationException>();
        
 
-        static Connection connection;
         static Exception exception;
     }
 
     [Subject(typeof (Connection))]
-    public class when_requesting_current_logged_in_user_given_authenticated_details
+    public class when_requesting_current_logged_in_user_given_authenticated_details: AuthenticatedYouTrackConnection
     {
-        Establish context = () =>
-        {
-            connection = new Connection("youtrack.jetbrains.net");
-
-
-            connection.Authenticate("youtrackapi", "youtrackapi");
-        };
-
         Because of = () => { user = connection.GetCurrentAuthenticatedUser(); };
 
         It should_contain_valid_username = () => user.Username.ShouldEqual("youtrackapi");
 
         It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YouTrack API");
 
-        static IConnection connection;
         static User user;
     }
 }
