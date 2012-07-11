@@ -59,7 +59,7 @@ namespace YouTrackSharp.Admin
 
         public IEnumerable<Filter> GetFiltersByUsername(string username)
         {
-            return _connection.Get<MultipleFilterWrapper, Filter>(String.Format("user/filters/{0}", username));
+            return _connection.Get<IEnumerable<Filter>>(String.Format("user/filters/{0}", username));
         }
     }
 }

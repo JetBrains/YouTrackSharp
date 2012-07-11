@@ -30,6 +30,7 @@
 #endregion
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using EasyHttp.Infrastructure;
 using Machine.Specifications;
@@ -85,7 +86,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-1"); };
 
-        It should_return_the_comments = () => comments.ShouldNotBeNull();
+        It should_return_the_comments = () => comments.First().Text.ShouldNotBeEmpty();
 
         static IEnumerable<Comment> comments;
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
 using YouTrackSharp.Issues;
@@ -56,7 +57,7 @@ namespace YouTrackSharp.CmdLets
             {
                 Summary = Summary,
                 Description = Description,
-                Priority = Priority,
+                Priority  =  Priority,
                 ProjectShortName = ProjectShortName,
                 ReporterName = Connection.GetCurrentAuthenticatedUser().Username,
                 State = "Submitted",

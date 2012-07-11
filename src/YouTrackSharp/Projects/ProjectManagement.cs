@@ -46,28 +46,28 @@ namespace YouTrackSharp.Projects
 
         public IEnumerable<Project> GetProjects()
         {
-            return _connection.Get<MultipleProjectWrapper, Project>("project/all");
+            return _connection.Get<IEnumerable<Project>>("project/all");
         }
 
 
         public IEnumerable<ProjectPriority> GetPriorities()
         {
-            return _connection.Get<MultipleProjectPriorityWrapper, ProjectPriority>("project/priorities");
+            return _connection.Get<IEnumerable<ProjectPriority>>("project/priorities");
         }
 
         public IEnumerable<ProjectState> GetStates()
         {
-            return _connection.Get<MultipleProjectStateWrapper, ProjectState>("project/states");
+            return _connection.Get<IEnumerable<ProjectState>>("project/states");
         }
 
         public IEnumerable<ProjectIssueTypes> GetIssueTypes()
         {
-            return _connection.Get<MultipleProjectIssueTypesWrapper, ProjectIssueTypes>("project/types");
+            return _connection.Get<IEnumerable<ProjectIssueTypes>>("project/types");
         }
 
         public IEnumerable<ProjectResolutionType> GetResolutions()
         {
-            return _connection.Get<MultipleProjectResolutionTypesWrapper, ProjectResolutionType>("project/resolutions");
+            return _connection.Get<IEnumerable<ProjectResolutionType>>("project/resolutions");
         }
 
         public Project GetProject(string projectName)
