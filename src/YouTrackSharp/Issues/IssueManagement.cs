@@ -72,13 +72,10 @@ namespace YouTrackSharp.Issues
                     response.field.Add(new Field() { name = "Id", value = response.id });
 
                     var typeConverter = TypeDescriptor.GetConverter(typeof(Issue));
-                    if (typeConverter != null)
-                    {
-                        var issue = typeConverter.ConvertFrom(response.field) as Issue;
+                    
+                    var issue = typeConverter.ConvertFrom(response.field) as Issue;
 
-                        return issue;
-                    }
-                    throw new InvalidRequestException("TypeConverter for Issue not found");
+                    return issue;
                 }
                 return null;
             }
@@ -130,24 +127,9 @@ namespace YouTrackSharp.Issues
         /// <returns>List of Issues</returns>
         public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
-            try
-            {
                 return
-                    _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
+                    _connection.Get<IEnumerable<Issue>>(string.Format("project/issues/{0}?max={1}&after={2}",
                                                                                projectIdentifier, max, start));
-
-            }
-            catch (DeserializationException)
-            {
-                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
-                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
-                var issues = _connection.Get<SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("project/issues/{0}?max={1}&after={2}",
-                                                                         projectIdentifier, max, start));
-
-              
-
-                return new List<Issue>() { issues.issue };
-            }
         }
 
         /// <summary>
@@ -157,31 +139,7 @@ namespace YouTrackSharp.Issues
         /// <returns></returns>
         public IEnumerable<Comment> GetCommentsForIssue(string issueId)
         {
-            try
-            {
-                var response = _connection.Get<MultipleCommentWrapper>(String.Format("issue/comments/{0}", issueId));
-
-                if (response != null)
-                {
-                    return response.comment;
-                }
-                return new List<Comment>();
-            }
-            catch (DeserializationException)
-            {
-                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
-                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-17
-                var comments  = _connection.Get<SingleCommentWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("issue/comments/{0}",
-                                                                         issueId));
-
-
-
-                return new List<Comment>() { comments.comment };
-            }
-            catch (HttpException httpException)
-            {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);
-            }
+            return _connection.Get<IEnumerable<Comment>>(String.Format("issue/comments/{0}", issueId));
         }
 
         public bool CheckIfIssueExists(string issueId)

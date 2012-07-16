@@ -28,12 +28,16 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+
+using System;
+
 namespace YouTrackSharp.Issues
 {
     public class Comment
     {
         public string Author { get; set; }
-        public string Created { get; set; }
+        // TODO:Convert this to datetime
+        public Int64 Created { get; set; }
         public string Text { get; set; }
     }
 }

@@ -31,6 +31,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EasyHttp.Infrastructure;
 using Machine.Specifications;
 using YouTrackSharp.Admin;
 using YouTrackSharp.Infrastructure;
@@ -50,7 +51,7 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_contain_valid_username = () => user.Username.ShouldEqual("youtrackapi");
 
-        It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YoutrackAPI User");
+        It should_contain_valid_fullname = () => user.FullName.ShouldEqual("YouTrack API");
 
         static User user;
         static UserManagement userManagement;
@@ -79,9 +80,9 @@ namespace YouTrackSharp.Specs.Specs
 
         Because of = () => { exception = Catch.Exception(() => userManagement.GetUserByUserName("root")); };
 
-        It should_throw_invalid_authorization_exception = () => exception.ShouldBeOfType<InvalidRequestException>();
+        It should_throw_invalid_authorization_exception = () => exception.ShouldBeOfType<HttpException>();
 
-        It should_contain_message_insufficient_rights = () => exception.Message.ShouldEqual("Insufficient rights");
+        It should_contain_message_insufficient_rights = () => exception.Message.ShouldEqual("Unauthorized Unauthorized");
 
         static Exception exception;
         static UserManagement userManagement;

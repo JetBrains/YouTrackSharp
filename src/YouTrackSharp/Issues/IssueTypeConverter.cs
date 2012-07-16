@@ -89,7 +89,8 @@ namespace YouTrackSharp.Issues
                                 property.SetValue(issue, Convert.ChangeType(fields["AssigneeName"], property.PropertyType), null);
                             
                             }
-                        } else
+                        }
+                        else
                         {
                             property.SetValue(issue, Convert.ChangeType(fields[property.Name], property.PropertyType), null);
                         }
