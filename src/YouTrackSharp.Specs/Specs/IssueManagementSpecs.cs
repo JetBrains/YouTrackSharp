@@ -127,7 +127,7 @@ namespace YouTrackSharp.Specs.Specs
                             Summary = "something new",
                             Description = "somethingelse new too",
                             AssigneeName = "youtrackapi",
-                            Priority = "Minor",
+                            Priority = new[] {"Minor"} ,
                             Type = "Task",
                             Subsystem = "Machine Specs",
                             State = "New"
@@ -146,7 +146,7 @@ namespace YouTrackSharp.Specs.Specs
         It should_have_project_short_name = () => newIssue.ProjectShortName.ShouldBeEqualIgnoringCase("SB");
         It should_have_reporter_name = () => newIssue.ReporterName.ShouldBeEqualIgnoringCase("youtrackapi");
         It should_have_summary = () => newIssue.Summary.ShouldBeEqualIgnoringCase("something new");
-        It should_have_priority = () => newIssue.Priority.ShouldBeEqualIgnoringCase("Minor");
+        It should_have_priority = () => newIssue.Priority[0].ShouldBeEqualIgnoringCase("Minor");
         It should_have_type = () => newIssue.Type.ShouldBeEqualIgnoringCase("Task");
         It should_have_subsystem = () => newIssue.Subsystem.ShouldBeEqualIgnoringCase("Machine Specs");
         It should_have_state = () => newIssue.State.ShouldBeEqualIgnoringCase("New");

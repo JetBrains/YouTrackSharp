@@ -63,6 +63,7 @@
     <Compile Include="Helpers\AuthenticatedYouTrackConnection.cs" />
     <Compile Include="Helpers\YouTrackConnection.cs" />
     <Compile Include="Helpers\AuthenticatedYouTrackConnectionForIssue.cs" />
+    <Compile Include="NewSpec.cs" />
     <Compile Include="Specs\CommandParserSpecs.cs" />
     <Compile Include="Specs\ConnectionSpecs.cs" />
     <Compile Include="Specs\IssueManagementSpecs.cs" />

@@ -9,10 +9,10 @@ namespace YouTrackSharp.CmdLets
         
         protected override void BeginProcessing()
         {
-            // Sample for now...credentials will move out (obviously)
+
             Connection = new Connection("youtrack.jetbrains.net");
 
-            Connection.Authenticate("youtrackapi", "youtrackapi");
+            Connection.Authenticate("abc", "abc");
         }
 
     }

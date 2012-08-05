@@ -99,6 +99,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
+    <Compile Include="Projects\ConnectionException.cs" />
+    <Compile Include="Projects\Customer.cs" />
     <Compile Include="Projects\IDataWrapper.cs" />
     <Compile Include="Projects\MultipleProjectIssueTypesWrapper.cs" />
     <Compile Include="Projects\MultipleProjectPriorityWrapper.cs" />

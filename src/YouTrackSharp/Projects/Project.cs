@@ -34,6 +34,32 @@ namespace YouTrackSharp.Projects
 {
     public class Project
     {
+        public Project()
+        {
+            
+        }
+
+        protected bool Equals(Project other)
+        {
+            return string.Equals(ShortName, other.ShortName) && IsImporting.Equals(other.IsImporting);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Project) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((ShortName != null ? ShortName.GetHashCode() : 0)*397) ^ IsImporting.GetHashCode();
+            }
+        }
+
         public string Name { get; set; }
         public string ShortName { get; set; }
         public bool IsImporting { get; set; }

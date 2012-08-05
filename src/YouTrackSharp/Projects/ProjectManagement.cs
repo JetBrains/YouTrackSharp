@@ -41,7 +41,14 @@ namespace YouTrackSharp.Projects
 
         public ProjectManagement(IConnection connection)
         {
-            _connection = connection;
+            try
+            {
+                _connection = connection;
+            }
+            catch (ConnectionException e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public IEnumerable<Project> GetProjects()

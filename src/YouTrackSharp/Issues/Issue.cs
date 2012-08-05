@@ -47,7 +47,7 @@ namespace YouTrackSharp.Issues
         public string ProjectShortName { get; set; }
         public string Summary { get; set; }
         public string AssigneeName { get; set; }
-        public string Priority { get; set; }
+        public string[] Priority { get; set; }
         public string Type { get; set; }
         public string Subsystem { get; set; }
         public string Description { get; set; }
@@ -59,5 +59,6 @@ namespace YouTrackSharp.Issues
         //[JsonName("field")]
         //public Dictionary<string, string> CustomFields { get; set; }
     }
+
 
 }

@@ -57,7 +57,7 @@ namespace YouTrackSharp.CmdLets
             {
                 Summary = Summary,
                 Description = Description,
-                Priority  =  Priority,
+                Priority  =  new[] { Priority} ,
                 ProjectShortName = ProjectShortName,
                 ReporterName = Connection.GetCurrentAuthenticatedUser().Username,
                 State = "Submitted",
