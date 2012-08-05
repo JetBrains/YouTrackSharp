@@ -38,7 +38,7 @@ namespace YouTrackSharp.CmdLets
     {
         [Parameter(Mandatory = true, HelpMessage = "Issue Id")]
         [ValidateNotNull]
-        public string IssueId { get; set; }
+        string IssueId { get; set; }
 
         protected override void ProcessRecord()
         {

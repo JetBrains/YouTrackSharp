@@ -42,7 +42,6 @@ namespace YouTrackSharp.Issues
     {
         readonly IDictionary<string, object> _allFields = new Dictionary<string, object>(StringComparer.InvariantCultureIgnoreCase);
         string _id;
-        string _project;
 
         public string Id
         {

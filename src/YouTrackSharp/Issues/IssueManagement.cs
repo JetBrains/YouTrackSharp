@@ -30,18 +30,11 @@
 #endregion
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Dynamic;
-using System.IO;
 using System.Net;
 using System.Threading;
 using System.Web;
-using System.Xml;
-using System.Xml.Linq;
-using EasyHttp.Codecs.JsonFXExtensions;
 using EasyHttp.Http;
-using EasyHttp.Infrastructure;
-using JsonFx.Serialization;
 using YouTrackSharp.Infrastructure;
 using HttpException = EasyHttp.Infrastructure.HttpException;
 
@@ -182,24 +175,10 @@ namespace YouTrackSharp.Issues
           
             var encodedQuery = HttpUtility.UrlEncode(searchString);
 
-            try
-            {
                 return
                     _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
                                                                                encodedQuery, max, start));
 
-            }
-            catch (DeserializationException)
-            {
-                // TODO: BIG CRAPPY UGLY HACK THAT IS HERE UNTIL YOUTRACK SERVER IS SOLVED. THIS WOULD ACTUALLY
-                // APPLY TO ALL ISSUES. SEE http://youtrack.codebetter.com/issue/YTSRP-9
-                var issues = _connection.Get<SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed>(string.Format("project/issues?filter={0}&max={1}&after={2}",
-                                                                               encodedQuery, max, start));
-
-              
-
-                return new List<Issue>() { issues.issue };
-            }                
                 
         }
 
@@ -213,7 +192,9 @@ namespace YouTrackSharp.Issues
 
                 while (count < 0) {
 
-                    count = _connection.Get<int>(string.Format("issue/count?filter={0}", encodedQuery));
+                    var countObject  = _connection.Get<Count>(string.Format("issue/count?filter={0}", encodedQuery));
+
+                    count = countObject.Entity.Value;
                     Thread.Sleep(3000);
                 }
                 

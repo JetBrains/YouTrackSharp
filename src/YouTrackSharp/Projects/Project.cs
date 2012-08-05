@@ -34,10 +34,6 @@ namespace YouTrackSharp.Projects
 {
     public class Project
     {
-        public Project()
-        {
-            
-        }
 
         protected bool Equals(Project other)
         {

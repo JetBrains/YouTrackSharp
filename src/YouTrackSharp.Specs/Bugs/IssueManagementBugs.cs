@@ -100,7 +100,7 @@ namespace YouTrackSharp.Specs.Bugs
 
     public class YTSRP18 : AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-36"); };
+        Because of = () => { comments = issueManagement.GetCommentsForIssue("SB-3"); };
 
         It should_return_zero_comments = () => { comments.Count().ShouldEqual(0); };
 

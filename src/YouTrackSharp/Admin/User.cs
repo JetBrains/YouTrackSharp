@@ -28,9 +28,10 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+
 using JsonFx.Json;
 
-namespace YouTrackSharp.Server
+namespace YouTrackSharp.Admin
 {
     public class User
     {

@@ -31,8 +31,8 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Net;
+using YouTrackSharp.Admin;
 using YouTrackSharp.Projects;
-using YouTrackSharp.Server;
 
 namespace YouTrackSharp.Infrastructure
 {

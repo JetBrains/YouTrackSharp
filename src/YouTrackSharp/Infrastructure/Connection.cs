@@ -37,8 +37,8 @@ using System.Net;
 using System.Security.Authentication;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
+using YouTrackSharp.Admin;
 using YouTrackSharp.Projects;
-using YouTrackSharp.Server;
 
 namespace YouTrackSharp.Infrastructure
 {

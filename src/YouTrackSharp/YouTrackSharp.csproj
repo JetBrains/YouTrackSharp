@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Filter.cs" />
-    <Compile Include="Admin\MultipleFilterWrapper.cs" />
     <Compile Include="Cmdlets\SetCommandCmdlet.cs" />
     <Compile Include="Cmdlets\NewIssueCmdlet.cs" />
     <Compile Include="Cmdlets\GetIssueCmdlet.cs" />
@@ -78,20 +77,17 @@
     <Compile Include="Infrastructure\IConnection.cs" />
     <Compile Include="Infrastructure\ISearchEngine.cs" />
     <Compile Include="Infrastructure\LuceneIssuePatternMatching.cs" />
+    <Compile Include="Issues\Count.cs" />
+    <Compile Include="Issues\Entity.cs" />
     <Compile Include="Issues\Link.cs" />
-    <Compile Include="Issues\SingleCommentWrapperTemporaryHackUntilYouTrackServerIsFixed.cs" />
-    <Compile Include="Issues\SingleIssueWrapperTemporaryHackUntilYouTrackServerIsFixed.cs" />
     <Compile Include="Infrastructure\SubValues.cs" />
     <Compile Include="Infrastructure\SubValuesArray.cs" />
     <Compile Include="Issues\Comment.cs" />
     <Compile Include="Issues\Field.cs" />
-    <Compile Include="Issues\IssueTypeConverter.cs" />
-    <Compile Include="Issues\MultipleCommentWrapper.cs" />
     <Compile Include="Issues\MultipleIssueWrapper.cs" />
     <Compile Include="Infrastructure\DefaultUriConstructor.cs" />
     <Compile Include="Infrastructure\InvalidRequestException.cs" />
     <Compile Include="Infrastructure\IUriConstructor.cs" />
-    <Compile Include="Issues\SingleIssueWrapper.cs" />
     <Compile Include="Issues\IssueManagement.cs" />
     <Compile Include="Issues\Issue.cs" />
     <Compile Include="Language.Designer.cs">
@@ -102,11 +98,6 @@
     <Compile Include="Projects\ConnectionException.cs" />
     <Compile Include="Projects\Customer.cs" />
     <Compile Include="Projects\IDataWrapper.cs" />
-    <Compile Include="Projects\MultipleProjectIssueTypesWrapper.cs" />
-    <Compile Include="Projects\MultipleProjectPriorityWrapper.cs" />
-    <Compile Include="Projects\MultipleProjectResolutionTypesWrapper.cs" />
-    <Compile Include="Projects\MultipleProjectWrapper.cs" />
-    <Compile Include="Projects\MultipleProjectStateWrapper.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Projects\ProjectIssueTypes.cs" />
     <Compile Include="Projects\ProjectPriority.cs" />

@@ -35,7 +35,6 @@ using EasyHttp.Infrastructure;
 using Machine.Specifications;
 using YouTrackSharp.Admin;
 using YouTrackSharp.Infrastructure;
-using YouTrackSharp.Server;
 using YouTrackSharp.Specs.Helpers;
 
 namespace YouTrackSharp.Specs.Specs
