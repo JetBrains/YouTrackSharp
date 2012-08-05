@@ -65,7 +65,7 @@ namespace YouTrackSharp.Issues
 
         Issue ConvertFromFields(Hashtable fields)
         {
-            var issue = new Issue();
+            dynamic issue = new Issue();
 
             PropertyInfo[] properties = typeof (Issue).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 

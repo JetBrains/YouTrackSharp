@@ -38,32 +38,31 @@ namespace YouTrackSharp.CmdLets
                 var similarIssues =
                     IssueManagement.GetIssuesBySearch(string.Format("project: {0} \"{1}\" \"{2}\"", ProjectShortName, Summary, Description));
 
-                
-                var issueList = from si in similarIssues
-                                select new {IssueId = si.Id, Summary = si.Summary, Description = si.Description};
+                // TODO: Fix this once issues work again with dynamic type
+                //var issueList = from si in similarIssues
+                //                select new {IssueId = si.Id, Summary = si.Summary, Description = si.Description};
 
                 
-                if (issueList.Count() > 0)
-                {
-                    WriteWarning("Found similar issues. If you still want to create it, use -Force=true");
-                    WriteObject(issueList);
+                //if (issueList.Count() > 0)
+                //{
+                //    WriteWarning("Found similar issues. If you still want to create it, use -Force=true");
+                //    WriteObject(issueList);
 
-                    return;
-                }
+                //    return;
+                //}
             }
-            
-            
-            var newIssue = new Issue
-            {
-                Summary = Summary,
-                Description = Description,
-                Priority  =  new[] { Priority} ,
-                ProjectShortName = ProjectShortName,
-                ReporterName = Connection.GetCurrentAuthenticatedUser().Username,
-                State = "Submitted",
-                Type = Type,
-                Subsystem = Subsystem
-            };
+
+
+            dynamic newIssue = new Issue();
+
+            newIssue.Summary = Summary;
+            newIssue.Description = Description;
+            newIssue.Priority = new[] {Priority};
+            newIssue.ProjectShortName = ProjectShortName;
+            newIssue.ReporterName = Connection.GetCurrentAuthenticatedUser().Username;
+            newIssue.State = "Submitted";
+            newIssue.Type = Type;
+            newIssue.Subsystem = Subsystem;
 
             var id = IssueManagement.CreateIssue(newIssue);
 

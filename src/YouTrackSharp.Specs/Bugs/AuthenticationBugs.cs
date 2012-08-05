@@ -47,19 +47,19 @@ namespace YouTrackSharp.Specs.Bugs
         Because of = () =>
         {
             var issueManagement = new IssueManagement(connection);
-            var issue = new Issue
-            {
-                Summary = "authbug1",
-                Description = "description1",
-                ProjectShortName = "SB"
-            };
-            var issue2 = new Issue
-            {
-                Summary = "authbug2",
-                Description = "description2",
-                ProjectShortName = "SB"
-            };
-            issueId1 = issueManagement.CreateIssue(issue);
+            dynamic issue1 = new Issue();
+            
+            issue1.Summary = "authbug1";
+            issue1.Description = "description1";
+            issue1.ProjectShortName = "SB";
+
+            dynamic issue2 = new Issue();
+            
+            issue2.Summary = "authbug2";
+            issue2.Description = "description2";
+            issue2.ProjectShortName = "SB";
+            
+            issueId1 = issueManagement.CreateIssue(issue1);
             issueId2 = issueManagement.CreateIssue(issue2);
 
         };

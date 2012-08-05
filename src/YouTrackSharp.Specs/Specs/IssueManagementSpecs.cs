@@ -45,7 +45,7 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () => { issues = issueManagement.GetAllIssuesForProject("SB", 10); };
 
-        It should_return_list_of_issues_for_that_project = () => issues.ShouldNotBeNull();
+        It should_return_list_of_issues_for_that_project = () => issues.Count().ShouldBeGreaterThan(0);
 
 
 
@@ -57,12 +57,23 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () => { issue = issueManagement.GetIssue("SB-1"); };
 
-        It should_return_issue_with_correct_id = () => issue.Id.ShouldEqual("SB-1");
+        
+        It should_return_issue_with_correct_id = () =>
+        {
+            string id = issue.Id;
 
-        It should_return_issue_with_correct_project_name = () => issue.ProjectShortName.ShouldEqual("SB");
+            id.ShouldEqual("SB-1");
+        };
+
+        It should_return_issue_with_correct_project_name = () =>
+        {
+            string projectShortName = issue.ProjectShortName;
+
+            projectShortName.ShouldEqual("SB");
+        };
 
 
-        static Issue issue;
+        static dynamic issue;
     }
 
     [Subject(typeof (IssueManagement))]
@@ -99,7 +110,9 @@ namespace YouTrackSharp.Specs.Specs
 
         Because of = () =>
         {
-            var issue = new Issue {ProjectShortName = "SB", Summary = "Issue Created"};
+            dynamic issue = new Issue();
+            issue.ProjectShortName = "SB";
+            issue.Summary = "Issue Created";
 
 
             exception = Catch.Exception(() => { IssueManagement.CreateIssue(issue); });
@@ -121,37 +134,76 @@ namespace YouTrackSharp.Specs.Specs
     {
         Because of = () =>
         {
-            var issue = new Issue
-                        {
-                            ProjectShortName = "SB",
-                            Summary = "something new",
-                            Description = "somethingelse new too",
-                            AssigneeName = "youtrackapi",
-                            Priority = new[] {"Minor"} ,
-                            Type = "Task",
-                            Subsystem = "Machine Specs",
-                            State = "New"
-                        };
+            dynamic issue = new Issue();
+            
+            issue.ProjectShortName = "SB";
+            issue.Summary = "something";
+            issue.Description = "somethingelse";
+            issue.AssigneeName = "youtrackapi";
+            issue.Priority = new[] {"Minor"};
+            issue.Type = "Task";
+            issue.State = "New";
 
             string issueId = issueManagement.CreateIssue(issue);
+            
             newIssue = issueManagement.GetIssue(issueId);
         };
 
-        It should_return_issue = () => newIssue.ShouldNotBeNull();
 
-        It should_have_assignee_name = () => newIssue.AssigneeName.ShouldBeEqualIgnoringCase("youtrackapi");
-        It should_have_created = () => newIssue.Created.ShouldNotBeNull();
-        It should_have_description = () => newIssue.Description = "somethingelse new too";
-        It should_have_id = () => newIssue.Id.ShouldNotBeNull();
-        It should_have_project_short_name = () => newIssue.ProjectShortName.ShouldBeEqualIgnoringCase("SB");
-        It should_have_reporter_name = () => newIssue.ReporterName.ShouldBeEqualIgnoringCase("youtrackapi");
-        It should_have_summary = () => newIssue.Summary.ShouldBeEqualIgnoringCase("something new");
-        It should_have_priority = () => newIssue.Priority[0].ShouldBeEqualIgnoringCase("Minor");
-        It should_have_type = () => newIssue.Type.ShouldBeEqualIgnoringCase("Task");
-        It should_have_subsystem = () => newIssue.Subsystem.ShouldBeEqualIgnoringCase("Machine Specs");
-        It should_have_state = () => newIssue.State.ShouldBeEqualIgnoringCase("New");
+        It should_have_created = () =>
+        {
+            string created =
+                newIssue.Created;
+            created.ShouldNotBeNull();
+        };
 
-        static Issue newIssue;
+        It should_have_description = () =>
+        {
+            string description = newIssue.Description;
+
+            description.ShouldBeEqualIgnoringCase("somethingelse");
+        
+        };
+
+        It should_have_id = () =>
+        {
+            string issuesId = newIssue.Id;
+            issuesId.ShouldNotBeNull();
+
+        };
+        It should_have_project_short_name = () =>
+        {
+            string projectShortName = newIssue.ProjectShortName;
+            projectShortName.ShouldBeEqualIgnoringCase("SB");
+
+        };
+        It should_have_reporter_name = () =>
+        {
+            string reporterName = newIssue.ReporterName;
+            reporterName.ShouldBeEqualIgnoringCase("youtrackapi");
+        };
+        It should_have_summary = () =>
+        {
+            string summary = newIssue.Summary;
+            summary.ShouldBeEqualIgnoringCase("something");
+        };
+        It should_have_priority = () =>
+        {
+            string[] priority = newIssue.Priority;
+            priority[0].ShouldBeEqualIgnoringCase("Minor");
+        };
+        It should_have_type = () =>
+        {
+            string[] type = newIssue.Type;
+            type[0].ShouldBeEqualIgnoringCase("Task");
+        };
+        It should_have_state = () =>
+        {
+            string[] state = newIssue.State;
+            state[0].ShouldBeEqualIgnoringCase("New");
+        };
+
+        static dynamic newIssue;
     }
 
     [Subject(typeof (IssueManagement))]

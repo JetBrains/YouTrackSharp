@@ -44,29 +44,43 @@ namespace YouTrackSharp.Specs.Bugs
 
         It should_return_single_issue = () => issues.Count().ShouldEqual(1);
 
-        It should_contain_valid_issue_id = () => issues.First().Id.ShouldNotBeEmpty();
+        It should_contain_valid_issue_id = () =>
+        {
+            issues.First().Id.ShouldNotBeEmpty();
+
+        };
 
         protected static IEnumerable<Issue> issues;
     }
 
     public class YTSRP15: AuthenticatedYouTrackConnectionForIssue
     {
-        Because of = () => { issue = issueManagement.GetIssue("SB-12"); };
+        Because of = () => { issue = issueManagement.GetIssue("SB-2"); };
 
-        It should_contain_assignee = () => { issue.AssigneeName.ShouldEqual("hhariri"); };
+        It should_contain_assignee = () =>
+        {
+            string[] assignee = issue.Assignee;
 
-        static Issue issue;
+            assignee.First().ShouldEqual("youtrackapi");
+        };
+
+        static dynamic issue;
     }
 
     public class YTSRP26 : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () => { issues = issueManagement.GetAllIssuesForProject("SB", 1); };
 
-        It should_contain_assignee = () => issues.First().AssigneeName.ShouldNotBeEmpty();
+        It should_contain_assignee = () =>
+        {
+            dynamic issue = issues.First();
+            string assigneeName = issue.assigneeName;
+            assigneeName.ShouldNotBeEmpty();
+        };
 
 
 
-        protected static IEnumerable<Issue> issues;
+        protected static IEnumerable<dynamic> issues;
     }
     
 

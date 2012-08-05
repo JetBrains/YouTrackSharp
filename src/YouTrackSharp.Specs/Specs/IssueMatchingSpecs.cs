@@ -6,16 +6,29 @@ using YouTrackSharp.Issues;
 
 namespace YouTrackSharp.Specs.Specs
 {
+    [Ignore("Low priority as this is not actually used in code")]
     [Subject(typeof(ISearchEngine))]
     public class when_matching_issues_given_text_and_list_of_issues
     {
         Establish context = () =>
         {
-            items = new List<Issue> {
-                new Issue {Id= "ID1", Summary = "A general exception has been raised"}, 
-                new Issue {Id= "ID2", Summary = "Method to invocate has failed while connecting"}, 
-                new Issue {Id= "ID3", Summary = "Failure when connecting to service"}, 
-                new Issue {Id = "ID4", Summary = "Failure when trying to ping a connection"}};
+            dynamic issue1 = new Issue();
+            issue1.Id = "ID1";
+            issue1.Summary = "A general exception has been raised";
+
+            dynamic issue2 = new Issue();
+            issue2.Id = "ID2";
+            issue2.Summary = "Method to invocate has failed while connecting";
+
+            dynamic issue3 = new Issue();
+            issue3.Id = "ID3";
+            issue3.Summary = "Failure when connecting to service";
+
+            dynamic issue4 = new Issue();
+            issue4.Id = "ID4";
+            issue4.Summary = "Failure when trying to ping a connection";
+
+            items = new List<Issue>() { issue1, issue2, issue3, issue4};
 
             luceneSearchEngine = new LuceneSearchEngine();
 

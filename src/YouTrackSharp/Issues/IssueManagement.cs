@@ -65,17 +65,13 @@ namespace YouTrackSharp.Issues
         {
             try
             {
-                var response = _connection.Get<SingleIssueWrapper>(String.Format("issue/{0}", issueId));
+                dynamic response = _connection.Get<Issue>(String.Format("issue/{0}", issueId));
 
                 if (response != null)
                 {
-                    response.field.Add(new Field() { name = "Id", value = response.id });
+                    response.Id = response.id;
 
-                    var typeConverter = TypeDescriptor.GetConverter(typeof(Issue));
-                    
-                    var issue = typeConverter.ConvertFrom(response.field) as Issue;
-
-                    return issue;
+                    return response;
                 }
                 return null;
             }
@@ -95,21 +91,10 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                dynamic newIssueMessage = new ExpandoObject();
+ 
+                var response = _connection.Post("issue", issue.ToExpandoObject(), HttpContentTypes.ApplicationJson);
 
-                newIssueMessage.project = issue.ProjectShortName;
-                newIssueMessage.description = issue.Description;
-                newIssueMessage.summary = issue.Summary;
-                newIssueMessage.assignee = issue.AssigneeName;
-                newIssueMessage.state = issue.State;
-                newIssueMessage.priority = issue.Priority;
-                newIssueMessage.type = issue.Type;
-                newIssueMessage.subsystem = issue.Subsystem;
-
-
-                var response = _connection.Post("issue", newIssueMessage, HttpContentTypes.ApplicationJson);
-
-
+       
                 return response.id;
             }
             catch (HttpException httpException)
@@ -118,6 +103,7 @@ namespace YouTrackSharp.Issues
             }
         }
 
+ 
         /// <summary>
         /// Retrieves a list of issues 
         /// </summary>
@@ -128,8 +114,9 @@ namespace YouTrackSharp.Issues
         public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
         {
                 return
-                    _connection.Get<IEnumerable<Issue>>(string.Format("project/issues/{0}?max={1}&after={2}",
+                    _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
                                                                                projectIdentifier, max, start));
+                
         }
 
         /// <summary>

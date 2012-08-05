@@ -29,6 +29,7 @@
 // =============================================================
 #endregion
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Net;
 using YouTrackSharp.Projects;
 using YouTrackSharp.Server;
