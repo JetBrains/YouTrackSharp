@@ -10,8 +10,8 @@ http://www.jetbrains.com/youtrack
 
 YouTrack Versions 3.X and higher
 
-*Important:* This branch (2.x) supports YouTrack 4.0 and higher. Soon this branch will become
-master and all further development will take place here. Branch 1.x is now frozen.
+*Important:* This master branch is still work in progress. However it is also the only one that support YouTrack 4.0 and higher.
+
 
 If you're looking for YouTrack 3.x support, please use the 1.x branch, although be aware that
 this branch is frozen and only bug fixes will make it in. No new feature development. The main
