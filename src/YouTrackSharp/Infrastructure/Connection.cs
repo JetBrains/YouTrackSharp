@@ -42,6 +42,7 @@ using EasyHttp.Configuration;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
 using JsonFx.Serialization;
+using JsonFx.Serialization.Resolvers;
 using YouTrackSharp.Admin;
 using YouTrackSharp.Projects;
 
@@ -254,7 +255,9 @@ namespace YouTrackSharp.Infrastructure
 
             if (data != null)
             {
-                var encoder = new UrlEncoderWriter(new DataWriterSettings(DefaultEncoderDecoderConfiguration.CombinedResolverStrategy()));
+                var formatter = new ConventionResolverStrategy(ConventionResolverStrategy.WordCasing.CamelCase);
+                var settings = new DataWriterSettings(formatter);
+                var encoder = new UrlEncoderWriter(settings);
                 var query = encoder.Write(data);
                 builder.Query = query;
             }
