@@ -129,6 +129,11 @@ namespace YouTrackSharp.Infrastructure
             HttpStatusCode = httpRequest.Response.StatusCode;
         }
 
+        public void Put(string command, object data)
+        {
+            MakePostRequest(command, data, HttpContentTypes.ApplicationXml);
+        }
+
         public void Post(string command, object data)
         {
             // This actually doesn't return Application/XML...Bug in YouTrack
@@ -235,6 +240,16 @@ namespace YouTrackSharp.Infrastructure
                     mime = rk.GetValue("Content Type").ToString();
             }
             return mime;
+        }
+
+        HttpClient MakePutRequest(string command, object data)
+        {
+            var httpRequest = CreateHttpRequest();
+            var uri = _uriConstructor.ConstructBaseUri(command);
+            httpRequest.Put(uri, data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+            HttpStatusCode = httpRequest.Response.StatusCode;
+
+            return httpRequest;
         }
 
         HttpClient MakePostRequest(string command, object data, string accept)

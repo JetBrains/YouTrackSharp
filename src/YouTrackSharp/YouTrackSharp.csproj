@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\CustomFieldManagement.cs" />
     <Compile Include="Admin\Filter.cs" />
     <Compile Include="Cmdlets\SetCommandCmdlet.cs" />
     <Compile Include="Cmdlets\NewIssueCmdlet.cs" />
