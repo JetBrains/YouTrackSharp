@@ -277,7 +277,6 @@ namespace YouTrackSharp.Infrastructure
 
             //var httpRequest = CreateHttpRequest();
 
-            Console.WriteLine(uri);
             //httpRequest.Put(builder.Uri.ToString(), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
             
             return null;

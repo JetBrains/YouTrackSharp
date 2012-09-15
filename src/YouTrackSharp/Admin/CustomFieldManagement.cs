@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using JsonFx.Json;
 using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Admin
@@ -32,8 +31,6 @@ namespace YouTrackSharp.Admin
                 throw new ArgumentNullException("fieldRef");
             }
 
-
-            Console.WriteLine(fieldRef.RestQuery);
             var customField = _connection.Get<CustomField>(fieldRef.RestQuery);
             return customField;
         }
@@ -54,82 +51,7 @@ namespace YouTrackSharp.Admin
         public void AddVersionToVersionBundle(TargetRef versionBundle, Version version)
         {
             var command = String.Format("{0}/{1}", versionBundle.RestQuery, version.Value);
-            //Console.WriteLine(command);
-            //_connection.Put(command, version);
             _connection.Put(command, version);
-        }
-    }
-
-    public class Param
-    {
-        public string Name { get; set; }
-        public string Value { get; set; }
-    }
-
-    public class TargetRef
-    {
-        public string Name { get; set; }
-        public string Url { get; set; }
-
-        [JsonIgnore]
-        public string RestQuery
-        {
-            get
-            {
-                var uri = new Uri(Url);
-                const string restPath = "/rest/";
-                var restIndex = uri.LocalPath.IndexOf(restPath);
-                var restQuery = uri.LocalPath.Remove(0, restIndex + restPath.Length);
-                return restQuery;
-            }
-        }
-    }
-
-    public class CustomField
-    {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string EmptyText { get; set; }
-        public IEnumerable<Param> Param { get; set; }
-    }
-
-    public class VersionBundle
-    {
-        public string Name { get; set; }
-        public IEnumerable<Version> Version { get; set; }
-    }
-
-    public class Version
-    {
-        private static readonly DateTime _epoch = new DateTime(1970, 1, 1);
-
-        public string Value { get; set; }
-        public Int64? ReleaseDate { get; set; }
-        public bool Released { get; set; }
-        public bool Archived { get; set; }
-
-        [JsonIgnore]
-        public DateTime? ReleaseDateTime
-        {
-            get
-            {
-                if (ReleaseDate == null)
-                {
-                    return null;
-                }
-
-                return _epoch + TimeSpan.FromMilliseconds(ReleaseDate.Value);
-            }
-
-            set
-            {
-                if (value == null)
-                {
-                    ReleaseDate = null;
-                }
-
-                ReleaseDate = (Int64)(value.Value - _epoch).TotalMilliseconds;
-            }
         }
     }
 }
