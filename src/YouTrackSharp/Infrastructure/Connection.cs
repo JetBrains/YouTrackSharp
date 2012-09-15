@@ -37,8 +37,11 @@ using System.Dynamic;
 using System.IO;
 using System.Net;
 using System.Security.Authentication;
+using EasyHttp.Codecs.JsonFXExtensions;
+using EasyHttp.Configuration;
 using EasyHttp.Http;
 using EasyHttp.Infrastructure;
+using JsonFx.Serialization;
 using YouTrackSharp.Admin;
 using YouTrackSharp.Projects;
 
@@ -114,7 +117,7 @@ namespace YouTrackSharp.Infrastructure
 
             var contentType = GetFileContentType(path);
 
-            var files = new List<FileData>() {new FileData() {FieldName = "file", Filename = path, ContentTransferEncoding = "binary", ContentType = contentType}};
+            var files = new List<FileData>() { new FileData() { FieldName = "file", Filename = path, ContentTransferEncoding = "binary", ContentType = contentType } };
 
 
             httpRequest.Post(_uriConstructor.ConstructBaseUri(command), null, files);
@@ -131,7 +134,9 @@ namespace YouTrackSharp.Infrastructure
 
         public void Put(string command, object data)
         {
-            MakePostRequest(command, data, HttpContentTypes.ApplicationXml);
+            // TODO: EasyHttp doesn't support PUT, so this is incomplete. 
+            // https://github.com/JetBrains/YouTrackSharp/issues/9
+            var response = MakePutRequest(command, data);
         }
 
         public void Post(string command, object data)
@@ -244,12 +249,35 @@ namespace YouTrackSharp.Infrastructure
 
         HttpClient MakePutRequest(string command, object data)
         {
-            var httpRequest = CreateHttpRequest();
             var uri = _uriConstructor.ConstructBaseUri(command);
-            httpRequest.Put(uri, data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
-            HttpStatusCode = httpRequest.Response.StatusCode;
+            var builder = new UriBuilder(uri);
 
-            return httpRequest;
+            if (data != null)
+            {
+                var encoder = new UrlEncoderWriter(new DataWriterSettings(DefaultEncoderDecoderConfiguration.CombinedResolverStrategy()));
+                var query = encoder.Write(data);
+                builder.Query = query;
+            }
+
+            uri = builder.Uri.ToString();
+
+            // TODO: EasyHttp doesn't support PUT, so this is incomplete. 
+            // https://github.com/JetBrains/YouTrackSharp/issues/9
+            // HttpWebRequest is used as a workaround.
+            var httpRequest = (HttpWebRequest)WebRequest.Create(uri);
+            httpRequest.Method = "PUT";
+            httpRequest.CookieContainer = new CookieContainer();
+            httpRequest.CookieContainer.Add(_authenticationCookie);
+            httpRequest.ContentLength = 0;
+            httpRequest.ContentType = HttpContentTypes.ApplicationXWwwFormUrlEncoded;
+            httpRequest.GetResponse();
+
+            //var httpRequest = CreateHttpRequest();
+
+            Console.WriteLine(uri);
+            //httpRequest.Put(builder.Uri.ToString(), data, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+            
+            return null;
         }
 
         HttpClient MakePostRequest(string command, object data, string accept)
@@ -277,7 +305,7 @@ namespace YouTrackSharp.Infrastructure
 
             if (_authenticationCookie != null)
             {
-                httpClient.Request.Cookies = new CookieCollection {_authenticationCookie};
+                httpClient.Request.Cookies = new CookieCollection { _authenticationCookie };
             }
 
 

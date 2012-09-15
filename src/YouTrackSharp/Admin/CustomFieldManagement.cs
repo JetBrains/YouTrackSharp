@@ -47,7 +47,6 @@ namespace YouTrackSharp.Admin
         public VersionBundle GetVersionBundle(TargetRef bundleRef)
         {
             var query = Uri.EscapeUriString(bundleRef.RestQuery);
-            Console.WriteLine(query);
             var bundles = _connection.Get<VersionBundle>(query);
             return bundles;
         }
@@ -55,7 +54,8 @@ namespace YouTrackSharp.Admin
         public void AddVersionToVersionBundle(TargetRef versionBundle, Version version)
         {
             var command = String.Format("{0}/{1}", versionBundle.RestQuery, version.Value);
-            Console.WriteLine(command);
+            //Console.WriteLine(command);
+            //_connection.Put(command, version);
             _connection.Put(command, version);
         }
     }
@@ -102,16 +102,34 @@ namespace YouTrackSharp.Admin
     public class Version
     {
         private static readonly DateTime _epoch = new DateTime(1970, 1, 1);
+
         public string Value { get; set; }
-        public Int64 ReleaseDate { get; set; }
+        public Int64? ReleaseDate { get; set; }
         public bool Released { get; set; }
         public bool Archived { get; set; }
 
         [JsonIgnore]
-        public DateTime ReleaseDateTime
+        public DateTime? ReleaseDateTime
         {
-            get { return _epoch + TimeSpan.FromMilliseconds(ReleaseDate); }
-            set { ReleaseDate = (Int64)(value - _epoch).TotalMilliseconds; }
+            get
+            {
+                if (ReleaseDate == null)
+                {
+                    return null;
+                }
+
+                return _epoch + TimeSpan.FromMilliseconds(ReleaseDate.Value);
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    ReleaseDate = null;
+                }
+
+                ReleaseDate = (Int64)(value.Value - _epoch).TotalMilliseconds;
+            }
         }
     }
 }
