@@ -34,13 +34,13 @@
     <Reference Include="CommandLine">
       <HintPath>lib\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="EasyHttp, Version=1.1.4305.21648, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EasyHttp, Version=1.6.29.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EasyHttp.1.1.4305.21648\lib\net40\EasyHttp.dll</HintPath>
+      <HintPath>..\packages\EasyHttp.1.6.29.0\lib\net40\EasyHttp.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\JsonFx.2.0.1106.2610\lib\net40\JsonFx.dll</HintPath>
+      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net">
       <HintPath>..\packages\Lucene.2.9.2.2\lib\Lucene.Net.dll</HintPath>

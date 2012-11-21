@@ -164,7 +164,7 @@ namespace YouTrackSharp.Infrastructure
                         throw new AuthenticationException(Language.YouTrackClient_Login_Authentication_Failed);
                     }
                     IsAuthenticated = true;
-                    _authenticationCookie = response.Response.Cookie;
+                    _authenticationCookie = response.Response.Cookies;
                     _username = username;
                 }
                 else
