@@ -51,5 +51,6 @@ namespace YouTrackSharp.Infrastructure
         void PostFile(string command, string path);
         void Head(string command);
         void Post(string command, object data);
+        void Put(string command, object data);
     }
 }
