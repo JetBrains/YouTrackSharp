@@ -145,7 +145,7 @@ namespace YouTrackSharp.Specs.Specs
             issue.ProjectShortName = "SB";
             issue.Summary = "something";
             issue.Description = "somethingelse";
-            issue.AssigneeName = "youtrackapi";
+            issue.Assignee = "youtrackapi";
             issue.Priority = new[] {"Minor"};
             issue.Type = "Task";
             issue.State = "New";
@@ -211,8 +211,8 @@ namespace YouTrackSharp.Specs.Specs
         };
         It should_have_old_priority = () =>
         {
-            string oldPriority = newIssue.OldPriority;
-            oldPriority.ShouldEqual("0.99");
+            string[] oldPriority = newIssue.OldPriority;
+            oldPriority[0].ShouldEqual("0.99");
         };
 
         static dynamic newIssue;

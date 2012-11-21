@@ -34,6 +34,7 @@
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Web;
@@ -45,6 +46,12 @@ namespace YouTrackSharp.Issues
 {
     public class IssueManagement
     {
+        static readonly List<string> PresetFields = new List<string>()
+                                                     {
+                                                         "assignee", "priority", "type", "subsystem", "state",
+                                                         "fixVersions", "affectsVersions", "fixedInBuild", "summary",
+                                                         "description", "project"
+                                                     };
         readonly IConnection _connection;
 
         public IssueManagement(IConnection connection)
@@ -87,9 +94,16 @@ namespace YouTrackSharp.Issues
 
             try
             {
-                var response = _connection.Post("issue", issue.ToExpandoObject(), HttpContentTypes.ApplicationJson);
+                var fieldList = issue.ToExpandoObject();
+                
+                var response = _connection.Post("issue", fieldList, HttpContentTypes.ApplicationJson);
 
+                var customFields = fieldList.Where(field => !PresetFields.Contains(field.Key.ToLower())).ToDictionary(field => field.Key, field => field.Value);
 
+                foreach (var customField in customFields)
+                {
+                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), "Applying custom field");
+                }
                 return response.id;
             }
             catch (HttpException httpException)
