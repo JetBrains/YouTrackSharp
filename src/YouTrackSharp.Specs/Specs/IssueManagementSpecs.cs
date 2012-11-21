@@ -72,6 +72,12 @@ namespace YouTrackSharp.Specs.Specs
             projectShortName.ShouldEqual("SB");
         };
 
+        It should_return_custom_fields = () =>
+        {
+            string[] oldpriority = issue.oldpriority;
+
+            oldpriority[0].ShouldEqual("1");
+        };
 
         static dynamic issue;
     }
@@ -143,6 +149,7 @@ namespace YouTrackSharp.Specs.Specs
             issue.Priority = new[] {"Minor"};
             issue.Type = "Task";
             issue.State = "New";
+            issue.OldPriority = "0.99";
 
             string issueId = issueManagement.CreateIssue(issue);
             
@@ -201,6 +208,11 @@ namespace YouTrackSharp.Specs.Specs
         {
             string[] state = newIssue.State;
             state[0].ShouldBeEqualIgnoringCase("New");
+        };
+        It should_have_old_priority = () =>
+        {
+            string oldPriority = newIssue.OldPriority;
+            oldPriority.ShouldEqual("0.99");
         };
 
         static dynamic newIssue;
