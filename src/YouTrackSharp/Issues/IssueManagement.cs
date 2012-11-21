@@ -215,5 +215,10 @@ namespace YouTrackSharp.Issues
                 throw new InvalidRequestException(httpException.StatusDescription, httpException);
             }
         }
+
+        public void Delete(string id)
+        {
+            _connection.Delete(string.Format("issue/{0}", id));
+        }
     }
 }
