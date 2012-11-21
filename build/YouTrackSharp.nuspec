@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>YouTrackSharp</id>
+    <version>$version$</version>
+    <title>YouTrackSharp</title>
+    <authors>Hadi Hariri and Contributors</authors>
+    <owners>Hadi Hariri</owners>
+    <licenseUrl>https://raw.github.com/JetBrains/YouTrackSharp/master/LICENSE.TXT</licenseUrl>
+    <projectUrl>http://github.com/JetBrains/YouTrackSharp</projectUrl>
+    <iconUrl>https://raw.github.com/JetBrains/YouTrackSharp/master/build/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A YouTrack Client for .NET</description>
+    <copyright>Copyright 2012 Hadi Hariri and Contributors</copyright>
+    <tags>YouTrack JetBrains</tags>
+    <dependencies>
+      <dependency id="EasyHttp" version="1.6.29.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\YouTrackSharp\bin\Release\YouTrackSharp.*" target="lib\net40" />
+  </files>
+</package>
