@@ -42,9 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
     </Reference>
-    <Reference Include="Lucene.Net">
-      <HintPath>..\packages\Lucene.2.9.2.2\lib\Lucene.Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
@@ -76,7 +73,6 @@
     <Compile Include="Infrastructure\Connection.cs" />
     <Compile Include="Infrastructure\IConnection.cs" />
     <Compile Include="Infrastructure\ISearchEngine.cs" />
-    <Compile Include="Infrastructure\LuceneIssuePatternMatching.cs" />
     <Compile Include="Issues\Count.cs" />
     <Compile Include="Issues\Entity.cs" />
     <Compile Include="Issues\Link.cs" />
