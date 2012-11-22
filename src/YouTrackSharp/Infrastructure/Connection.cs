@@ -129,6 +129,30 @@ namespace YouTrackSharp.Infrastructure
             HttpStatusCode = httpRequest.Response.StatusCode;
         }
 
+        public void Put(string command, object data)
+        {
+            var httpRequest = CreateHttpRequest();
+
+            httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
+
+            httpRequest.Put(_uriConstructor.ConstructBaseUri(command), data,
+                             HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+
+            HttpStatusCode = httpRequest.Response.StatusCode;
+        }
+
+        public void Delete(string command)
+        {
+            var httpRequest = CreateHttpRequest();
+
+            httpRequest.Request.Accept = HttpContentTypes.ApplicationXml;
+
+            var constructBaseUri = _uriConstructor.ConstructBaseUri(command);
+            httpRequest.Delete(constructBaseUri);
+
+            HttpStatusCode = httpRequest.Response.StatusCode;
+        }
+
         public void Post(string command, object data)
         {
             // This actually doesn't return Application/XML...Bug in YouTrack
