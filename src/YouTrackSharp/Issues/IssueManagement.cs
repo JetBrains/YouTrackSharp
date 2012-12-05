@@ -160,7 +160,7 @@ namespace YouTrackSharp.Issues
             }
         }
 
-        public void ApplyCommand(string issueId, string command, string comment)
+        public void ApplyCommand(string issueId, string command, string comment, bool disableNotifications = false, string runAs = "")
         {
             if (!_connection.IsAuthenticated)
             {
@@ -174,6 +174,10 @@ namespace YouTrackSharp.Issues
 
                 commandMessage.command = command;
                 commandMessage.comment = comment;
+                if (disableNotifications)
+                    commandMessage.disableNotifications = disableNotifications;
+                if (!string.IsNullOrWhiteSpace(runAs))
+                    commandMessage.runAs = runAs;
 
                 _connection.Post(string.Format("issue/{0}/execute", issueId), commandMessage);
             }
