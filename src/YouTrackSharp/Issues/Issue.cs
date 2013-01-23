@@ -58,6 +58,10 @@ namespace YouTrackSharp.Issues
                 {
                     expando.Add("project", field.Value);
                 }
+                else if (String.Compare(field.Key, "permittedGroup", StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    expando.Add("permittedGroup", field.Value);
+                }
                 else
                 {
                     expando.Add(field.Key.ToLower(), field.Value);
