@@ -50,7 +50,7 @@ namespace YouTrackSharp.Issues
                                                      {
                                                          "assignee", "priority", "type", "subsystem", "state",
                                                          "fixVersions", "affectsVersions", "fixedInBuild", "summary",
-                                                         "description", "project"
+                                                         "description", "project", "permittedgroup"
                                                      };
         readonly IConnection _connection;
 
