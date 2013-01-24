@@ -79,6 +79,17 @@ namespace YouTrackSharp.Projects
             return _connection.Get<IEnumerable<ProjectResolutionType>>("project/resolutions");
         }
 
+        public IEnumerable<ProjectVersion> GetVersions(string versionBundleName)
+        {
+            var x = _connection.Get<IEnumerable<ProjectVersion>>(string.Format("admin/customfield/versionBundle/{0}", versionBundleName));
+            return x;
+        }
+
+        public IEnumerable<ProjectVersion> GetVersions(Project project)
+        {
+            return GetVersions(project.Name + "%20Versions");
+        }
+
         public Project GetProject(string projectName)
         {
             return _connection.Get<Project>(String.Format("admin/project/{0}", projectName));
@@ -86,6 +97,16 @@ namespace YouTrackSharp.Projects
         public void AddSubsystem(string projectName, string subsystem)
         {            
             _connection.Put(String.Format("admin/project/{0}/subsystem/{1}", projectName, subsystem), null);
+        }
+
+        public void AddVersion(Project project, ProjectVersion version)
+        {
+            AddVersion(project.Name + "%20Versions", version);
+        }
+
+        public void AddVersion(string versionBundleName, ProjectVersion version)
+        {
+            _connection.Put(String.Format("admin/customfield/versionBundle/{0}/{1}", versionBundleName, version.GetQueryString()), null);
         }
     }
 }
