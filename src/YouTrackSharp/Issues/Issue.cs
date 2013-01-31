@@ -45,7 +45,6 @@ namespace YouTrackSharp.Issues
         public string Id
         {
             get { return _id ?? (_id = (string) _allFields["id"]); }
-            set { _id = value; }
         }
 
         public ExpandoObject ToExpandoObject()
@@ -58,6 +57,10 @@ namespace YouTrackSharp.Issues
                 if (String.Compare(field.Key, "ProjectShortName", StringComparison.InvariantCultureIgnoreCase) == 0)
                 {
                     expando.Add("project", field.Value);
+                }
+                else if (String.Compare(field.Key, "permittedGroup", StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    expando.Add("permittedGroup", field.Value);
                 }
                 else
                 {
@@ -81,7 +84,7 @@ namespace YouTrackSharp.Issues
         {
             if (String.Compare(binder.Name, "field", StringComparison.OrdinalIgnoreCase) == 0)
             {
-                foreach (dynamic val in (IEnumerable<dynamic>) value)
+                foreach (var val in (IEnumerable<dynamic>) value)
                 {
                     _allFields[val.name] = val.value;
                 }
