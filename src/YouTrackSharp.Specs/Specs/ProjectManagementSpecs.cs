@@ -28,6 +28,7 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // =============================================================
 #endregion
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
@@ -108,5 +109,16 @@ namespace YouTrackSharp.Specs.Specs
         static Project project;
     }
 
-    
+    [Subject(typeof(ProjectManagement))]
+    public class when_adding_a_sprint_to_an_existing_project_by_name : AuthenticatedYouTrackConnectionForProjectSpecs
+    {
+        Because of = () =>
+        {
+            projectManagement.AddFixVersion("SB", "Sprint" + Guid.NewGuid());
+        };
+
+        It should_be_successful = () =>
+        {
+        };
+    }
 }

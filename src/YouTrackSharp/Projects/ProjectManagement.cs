@@ -89,6 +89,11 @@ namespace YouTrackSharp.Projects
             _connection.Put(String.Format("admin/project/{0}/subsystem/{1}", projectName, subsystem), null);
         }
 
+        public void AddFixVersion(string projectName, string versionName)
+        {
+            _connection.Put(String.Format("admin/customfield/versionBundle/{0} Versions/{1}", projectName, versionName), new { projectName, versionName });
+        }
+
         
     }
 }
