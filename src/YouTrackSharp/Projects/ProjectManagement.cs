@@ -81,13 +81,13 @@ namespace YouTrackSharp.Projects
 
         public IEnumerable<ProjectVersion> GetVersions(string versionBundleName)
         {
-            var x = _connection.Get<IEnumerable<ProjectVersion>>(string.Format("admin/customfield/versionBundle/{0}", versionBundleName));
-            return x;
+            var x = _connection.Get<VersionBundle>(string.Format("admin/customfield/versionBundle/{0}", versionBundleName));
+            return x.Version;
         }
 
         public IEnumerable<ProjectVersion> GetVersions(Project project)
         {
-            return GetVersions(project.Name + "%20Versions");
+            return GetVersions(project.VersionBundleName());
         }
 
         public Project GetProject(string projectName)
@@ -102,12 +102,22 @@ namespace YouTrackSharp.Projects
 
         public void AddVersion(Project project, ProjectVersion version)
         {
-            AddVersion(project.Name + "%20Versions", version);
+            AddVersion(project.VersionBundleName(), version);
         }
 
         public void AddVersion(string versionBundleName, ProjectVersion version)
         {
-            _connection.Put(String.Format("admin/customfield/versionBundle/{0}/{1}", versionBundleName, version.GetQueryString()), null);
+            _connection.Put(String.Format("admin/customfield/versionBundle/{0}/{1}", versionBundleName, version.GetQueryString()), "");
+        }
+
+        public void DeleteVersion(Project project, string versionName)
+        {
+            DeleteVersion(project.VersionBundleName(), versionName);
+        }
+
+        public void DeleteVersion(string bundleName, string versionName)
+        {
+            _connection.Delete(string.Format("admin/customfield/versionBundle/{0}/{1}", bundleName, versionName));
         }
     }
 }

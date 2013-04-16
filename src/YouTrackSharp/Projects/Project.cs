@@ -52,15 +52,20 @@ namespace YouTrackSharp.Projects
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Project) obj);
+            return Equals((Project)obj);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return ((ShortName != null ? ShortName.GetHashCode() : 0)*397) ^ IsImporting.GetHashCode();
+                return ((ShortName != null ? ShortName.GetHashCode() : 0) * 397) ^ IsImporting.GetHashCode();
             }
+        }
+
+        public string VersionBundleName()
+        {
+            return string.Format("{0} Versions", Name);
         }
     }
 }
