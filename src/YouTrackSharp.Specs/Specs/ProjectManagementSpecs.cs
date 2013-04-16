@@ -108,5 +108,21 @@ namespace YouTrackSharp.Specs.Specs
         static Project project;
     }
 
+    [Subject(typeof(ProjectManagement))]
+    public class when_retrieving_A_list_of_versions_given_authenticated_connection_and_existing_projects : AuthenticatedYouTrackConnectionForProjectSpecs
+    {
+        Because of = () =>
+            {
+                project = projectManagement.GetProject("SB");
+                projectManagement.AddVersion(project, new ProjectVersion { Name= "0.1", IsReleased = false, IsArchived = false});
+                versions = projectManagement.GetVersions(project);
+                projectManagement.DeleteVersion(project, "0.1");
+            };
+
+        It should_return_versions = () => { versions.ShouldNotBeEmpty(); };
+
+        static Project project;
+        static IEnumerable<ProjectVersion> versions;
+    }
     
 }

@@ -31,41 +31,48 @@
 
 #endregion
 
-using YouTrackSharp.Infrastructure;
+using JsonFx.Json;
 
 namespace YouTrackSharp.Projects
 {
-    public class Project
+    using System.Collections.Generic;
+    using System.Text;
+
+    public class ProjectVersion
+    {        
+        [JsonName("value")]
+        public string Name { get; set; }        
+        public string Description { get; set; }
+        public int? ColorIndex { get; set; }
+        public long? ReleaseDate { get; set; }
+        [JsonName("released")]
+        public bool? IsReleased { get; set; }
+        [JsonName("archived")]
+        public bool? IsArchived { get; set; }
+
+        public string GetQueryString()
+        {            
+            var sb = new StringBuilder();
+            sb.Append(Name);
+            if (
+                !(!string.IsNullOrEmpty(Name) || !string.IsNullOrEmpty(Description) || ColorIndex.HasValue
+                  || ReleaseDate.HasValue || IsReleased.HasValue || IsArchived.HasValue)) return sb.ToString();
+
+            sb.Append("?");
+
+            if (!string.IsNullOrEmpty(Description)) sb.Append("&description=" + Description.Replace(' ', '+'));
+            if (ColorIndex.HasValue) sb.Append("&colorIndex=" + ColorIndex.Value);
+            if (ReleaseDate.HasValue) sb.Append("&releaseDate=" + ReleaseDate.Value.ToString());
+            if (IsReleased.HasValue) sb.Append("&released=" + IsReleased.Value.ToString());
+            if (IsArchived.HasValue) sb.Append("&archived=" + IsArchived.Value.ToString());
+            
+            return sb.ToString();
+        }
+    }
+
+    public class VersionBundle
     {
         public string Name { get; set; }
-        public string ShortName { get; set; }
-        public bool IsImporting { get; set; }
-        public SubValuesArray AssigneesFullname { get; set; }
-
-        protected bool Equals(Project other)
-        {
-            return string.Equals(ShortName, other.ShortName) && IsImporting.Equals(other.IsImporting);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((Project)obj);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((ShortName != null ? ShortName.GetHashCode() : 0) * 397) ^ IsImporting.GetHashCode();
-            }
-        }
-
-        public string VersionBundleName()
-        {
-            return string.Format("{0} Versions", Name);
-        }
+        public IEnumerable<ProjectVersion> Version { get; set; }
     }
 }
