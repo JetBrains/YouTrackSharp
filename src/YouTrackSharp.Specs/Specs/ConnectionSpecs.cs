@@ -30,6 +30,8 @@
 #endregion
 
 using System;
+using System.Net;
+using System.Security;
 using System.Security.Authentication;
 using Machine.Specifications;
 using YouTrackSharp.Admin;
@@ -46,6 +48,28 @@ namespace YouTrackSharp.Specs.Specs
 
         It should_succeed = () => connection.IsAuthenticated.ShouldBeTrue();
 
+    }
+
+    [Subject(typeof(Connection))]
+    public class when_authenticating_with_valid_netword_credentials_given_valid_connection_details : YouTrackConnection
+    {
+        Because of = () => connection.Authenticate(new NetworkCredential("youtrackapi", "youtrackapi"));
+
+        It should_succeed = () => connection.IsAuthenticated.ShouldBeTrue();
+    }
+
+    [Subject(typeof(Connection))]
+    public class when_authenticating_with_valid_username_and_secure_string_given_valid_connection_details : YouTrackConnection
+    {
+        Because of = () =>
+        {
+            var secure = new SecureString();
+            foreach (var c in "youtrackapi")
+                secure.AppendChar(c);
+            connection.Authenticate(new NetworkCredential("youtrackapi", secure));
+        };
+
+        It should_succeed = () => connection.IsAuthenticated.ShouldBeTrue();
     }
 
     [Subject(typeof (Connection))]
