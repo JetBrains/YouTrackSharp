@@ -166,6 +166,11 @@ namespace YouTrackSharp.Infrastructure
             return httpRequest.Response.DynamicBody;
         }
 
+        public void Authenticate(NetworkCredential credentials)
+        {
+            Authenticate(credentials.UserName, credentials.Password);
+        }
+
         public void Authenticate(string username, string password)
         {
             IsAuthenticated = false;
