@@ -85,6 +85,23 @@ namespace YouTrackSharp.Issues
             }
         }
 
+        /// <summary>
+        /// Retrieve WorkItems of an issue by id
+        /// </summary>
+        /// <param name="issueId">Id of the issue to retrieve</param>
+        /// <returns>An instance of WorkItems of an Issue if successful or InvalidRequestException if issues is not found</returns>
+        public WorkItems GetWorkItems(string issueId)
+        {
+            try
+            {
+                return _connection.Get<WorkItems>(String.Format("issue/{0}/timetracking/workitem/", issueId));
+            }
+            catch (HttpException exception)
+            {
+                throw new InvalidRequestException(String.Format(Language.YouTrackClient_GetIssue_Issue_not_found___0_, issueId), exception);
+            }
+        }
+
         public string CreateIssue(Issue issue)
         {
             if (!_connection.IsAuthenticated)
