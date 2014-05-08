@@ -85,7 +85,15 @@ namespace YouTrackSharp.Issues
             }
         }
 
-        public string CreateIssue(Issue issue)
+        /// <summary>
+        /// Creates a new issue
+        /// </summary>
+        /// <param name="issue">issue to be added</param>
+        /// <param name="addCommentsOnCustomFields">[Optional].  When custom fields are applied this value says
+        /// if a comment should be applied with them.
+        /// </param>
+        /// <returns></returns>
+        public string CreateIssue(Issue issue, bool addCommentsOnCustomFields = true)
         {
             if (!_connection.IsAuthenticated)
             {
@@ -100,9 +108,11 @@ namespace YouTrackSharp.Issues
 
                 var customFields = fieldList.Where(field => !PresetFields.Contains(field.Key.ToLower())).ToDictionary(field => field.Key, field => field.Value);
 
+                var customFieldComment = addCommentsOnCustomFields ? "Applying custom field" : string.Empty;
+
                 foreach (var customField in customFields)
                 {
-                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), "Applying custom field");
+                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), customFieldComment);
                 }
                 return response.id;
             }
