@@ -119,7 +119,7 @@ namespace YouTrackSharp.Issues
 
                 foreach (var customField in customFields)
                 {
-                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), "Applying custom field");
+                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), string.Empty);
                 }
                 return response.id;
             }
