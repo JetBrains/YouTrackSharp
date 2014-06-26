@@ -246,21 +246,40 @@ namespace YouTrackSharp.Specs.Specs
         };
     }
 
-    [Subject(typeof (IssueManagement))]
-    public class when_applying_a_command_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
-    {
-        Because of = () =>
-        {
-            issueManagement.ApplyCommand("SB-1", "Fixed", "");
+		[Subject(typeof(IssueManagement))]
+		public class when_applying_a_command_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
+		{
+			Because of = () =>
+			{
+				issueManagement.ApplyCommand("SB-1", "Fixed", "");
 
-        };
+			};
 
-        It should_be_successful = () =>
-        {
+			It should_be_successful = () =>
+			{
 
-        };
+			};
 
-    }
+		}
+
+		[Subject(typeof(IssueManagement))]
+		public class when_updating_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
+		{
+			Because of = () =>
+			{
+				issueManagement.UpdateIssue("SB-1", "Updated", "Updated");
+			};
+
+			It should_be_successful = () =>
+			{
+				dynamic result = issueManagement.GetIssue("SB-1");
+				summary = result.Summary;
+
+				summary.ShouldContain("Updated");
+			};
+
+			static string summary;
+		}
 
     [Subject(typeof (IssueManagement))]
     public class when_searching_for_an_issue_given_some_text : AuthenticatedYouTrackConnectionForIssue
