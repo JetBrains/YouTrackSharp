@@ -246,5 +246,10 @@ namespace YouTrackSharp.Issues
 		{
 			_connection.Delete(string.Format("issue/{0}", id));
 		}
+
+		public void DeleteComment(string issueId, string commentId, bool deletePermanently)
+		{
+			_connection.Delete(string.Format("issue/{0}/comment/{1}?permanently={2}", issueId, commentId, deletePermanently));
+		}
 	}
 }

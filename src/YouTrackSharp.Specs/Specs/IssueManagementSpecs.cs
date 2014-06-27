@@ -297,20 +297,39 @@ namespace YouTrackSharp.Specs.Specs
         static IEnumerable<Issue> issues;
     }
 
-    [Subject(typeof(IssueManagement))]
-    public class when_getting_issue_count_by_search_string : AuthenticatedYouTrackConnectionForIssue
-    {
-        Because of = () =>
-        {
-            count = issueManagement.GetIssueCount("some new issue");
-        };
+		[Subject(typeof(IssueManagement))]
+		public class when_getting_issue_count_by_search_string : AuthenticatedYouTrackConnectionForIssue
+		{
+			Because of = () =>
+			{
+				count = issueManagement.GetIssueCount("some new issue");
+			};
 
-        It should_return_number_of_matching_issues = () =>
-        {
-            count.ShouldBeGreaterThan(0);
-        };
+			It should_return_number_of_matching_issues = () =>
+			{
+				count.ShouldBeGreaterThan(0);
+			};
 
-        static int count;
-    }
+			static int count;
+		}
+
+		[Subject(typeof(IssueManagement))]
+		public class when_deleting_a_comment : AuthenticatedYouTrackConnectionForIssue
+		{
+			Because of = () =>
+			{
+				oldCount = issueManagement.GetCommentsForIssue("SB-1").Count();
+				issueManagement.DeleteComment("SB-1", "100-01", false);
+			};
+
+			It should_be_less_comments_than_before = () =>
+			{
+				newCount = issueManagement.GetCommentsForIssue("SB-1").Count();
+				newCount.ShouldBeLessThan(oldCount);
+			};
+
+			static int oldCount;
+			static int newCount;
+		}
 
 }
