@@ -44,185 +44,212 @@ using HttpException = EasyHttp.Infrastructure.HttpException;
 
 namespace YouTrackSharp.Issues
 {
-    public class IssueManagement
-    {
-        static readonly List<string> PresetFields = new List<string>()
+	public class IssueManagement
+	{
+		static readonly List<string> PresetFields = new List<string>()
                                                      {
                                                          "assignee", "priority", "type", "subsystem", "state",
                                                          "fixVersions", "affectsVersions", "fixedInBuild", "summary",
                                                          "description", "project", "permittedgroup"
                                                      };
-        readonly IConnection _connection;
+		readonly IConnection _connection;
 
-        public IssueManagement(IConnection connection)
-        {
-            _connection = connection;
-        }
+		public IssueManagement(IConnection connection)
+		{
+			_connection = connection;
+		}
 
-        /// <summary>
-        /// Retrieve an issue by id
-        /// </summary>
-        /// <param name="issueId">Id of the issue to retrieve</param>
-        /// <returns>An instance of Issue if successful or InvalidRequestException if issues is not found</returns>
-        public Issue GetIssue(string issueId)
-        {
-            try
-            {
-                dynamic response = _connection.Get<Issue>(String.Format("issue/{0}", issueId));
+		/// <summary>
+		/// Retrieve an issue by id
+		/// </summary>
+		/// <param name="issueId">Id of the issue to retrieve</param>
+		/// <returns>An instance of Issue if successful or InvalidRequestException if issues is not found</returns>
+		public Issue GetIssue(string issueId)
+		{
+			try
+			{
+				dynamic response = _connection.Get<Issue>(String.Format("issue/{0}", issueId));
 
-                if (response != null)
-                {
-                    response.Id = response.id;
+				if (response != null)
+				{
+					response.Id = response.id;
 
-                    return response;
-                }
-                return null;
-            }
-            catch (HttpException exception)
-            {
-                throw new InvalidRequestException(
-                    String.Format(Language.YouTrackClient_GetIssue_Issue_not_found___0_, issueId), exception);
-            }
-        }
+					return response;
+				}
+				return null;
+			}
+			catch (HttpException exception)
+			{
+				throw new InvalidRequestException(
+						String.Format(Language.YouTrackClient_GetIssue_Issue_not_found___0_, issueId), exception);
+			}
+		}
 
-        public string CreateIssue(Issue issue)
-        {
-            if (!_connection.IsAuthenticated)
-            {
-                throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
-            }
+		public string CreateIssue(Issue issue)
+		{
+			if (!_connection.IsAuthenticated)
+			{
+				throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
+			}
 
-            try
-            {
-                var fieldList = issue.ToExpandoObject();
-                
-                var response = _connection.Post("issue", fieldList, HttpContentTypes.ApplicationJson);
+			try
+			{
+				var fieldList = issue.ToExpandoObject();
 
-                var customFields = fieldList.Where(field => !PresetFields.Contains(field.Key.ToLower())).ToDictionary(field => field.Key, field => field.Value);
+				var response = _connection.Post("issue", fieldList, HttpContentTypes.ApplicationJson);
 
-                foreach (var customField in customFields)
-                {
-                    ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), string.Empty);
-                }
-                return response.id;
-            }
-            catch (HttpException httpException)
-            {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);
-            }
-        }
+				var customFields = fieldList.Where(field => !PresetFields.Contains(field.Key.ToLower())).ToDictionary(field => field.Key, field => field.Value);
 
-
-        /// <summary>
-        /// Retrieves a list of issues 
-        /// </summary>
-        /// <param name="projectIdentifier">Project Identifier</param>
-        /// <param name="max">[Optional] Maximum number of issues to return. Default is int.MaxValue</param>
-        /// <param name="start">[Optional] The number by which to start the issues. Default is 0. Used for paging.</param>
-        /// <returns>List of Issues</returns>
-        public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
-        {
-            return
-                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
-                                                                           projectIdentifier, max, start));
-        }
-
-        /// <summary>
-        /// Retrieve comments for a particular issue
-        /// </summary>
-        /// <param name="issueId"></param>
-        /// <returns></returns>
-        public IEnumerable<Comment> GetCommentsForIssue(string issueId)
-        {
-            return _connection.Get<IEnumerable<Comment>>(String.Format("issue/comments/{0}", issueId));
-        }
-
-        public bool CheckIfIssueExists(string issueId)
-        {
-            try
-            {
-                _connection.Head(string.Format("issue/{0}/exists", issueId));
-                return _connection.HttpStatusCode == HttpStatusCode.OK;
-            }
-            catch (HttpException httpException)
-            {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);
-            }
-        }
-
-        public void AttachFileToIssue(string issuedId, string path)
-        {
-            _connection.PostFile(string.Format("issue/{0}/attachment", issuedId), path);
-
-            if (_connection.HttpStatusCode != HttpStatusCode.Created)
-            {
-                throw new InvalidRequestException(_connection.HttpStatusCode.ToString());
-            }
-        }
-
-        public void ApplyCommand(string issueId, string command, string comment, bool disableNotifications = false, string runAs = "")
-        {
-            if (!_connection.IsAuthenticated)
-            {
-                throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
-            }
-
-            try
-            {
-                dynamic commandMessage = new ExpandoObject();
+				foreach (var customField in customFields)
+				{
+					ApplyCommand(response.id, string.Format("{0} {1}", customField.Key, customField.Value), string.Empty);
+				}
+				return response.id;
+			}
+			catch (HttpException httpException)
+			{
+				throw new InvalidRequestException(httpException.StatusDescription, httpException);
+			}
+		}
 
 
-                commandMessage.command = command;
-                commandMessage.comment = comment;
-                if (disableNotifications)
-                    commandMessage.disableNotifications = disableNotifications;
-                if (!string.IsNullOrWhiteSpace(runAs))
-                    commandMessage.runAs = runAs;
+		/// <summary>
+		/// Retrieves a list of issues 
+		/// </summary>
+		/// <param name="projectIdentifier">Project Identifier</param>
+		/// <param name="max">[Optional] Maximum number of issues to return. Default is int.MaxValue</param>
+		/// <param name="start">[Optional] The number by which to start the issues. Default is 0. Used for paging.</param>
+		/// <returns>List of Issues</returns>
+		public IEnumerable<Issue> GetAllIssuesForProject(string projectIdentifier, int max = int.MaxValue, int start = 0)
+		{
+			return
+					_connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues/{0}?max={1}&after={2}",
+																																		 projectIdentifier, max, start));
+		}
 
-                _connection.Post(string.Format("issue/{0}/execute", issueId), commandMessage);
-            }
-            catch (HttpException httpException)
-            {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);
-            }
-        }
+		/// <summary>
+		/// Retrieve comments for a particular issue
+		/// </summary>
+		/// <param name="issueId"></param>
+		/// <returns></returns>
+		public IEnumerable<Comment> GetCommentsForIssue(string issueId)
+		{
+			return _connection.Get<IEnumerable<Comment>>(String.Format("issue/comments/{0}", issueId));
+		}
 
-        public IEnumerable<Issue> GetIssuesBySearch(string searchString, int max = int.MaxValue, int start = 0)
-        {
-            var encodedQuery = HttpUtility.UrlEncode(searchString);
+		public bool CheckIfIssueExists(string issueId)
+		{
+			try
+			{
+				_connection.Head(string.Format("issue/{0}/exists", issueId));
+				return _connection.HttpStatusCode == HttpStatusCode.OK;
+			}
+			catch (HttpException httpException)
+			{
+				throw new InvalidRequestException(httpException.StatusDescription, httpException);
+			}
+		}
 
-            return
-                _connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
-                                                                           encodedQuery, max, start));
-        }
+		public void AttachFileToIssue(string issuedId, string path)
+		{
+			_connection.PostFile(string.Format("issue/{0}/attachment", issuedId), path);
 
-        public int GetIssueCount(string searchString)
-        {
-            var encodedQuery = HttpUtility.UrlEncode(searchString);
+			if (_connection.HttpStatusCode != HttpStatusCode.Created)
+			{
+				throw new InvalidRequestException(_connection.HttpStatusCode.ToString());
+			}
+		}
 
-            try
-            {
-                var count = -1;
+		public void ApplyCommand(string issueId, string command, string comment, bool disableNotifications = false, string runAs = "")
+		{
+			if (!_connection.IsAuthenticated)
+			{
+				throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
+			}
 
-                while (count < 0)
-                {
-                    var countObject = _connection.Get<Count>(string.Format("issue/count?filter={0}", encodedQuery));
+			try
+			{
+				dynamic commandMessage = new ExpandoObject();
 
-                    count = countObject.Entity.Value;
-                    Thread.Sleep(3000);
-                }
 
-                return count;
-            }
-            catch (HttpException httpException)
-            {
-                throw new InvalidRequestException(httpException.StatusDescription, httpException);
-            }
-        }
+				commandMessage.command = command;
+				commandMessage.comment = comment;
+				if (disableNotifications)
+					commandMessage.disableNotifications = disableNotifications;
+				if (!string.IsNullOrWhiteSpace(runAs))
+					commandMessage.runAs = runAs;
 
-        public void Delete(string id)
-        {
-            _connection.Delete(string.Format("issue/{0}", id));
-        }
-    }
+				_connection.Post(string.Format("issue/{0}/execute", issueId), commandMessage);
+			}
+			catch (HttpException httpException)
+			{
+				throw new InvalidRequestException(httpException.StatusDescription, httpException);
+			}
+		}
+
+		public void UpdateIssue(string issueId, string summary, string description)
+		{
+			if (!_connection.IsAuthenticated)
+			{
+				throw new InvalidRequestException(Language.YouTrackClient_CreateIssue_Not_Logged_In);
+			}
+
+			try
+			{
+				dynamic commandMessage = new ExpandoObject();
+
+				commandMessage.summary = summary;
+				commandMessage.description = description;
+				
+				_connection.Post(string.Format("issue/{0}", issueId), commandMessage);
+			}
+			catch (HttpException httpException)
+			{
+				throw new InvalidRequestException(httpException.StatusDescription, httpException);
+			}
+		}
+
+		public IEnumerable<Issue> GetIssuesBySearch(string searchString, int max = int.MaxValue, int start = 0)
+		{
+			var encodedQuery = HttpUtility.UrlEncode(searchString);
+
+			return
+					_connection.Get<MultipleIssueWrapper, Issue>(string.Format("project/issues?filter={0}&max={1}&after={2}",
+																																		 encodedQuery, max, start));
+		}
+
+		public int GetIssueCount(string searchString)
+		{
+			var encodedQuery = HttpUtility.UrlEncode(searchString);
+
+			try
+			{
+				var count = -1;
+
+				while (count < 0)
+				{
+					var countObject = _connection.Get<Count>(string.Format("issue/count?filter={0}", encodedQuery));
+
+					count = countObject.Entity.Value;
+					Thread.Sleep(3000);
+				}
+
+				return count;
+			}
+			catch (HttpException httpException)
+			{
+				throw new InvalidRequestException(httpException.StatusDescription, httpException);
+			}
+		}
+
+		public void Delete(string id)
+		{
+			_connection.Delete(string.Format("issue/{0}", id));
+		}
+
+		public void DeleteComment(string issueId, string commentId, bool deletePermanently)
+		{
+			_connection.Delete(string.Format("issue/{0}/comment/{1}?permanently={2}", issueId, commentId, deletePermanently));
+		}
+	}
 }
