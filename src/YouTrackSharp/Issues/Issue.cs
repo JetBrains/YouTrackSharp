@@ -46,6 +46,15 @@ namespace YouTrackSharp.Issues
         {
             get { return _id ?? (_id = (string) _allFields["id"]); }
         }
+        
+        public override IEnumerable<string> GetDynamicMemberNames()
+        {
+            var keys = _allFields.Keys.OrderBy(o => o).ToList();
+            int tmpCT = keys.Count;
+            for (int ct = 0; ct < tmpCT; ct++)
+                keys.Add("PropertyByIndex_"+ct.ToString());
+            return keys;
+        }
 
         public ExpandoObject ToExpandoObject()
         {
@@ -72,10 +81,33 @@ namespace YouTrackSharp.Issues
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            if (_allFields.ContainsKey(binder.Name))
+            if (!binder.Name.ToLower().StartsWith("propertybyindex_"))
             {
-                result = _allFields[binder.Name];
-                return true;
+
+                if (_allFields.Any(a => a.Key.ToLower().Replace(" ", "_") == binder.Name.ToLower()))
+                {
+                    //result = _allFields[binder.Name];
+                    if (_allFields.Count(c => c.Key.ToLower().Replace(" ", "_") == binder.Name.ToLower()) == 1)
+                        result = _allFields.First(w => w.Key.ToLower().Replace(" ", "_") == binder.Name.ToLower()).Value;
+                    else
+                    {
+                        result =
+                            _allFields.Where(w => w.Key.ToLower().Replace(" ", "_") == binder.Name.ToLower())
+                                .ToDictionary(d => d.Key, d => d.Value);
+                    }
+                    return true;
+                }
+            }
+            else
+            {
+                int index;
+                if (!int.TryParse(binder.Name.Split('_')[1], out index))
+                    index = -1;
+                if (index > -1 && index < _allFields.Count)
+                {
+                    result = _allFields.ElementAt(index);
+                    return true;
+                }
             }
             return base.TryGetMember(binder, out result);
         }
@@ -91,6 +123,26 @@ namespace YouTrackSharp.Issues
                 return true;
             }
             _allFields[binder.Name] = value;
+            return true;
+        }
+        
+        public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
+        {
+            int index = (int)indexes[0];
+            return _allFields.TryGetValue("PropertyByIndex_" + index, out result);
+        }
+
+        public override bool TrySetIndex(
+        SetIndexBinder binder, object[] indexes, object value)
+        {
+            int index = (int)indexes[0];
+
+            // If a corresponding property already exists, set the value. 
+            if (_allFields.ContainsKey("PropertyByIndex_" + index))
+                _allFields["PropertyByIndex_" + index] = value;
+            else
+                // If a corresponding property does not exist, create it.
+                _allFields.Add("PropertyByIndex_" + index, value);
             return true;
         }
     }
