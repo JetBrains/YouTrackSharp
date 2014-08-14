@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Distributed under the BSD License
 //   
@@ -34,19 +34,21 @@
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 
 namespace YouTrackSharp.Issues
 {
     public class Issue : DynamicObject
     {
         readonly IDictionary<string, object> _allFields = new Dictionary<string, object>(StringComparer.InvariantCultureIgnoreCase);
+
         string _id;
 
         public string Id
         {
             get { return _id ?? (_id = (string) _allFields["id"]); }
         }
-        
+
         public override IEnumerable<string> GetDynamicMemberNames()
         {
             var keys = _allFields.Keys.OrderBy(o => o).ToList();
@@ -109,7 +111,12 @@ namespace YouTrackSharp.Issues
                     return true;
                 }
             }
-            return base.TryGetMember(binder, out result);
+            if (base.TryGetMember(binder, out result))
+                return true;
+
+            
+            result = null;
+            return false;
         }
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
@@ -125,7 +132,7 @@ namespace YouTrackSharp.Issues
             _allFields[binder.Name] = value;
             return true;
         }
-        
+
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
         {
             int index = (int)indexes[0];
@@ -137,12 +144,17 @@ namespace YouTrackSharp.Issues
         {
             int index = (int)indexes[0];
 
-            // If a corresponding property already exists, set the value. 
-            if (_allFields.ContainsKey("PropertyByIndex_" + index))
-                _allFields["PropertyByIndex_" + index] = value;
+            if (index > -1)
+            {
+                if (index < _allFields.Count)
+                    _allFields[_allFields.ElementAt(index).Key] = value;
+            }
             else
-                // If a corresponding property does not exist, create it.
-                _allFields.Add("PropertyByIndex_" + index, value);
+            {
+                if (!_allFields.ContainsKey(((KeyValuePair<string, object>) value).Key))
+                    _allFields.Add(((KeyValuePair<string, object>) value).Key,
+                        ((KeyValuePair<string, object>) value).Value);
+            }
             return true;
         }
     }
