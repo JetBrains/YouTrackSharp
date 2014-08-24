@@ -105,7 +105,8 @@ namespace YouTrackSharp.Specs.Specs
     }
 
 		[Subject(typeof(UserManagement))]
-		public class when_requesting_all_users_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
+        [Ignore("The server says insuficient rights.")]
+        public class when_requesting_all_users_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
 		{
 			Establish context = () => { userManagement = new UserManagement(connection); };
 
