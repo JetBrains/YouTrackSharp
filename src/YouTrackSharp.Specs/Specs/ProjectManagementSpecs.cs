@@ -109,7 +109,7 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof(ProjectManagement))]
-    [Ignore]
+    [Ignore("The server says forbidden.")]
     public class when_retrieving_A_list_of_versions_given_authenticated_connection_and_existing_projects : AuthenticatedYouTrackConnectionForProjectSpecs
     {
         Because of = () =>

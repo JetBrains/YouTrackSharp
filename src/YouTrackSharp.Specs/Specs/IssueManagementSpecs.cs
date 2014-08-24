@@ -233,7 +233,7 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    [Ignore]
+    [Ignore("The server says Not acceptable.")]
     public class when_adding_an_attachment_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
@@ -315,7 +315,7 @@ namespace YouTrackSharp.Specs.Specs
 		}
 
 		[Subject(typeof(IssueManagement))]
-        [Ignore]
+        [Ignore("The server says Bad request but I think that means the comment no longer exists")]
         public class when_deleting_a_comment : AuthenticatedYouTrackConnectionForIssue
 		{
 			Because of = () =>
