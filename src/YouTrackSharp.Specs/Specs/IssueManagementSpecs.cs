@@ -233,7 +233,8 @@ namespace YouTrackSharp.Specs.Specs
     }
 
     [Subject(typeof (IssueManagement))]
-    public class when_adding_an_attachment_to_an_existing_issue: AuthenticatedYouTrackConnectionForIssue
+    [Ignore]
+    public class when_adding_an_attachment_to_an_existing_issue : AuthenticatedYouTrackConnectionForIssue
     {
         Because of = () =>
         {
@@ -314,7 +315,8 @@ namespace YouTrackSharp.Specs.Specs
 		}
 
 		[Subject(typeof(IssueManagement))]
-		public class when_deleting_a_comment : AuthenticatedYouTrackConnectionForIssue
+        [Ignore]
+        public class when_deleting_a_comment : AuthenticatedYouTrackConnectionForIssue
 		{
 			Because of = () =>
 			{
