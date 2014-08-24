@@ -59,9 +59,9 @@ namespace YouTrackSharp.Specs.Bugs
 
         It should_contain_assignee = () =>
         {
-            string[] assignee = issue.Assignee;
+            string assignee = issue.Assignee[0].value;
 
-            assignee.First().ShouldEqual("youtrackapi");
+            assignee.ShouldEqual("youtrackapi");
         };
 
         static dynamic issue;
