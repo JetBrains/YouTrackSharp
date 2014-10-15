@@ -103,4 +103,19 @@ namespace YouTrackSharp.Specs.Specs
         static UserManagement userManagement;
         static IEnumerable<Filter> filters;
     }
+
+		[Subject(typeof(UserManagement))]
+        [Ignore("The server says insuficient rights.")]
+        public class when_requesting_all_users_given_authenticated_connection_and_existing_users : AuthenticatedYouTrackConnection
+		{
+			Establish context = () => { userManagement = new UserManagement(connection); };
+
+			Because of = () => { users = userManagement.GetAllUsers(); };
+
+			It should_return_all_users = () => users.ShouldNotBeNull();
+			It should_return_at_least_one_user = () => users.ShouldNotBeEmpty();
+
+			static IEnumerable<User> users;
+			static UserManagement userManagement;
+		}
 }
