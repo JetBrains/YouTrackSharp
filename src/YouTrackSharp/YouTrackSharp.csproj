@@ -35,7 +35,7 @@
       <HintPath>lib\CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="EasyHttp">
-      <HintPath>..\packages\EasyHttp.1.6.67.0\lib\net40\EasyHttp.dll</HintPath>
+      <HintPath>..\packages\EasyHttp.1.6.68.0\lib\net40\EasyHttp.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
