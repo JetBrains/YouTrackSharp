@@ -34,6 +34,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Admin
@@ -49,15 +50,24 @@ namespace YouTrackSharp.Admin
 
 		public IEnumerable<User> GetAllUsers()
 		{
-			ICollection<User> users = new Collection<User>();
-			IEnumerable<AllUsersItem> userItems = _connection.Get<IEnumerable<AllUsersItem>>("admin/user");
+            ICollection<User> users = new Collection<User>();
+            int position = 0;
+            IEnumerable<AllUsersItem> userItems = null;
 
-			foreach (AllUsersItem userItem in userItems)
-			{
-				users.Add(GetUserByUserName(userItem.Login));
-			}
+            do
+            {
+                userItems = _connection.Get<IEnumerable<AllUsersItem>>(String.Format("admin/user/?start={0}", position));
 
-			return users;
+                foreach (AllUsersItem userItem in userItems)
+                {
+                    users.Add(GetUserByUserName(userItem.Login));
+                }
+
+                position += 10;
+            }
+            while (userItems != null && userItems.Any());
+
+            return users;
 		}
 
 		public User GetUserByUserName(string username)
