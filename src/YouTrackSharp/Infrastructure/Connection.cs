@@ -159,6 +159,11 @@ namespace YouTrackSharp.Infrastructure
             MakePostRequest(command, data, HttpContentTypes.ApplicationXml);
         }
 
+        public void Post(string command, object data, string accept, string contentType)
+        {
+            MakePostRequest(command, data, accept, contentType);
+        }
+
         public dynamic Post(string command, object data, string accept)
         {
             var httpRequest = MakePostRequest(command, data, accept);
@@ -268,18 +273,20 @@ namespace YouTrackSharp.Infrastructure
 
         HttpClient MakePostRequest(string command, object data, string accept)
         {
+            return MakePostRequest(command, data, accept, HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+        }
+
+        private HttpClient MakePostRequest(string command, object data, string accept, string contentType)
+        {
             var httpRequest = CreateHttpRequest();
 
             httpRequest.Request.Accept = accept;
-
-            httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data,
-                             HttpContentTypes.ApplicationXWwwFormUrlEncoded);
+            httpRequest.Post(_uriConstructor.ConstructBaseUri(command), data, contentType);
 
             HttpStatusCode = httpRequest.Response.StatusCode;
 
             return httpRequest;
         }
-
 
         HttpClient CreateHttpRequest()
         {

@@ -86,6 +86,9 @@
     <Compile Include="Infrastructure\IUriConstructor.cs" />
     <Compile Include="Issues\IssueManagement.cs" />
     <Compile Include="Issues\Issue.cs" />
+    <Compile Include="Issues\TimeTrackingManagement.cs" />
+    <Compile Include="Issues\WorkItem.cs" />
+    <Compile Include="Issues\WorkType.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
