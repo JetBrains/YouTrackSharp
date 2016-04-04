@@ -38,13 +38,8 @@ namespace YouTrackSharp.CmdLets
 {
     public class YouTrackCmdlet : PSCmdlet
     {
-        protected Connection Connection;
-
-        protected override void BeginProcessing()
-        {
-            Connection = new Connection("youtrack.jetbrains.net");
-
-            Connection.Authenticate("abc", "abc");
-        }
+        [Parameter(Mandatory = true, HelpMessage = "Connection")]
+        [ValidateNotNull]
+        public Connection Connection { get; set; }
     }
 }
