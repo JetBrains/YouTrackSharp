@@ -35,14 +35,12 @@ using System.Management.Automation;
 
 namespace YouTrackSharp.CmdLets
 {
-    using Infrastructure;
-
     [Cmdlet(VerbsCommon.Get, "issue")]
     public class GetIssueCmdlet : YouTrackIssueCmdlet
     {
-        [Parameter(Mandatory = true, HelpMessage = "IssueId")]
+        [Parameter(Mandatory = true, HelpMessage = "Issue Id")]
         [ValidateNotNull]
-        public string IssueId { get; set; }
+        string IssueId { get; set; }
 
         protected override void ProcessRecord()
         {
