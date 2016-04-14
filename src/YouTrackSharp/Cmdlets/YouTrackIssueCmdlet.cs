@@ -37,7 +37,7 @@ namespace YouTrackSharp.CmdLets
 {
     public class YouTrackIssueCmdlet : YouTrackCmdlet
     {
-        protected IssueManagement IssueManagement;
+        protected IIssueManagement IssueManagement;
 
         protected override void BeginProcessing()
         {
