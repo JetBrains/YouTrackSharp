@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Admin\AllUsersItem.cs" />
     <Compile Include="Admin\Filter.cs" />
+    <Compile Include="Cmdlets\GetConnectionCmdlet.cs" />
     <Compile Include="Cmdlets\SetCommandCmdlet.cs" />
     <Compile Include="Cmdlets\NewIssueCmdlet.cs" />
     <Compile Include="Cmdlets\GetIssueCmdlet.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Infrastructure\ISearchEngine.cs" />
     <Compile Include="Issues\Count.cs" />
     <Compile Include="Issues\Entity.cs" />
+    <Compile Include="Issues\IIssueManagement.cs" />
     <Compile Include="Issues\Link.cs" />
     <Compile Include="Infrastructure\SubValues.cs" />
     <Compile Include="Infrastructure\SubValuesArray.cs" />

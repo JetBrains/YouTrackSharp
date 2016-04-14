@@ -44,7 +44,7 @@ using HttpException = EasyHttp.Infrastructure.HttpException;
 
 namespace YouTrackSharp.Issues
 {
-	public class IssueManagement
+	public class IssueManagement : IIssueManagement
 	{
 		static readonly List<string> PresetFields = new List<string>()
                                                      {
