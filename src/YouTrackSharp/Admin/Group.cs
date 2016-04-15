@@ -7,7 +7,7 @@ using System.Web;
 
 namespace YouTrackSharp.Admin
 {
-	class Group
+	public class Group
 	{
 		public string Name { get; set; }
 		public string Url { get; set; }

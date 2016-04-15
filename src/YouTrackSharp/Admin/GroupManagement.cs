@@ -6,7 +6,7 @@ using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Admin
 {
-	class GroupManagement
+	public class GroupManagement
 	{
 		readonly IConnection _connection;
 		public GroupManagement(IConnection connection)
