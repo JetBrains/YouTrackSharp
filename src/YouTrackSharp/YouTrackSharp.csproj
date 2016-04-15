@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="Admin\AllUsersItem.cs" />
     <Compile Include="Admin\Filter.cs" />
+    <Compile Include="Admin\Group.cs" />
+    <Compile Include="Admin\GroupManagement.cs" />
     <Compile Include="Cmdlets\SetCommandCmdlet.cs" />
     <Compile Include="Cmdlets\NewIssueCmdlet.cs" />
     <Compile Include="Cmdlets\GetIssueCmdlet.cs" />
