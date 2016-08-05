@@ -34,6 +34,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Web;
 using YouTrackSharp.Infrastructure;
 
 namespace YouTrackSharp.Admin
@@ -49,11 +50,46 @@ namespace YouTrackSharp.Admin
 
 		public IEnumerable<User> GetAllUsers()
 		{
+			return this.GetUsersFromPath("admin/user");
+		}
+
+		/// <summary>
+		/// Extended options for getting users.
+		/// </summary>
+		/// <example>userManagement.GetAllUsers(group: "all users")</example>
+		/// <example>userManagement.GetAllUsers("root")</example>
+		/// <returns></returns>
+		public IEnumerable<User> GetUsers(string query = null, string group = null, string role = null,
+		                                  string project = null, string permission = null, bool? onlineOnly = null,
+		                                  int? start = null)
+		{
+			string command = "admin/user";
+			var queryString = HttpUtility.ParseQueryString("");
+
+			if (query != null)      queryString["q"] = query;
+			if (group != null)      queryString["group"] = group;
+			if (role != null)       queryString["role"] = role;
+			if (project != null)    queryString["project"] = project;
+			if (permission != null) queryString["permission"] = permission;
+			if (onlineOnly != null) queryString["onlineOnly"] = onlineOnly == true ? "true" : "false";
+			if (start != null)      queryString["start"] = start.ToString();
+
+			if (queryString.Count > 0)
+			{
+				command += "?" + queryString.ToString();
+			}
+
+			return this.GetUsersFromPath(command);
+		}
+
+		private IEnumerable<User> GetUsersFromPath(string path)
+		{
+
 			ICollection<User> users = new Collection<User>();
-			IEnumerable<AllUsersItem> userItems = _connection.Get<IEnumerable<AllUsersItem>>("admin/user");
+			IEnumerable<AllUsersItem> userItems = _connection.Get<IEnumerable<AllUsersItem>>(path);
 
 			foreach (AllUsersItem userItem in userItems)
-			{
+            {
 				users.Add(GetUserByUserName(userItem.Login));
 			}
 
