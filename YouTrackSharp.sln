@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTrackSharp", "src\YouTrackSharp\YouTrackSharp.csproj", "{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}"
+EndProject
+Project("{132534FA-BE40-4761-A0A2-AE3A66D36BE3}") = "YouTrackSharp.Tests", "tests\YouTrackSharp.Tests\YouTrackSharp.Tests.csproj", "{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

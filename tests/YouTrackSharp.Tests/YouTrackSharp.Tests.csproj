@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Authors>Maarten Balliauw and Contributors</Authors>
+    <Company>Maarten Balliauw and Contributors</Company>
+    <Product>YouTrackSharp</Product>
+    <Description>Tests for YouTrackSharp.</Description>
+    <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
+    <Copyright>Maarten Balliauw and Contributors</Copyright>
+    <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/maartenba/YouTrackSharp/tree/master/logo.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Version>3.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\YouTrackSharp\YouTrackSharp.csproj">
+      <Project>{db576d3a-7cce-4b4d-8cbf-9090b1573de1}</Project>
+      <Name>YouTrackSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
