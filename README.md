@@ -1,6 +1,6 @@
 # YouTrackSharp
 
-![YouTrackSharp](logo.png)
+![YouTrackSharp](https://github.com/maartenba/YouTrackSharp/raw/master/logo.png)
 
 .NET Library to access YouTrack API.
 
