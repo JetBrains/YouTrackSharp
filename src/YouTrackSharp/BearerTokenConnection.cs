@@ -43,7 +43,7 @@ namespace YouTrackSharp
                     BaseAddress = ServerUri
                 };
 
-                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.HttpContentTypes.ApplicationJson));
             }
             
             // Authenticate?
