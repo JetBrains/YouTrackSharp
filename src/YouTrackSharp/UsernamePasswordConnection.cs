@@ -74,14 +74,14 @@ namespace YouTrackSharp
                     else
                     {
                         throw new UnauthorizedConnectionException(
-                            "Could not authenticate. Server did not return expected authentication response. Check the Response property for more details.", response.StatusCode, responseString);
+                            Strings.Exception_CouldNotAuthenticate, response.StatusCode, responseString);
                     }
                 }
 
                 if (!_authenticated)
                 {
                     throw new UnauthorizedConnectionException(
-                        "Could not authenticate. Server did not return succesful authentication response. Check the Response property for more details.", response.StatusCode, response.ReasonPhrase);
+                        Strings.Exception_CouldNotAuthenticate, response.StatusCode, response.ReasonPhrase);
                 }
             }
             

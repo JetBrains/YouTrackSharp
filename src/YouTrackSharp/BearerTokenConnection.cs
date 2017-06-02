@@ -59,7 +59,7 @@ namespace YouTrackSharp
                     var responseString = await response.Content.ReadAsStringAsync();
                     
                     throw new UnauthorizedConnectionException(
-                        "Could not authenticate. Server did not return expected authentication response. Check the Response property for more details.", response.StatusCode, responseString);
+                        Strings.Exception_CouldNotAuthenticate, response.StatusCode, responseString);
                 }
             }
             
