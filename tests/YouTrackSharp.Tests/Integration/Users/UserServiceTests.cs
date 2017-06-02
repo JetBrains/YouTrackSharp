@@ -1,10 +1,9 @@
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Services;
 using YouTrackSharp.Tests.Infrastructure;
+using YouTrackSharp.Users;
 
-namespace YouTrackSharp.Tests.Integration.Services
+namespace YouTrackSharp.Tests.Integration.Users
 {
     public class UserServiceTests
     {

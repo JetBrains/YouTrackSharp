@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using YouTrackSharp.Entities;
 
-namespace YouTrackSharp.Services
+namespace YouTrackSharp.Users
 {
     /// <summary>
     /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html">YouTrack User Related Methods</a>.
