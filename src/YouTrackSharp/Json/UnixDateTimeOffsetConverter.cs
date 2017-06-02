@@ -51,7 +51,7 @@ namespace YouTrackSharp.Json
             }
 
             DateTimeOffset converted;
-            if (Math.Log10(ticks) >= 12)
+            if (Math.Ceiling(Math.Log10(ticks)) >= 12)
             {
                 // Milliseconds
                 converted = DateTimeOffset.FromUnixTimeMilliseconds(ticks);
