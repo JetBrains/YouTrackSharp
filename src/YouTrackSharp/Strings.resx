@@ -120,4 +120,7 @@
   <data name="Exception_CouldNotAuthenticate" xml:space="preserve">
     <value>Could not authenticate. Server did not return expected authentication response. Check the Response property for more details.</value>
   </data>
+  <data name="Exception_CouldNotParseUnixTimeStamp" xml:space="preserve">
+    <value>Could not parse value \"{0}\" as Unix timestamp.</value>
+  </data>
 </root>

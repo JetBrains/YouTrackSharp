@@ -69,5 +69,14 @@ namespace YouTrackSharp {
                 return ResourceManager.GetString("Exception_CouldNotAuthenticate", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not parse value \&quot;{0}\&quot; as Unix timestamp..
+        /// </summary>
+        internal static string Exception_CouldNotParseUnixTimeStamp {
+            get {
+                return ResourceManager.GetString("Exception_CouldNotParseUnixTimeStamp", resourceCulture);
+            }
+        }
     }
 }

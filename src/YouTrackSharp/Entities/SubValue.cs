@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 
+// ReSharper disable once CheckNamespace
 namespace YouTrackSharp
 {
     /// <summary>

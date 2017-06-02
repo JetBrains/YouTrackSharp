@@ -26,4 +26,7 @@
       <Name>YouTrackSharp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Integration\Issues" />
+  </ItemGroup>
 </Project>
