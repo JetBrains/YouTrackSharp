@@ -14,10 +14,10 @@ namespace YouTrackSharp.Tests.Integration.Users
             public async Task Valid_Connection_Returns_Current_User(Connection connection)
             {
                 // Arrange
-                var userService = new UserService(connection);
+                var service = new UserService(connection);
                 
                 // Act
-                var result = await userService.GetCurrentUserInfo();
+                var result = await service.GetCurrentUserInfo();
                 
                 // Assert
                 Assert.NotNull(result);
@@ -25,16 +25,15 @@ namespace YouTrackSharp.Tests.Integration.Users
                 // TODO assert properties, too
             }
             
-            [Theory]
-            [MemberData(nameof(Connections.TestData.InvalidConnections), MemberType = typeof(Connections.TestData))]
-            public async Task Invalid_Connection_Throws_UnauthorizedConnectionException(Connection connection)
+            [Fact]
+            public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {
                 // Arrange
-                var userService = new UserService(connection);
+                var service = new UserService(Connections.UnauthorizedConnection);
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await userService.GetCurrentUserInfo());
+                    async () => await service.GetCurrentUserInfo());
             }
         }
     }

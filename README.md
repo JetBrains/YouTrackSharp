@@ -10,11 +10,26 @@ For more information on YouTrack visit [jetbrains.com/youtrack](http://www.jetbr
 
 ## Getting started
 
-TODO
+First of all, install `YouTrackSharp` into your project using a NuGet client.
 
-It is recommended to always use [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html) to authenticate against YouTrack, using the `BearerTokenConnection`. For YouTrack instances that do not have token support, `UsernamePasswordConnection` can be used.
+To communicate with a YouTrack server instance, we'll need a connection. It is recommended to always use [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html) to authenticate against YouTrack, using the `BearerTokenConnection`. For YouTrack instances that do not have token support, `UsernamePasswordConnection` can be used.
 
-TODO
+```csharp
+var connection = new BearerTokenConnection("https://ytsharp.myjetbrains.com/youtrack/", "perm:abcdefghijklmn");
+
+// or:
+
+var connection = new UsernamePasswordConnection("https://ytsharp.myjetbrains.com/youtrack/", "username", "password");
+```
+
+Once a connection is made, various services can be used. For example to get a list of projects the user has access to, the `ProjectsService` can be used:
+
+```csharp
+var projectsService = new ProjectsService(connection);
+var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
+```
+
+Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/standalone/YouTrack-REST-API-Reference.html) endpoints and operations that are available.
 
 ## Supported YouTrack versions
 
