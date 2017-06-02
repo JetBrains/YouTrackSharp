@@ -78,7 +78,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
         [JsonProperty("created")]
-        public DateTimeOffset? Created { get; set; }
+        public DateTime? Created { get; set; }
 
         // TODO DateTime
         /// <summary>
@@ -86,7 +86,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
         [JsonProperty("updated")]
-        public DateTimeOffset? Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Permitted group.
