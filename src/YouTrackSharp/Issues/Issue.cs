@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
-using System.Net.Sockets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
 {
@@ -95,6 +94,8 @@ namespace YouTrackSharp.Issues
         {
             if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
             {
+                Type collectionElementType;
+                
                 var fieldElements = ((JArray)value).ToObject<List<Field>>();
                 foreach (var fieldElement in fieldElements)
                 {
@@ -109,13 +110,13 @@ namespace YouTrackSharp.Issues
                                 Value = fieldElementAsArray.ToObject<List<Assignee>>()
                             };
                         }
-                        else if (fieldElementAsArray.First is JValue)
+                        else if (fieldElementAsArray.First is JValue && JTokenTypeUtil.TryMapSimpleTokenType(fieldElementAsArray.First.Type, out collectionElementType))
                         {
                             // Map simple arrays to their array representation, e.g. string[] or int[]
                             _fields[fieldElement.Name] = new Field
                             {
                                 Name = binder.Name,
-                                Value = fieldElementAsArray.ToArray()
+                                Value = fieldElementAsArray.ToObject(JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType))
                             };
                         }
                         else
@@ -148,6 +149,15 @@ namespace YouTrackSharp.Issues
             }
             
             return true;
+        }
+
+        /// <summary>
+        /// Returns the current <see cref="Issue" /> as a <see cref="DynamicObject" />.
+        /// </summary>
+        /// <returns>The current <see cref="Issue" /> as a <see cref="DynamicObject" />.</returns>
+        public dynamic AsDynamic()
+        {
+            return this;
         }
     }
 }

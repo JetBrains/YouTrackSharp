@@ -22,6 +22,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 // Assert
                 Assert.NotNull(result);
                 Assert.Equal("DP1-1", result.Id);
+                Assert.True(result.Comments.Count > 0);
+                Assert.Equal("Bug", result.AsDynamic().Type[0]);
             }
             
             [Fact]
