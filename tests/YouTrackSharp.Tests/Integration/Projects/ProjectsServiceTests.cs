@@ -15,7 +15,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = new ProjectsService(connection);
+                var service = connection.CreateProjectsService();
                 
                 // Act
                 var result = await service.GetAccessibleProjects();
@@ -35,7 +35,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = new ProjectsService(connection);
+                var service = connection.CreateProjectsService();
                 
                 // Act
                 var result = await service.GetAccessibleProjects(verbose: true);
@@ -56,7 +56,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
             public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {
                 // Arrange
-                var service = new ProjectsService(Connections.UnauthorizedConnection);
+                var service = Connections.UnauthorizedConnection.CreateProjectsService();
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(

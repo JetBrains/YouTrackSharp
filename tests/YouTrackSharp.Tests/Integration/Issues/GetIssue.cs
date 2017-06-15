@@ -14,7 +14,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = new IssuesService(connection);
+                var service = connection.CreateIssueService();
                 
                 // Act
                 var result = await service.GetIssue("DP1-1");
@@ -28,7 +28,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
             public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {
                 // Arrange
-                var service = new IssuesService(Connections.UnauthorizedConnection);
+                var service = Connections.UnauthorizedConnection.CreateIssueService();
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
