@@ -25,7 +25,7 @@ var connection = new UsernamePasswordConnection("https://ytsharp.myjetbrains.com
 Once a connection is made, various services can be used. For example to get a list of projects the user has access to, the `ProjectsService` can be used:
 
 ```csharp
-var projectsService = new ProjectsService(connection);
+var projectsService = new connection.CreateProjectsService();
 var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
 ```
 
