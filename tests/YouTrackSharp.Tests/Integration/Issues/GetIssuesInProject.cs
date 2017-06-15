@@ -22,7 +22,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 // Assert
                 Assert.NotNull(result);
                 Assert.Collection(result, issue => 
-                    Assert.Equal("DP1", issue.GetField("projectShortName").Value));
+                    Assert.Equal("DP1", ((dynamic)issue).ProjectShortName));
             }
             
             [Fact]

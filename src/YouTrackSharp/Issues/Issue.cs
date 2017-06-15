@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Dynamic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace YouTrackSharp.Issues
 {
-    // TODO dynamic shizzle - https://github.com/JetBrains/YouTrackSharp/blob/master/src/YouTrackSharp/Issues/Issue.cs
-    // TODO strong type EVERYTHING
+    // TODO: Add dynamic object implementation cache so no iteration is needed over Fields
 
     /// <summary>
-    /// A class that represents YouTrack issue information.
+    /// A class that represents YouTrack issue information. Can be casted to a <see cref="DynamicObject"/>.
     /// </summary>
-    public class Issue
+    public class Issue 
+        : DynamicObject
     {
+        private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.OrdinalIgnoreCase);
+        
         /// <summary>
         /// Creates an instance of the <see cref="Issue" /> class.
         /// </summary>
         public Issue()
         {
-            Fields = new List<Field>();
             Comments = new List<Comment>();
             Tags = new List<string>();
         }
@@ -44,8 +46,10 @@ namespace YouTrackSharp.Issues
         /// <summary>
         /// Issue fields.
         /// </summary>
-        [JsonProperty("field")]
-        public ICollection<Field> Fields { get; set; }
+        public ICollection<Field> Fields
+        {
+            get { return _fields.Values; } 
+        }
 
         /// <summary>
         /// Issue comments.
@@ -66,8 +70,48 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Field"/> matching the <paramref name="fieldName"/>; null when not found.</returns>
         public Field GetField(string fieldName)
         {
-            return Fields.FirstOrDefault(f => 
-                string.Equals(f.Name, fieldName, StringComparison.OrdinalIgnoreCase));
+            Field field;
+            _fields.TryGetValue(fieldName, out field);
+            return field;
+        }
+
+        /// <inheritdoc />
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            var field = GetField(binder.Name);
+            if (field != null)
+            {
+                result = field.Value;
+                return true;
+            }
+            
+            return base.TryGetMember(binder, out result);
+        }
+
+        /// <inheritdoc />
+        public override bool TrySetMember(SetMemberBinder binder, object value)
+        {
+            if (string.Compare(binder.Name, "field", StringComparison.OrdinalIgnoreCase) == 0 && value is JArray)
+            {
+                var fields = ((JArray) value).ToObject<List<Field>>();
+                foreach (var val in fields)
+                {
+                    _fields[val.Name] = val;
+                }
+                return true;
+            }
+            
+            Field field;
+            if (_fields.TryGetValue(binder.Name, out field))
+            {
+                field.Value = value;
+            }
+            else
+            {
+                _fields.Add(binder.Name, new Field { Name = binder.Name, Value = value });
+            }
+            
+            return true;
         }
     }
 }
