@@ -92,6 +92,7 @@ namespace YouTrackSharp.Issues
         /// <inheritdoc />
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
+            // "field" setter when deserializing JSON
             if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
             {
                 var fieldElements = ((JArray)value).ToObject<List<Field>>();
@@ -102,11 +103,7 @@ namespace YouTrackSharp.Issues
                         if (string.Equals(fieldElement.Name, "assignee", StringComparison.OrdinalIgnoreCase))
                         {
                             // For assignees, we can do a strong-typed list.
-                            _fields[fieldElement.Name] = new Field
-                            {
-                                Name = binder.Name,
-                                Value = fieldElementAsArray.ToObject<List<Assignee>>()
-                            };
+                            fieldElement.Value = fieldElementAsArray.ToObject<List<Assignee>>();
                         }
                         else
                         {
@@ -114,32 +111,24 @@ namespace YouTrackSharp.Issues
                             if (fieldElementAsArray.First is JValue && JTokenTypeUtil.TryMapSimpleTokenType(fieldElementAsArray.First.Type, out collectionElementType))
                             {
                                 // Map simple arrays to their array representation, e.g. string[] or int[]
-                                _fields[fieldElement.Name] = new Field
-                                {
-                                    Name = binder.Name,
-                                    Value = fieldElementAsArray.ToObject(JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType))
-                                };
+                                fieldElement.Value = fieldElementAsArray.ToObject(
+                                    JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType));
                             }
                             else
                             {
                                 // Map more complex arrays to JToken[]
-                                _fields[fieldElement.Name] = new Field
-                                {
-                                    Name = binder.Name,
-                                    Value = fieldElementAsArray
-                                };
+                                fieldElement.Value = fieldElementAsArray;
                             }
                         }
                     }
-                    else
-                    {
-                        // For other value types provide the value as-is (string, int, ...)
-                        _fields[fieldElement.Name] = fieldElement;
-                    }
+                    
+                    // Set the actual field
+                    _fields[fieldElement.Name] = fieldElement;
                 }
                 return true;
             }
             
+            // Regular setter
             Field field;
             if (_fields.TryGetValue(binder.Name, out field))
             {
