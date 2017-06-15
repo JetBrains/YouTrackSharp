@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.Issues
 {
@@ -96,6 +94,48 @@ namespace YouTrackSharp.Issues
             response.EnsureSuccessStatusCode();
             
             return JsonConvert.DeserializeObject<ICollection<Issue>>(await response.Content.ReadAsStringAsync());
+        }
+
+        /// <summary>
+        /// Get issues from the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-the-List-of-Issues.html">Get the List of Issues</a>.</remarks>
+        /// <param name="filter">Apply a filter to issues.</param>
+        /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
+        /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance..</param>
+        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null)
+        {
+            var queryString = new List<string>(6);
+            if (!string.IsNullOrEmpty(filter))
+            {
+                queryString.Add($"filter={WebUtility.UrlEncode(filter)}");
+            }
+            if (skip.HasValue)
+            {
+                queryString.Add($"after={skip}");
+            }
+            if (take.HasValue)
+            {
+                queryString.Add($"max={take}");
+            }
+            
+            var query = string.Join("&", queryString);
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync($"rest/issue?{query}");
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+
+            response.EnsureSuccessStatusCode();
+
+            var wrapper = JsonConvert.DeserializeObject<IssueCollectionWrapper>(
+                await response.Content.ReadAsStringAsync());
+            return wrapper.Issues;
         }
     }
 }

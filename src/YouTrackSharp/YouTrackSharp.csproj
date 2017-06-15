@@ -17,7 +17,7 @@
     <Copyright>Maarten Balliauw and Contributors</Copyright>
     <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>3.0.0-preview.1</Version>
+    <Version>3.0.0-preview</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">

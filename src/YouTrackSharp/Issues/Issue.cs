@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
+using System.Net.Sockets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -91,12 +93,46 @@ namespace YouTrackSharp.Issues
         /// <inheritdoc />
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            if (string.Compare(binder.Name, "field", StringComparison.OrdinalIgnoreCase) == 0 && value is JArray)
+            if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
             {
-                var fields = ((JArray) value).ToObject<List<Field>>();
-                foreach (var val in fields)
+                var fieldElements = ((JArray)value).ToObject<List<Field>>();
+                foreach (var fieldElement in fieldElements)
                 {
-                    _fields[val.Name] = val;
+                    if (fieldElement.Value is JArray fieldElementAsArray)
+                    {
+                        if (string.Equals(fieldElement.Name, "assignee", StringComparison.OrdinalIgnoreCase))
+                        {
+                            // For assignees, we can do a strong-typed list.
+                            _fields[fieldElement.Name] = new Field
+                            {
+                                Name = binder.Name,
+                                Value = fieldElementAsArray.ToObject<List<Assignee>>()
+                            };
+                        }
+                        else if (fieldElementAsArray.First is JValue)
+                        {
+                            // Map simple arrays to their array representation, e.g. string[] or int[]
+                            _fields[fieldElement.Name] = new Field
+                            {
+                                Name = binder.Name,
+                                Value = fieldElementAsArray.ToArray()
+                            };
+                        }
+                        else
+                        {
+                            // Map more complex arrays to JToken[]
+                            _fields[fieldElement.Name] = new Field
+                            {
+                                Name = binder.Name,
+                                Value = fieldElementAsArray
+                            };
+                        }
+                    }
+                    else
+                    {
+                        // For other value types provide the value as-is (string, int, ...)
+                        _fields[fieldElement.Name] = fieldElement;
+                    }
                 }
                 return true;
             }
