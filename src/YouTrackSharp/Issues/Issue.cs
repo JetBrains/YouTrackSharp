@@ -94,8 +94,6 @@ namespace YouTrackSharp.Issues
         {
             if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
             {
-                Type collectionElementType;
-                
                 var fieldElements = ((JArray)value).ToObject<List<Field>>();
                 foreach (var fieldElement in fieldElements)
                 {
@@ -110,23 +108,27 @@ namespace YouTrackSharp.Issues
                                 Value = fieldElementAsArray.ToObject<List<Assignee>>()
                             };
                         }
-                        else if (fieldElementAsArray.First is JValue && JTokenTypeUtil.TryMapSimpleTokenType(fieldElementAsArray.First.Type, out collectionElementType))
-                        {
-                            // Map simple arrays to their array representation, e.g. string[] or int[]
-                            _fields[fieldElement.Name] = new Field
-                            {
-                                Name = binder.Name,
-                                Value = fieldElementAsArray.ToObject(JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType))
-                            };
-                        }
                         else
                         {
-                            // Map more complex arrays to JToken[]
-                            _fields[fieldElement.Name] = new Field
+                            Type collectionElementType;
+                            if (fieldElementAsArray.First is JValue && JTokenTypeUtil.TryMapSimpleTokenType(fieldElementAsArray.First.Type, out collectionElementType))
                             {
-                                Name = binder.Name,
-                                Value = fieldElementAsArray
-                            };
+                                // Map simple arrays to their array representation, e.g. string[] or int[]
+                                _fields[fieldElement.Name] = new Field
+                                {
+                                    Name = binder.Name,
+                                    Value = fieldElementAsArray.ToObject(JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType))
+                                };
+                            }
+                            else
+                            {
+                                // Map more complex arrays to JToken[]
+                                _fields[fieldElement.Name] = new Field
+                                {
+                                    Name = binder.Name,
+                                    Value = fieldElementAsArray
+                                };
+                            }
                         }
                     }
                     else
