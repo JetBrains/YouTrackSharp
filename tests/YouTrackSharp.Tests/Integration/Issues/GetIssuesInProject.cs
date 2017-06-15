@@ -5,23 +5,24 @@ using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Issues
 {
-    public class IssuesServiceTests
+    public partial class IssuesServiceTests
     {
-        public class GetIssue
+        public class GetIssuesInProject
         {
             [Fact]
-            public async Task Valid_Connection_Returns_Existing_Issue()
+            public async Task Valid_Connection_Returns_Issues()
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
                 var service = new IssuesService(connection);
                 
                 // Act
-                var result = await service.GetIssue("DP1-1");
+                var result = await service.GetIssuesInProject("DP1", filter: "assignee:me");
                 
                 // Assert
                 Assert.NotNull(result);
-                Assert.Equal("DP1-1", result.Id);
+                Assert.Collection(result, issue => 
+                    Assert.Equal("DP1", issue.GetField("projectShortName").Value));
             }
             
             [Fact]
@@ -32,7 +33,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await service.GetIssue("NOT-EXIST"));
+                    async () => await service.GetIssuesInProject("DP1"));
             }
         }
     }

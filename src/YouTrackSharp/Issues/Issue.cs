@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace YouTrackSharp.Issues
@@ -26,12 +28,6 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Short name of the issue's project.
-        /// </summary>
-        [JsonProperty("projectShortName")]
-        public string ProjectShortName { get; set; }
 
         /// <summary>
         /// Entity Id internal to YouTrack.
@@ -62,5 +58,16 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonProperty("tag")]
         public ICollection<string> Tags { get; set; }
+
+        /// <summary>
+        /// Gets a specific <see cref="Field"/> from the <see cref="Fields"/> collection.
+        /// </summary>
+        /// <param name="fieldName">The name of the <see cref="Field"/> to get.</param>
+        /// <returns><see cref="Field"/> matching the <paramref name="fieldName"/>; null when not found.</returns>
+        public Field GetField(string fieldName)
+        {
+            return Fields.FirstOrDefault(f => 
+                string.Equals(f.Name, fieldName, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }
