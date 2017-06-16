@@ -23,7 +23,7 @@ namespace YouTrackSharp.Issues
         public Issue()
         {
             Comments = new List<Comment>();
-            Tags = new List<string>();
+            Tags = new List<SubValue>();
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace YouTrackSharp.Issues
         /// Issue tags.
         /// </summary>
         [JsonProperty("tag")]
-        public ICollection<string> Tags { get; set; }
+        public ICollection<SubValue> Tags { get; set; }
 
         /// <summary>
         /// Gets a specific <see cref="Field"/> from the <see cref="Fields"/> collection.
@@ -79,7 +79,7 @@ namespace YouTrackSharp.Issues
         /// <inheritdoc />
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var field = GetField(binder.Name);
+            var field = GetField(binder.Name.Replace("_", " "));
             if (field != null)
             {
                 result = field.Value;
