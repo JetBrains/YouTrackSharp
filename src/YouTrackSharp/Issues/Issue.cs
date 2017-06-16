@@ -75,18 +75,19 @@ namespace YouTrackSharp.Issues
             _fields.TryGetValue(fieldName, out field);
             return field;
         }
-
+        
         /// <inheritdoc />
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var field = GetField(binder.Name.Replace("_", " "));
+            var field = GetField(binder.Name);
             if (field != null)
             {
                 result = field.Value;
                 return true;
             }
-            
-            return base.TryGetMember(binder, out result);
+
+            result = null;
+            return true;
         }
 
         /// <inheritdoc />
@@ -94,12 +95,13 @@ namespace YouTrackSharp.Issues
         {
             // "field" setter when deserializing JSON
             if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
-            {
+            {   
                 var fieldElements = ((JArray)value).ToObject<List<Field>>();
                 foreach (var fieldElement in fieldElements)
                 {
                     if (fieldElement.Value is JArray fieldElementAsArray)
                     {
+                        // Map collection
                         if (string.Equals(fieldElement.Name, "assignee", StringComparison.OrdinalIgnoreCase))
                         {
                             // For assignees, we can do a strong-typed list.
@@ -107,12 +109,11 @@ namespace YouTrackSharp.Issues
                         }
                         else
                         {
-                            Type collectionElementType;
-                            if (fieldElementAsArray.First is JValue && JTokenTypeUtil.TryMapSimpleTokenType(fieldElementAsArray.First.Type, out collectionElementType))
+                            if (fieldElementAsArray.First is JValue &&
+                                JTokenTypeUtil.IsSimpleType(fieldElementAsArray.First.Type))
                             {
-                                // Map simple arrays to their array representation, e.g. string[] or int[]
-                                fieldElement.Value = fieldElementAsArray.ToObject(
-                                    JTokenTypeUtil.GenericListType.MakeGenericType(collectionElementType));
+                                // Map simple arrays to a collection of string
+                                fieldElement.Value = fieldElementAsArray.ToObject<List<string>>();
                             }
                             else
                             {
@@ -125,6 +126,7 @@ namespace YouTrackSharp.Issues
                     // Set the actual field
                     _fields[fieldElement.Name] = fieldElement;
                 }
+             
                 return true;
             }
             
