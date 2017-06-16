@@ -18,7 +18,6 @@ namespace YouTrackSharp
             return new ProjectsService(connection);
         }
         
-        
         /// <summary>
         /// Creates a <see cref="IssuesService" />.
         /// </summary>
