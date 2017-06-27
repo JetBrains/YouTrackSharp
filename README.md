@@ -1,4 +1,4 @@
-#YouTrackSharp#
+# YouTrackSharp #
 
 .NET Library to access YouTrack API.
 
@@ -28,6 +28,6 @@ fixed field it has is "Id" (although later on some others might be added). The r
 
 Until we cover some simple usage scenarios here, take a look at the Spec tests. They are self-explanatory
 
-##Issue and Feature Requests##
+## Issue and Feature Requests ##
 
 Please log all issues in YouTrack on Codebetter: http://youtrack.codebetter.com/issues/YTSRP
