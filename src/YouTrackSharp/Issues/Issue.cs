@@ -55,18 +55,7 @@ namespace YouTrackSharp.Issues
                 var field = GetField("Summary");
                 return field?.Value.ToString();
             }
-            set
-            {
-                var field = GetField("Summary");
-                if (field != null)
-                {
-                    field.Value = value;
-                }
-                else
-                {
-                    _fields.Add("Summary", new Field { Name = "Summary", Value = value });
-                }
-            }
+            set => SetField("Summary", value);
         }
 
         /// <summary>
@@ -78,18 +67,7 @@ namespace YouTrackSharp.Issues
                 var field = GetField("Description");
                 return field?.Value.ToString();
             }
-            set
-            {
-                var field = GetField("Description");
-                if (field != null)
-                {
-                    field.Value = value;
-                }
-                else
-                {
-                    _fields.Add("Description", new Field { Name = "Description", Value = value });
-                }
-            }
+            set => SetField("Description", value);
         }
         
         /// <summary>
@@ -122,6 +100,24 @@ namespace YouTrackSharp.Issues
             Field field;
             _fields.TryGetValue(fieldName, out field);
             return field;
+        }
+
+        /// <summary>
+        /// Sets a specific <see cref="Field"/> in the <see cref="Fields"/> collection.
+        /// </summary>
+        /// <param name="fieldName">The name of the <see cref="Field"/> to set.</param>
+        /// <param name="value">The value to set for the <see cref="Field"/>.</param>
+        public void SetField(string fieldName, object value)
+        {
+            Field field;
+            if (_fields.TryGetValue(fieldName, out field))
+            {
+                field.Value = value;
+            }
+            else
+            {
+                _fields.Add(fieldName, new Field { Name = fieldName, Value = value });
+            }
         }
         
         /// <inheritdoc />

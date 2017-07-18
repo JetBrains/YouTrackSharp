@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace YouTrackSharp.Issues
     public class IssuesService
     {
         private readonly Connection _connection;
+        
+        private static readonly string[] ReservedFields = new []
+        {
+            "id", "entityid", "jiraid", "summary", "description"
+        };
 
         /// <summary>
         /// Creates an instance of the <see cref="IssuesService" /> class.
@@ -195,7 +201,38 @@ namespace YouTrackSharp.Issues
             var marker = "rest/issue/";
             var locationHeader = response.Headers.Location.ToString();
             
-            return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+            var issueId = locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+
+            // For every custom field, apply a command
+            var customFields = issue.Fields
+                .Where(field => !ReservedFields.Contains(field.Name.ToLower()))
+                .ToDictionary(field => field.Name, field => field.Value);
+            
+            foreach (var customField in customFields)
+            {
+                if (!(customField.Value is string) && customField.Value is System.Collections.IEnumerable enumerable)
+                {
+                    await ApplyCommand(issueId, $"{customField.Key} {string.Join(" ", enumerable.OfType<string>())}", string.Empty);
+                }
+                else
+                {
+                    await ApplyCommand(issueId, $"{customField.Key} {customField.Value}", string.Empty);
+                }
+            }
+            
+            // Add comments?
+            foreach (var issueComment in issue.Comments)
+            {
+                await ApplyCommand(issueId, "comment", issueComment.Text, runAs: issueComment.Author);
+            }
+            
+            // Add tags?
+            foreach (var issueTag in issue.Tags)
+            {
+                await ApplyCommand(issueId, $"tag {issueTag.Value}");
+            }
+            
+            return issueId;
         }
 
         /// <summary>
