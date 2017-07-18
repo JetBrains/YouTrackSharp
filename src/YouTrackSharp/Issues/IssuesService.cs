@@ -165,6 +165,7 @@ namespace YouTrackSharp.Issues
         /// <param name="issue">The <see cref="Issue" /> to create. At the minimum needs the Summary field populated.</param>
         /// <returns>The newly created <see cref="Issue" />'s id on the server.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
+        /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         public async Task<string> CreateIssue(string projectId, Issue issue)
         {
@@ -189,11 +190,6 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PutAsync($"rest/issue?{query}", new MultipartFormDataContent());
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return null;
-            }
 
             response.EnsureSuccessStatusCode();
             
@@ -235,6 +231,46 @@ namespace YouTrackSharp.Issues
             return issueId;
         }
 
+        /// <summary>
+        /// Updates an issue on the server in a specific project.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Update-an-Issue.html">Update an Issue</a>.</remarks>
+        /// <param name="id">Id of the issue to update.</param>
+        /// <param name="summary">Updated summary of the issue.</param>
+        /// <param name="description">Updated description of the issue.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task UpdateIssue(string id, string summary = null, string description = null)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            if (summary == null && description == null)
+            {
+                return;
+            }
+            
+            var queryString = new List<string>(2);
+            if (!string.IsNullOrEmpty(summary))
+            {
+                queryString.Add($"summary={WebUtility.UrlEncode(summary)}");
+            }
+            if (!string.IsNullOrEmpty(description))
+            {
+                queryString.Add($"description={WebUtility.UrlEncode(description)}");
+            }
+            
+            var query = string.Join("&", queryString);
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PostAsync($"rest/issue/{id}?{query}", new MultipartFormDataContent());
+
+            response.EnsureSuccessStatusCode();
+        }
+        
         /// <summary>
         /// Applies a command to a specific issue on the server.
         /// </summary>
@@ -279,11 +315,6 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PostAsync($"rest/issue/{id}/execute?{query}", new MultipartFormDataContent());
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return;
-            }
             
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
