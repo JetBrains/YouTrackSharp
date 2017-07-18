@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,17 +34,6 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 {
                     await service.AttachFileToIssue(issueId, "singlefile.txt", attachmentStream);
                 }
-            }
-            
-            [Fact]
-            public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
-            {
-                // Arrange
-                var service = Connections.UnauthorizedConnection.CreateIssueService();
-                
-                // Act & Assert
-                await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await service.GetIssue("NOT-EXIST"));
             }
 
             protected static async Task<Stream> GenerateAttachmentStream(string contents)

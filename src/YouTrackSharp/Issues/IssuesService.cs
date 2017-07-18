@@ -459,5 +459,29 @@ namespace YouTrackSharp.Issues
             
             response.EnsureSuccessStatusCode();
         }
+        
+        /// <summary>
+        /// Get attachments for a specific issue from the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Attachments-of-an-Issue.html">Get Attachments of an Issue</a>.</remarks>
+        /// <param name="id">Id of the issue to get comments for.</param>
+        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Attachment" /> for the requested issue <paramref name="id"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<IEnumerable<Attachment>> GetAttachmentsForIssue(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync($"rest/issue/{id}/attachment");
+
+            response.EnsureSuccessStatusCode();
+            
+            var wrapper = JsonConvert.DeserializeObject<AttachmentCollectionWrapper>(await response.Content.ReadAsStringAsync());
+            return wrapper.Attachments;
+        }
     }
 }
