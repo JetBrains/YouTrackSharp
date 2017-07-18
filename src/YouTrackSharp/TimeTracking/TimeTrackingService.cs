@@ -121,5 +121,53 @@ namespace YouTrackSharp.TimeTracking
             
             return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
         }
+        
+        /// <summary>
+        /// Updates a work item for an issue on the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Edit-Existing-Work-Item.html">Edit Existing Work Item</a>.</remarks>
+        /// <param name="issueId">Id of the issue to update the work item for.</param>
+        /// <param name="workItemId">Id of the work item to update.</param>
+        /// <param name="workItem">The <see cref="WorkItem"/> to update.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="workItem"/> is null or empty.</exception>
+        /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task UpdateWorkItemForIssue(string issueId, string workItemId, WorkItem workItem)
+        {
+            if (string.IsNullOrEmpty(issueId))
+            {
+                throw new ArgumentNullException(nameof(issueId));
+            }
+            if (string.IsNullOrEmpty(workItemId))
+            {
+                throw new ArgumentNullException(nameof(workItemId));
+            }
+            if (workItem == null)
+            {
+                throw new ArgumentNullException(nameof(workItem));
+            }
+
+            var stringContent = new StringContent(JsonConvert.SerializeObject(workItem));
+            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PutAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}", stringContent);
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                // Try reading the error message
+                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
+                if (responseJson["value"] != null)
+                {
+                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
+                }
+                else
+                {
+                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
+                }
+            }
+
+            response.EnsureSuccessStatusCode();
+        }
     }
 }
