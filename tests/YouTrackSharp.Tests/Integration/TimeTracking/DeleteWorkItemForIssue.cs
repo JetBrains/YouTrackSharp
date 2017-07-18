@@ -9,10 +9,10 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
 {
     public partial class TimeTrackingServiceTests
     {
-        public class UpdateWorkItemForIssue
+        public class DeleteWorkItemForIssue
         {
             [Fact]
-            public async Task Valid_Connection_Updates_Work_Items_For_Issue()
+            public async Task Valid_Connection_Deletes_Work_Items_For_Issue()
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
@@ -20,15 +20,12 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
 
                 var workTypes = await service.GetWorkTypesForProject("DP1");
 
-                var originalDescription = "Run unit tests. " + DateTime.UtcNow.ToString("U");
-                var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), originalDescription, workTypes.First());
+                var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), "Run unit tests. " + DateTime.UtcNow.ToString("U"), workTypes.First());
                 
                 var workItemId = await service.CreateWorkItemForIssue("DP1-1", workItem);
                 
                 // Act & Assert
-                workItem.Duration = TimeSpan.FromMinutes(1);
-                workItem.Description = originalDescription + " (edited)";
-                await service.UpdateWorkItemForIssue("DP1-1", workItemId, workItem);
+                await service.DeleteWorkItemForIssue("DP1-1", workItemId);
             }
         }
     }

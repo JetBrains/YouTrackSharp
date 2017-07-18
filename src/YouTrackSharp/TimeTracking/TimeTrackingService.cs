@@ -129,7 +129,7 @@ namespace YouTrackSharp.TimeTracking
         /// <param name="issueId">Id of the issue to update the work item for.</param>
         /// <param name="workItemId">Id of the work item to update.</param>
         /// <param name="workItem">The <see cref="WorkItem"/> to update.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="workItem"/> is null or empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/>, <paramref name="workItemId"/> or <paramref name="workItem"/> is null or empty.</exception>
         /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         public async Task UpdateWorkItemForIssue(string issueId, string workItemId, WorkItem workItem)
@@ -165,6 +165,33 @@ namespace YouTrackSharp.TimeTracking
                 {
                     throw new YouTrackErrorException(Strings.Exception_UnknownError);
                 }
+            }
+
+            response.EnsureSuccessStatusCode();
+        }
+        
+        
+        /// <summary>
+        /// Deletes a work item for an issue from the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Delete-Existing-Work-Item.html">Delete Existing Work Item</a>.</remarks>
+        /// <param name="issueId">Id of the issue to delete the work item for.</param>
+        /// <param name="workItemId">Id of the work item to delete.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="workItemId"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task DeleteWorkItemForIssue(string issueId, string workItemId)
+        {
+            if (string.IsNullOrEmpty(issueId))
+            {
+                throw new ArgumentNullException(nameof(issueId));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.DeleteAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}");
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return;
             }
 
             response.EnsureSuccessStatusCode();
