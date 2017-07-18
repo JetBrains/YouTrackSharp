@@ -20,7 +20,7 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
 
                 var workTypes = await service.GetWorkTypesForProject("DP1");
 
-                var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), "Run unit tests. " + DateTime.UtcNow.ToString("U"), workTypes.First());
+                var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), GetType().FullName + " " + DateTime.UtcNow.ToString("U"), workTypes.First());
                 
                 var workItemId = await service.CreateWorkItemForIssue("DP1-1", workItem);
                 
