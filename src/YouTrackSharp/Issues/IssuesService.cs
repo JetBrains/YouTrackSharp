@@ -39,20 +39,20 @@ namespace YouTrackSharp.Issues
         /// Get a specific issue from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-an-Issue.html">Get an Issue</a>.</remarks>
-        /// <param name="id">Id of an issue to get.</param>
+        /// <param name="issueId">Id of an issue to get.</param>
         /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        /// <returns>The <see cref="Issue" /> that matches the requested <paramref name="id"/>.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <returns>The <see cref="Issue" /> that matches the requested <paramref name="issueId"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<Issue> GetIssue(string id, bool wikifyDescription = false)
+        public async Task<Issue> GetIssue(string issueId, bool wikifyDescription = false)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{id}?wikifyDescription={wikifyDescription}");
+            var response = await client.GetAsync($"rest/issue/{issueId}?wikifyDescription={wikifyDescription}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
@@ -68,19 +68,19 @@ namespace YouTrackSharp.Issues
         /// Checks whether an issue exists on the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Check-that-an-Issue-Exists.html">Check that an Issue Exists</a>.</remarks>
-        /// <param name="id">Id of an issue to check.</param>
+        /// <param name="issueId">Id of an issue to check.</param>
         /// <returns><value>True</value> if the issue exists, otherwise <value>false</value>.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<bool> Exists(string id)
+        public async Task<bool> Exists(string issueId)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{id}/exists");
+            var response = await client.GetAsync($"rest/issue/{issueId}/exists");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
@@ -170,17 +170,17 @@ namespace YouTrackSharp.Issues
         /// Updates an issue on the server in a specific project.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Update-an-Issue.html">Update an Issue</a>.</remarks>
-        /// <param name="id">Id of the issue to update.</param>
+        /// <param name="issueId">Id of the issue to update.</param>
         /// <param name="summary">Updated summary of the issue.</param>
         /// <param name="description">Updated description of the issue.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task UpdateIssue(string id, string summary = null, string description = null)
+        public async Task UpdateIssue(string issueId, string summary = null, string description = null)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
 
             if (summary == null && description == null)
@@ -201,7 +201,7 @@ namespace YouTrackSharp.Issues
             var query = string.Join("&", queryString);
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{id}?{query}", new MultipartFormDataContent());
+            var response = await client.PostAsync($"rest/issue/{issueId}?{query}", new MultipartFormDataContent());
 
             response.EnsureSuccessStatusCode();
         }
@@ -210,19 +210,19 @@ namespace YouTrackSharp.Issues
         /// Applies a command to a specific issue on the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Apply-Command-to-an-Issue.html">Apply Command to an Issue</a>.</remarks>
-        /// <param name="id">Id of the issue to apply the command to.</param>
+        /// <param name="issueId">Id of the issue to apply the command to.</param>
         /// <param name="command">The command to apply. A command might contain a string of attributes and their values - you can change multiple fields with one complex command.</param>
         /// <param name="comment">A comment to add to an issue.</param>
         /// <param name="disableNotifications">When <value>true</value>, no notifications about changes made with the specified command will be sent. Defaults to <value>false</value>.</param>
         /// <param name="runAs">Login name for a user on whose behalf the command should be applied.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> or <paramref name="command"/> is null or empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="command"/> is null or empty.</exception>
         /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task ApplyCommand(string id, string command, string comment = null, bool disableNotifications = false, string runAs = null)
+        public async Task ApplyCommand(string issueId, string command, string comment = null, bool disableNotifications = false, string runAs = null)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
             
             if (string.IsNullOrEmpty(command))
@@ -249,7 +249,7 @@ namespace YouTrackSharp.Issues
             var query = string.Join("&", queryString);
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{id}/execute?{query}", new MultipartFormDataContent());
+            var response = await client.PostAsync($"rest/issue/{issueId}/execute?{query}", new MultipartFormDataContent());
             
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
@@ -272,18 +272,18 @@ namespace YouTrackSharp.Issues
         /// Deletes an issue from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Delete-an-Issue.html">Delete an Issue</a>.</remarks>
-        /// <param name="id">Id of an issue to delete.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <param name="issueId">Id of an issue to delete.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task DeleteIssue(string id)
+        public async Task DeleteIssue(string issueId)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/issue/{id}");
+            var response = await client.DeleteAsync($"rest/issue/{issueId}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {

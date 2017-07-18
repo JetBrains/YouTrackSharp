@@ -16,19 +16,18 @@ namespace YouTrackSharp.Issues
         /// Attaches a file to an issue on the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Attach-File-to-an-Issue.html">Attach File to an Issue</a>.</remarks>
-        /// <param name="id">Id of the issue to attach the file to.</param>
+        /// <param name="issueId">Id of the issue to attach the file to.</param>
         /// <param name="attachmentName">Filename for the attachment.</param>
         /// <param name="attachmentStream">The <see cref="T:System.IO.Stream"/> to attach.</param>
         /// <param name="group">Attachment visibility group.</param>
         /// <param name="author">Creator of the attachment. Note to define author the 'Low-Level Administration' permission is required.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/>, <paramref name="attachmentName"/> or <paramref name="attachmentStream"/> is null or empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/>, <paramref name="attachmentName"/> or <paramref name="attachmentStream"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task AttachFileToIssue(string id, string attachmentName, Stream attachmentStream,
-            string group = null, string author = null)
+        public async Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
             if (string.IsNullOrEmpty(attachmentName))
             {
@@ -66,7 +65,7 @@ namespace YouTrackSharp.Issues
             content.Add(streamContent);
 
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{id}/attachment?{query}", content);
+            var response = await client.PostAsync($"rest/issue/{issueId}/attachment?{query}", content);
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
@@ -89,19 +88,19 @@ namespace YouTrackSharp.Issues
         /// Get attachments for a specific issue from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Attachments-of-an-Issue.html">Get Attachments of an Issue</a>.</remarks>
-        /// <param name="id">Id of the issue to get comments for.</param>
-        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Attachment" /> for the requested issue <paramref name="id"/>.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <param name="issueId">Id of the issue to get comments for.</param>
+        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Attachment" /> for the requested issue <paramref name="issueId"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<IEnumerable<Attachment>> GetAttachmentsForIssue(string id)
+        public async Task<IEnumerable<Attachment>> GetAttachmentsForIssue(string issueId)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(issueId))
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentNullException(nameof(issueId));
             }
 
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{id}/attachment");
+            var response = await client.GetAsync($"rest/issue/{issueId}/attachment");
 
             response.EnsureSuccessStatusCode();
 
