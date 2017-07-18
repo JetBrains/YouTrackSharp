@@ -1,5 +1,6 @@
 using YouTrackSharp.Issues;
 using YouTrackSharp.Projects;
+using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp
 {
@@ -26,6 +27,16 @@ namespace YouTrackSharp
         public static IssuesService CreateIssueService(this Connection connection)
         {
             return new IssuesService(connection);
+        }
+        
+        /// <summary>
+        /// Creates a <see cref="TimeTrackingService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="TimeTrackingService" /> for working with YouTrack issues.</returns>
+        public static TimeTrackingService CreateTimeTrackingService(this Connection connection)
+        {
+            return new TimeTrackingService(connection);
         }
     }
 }
