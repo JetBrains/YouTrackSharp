@@ -72,7 +72,6 @@ namespace YouTrackSharp.Issues
         [JsonProperty("shownForIssueAuthor")]
         public bool ShownForIssueAuthor { get; set; }
 
-        // TODO DateTime
         /// <summary>
         /// Represents when the issue was created.
         /// </summary>
@@ -80,7 +79,6 @@ namespace YouTrackSharp.Issues
         [JsonProperty("created")]
         public DateTime? Created { get; set; }
 
-        // TODO DateTime
         /// <summary>
         /// Represents when the issue was updated.
         /// </summary>

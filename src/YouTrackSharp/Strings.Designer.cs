@@ -80,6 +80,15 @@ namespace YouTrackSharp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not parse value \&quot;{0}\&quot; as TimeSpan..
+        /// </summary>
+        internal static string Exception_CouldNotParseTimeSpan {
+            get {
+                return ResourceManager.GetString("Exception_CouldNotParseTimeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown error..
         /// </summary>
         internal static string Exception_UnknownError {
