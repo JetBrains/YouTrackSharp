@@ -1,0 +1,22 @@
+Not implemented:
+* https://www.jetbrains.com/help/youtrack/standalone/Update-a-Comment.html
+* https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-commands.html
+* https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-issue-search.html
+
+Time tracking:
+* https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html
+
+Project management:
+* https://www.jetbrains.com/help/youtrack/standalone/Project.html
+
+
+----
+
+Implemented:
+* https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html
+* https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html
+* https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html
+* Authentication using token
+* .NET Core
+* Async all the way
+* Serializing of DateTime
