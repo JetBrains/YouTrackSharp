@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -30,9 +31,15 @@ namespace YouTrackSharp.Issues
         /// <param name="id">Id of an issue to get.</param>
         /// <param name="wikifyDescription">If set to true, then issue description in the response will be formatted ("wikified"). Defaults to false.</param>
         /// <returns>The <see cref="Issue" /> that matches the requested <paramref name="id"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         public async Task<Issue> GetIssue(string id, bool wikifyDescription = false)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/issue/{id}?wikifyDescription={wikifyDescription}");
 
@@ -57,9 +64,15 @@ namespace YouTrackSharp.Issues
         /// <param name="updatedAfter">Only issues updated after the specified date will be retrieved.</param>
         /// <param name="wikifyDescription">If set to true, then issue description in the response will be formatted ("wikified"). Defaults to false.</param>
         /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         public async Task<ICollection<Issue>> GetIssuesInProject(string projectId, string filter = null, int? skip = null, int? take = null, DateTime? updatedAfter = null, bool wikifyDescription = false)
         {
+            if (string.IsNullOrEmpty(projectId))
+            {
+                throw new ArgumentNullException(nameof(projectId));
+            }
+            
             var queryString = new List<string>(6);
             if (!string.IsNullOrEmpty(filter))
             {
@@ -133,9 +146,55 @@ namespace YouTrackSharp.Issues
 
             response.EnsureSuccessStatusCode();
 
-            var wrapper = JsonConvert.DeserializeObject<IssueCollectionWrapper>(
-                await response.Content.ReadAsStringAsync());
+            var wrapper = JsonConvert.DeserializeObject<IssueCollectionWrapper>(await response.Content.ReadAsStringAsync());
             return wrapper.Issues;
+        }
+
+        /// <summary>
+        /// Creates an issue on he server in a specific project.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Create-New-Issue.html">Create New Issue</a>.</remarks>
+        /// <param name="projectId">Id of the project to create an issue in.</param>
+        /// <param name="issue">The <see cref="Issue" /> to create. At the minimum needs the Summary field populated.</param>
+        /// <returns>The newly created <see cref="Issue" />'s id on the server.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<string> CreateIssue(string projectId, Issue issue)
+        {
+            if (string.IsNullOrEmpty(projectId))
+            {
+                throw new ArgumentNullException(nameof(projectId));
+            }
+            
+            var queryString = new List<string>(6);
+            queryString.Add($"project={projectId}");
+            
+            if (!string.IsNullOrEmpty(issue.Summary))
+            {
+                queryString.Add($"summary={WebUtility.UrlEncode(issue.Summary)}");
+            }
+            if (!string.IsNullOrEmpty(issue.Description))
+            {
+                queryString.Add($"description={WebUtility.UrlEncode(issue.Description)}");
+            }
+            
+            var query = string.Join("&", queryString);
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PutAsync($"rest/issue?{query}", new MultipartFormDataContent());
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+
+            response.EnsureSuccessStatusCode();
+            
+            // Extract issue id from Location header response
+            var marker = "rest/issue/";
+            var locationHeader = response.Headers.Location.ToString();
+            
+            return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
         }
     }
 }

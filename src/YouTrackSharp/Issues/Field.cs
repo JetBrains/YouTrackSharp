@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -8,6 +9,7 @@ namespace YouTrackSharp.Issues
     /// <summary>
     /// Represents a YouTrack issue field.
     /// </summary>
+    [DebuggerDisplay("{Name}: {Value}")]
     public class Field
     {
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Dynamic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -12,6 +13,7 @@ namespace YouTrackSharp.Issues
     /// <summary>
     /// A class that represents YouTrack issue information. Can be casted to a <see cref="DynamicObject"/>.
     /// </summary>
+    [DebuggerDisplay("{Id}: {Summary}")]
     public class Issue 
         : DynamicObject
     {
@@ -44,6 +46,52 @@ namespace YouTrackSharp.Issues
         [JsonProperty("jiraId")]
         public string JiraId { get; set; }
 
+        /// <summary>
+        /// Summary of the issue.
+        /// </summary>
+        public string Summary {
+            get
+            {
+                var field = GetField("Summary");
+                return field?.Value.ToString();
+            }
+            set
+            {
+                var field = GetField("Summary");
+                if (field != null)
+                {
+                    field.Value = value;
+                }
+                else
+                {
+                    _fields.Add("Summary", new Field { Name = "Summary", Value = value });
+                }
+            }
+        }
+
+        /// <summary>
+        /// Description of the issue.
+        /// </summary>
+        public string Description {
+            get
+            {
+                var field = GetField("Description");
+                return field?.Value.ToString();
+            }
+            set
+            {
+                var field = GetField("Description");
+                if (field != null)
+                {
+                    field.Value = value;
+                }
+                else
+                {
+                    _fields.Add("Description", new Field { Name = "Description", Value = value });
+                }
+            }
+        }
+        
         /// <summary>
         /// Issue fields.
         /// </summary>
