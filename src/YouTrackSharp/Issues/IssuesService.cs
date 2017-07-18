@@ -36,7 +36,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-an-Issue.html">Get an Issue</a>.</remarks>
         /// <param name="id">Id of an issue to get.</param>
-        /// <param name="wikifyDescription">If set to true, then issue description in the response will be formatted ("wikified"). Defaults to false.</param>
+        /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
         /// <returns>The <see cref="Issue" /> that matches the requested <paramref name="id"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
@@ -61,6 +61,34 @@ namespace YouTrackSharp.Issues
         }
 
         /// <summary>
+        /// Checks whether an issue exists on the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Check-that-an-Issue-Exists.html">Check that an Issue Exists</a>.</remarks>
+        /// <param name="id">Id of an issue to check.</param>
+        /// <returns><value>True</value> if the issue exists, otherwise <value>false</value>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<bool> Exists(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync($"rest/issue/{id}/exists");
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return false;
+            }
+
+            response.EnsureSuccessStatusCode();
+
+            return true;
+        }
+        
+        /// <summary>
         /// Get issues in a project from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Issues-in-a-Project.html">Get Issues in a Project</a>.</remarks>
@@ -69,7 +97,7 @@ namespace YouTrackSharp.Issues
         /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
         /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance..</param>
         /// <param name="updatedAfter">Only issues updated after the specified date will be retrieved.</param>
-        /// <param name="wikifyDescription">If set to true, then issue description in the response will be formatted ("wikified"). Defaults to false.</param>
+        /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
         /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
@@ -278,7 +306,7 @@ namespace YouTrackSharp.Issues
         /// <param name="id">Id of the issue to apply the command to.</param>
         /// <param name="command">The command to apply. A command might contain a string of attributes and their values - you can change multiple fields with one complex command.</param>
         /// <param name="comment">A comment to add to an issue.</param>
-        /// <param name="disableNotifications">When true, no notifications about changes made with the specified command will be sent. Defaults to false.</param>
+        /// <param name="disableNotifications">When <value>true</value>, no notifications about changes made with the specified command will be sent. Defaults to <value>false</value>.</param>
         /// <param name="runAs">Login name for a user on whose behalf the command should be applied.</param>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> or <paramref name="command"/> is null or empty.</exception>
         /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
