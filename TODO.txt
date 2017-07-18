@@ -17,6 +17,6 @@ Implemented:
 * https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html
 * https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html
 * Authentication using token
-* .NET Core
+* netstandard1.3
 * Async all the way
 * Serializing of DateTime
