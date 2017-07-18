@@ -19,7 +19,7 @@ namespace YouTrackSharp.Issues
         /// Url.
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
         
         /// <summary>
         /// Name.

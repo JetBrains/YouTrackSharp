@@ -483,5 +483,27 @@ namespace YouTrackSharp.Issues
             var wrapper = JsonConvert.DeserializeObject<AttachmentCollectionWrapper>(await response.Content.ReadAsStringAsync());
             return wrapper.Attachments;
         }
+        
+        /// <summary>
+        /// Downloads an attachment from the server.
+        /// </summary>
+        /// <param name="attachmentUrl">The <see cref="T:System.Uri" /> of the attachment.</param>
+        /// <returns>A <see cref="T:System.IO.Stream" /> containing the attachment data.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="attachmentUrl"/> is null.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<Stream> DownloadAttachment(Uri attachmentUrl)
+        {
+            if (attachmentUrl == null)
+            {
+                throw new ArgumentNullException(nameof(attachmentUrl));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync(attachmentUrl);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsStreamAsync();
+        }
     }
 }
