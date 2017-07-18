@@ -27,6 +27,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 newIssue.SetField("Type", "Task");
                 newIssue.SetField("State", "Fixed");
                 newIssue.SetField("Fix versions", new[] { "0.0.1", "0.0.2" });
+                newIssue.SetField("Due Date", DateTime.Now.AddDays(5));
                 
                 // Act
                 var result = await service.CreateIssue("DP1", newIssue);
@@ -43,6 +44,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 Assert.Equal(newIssue.GetField("Type").Value, createdIssue.Type[0]);
                 Assert.Equal(newIssue.GetField("State").Value, createdIssue.State[0]);
                 Assert.Equal(newIssue.GetField("Fix versions").Value, createdIssue.Fix_versions);
+                Assert.Equal(newIssue.GetField("Due Date").AsDateTime().ToString("d"), createdIssue.GetField("Due Date").AsDateTime().ToString("d"));
             }
         }
     }

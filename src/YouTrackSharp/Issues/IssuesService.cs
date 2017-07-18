@@ -145,6 +145,14 @@ namespace YouTrackSharp.Issues
                 {
                     await ApplyCommand(issueId, $"{customField.Key} {string.Join(" ", enumerable.OfType<string>())}", string.Empty);
                 }
+                else if (customField.Value is DateTime dateTime)
+                {
+                    await ApplyCommand(issueId, $"{customField.Key} {dateTime:s}", string.Empty);
+                }
+                else if (customField.Value is DateTimeOffset dateTimeOffset)
+                {
+                    await ApplyCommand(issueId, $"{customField.Key} {dateTimeOffset:s}", string.Empty);
+                }
                 else
                 {
                     await ApplyCommand(issueId, $"{customField.Key} {customField.Value}", string.Empty);

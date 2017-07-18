@@ -84,9 +84,20 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Value" /> as <see cref="T:System.DateTime"/>.</returns>
         public DateTime AsDateTime()
         {
-            var milliseconds = Convert.ToInt64(AsString());
+            if (Value is DateTime dateTime)
+            {
+                return dateTime;
+            }
+            else if (Value is DateTimeOffset dateTimeOffset)
+            {
+                return dateTimeOffset.DateTime;
+            }
+            else
+            {
+                var milliseconds = Convert.ToInt64(AsString());
             
-            return DateTimeOffset.FromUnixTimeMilliseconds(milliseconds).DateTime;
+                return DateTimeOffset.FromUnixTimeMilliseconds(milliseconds).DateTime;
+            }
         }
 
         /// <summary>
