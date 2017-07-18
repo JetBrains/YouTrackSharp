@@ -1,22 +1,21 @@
 using System;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
+// ReSharper disable once CheckNamespace
 namespace YouTrackSharp.Tests.Integration.Issues
 {
     public partial class IssuesServiceTests
     {
-        public class GetAttachmentsForIssue
+        public class DeleteAttachmentForIssue
         {
             [Fact]
-            public async Task Valid_Connection_Gets_Attachments_For_Issue()
+            public async Task Valid_Connection_Deletes_Attachment_For_Issue()
             {
                 // Arrange
+                bool acted = false;
                 var connection = Connections.Demo1Token;
                 var service = connection.CreateIssueService();
                 
@@ -38,12 +37,15 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     }
                 }
                 
-                
-                // Act
                 var attachments = await service.GetAttachmentsForIssue(issueId);
-                
-                // Assert
-                Assert.True(attachments.Count() == 3);
+                foreach (var attachment in attachments)
+                {
+                    // Act & Assert
+                    await service.DeleteAttachmentForIssue(issueId, attachment.Id);
+                    acted = true;
+                }
+
+                Assert.True(acted);
             }
         }
     }

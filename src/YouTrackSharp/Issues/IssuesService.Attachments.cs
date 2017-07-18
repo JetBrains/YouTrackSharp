@@ -130,5 +130,31 @@ namespace YouTrackSharp.Issues
 
             return await response.Content.ReadAsStreamAsync();
         }
+
+        /// <summary>
+        /// Deletes an attachment for an issue from the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Delete-Attachment-from-an-Issue.html">Delete Attachment from an Issue</a>.</remarks>
+        /// <param name="issueId">Id of the issue to which the attachment belongs.</param>
+        /// <param name="attachmentId">Id of the attachment.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="attachmentId"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task DeleteAttachmentForIssue(string issueId, string attachmentId)
+        {
+            if (string.IsNullOrEmpty(issueId))
+            {
+                throw new ArgumentNullException(nameof(issueId));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.DeleteAsync($"rest/issue/{issueId}/attachment/{attachmentId}");
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return;
+            }
+
+            response.EnsureSuccessStatusCode();
+        }
     }
 }

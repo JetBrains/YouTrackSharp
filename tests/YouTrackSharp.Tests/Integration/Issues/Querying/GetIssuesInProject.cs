@@ -1,26 +1,30 @@
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
+// ReSharper disable once CheckNamespace
 namespace YouTrackSharp.Tests.Integration.Issues
 {
     public partial class IssuesServiceTests
     {
-        public class GetCommentsForIssue
+        public class GetIssuesInProject
         {
             [Fact]
-            public async Task Valid_Connection_Returns_Comments_For_Issue()
+            public async Task Valid_Connection_Returns_Issues()
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
                 var service = connection.CreateIssueService();
                 
                 // Act
-                var result = await service.GetCommentsForIssue("DP1-1");
+                var result = await service.GetIssuesInProject("DP1", filter: "assignee:me");
                 
                 // Assert
-                Assert.True(result.Any());
+                Assert.NotNull(result);
+                foreach (dynamic issue in result)
+                {
+                    Assert.Equal("DP1", issue.ProjectShortName);
+                }
             }
             
             [Fact]
@@ -31,7 +35,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await service.GetCommentsForIssue("NOT-EXIST"));
+                    async () => await service.GetIssuesInProject("DP1"));
             }
         }
     }

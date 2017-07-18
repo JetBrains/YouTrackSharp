@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
+// ReSharper disable once CheckNamespace
 namespace YouTrackSharp.Tests.Integration.Issues
 {
     public partial class IssuesServiceTests
