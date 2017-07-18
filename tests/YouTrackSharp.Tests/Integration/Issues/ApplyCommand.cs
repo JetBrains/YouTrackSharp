@@ -15,7 +15,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssueService();
+                var service = connection.CreateIssuesService();
                 var comment = "Test comment via command - " + DateTime.UtcNow.ToString("U");
                 
                 // Act
@@ -32,7 +32,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssueService();
+                var service = connection.CreateIssuesService();
                 
                 // Act
                 var exception = await Assert.ThrowsAsync<YouTrackErrorException>(async () => 

@@ -17,7 +17,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 bool acted = false;
                 
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssueService();
+                var service = connection.CreateIssuesService();
 
                 var commentText = "Test comment " + DateTime.UtcNow.ToString("U");
                 await service.ApplyCommand("DP1-1", "comment", commentText);

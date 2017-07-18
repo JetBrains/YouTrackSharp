@@ -15,7 +15,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssueService();
+                var service = connection.CreateIssuesService();
 
                 var testIssue = new Issue
                 {

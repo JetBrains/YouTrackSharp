@@ -24,7 +24,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="IssuesService" /> for working with YouTrack issues.</returns>
-        public static IssuesService CreateIssueService(this Connection connection)
+        public static IssuesService CreateIssuesService(this Connection connection)
         {
             return new IssuesService(connection);
         }
