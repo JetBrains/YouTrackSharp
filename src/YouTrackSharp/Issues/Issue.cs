@@ -79,7 +79,9 @@ namespace YouTrackSharp.Issues
         /// <inheritdoc />
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var field = GetField(binder.Name);
+            var field = GetField(binder.Name) 
+                ?? GetField(binder.Name.Replace("_", " ")); // support fields with space in the name by using underscore in code
+            
             if (field != null)
             {
                 result = field.Value;
@@ -93,7 +95,7 @@ namespace YouTrackSharp.Issues
         /// <inheritdoc />
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            // "field" setter when deserializing JSON
+            // "field" setter when deserializing JSON into Issue object
             if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
             {   
                 var fieldElements = ((JArray)value).ToObject<List<Field>>();
@@ -132,7 +134,7 @@ namespace YouTrackSharp.Issues
             
             // Regular setter
             Field field;
-            if (_fields.TryGetValue(binder.Name, out field))
+            if (_fields.TryGetValue(binder.Name, out field) || _fields.TryGetValue(binder.Name.Replace("_", " "), out field))
             {
                 field.Value = value;
             }
