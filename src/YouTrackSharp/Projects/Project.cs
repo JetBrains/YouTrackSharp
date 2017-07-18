@@ -15,9 +15,9 @@ namespace YouTrackSharp.Projects
         public Project()
         {
             Versions = new List<string>();
-            Subsystems = new List<SubValue>();
-            AssigneesLogin = new List<SubValue>();
-            AssigneesFullName = new List<SubValue>();
+            Subsystems = new List<SubValue<string>>();
+            AssigneesLogin = new List<SubValue<string>>();
+            AssigneesFullName = new List<SubValue<string>>();
         }
         
         /// <summary>
@@ -58,7 +58,7 @@ namespace YouTrackSharp.Projects
         /// Only available when verbose project information is retrieved.
         /// </remarks>
         [JsonProperty("subsystems")]
-        public ICollection<SubValue> Subsystems { get; set; }
+        public ICollection<SubValue<string>> Subsystems { get; set; }
         
         /// <summary>
         /// Available assignee login names defined for the project.
@@ -67,7 +67,7 @@ namespace YouTrackSharp.Projects
         /// Only available when verbose project information is retrieved.
         /// </remarks>
         [JsonProperty("assigneesLogin")]
-        public ICollection<SubValue> AssigneesLogin { get; set; }
+        public ICollection<SubValue<string>> AssigneesLogin { get; set; }
         
         /// <summary>
         /// Available assignee full names defined for the project.
@@ -76,7 +76,7 @@ namespace YouTrackSharp.Projects
         /// Only available when verbose project information is retrieved.
         /// </remarks>
         [JsonProperty("assigneesFullName")]
-        public ICollection<SubValue> AssigneesFullName { get; set; }
+        public ICollection<SubValue<string>> AssigneesFullName { get; set; }
         
         /// <summary>
         /// A boolean that is true when the project is importing, otherwise false.

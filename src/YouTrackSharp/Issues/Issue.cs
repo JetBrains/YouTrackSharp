@@ -25,7 +25,7 @@ namespace YouTrackSharp.Issues
         public Issue()
         {
             Comments = new List<Comment>();
-            Tags = new List<SubValue>();
+            Tags = new List<SubValue<string>>();
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace YouTrackSharp.Issues
         /// Issue tags.
         /// </summary>
         [JsonProperty("tag")]
-        public ICollection<SubValue> Tags { get; set; }
+        public ICollection<SubValue<string>> Tags { get; set; }
 
         /// <summary>
         /// Gets a specific <see cref="Field"/> from the <see cref="Fields"/> collection.

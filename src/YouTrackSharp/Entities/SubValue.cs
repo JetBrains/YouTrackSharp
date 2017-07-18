@@ -4,14 +4,14 @@ using Newtonsoft.Json;
 namespace YouTrackSharp
 {
     /// <summary>
-    /// Represents a sub value which contains a <see cref="T:System.String"/> value.
+    /// Represents a sub value which contains a <see cref="TSubValueType"/> value.
     /// </summary>
-    public struct SubValue
+    public struct SubValue<TSubValueType>
     {
         /// <summary>
         /// Value.
         /// </summary>
         [JsonProperty("value")]
-        public string Value;
+        public TSubValueType Value;
     }
 }

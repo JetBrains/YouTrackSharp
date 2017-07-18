@@ -1,12 +1,12 @@
-Not implemented:
+Not implemented (not sure if needed, could be an UpForGrabs in the future):
 * https://www.jetbrains.com/help/youtrack/standalone/Update-a-Comment.html
 * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-commands.html
 * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-issue-search.html
 
-Time tracking:
+To implement: Time tracking:
 * https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html
 
-Project management:
+To implement: Project management:
 * https://www.jetbrains.com/help/youtrack/standalone/Project.html
 
 

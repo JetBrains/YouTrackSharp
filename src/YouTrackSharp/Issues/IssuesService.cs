@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.Issues
 {
@@ -363,7 +364,43 @@ namespace YouTrackSharp.Issues
             
             response.EnsureSuccessStatusCode();
         }
-        
+
+        /// <summary>
+        /// Get issue count from the server. This operation may be retried internally and take a while to complete.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-a-Number-of-Issues.html">Get a Number of Issues</a>.</remarks>
+        /// <param name="filter">Apply a filter to issues.</param>
+        /// <returns>The number of <see cref="Issue" /> that match the specified filter.</returns>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<long> GetIssueCount(string filter = null)
+        {
+            var query = !string.IsNullOrEmpty(filter)
+                ? $"filter={WebUtility.UrlEncode(filter)}"
+                : string.Empty;
+
+            var client = await _connection.GetAuthenticatedHttpClient();
+
+            var retryPolicy = new LinearRetryPolicy<long>(async () =>
+                {
+                    var response = await client.GetAsync($"rest/issue/count?{query}");
+
+                    if (response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return default(long);
+                    }
+
+                    response.EnsureSuccessStatusCode();
+
+                    return JsonConvert.DeserializeObject<SubValue<long>>(
+                        await response.Content.ReadAsStringAsync()).Value;
+                },
+                result => Task.FromResult(result < 0),
+                TimeSpan.FromSeconds(1),
+                30);
+
+            return await retryPolicy.Execute();
+        }
+
         /// <summary>
         /// Get comments for a specific issue from the server.
         /// </summary>
