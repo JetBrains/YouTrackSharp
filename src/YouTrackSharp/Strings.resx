@@ -123,4 +123,7 @@
   <data name="Exception_CouldNotParseUnixTimeStamp" xml:space="preserve">
     <value>Could not parse value \"{0}\" as Unix timestamp.</value>
   </data>
+  <data name="Exception_UnknownError" xml:space="preserve">
+    <value>Unknown error.</value>
+  </data>
 </root>

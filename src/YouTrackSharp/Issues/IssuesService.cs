@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace YouTrackSharp.Issues
 {
@@ -151,7 +152,7 @@ namespace YouTrackSharp.Issues
         }
 
         /// <summary>
-        /// Creates an issue on he server in a specific project.
+        /// Creates an issue on the server in a specific project.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Create-New-Issue.html">Create New Issue</a>.</remarks>
         /// <param name="projectId">Id of the project to create an issue in.</param>
@@ -166,7 +167,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(projectId));
             }
             
-            var queryString = new List<string>(6);
+            var queryString = new List<string>(3);
             queryString.Add($"project={projectId}");
             
             if (!string.IsNullOrEmpty(issue.Summary))
@@ -195,6 +196,73 @@ namespace YouTrackSharp.Issues
             var locationHeader = response.Headers.Location.ToString();
             
             return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+        }
+
+        /// <summary>
+        /// Applies a command to a specific issue on the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Apply-Command-to-an-Issue.html">Apply Command to an Issue</a>.</remarks>
+        /// <param name="id">Id of the issue to apply the command to.</param>
+        /// <param name="command">The command to apply. A command might contain a string of attributes and their values - you can change multiple fields with one complex command.</param>
+        /// <param name="comment">A comment to add to an issue.</param>
+        /// <param name="disableNotifications">When true, no notifications about changes made with the specified command will be sent. Defaults to false.</param>
+        /// <param name="runAs">Login name for a user on whose behalf the command should be applied.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="id"/> or <paramref name="command"/> is null or empty.</exception>
+        /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task ApplyCommand(string id, string command, string comment = null, bool disableNotifications = false, string runAs = null)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            
+            if (string.IsNullOrEmpty(command))
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+            
+            var queryString = new List<string>(4);
+            queryString.Add($"command={WebUtility.UrlEncode(command)}");
+            
+            if (!string.IsNullOrEmpty(comment))
+            {
+                queryString.Add($"comment={WebUtility.UrlEncode(comment)}");
+            }
+            if (disableNotifications)
+            {
+                queryString.Add($"disableNotifications=true");
+            }
+            if (!string.IsNullOrEmpty(runAs))
+            {
+                queryString.Add($"runAs={runAs}");
+            }
+            
+            var query = string.Join("&", queryString);
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PostAsync($"rest/issue/{id}/execute?{query}", new MultipartFormDataContent());
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return;
+            }
+            
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                // Try reading the error message
+                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
+                if (responseJson["value"] != null)
+                {
+                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
+                }
+                else
+                {
+                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
+                }
+            }
+            
+            response.EnsureSuccessStatusCode();
         }
     }
 }

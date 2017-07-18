@@ -1,7 +1,5 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Issues

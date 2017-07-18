@@ -78,5 +78,14 @@ namespace YouTrackSharp {
                 return ResourceManager.GetString("Exception_CouldNotParseUnixTimeStamp", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error..
+        /// </summary>
+        internal static string Exception_UnknownError {
+            get {
+                return ResourceManager.GetString("Exception_UnknownError", resourceCulture);
+            }
+        }
     }
 }

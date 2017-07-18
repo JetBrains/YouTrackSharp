@@ -16,10 +16,12 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 // Arrange
                 var connection = Connections.Demo1Token;
                 var service = connection.CreateIssueService();
-                
-                var newIssue = new Issue();
-                newIssue.Summary = "Test issue - " + DateTime.UtcNow.ToString("U");
-                newIssue.Description = "This is a test issue created while running unit tests.";
+
+                var newIssue = new Issue
+                {
+                    Summary = "Test issue - " + DateTime.UtcNow.ToString("U"),
+                    Description = "This is a test issue created while running unit tests."
+                };
                 
                 // Act
                 var result = await service.CreateIssue("DP1", newIssue);
