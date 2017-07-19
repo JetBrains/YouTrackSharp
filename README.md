@@ -33,7 +33,15 @@ Other services are available as well, mapping to the [YouTrack REST API](https:/
 
 ## Supported YouTrack versions
 
-YouTrack versions 4.X and higher as well as YouTrack InCloud are supported.
+YouTrack versions 2017.x and higher as well as YouTrack InCloud are officially supported by this library.
 
-*Note: If you're looking for YouTrack 3.x support, please use the 1.x branch from [https://github.com/JetBrains/YouTrackSharp](https://github.com/JetBrains/YouTrackSharp).
-Be aware that this branch is frozen and only bug fixes will make it in. No new feature development is done on that version.*
+Some features will work with older versions of YouTrack as well but they are not officially suppported. For other YouTrack versions:
+
+* YouTrack Standalone 7.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
+* YouTrack Standalone 6.5 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
+* YouTrack Standalone 6.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
+* YouTrack Standalone 5.x - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
+* YouTrack Standalone 4.x - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
+* YouTrack Standalone 3.x - [use the 1.x branch](https://github.com/JetBrains/YouTrackSharp/tree/1.x) or [YouTrackSharp 1.x](https://www.nuget.org/packages/YouTrackSharp/)
+
+Be aware that these older branches are frozen and bug fixes nor new feature development is done on them.
