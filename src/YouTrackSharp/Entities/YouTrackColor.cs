@@ -1,4 +1,6 @@
-﻿// ReSharper disable once CheckNamespace
+﻿using Newtonsoft.Json;
+
+// ReSharper disable once CheckNamespace
 namespace YouTrackSharp
 {
     /// <summary>
@@ -9,11 +11,13 @@ namespace YouTrackSharp
         /// <summary>
         /// Foreground color in HEX format (e.g. #112233).
         /// </summary>
-        public string Foreground { get; internal set; }
+        [JsonProperty("fg")]
+        public string Foreground { get; set; }
 
         /// <summary>
         /// Background color in HEX format (e.g. #112233).
         /// </summary>
-        public string Background { get; internal set; }
+        [JsonProperty("bg")]
+        public string Background { get; set; }
     }
 }

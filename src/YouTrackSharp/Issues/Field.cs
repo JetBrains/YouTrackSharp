@@ -34,7 +34,7 @@ namespace YouTrackSharp.Issues
         /// Field color.
         /// </summary>
         [JsonProperty("color")]
-        public FieldColor Color;
+        public YouTrackColor Color;
 
         /// <summary>
         /// Gets the value as a <see cref="T:System.String"/>.
