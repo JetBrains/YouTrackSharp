@@ -36,6 +36,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                     // Assert
                     Assert.True(acted);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

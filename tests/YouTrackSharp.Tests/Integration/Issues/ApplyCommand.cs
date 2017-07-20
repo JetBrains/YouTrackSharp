@@ -27,6 +27,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     var issue = await service.GetIssue(temporaryIssueContext.Issue.Id);
                     Assert.True(issue.Comments.Count > 0);
                     Assert.True(issue.Comments.Any(c => string.Equals(c.Text, commentText, StringComparison.OrdinalIgnoreCase)));
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
             

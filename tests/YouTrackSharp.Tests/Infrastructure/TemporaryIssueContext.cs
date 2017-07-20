@@ -9,6 +9,8 @@ namespace YouTrackSharp.Tests.Infrastructure
     public class TemporaryIssueContext 
         : IDisposable
     {
+        private bool _destroyed = false;
+        
         private readonly Connection _connection;
         
         public Issue Issue { get; private set; }
@@ -31,6 +33,17 @@ namespace YouTrackSharp.Tests.Infrastructure
             temporaryIssueContext.Issue = await CreateTemporaryIssue(temporaryIssueContext._connection, temporaryIssueContext.Issue);
             
             return temporaryIssueContext;
+        }
+
+        public async Task Destroy()
+        {
+            if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
+            {
+                await DeleteTemporaryIssue(_connection, Issue.Id);
+                
+                _destroyed = true;
+                Issue = null;
+            }
         }
         
         private TemporaryIssueContext(Connection connection, string summary, string description)
@@ -64,11 +77,9 @@ namespace YouTrackSharp.Tests.Infrastructure
 
         public void Dispose()
         {
-            if (!string.IsNullOrEmpty(Issue?.Id))
+            if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
             {
-                DeleteTemporaryIssue(_connection, Issue.Id)
-                    .GetAwaiter()
-                    .GetResult();
+                throw new Exception("Please call the Destroy() method manually.");
             }
         }
     }

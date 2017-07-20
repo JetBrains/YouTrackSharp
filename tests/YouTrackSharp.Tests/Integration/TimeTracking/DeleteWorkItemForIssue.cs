@@ -27,7 +27,9 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                     var workItemId = await service.CreateWorkItemForIssue(temporaryIssueContext.Issue.Id, workItem);
                 
                     // Act & Assert
-                    await service.DeleteWorkItemForIssue("DP1-1", workItemId);
+                    await service.DeleteWorkItemForIssue(temporaryIssueContext.Issue.Id, workItemId);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

@@ -23,6 +23,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     {
                         await service.AttachFileToIssue(temporaryIssueContext.Issue.Id, "singlefile.txt", attachmentStream);
                     }
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

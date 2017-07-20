@@ -24,6 +24,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     var updatedIssue = await service.GetIssue(temporaryIssueContext.Issue.Id);
                     Assert.Equal(temporaryIssueContext.Issue.Summary + " (updated)", updatedIssue.Summary);
                     Assert.Equal(temporaryIssueContext.Issue.Description + " (updated)", updatedIssue.Description);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

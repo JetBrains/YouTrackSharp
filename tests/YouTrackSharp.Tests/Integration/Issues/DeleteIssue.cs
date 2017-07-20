@@ -19,6 +19,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                     // Act & Assert
                     await service.DeleteIssue(temporaryIssueContext.Issue.Id);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

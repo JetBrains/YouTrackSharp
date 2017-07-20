@@ -27,6 +27,8 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                 
                     // Assert
                     Assert.NotNull(workItemId);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }

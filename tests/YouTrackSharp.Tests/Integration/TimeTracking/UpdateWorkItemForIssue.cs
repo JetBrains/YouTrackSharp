@@ -31,6 +31,8 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                     workItem.Duration = TimeSpan.FromMinutes(1);
                     workItem.Description = originalDescription + " (edited)";
                     await service.UpdateWorkItemForIssue(temporaryIssueContext.Issue.Id, workItemId, workItem);
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
         }
