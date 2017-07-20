@@ -1,5 +1,4 @@
 Not implemented (not sure if needed, could be an UpForGrabs in the future):
-* https://www.jetbrains.com/help/youtrack/standalone/Update-a-Comment.html
 * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-commands.html
 * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-issue-search.html
 

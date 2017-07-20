@@ -94,7 +94,7 @@ namespace YouTrackSharp.TimeTracking
             }
 
             var stringContent = new StringContent(JsonConvert.SerializeObject(workItem));
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
 
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PostAsync($"rest/issue/{issueId}/timetracking/workitem", stringContent);
@@ -148,7 +148,7 @@ namespace YouTrackSharp.TimeTracking
             }
 
             var stringContent = new StringContent(JsonConvert.SerializeObject(workItem));
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
 
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PutAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}", stringContent);
