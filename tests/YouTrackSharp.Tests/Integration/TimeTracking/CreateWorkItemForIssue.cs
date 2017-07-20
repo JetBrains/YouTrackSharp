@@ -16,15 +16,18 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateTimeTrackingService();
-
-                var workTypes = await service.GetWorkTypesForProject("DP1");
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateTimeTrackingService();
                 
-                // Act
-                var workItemId = await service.CreateWorkItemForIssue("DP1-1", new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), GetType().FullName, workTypes.First()));
+                    var workTypes = await service.GetWorkTypesForProject("DP1");
                 
-                // Assert
-                Assert.NotNull(workItemId);
+                    // Act
+                    var workItemId = await service.CreateWorkItemForIssue(temporaryIssueContext.Issue.Id, new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), GetType().FullName, workTypes.First()));
+                
+                    // Assert
+                    Assert.NotNull(workItemId);
+                }
             }
         }
     }

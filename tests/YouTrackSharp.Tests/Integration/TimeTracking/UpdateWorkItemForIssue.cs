@@ -16,19 +16,22 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateTimeTrackingService();
-
-                var workTypes = await service.GetWorkTypesForProject("DP1");
-
-                var originalDescription = GetType().FullName + " " + DateTime.UtcNow.ToString("U");
-                var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), originalDescription, workTypes.First());
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateTimeTrackingService();
                 
-                var workItemId = await service.CreateWorkItemForIssue("DP1-1", workItem);
+                    var workTypes = await service.GetWorkTypesForProject("DP1");
+
+                    var originalDescription = GetType().FullName + " " + DateTime.UtcNow.ToString("U");
+                    var workItem = new WorkItem(DateTime.UtcNow, TimeSpan.FromMinutes(5), originalDescription, workTypes.First());
                 
-                // Act & Assert
-                workItem.Duration = TimeSpan.FromMinutes(1);
-                workItem.Description = originalDescription + " (edited)";
-                await service.UpdateWorkItemForIssue("DP1-1", workItemId, workItem);
+                    var workItemId = await service.CreateWorkItemForIssue(temporaryIssueContext.Issue.Id, workItem);
+                
+                    // Act & Assert
+                    workItem.Duration = TimeSpan.FromMinutes(1);
+                    workItem.Description = originalDescription + " (edited)";
+                    await service.UpdateWorkItemForIssue(temporaryIssueContext.Issue.Id, workItemId, workItem);
+                }
             }
         }
     }

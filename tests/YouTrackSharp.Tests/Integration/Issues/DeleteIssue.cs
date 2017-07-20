@@ -1,7 +1,5 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Issues
@@ -15,18 +13,13 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-
-                var testIssue = new Issue
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
                 {
-                    Summary = "Test issue - " + DateTime.UtcNow.ToString("U"),
-                    Description = "This is a test issue created while running unit tests."
-                };
+                    var service = connection.CreateIssuesService();
                 
-                var issueId = await service.CreateIssue("DP1", testIssue);
-                
-                // Act & Assert
-                await service.DeleteIssue(issueId);
+                    // Act & Assert
+                    await service.DeleteIssue(temporaryIssueContext.Issue.Id);
+                }
             }
         }
     }

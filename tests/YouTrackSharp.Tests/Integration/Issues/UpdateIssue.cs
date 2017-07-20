@@ -1,7 +1,5 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Issues
@@ -15,24 +13,18 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                var testIssue = new Issue
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
                 {
-                    Summary = "Test issue - " + DateTime.UtcNow.ToString("U"),
-                    Description = "This is a test issue created while running unit tests."
-                };
+                    var service = connection.CreateIssuesService();
                 
-                testIssue.SetField("State", "Fixed");
+                    // Act
+                    await service.UpdateIssue(temporaryIssueContext.Issue.Id, temporaryIssueContext.Issue.Summary + " (updated)", temporaryIssueContext.Issue.Description + " (updated)");
                 
-                var testIssueId = await service.CreateIssue("DP1", testIssue);
-                
-                // Act
-                await service.UpdateIssue(testIssueId, testIssue.Summary + " (updated)", testIssue.Description + " (updated)");
-                
-                // Assert
-                var updatedIssue = await service.GetIssue(testIssueId);
-                Assert.Equal(testIssue.Summary + " (updated)", updatedIssue.Summary);
-                Assert.Equal(testIssue.Description + " (updated)", updatedIssue.Description);
+                    // Assert
+                    var updatedIssue = await service.GetIssue(temporaryIssueContext.Issue.Id);
+                    Assert.Equal(temporaryIssueContext.Issue.Summary + " (updated)", updatedIssue.Summary);
+                    Assert.Equal(temporaryIssueContext.Issue.Description + " (updated)", updatedIssue.Description);
+                }
             }
         }
     }

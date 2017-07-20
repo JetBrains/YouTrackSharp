@@ -15,16 +15,19 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                var comment = "Test comment via command - " + DateTime.UtcNow.ToString("U");
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+                    var commentText = "Test comment via command - " + DateTime.UtcNow.ToString("U");
                 
-                // Act
-                await service.ApplyCommand("DP1-1", "comment", comment);
+                    // Act
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "comment", commentText);
                 
-                // Assert
-                var issue = await service.GetIssue("DP1-1");
-                Assert.True(issue.Comments.Count > 0);
-                Assert.True(issue.Comments.Any(c => string.Equals(c.Text, comment, StringComparison.OrdinalIgnoreCase)));
+                    // Assert
+                    var issue = await service.GetIssue(temporaryIssueContext.Issue.Id);
+                    Assert.True(issue.Comments.Count > 0);
+                    Assert.True(issue.Comments.Any(c => string.Equals(c.Text, commentText, StringComparison.OrdinalIgnoreCase)));
+                }
             }
             
             [Fact]
