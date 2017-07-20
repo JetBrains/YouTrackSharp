@@ -37,7 +37,6 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     }
                 }
                 
-                
                 // Act
                 var attachments = await service.GetAttachmentsForIssue(issueId);
                 

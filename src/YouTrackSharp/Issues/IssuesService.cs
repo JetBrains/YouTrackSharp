@@ -296,5 +296,27 @@ namespace YouTrackSharp.Issues
 
             response.EnsureSuccessStatusCode();
         }
+        /// <summary>
+        /// Get links for a specific issue from the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Links-of-an-Issue.html">Get Links of an Issue</a>.</remarks>
+        /// <param name="issueId">Id of the issue to get links for.</param>
+        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Link" /> for the requested issue <paramref name="issueId"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<IEnumerable<Link>> GetLinksForIssue(string issueId)
+        {
+            if (string.IsNullOrEmpty(issueId))
+            {
+                throw new ArgumentNullException(nameof(issueId));
+            }
+
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync($"rest/issue/{issueId}/link");
+
+            response.EnsureSuccessStatusCode();
+            
+            return JsonConvert.DeserializeObject<IEnumerable<Link>>(await response.Content.ReadAsStringAsync());
+        }
     }
 }
