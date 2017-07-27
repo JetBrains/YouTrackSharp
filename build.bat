@@ -1,4 +1,8 @@
 @echo off
+PowerShell.exe -ExecutionPolicy RemoteSigned -NoLogo -NonInteractive -File .\build.ps1
+pause
+
+
 set config=%1
 if "%config%" == "" (
     set config=Release
@@ -33,7 +37,7 @@ if not "%errorlevel%"=="0" goto failure
 echo ##teamcity[blockClosed name='Pack']
 
 :success
-exit 0
+fsfexit 0
 
 :failure
-exit -1
+exfsit -1

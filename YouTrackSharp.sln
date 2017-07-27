@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.0.0
-MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTrackSharp", "src\YouTrackSharp\YouTrackSharp.csproj", "{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YouTrackSharp.Build", "build\YouTrackSharp.Build.csproj", "{8319DDE9-EA2C-438B-8121-00C0521E9413}"
 EndProject
-Project("{132534FA-BE40-4761-A0A2-AE3A66D36BE3}") = "YouTrackSharp.Tests", "tests\YouTrackSharp.Tests\YouTrackSharp.Tests.csproj", "{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YouTrackSharp", "src\YouTrackSharp\YouTrackSharp.csproj", "{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YouTrackSharp.Tests", "tests\YouTrackSharp.Tests\YouTrackSharp.Tests.csproj", "{854897F4-93D5-4A38-9B7F-B4E5063EA5F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{05F1283A-BBF6-4E24-9DBE-A524AC28EF63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AFD08188-88DE-4FCF-BB47-95923037CF58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BCDA53C1-8888-4EEF-BA2C-0611747E4FC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +21,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8319DDE9-EA2C-438B-8121-00C0521E9413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8319DDE9-EA2C-438B-8121-00C0521E9413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,5 +34,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8319DDE9-EA2C-438B-8121-00C0521E9413} = {BCDA53C1-8888-4EEF-BA2C-0611747E4FC4}
+		{DB576D3A-7CCE-4B4D-8CBF-9090B1573DE1} = {05F1283A-BBF6-4E24-9DBE-A524AC28EF63}
+		{854897F4-93D5-4A38-9B7F-B4E5063EA5F9} = {AFD08188-88DE-4FCF-BB47-95923037CF58}
 	EndGlobalSection
 EndGlobal
