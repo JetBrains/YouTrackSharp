@@ -6,11 +6,13 @@
 
 For more information on YouTrack visit [jetbrains.com/youtrack](http://www.jetbrains.com/youtrack).
 
-[![MyGet Build Status](https://www.myget.org/BuildSource/Badge/youtracksharp?identifier=9cb1066f-5a24-47b1-acf8-51d21bf2d5d8)](https://www.myget.org/)
-
 ## Getting started
 
 First of all, install `YouTrackSharp` into your project using a NuGet client.
+
+	Install-Package YouTrackSharp
+
+If you want to work with pre-release builds, configure our [MyGet feed](https://www.myget.org/gallery/youtracksharp) as a package source.
 
 To communicate with a YouTrack server instance, we'll need a connection. It is recommended to always use [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html) to authenticate against YouTrack, using the `BearerTokenConnection`. For YouTrack instances that do not have token support, `UsernamePasswordConnection` can be used.
 
