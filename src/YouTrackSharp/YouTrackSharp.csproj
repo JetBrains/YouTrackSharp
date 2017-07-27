@@ -11,10 +11,10 @@
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
     <FileVersion>3.0.0.0</FileVersion>
     <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
-    <Authors>Maarten Balliauw and Contributors</Authors>
-    <Company>Maarten Balliauw and Contributors</Company>
+    <Authors>JetBrains</Authors>
+    <Company>JetBrains</Company>
     <Product>YouTrackSharp</Product>
-    <Copyright>Maarten Balliauw and Contributors</Copyright>
+    <Copyright>JetBrains</Copyright>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>3.0.0-preview</Version>

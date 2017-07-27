@@ -3,12 +3,12 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
     <FileVersion>3.0.0.0</FileVersion>
-    <Authors>Maarten Balliauw and Contributors</Authors>
-    <Company>Maarten Balliauw and Contributors</Company>
+    <Authors>JetBrains</Authors>
+    <Company>JetBrains</Company>
     <Product>YouTrackSharp</Product>
     <Description>Tests for YouTrackSharp.</Description>
     <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
-    <Copyright>Maarten Balliauw and Contributors</Copyright>
+    <Copyright>JetBrains</Copyright>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
