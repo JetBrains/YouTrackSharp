@@ -4,6 +4,7 @@ if "%config%" == "" (
     set config=Release
 )
 set DOTNET_CLI_TELEMETRY_OPTOUT=1
+set PackageVersion=%BUILD_NUMBER%
 
 echo ##teamcity[blockOpened name='Prepare' description='Preparing build environment...']
 dotnet clean
