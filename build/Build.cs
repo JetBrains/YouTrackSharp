@@ -13,7 +13,7 @@ class Build : NukeBuild
     [GitVersion] readonly GitVersion GitVersion;
 
     public override string Configuration => IsServerBuild ? "Release" : Argument("configuration");
-    public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + "-" + GitVersion.CommitsSinceVersionSourcePadded;
+    public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + "-" + GitVersion.BuildMetaDataPadded;
 
     public static int Main() => Execute<Build>(x => x.Pack);
 
@@ -25,8 +25,7 @@ class Build : NukeBuild
 
     Target Clean => _ => _
         .DependsOn(Initialize)
-        .Executes(() => DeleteDirectories(GlobDirectories(SolutionDirectory, "**/bin", "**/obj")))
-        .Executes(() => EnsureCleanDirectory(OutputDirectory));
+        .Executes(() => DeleteDirectories(GlobDirectories(SourceDirectory, "**/bin", "**/obj")));
 
     Target Restore => _ => _
         .DependsOn(Clean)
@@ -37,6 +36,7 @@ class Build : NukeBuild
 
     Target Compile => _ => _
         .DependsOn(Restore)
+        .Requires(() => GitVersion != null)
         .Executes(() =>
         {
             DotNetBuild(SolutionFile, settings => settings
@@ -54,6 +54,7 @@ class Build : NukeBuild
 
     Target Pack => _ => _
         .DependsOn(Test)
+        .Requires(() => GitVersion != null)
         .Executes(() =>
         {
             EnsureExistingDirectory(ArtifactsDirectory);
