@@ -10,7 +10,7 @@
     <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
     <Copyright>Maarten Balliauw and Contributors</Copyright>
     <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/maartenba/YouTrackSharp/tree/master/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/maartenba/YouTrackSharp/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>3.0.0</Version>

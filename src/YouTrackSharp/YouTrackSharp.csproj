@@ -4,7 +4,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
-    <PackageIconUrl>https://github.com/maartenba/YouTrackSharp/tree/master/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/maartenba/YouTrackSharp/master/logo.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
