@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSource>True</IncludeSource>
+    <PackageIconUrl>https://raw.githubusercontent.com/maartenba/YouTrackSharp/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
+    <PackageTags>YouTrack JetBrains SDK</PackageTags>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
+    <Authors>Maarten Balliauw and Contributors</Authors>
+    <Company>Maarten Balliauw and Contributors</Company>
+    <Product>YouTrackSharp</Product>
+    <Copyright>Maarten Balliauw and Contributors</Copyright>
+    <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Version>3.0.0-preview</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

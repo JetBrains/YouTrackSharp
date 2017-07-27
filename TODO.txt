@@ -1,0 +1,32 @@
+To implement later (in order of perceived importance) - could be PR/up for grabs
+* Issue API's
+  * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-commands.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Intellisense-for-issue-search.html
+* Administration API's
+  * https://www.jetbrains.com/help/youtrack/standalone/Project.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Users.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Groups.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Role.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Permissions.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Issue-Link-Types.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Custom-Fields-RestAPI.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Statistics.html
+  * https://www.jetbrains.com/help/youtrack/standalone/YouTrack-Setup-Methods.html
+* Agile board API's
+  * https://www.jetbrains.com/help/youtrack/standalone/Agile-Board-REST-API.html
+* Import/export API's
+  * https://www.jetbrains.com/help/youtrack/standalone/Import-REST-API.html
+  * https://www.jetbrains.com/help/youtrack/standalone/Export-Rest-API.html
+
+----
+
+Implemented:
+* https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html
+* https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html
+* https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html
+* https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html
+* Authentication using token
+* netstandard1.3
+* Async all the way
+* Serializing of DateTime
+* Color indices list
