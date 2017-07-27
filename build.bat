@@ -27,7 +27,7 @@ echo ##teamcity[blockClosed name='Test']
 
 echo ##teamcity[blockOpened name='Pack' description='Creating NuGet packages...']
 mkdir artifacts
-dotnet pack src\YouTrackSharp\YouTrackSharp.csproj --output %cd%\artifacts --include-symbols --include-source --configuration %config%
+dotnet pack src\YouTrackSharp\YouTrackSharp.csproj --output %cd%\artifacts --include-symbols --include-source --configuration %config% /p:PackageVersion=%PackageVersion%
 if not "%errorlevel%"=="0" goto failure
 echo ##teamcity[blockClosed name='Pack']
 
