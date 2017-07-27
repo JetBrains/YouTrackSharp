@@ -2,7 +2,6 @@
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Core;
-using System.IO;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using static Nuke.Core.EnvironmentInfo;
 using static Nuke.Core.IO.FileSystemTasks;
@@ -48,7 +47,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             DotNetTest(settings => settings
-                .SetProjectFile(Path.Combine(SolutionDirectory , "tests", "YouTrackSharp.Tests", "YouTrackSharp.Tests.csproj"))
+                .SetProjectFile(SolutionDirectory / "tests" / "YouTrackSharp.Tests" / "YouTrackSharp.Tests.csproj")
                 .EnableNoBuild());
         });
 
