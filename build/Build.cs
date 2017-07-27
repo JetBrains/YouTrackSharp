@@ -12,7 +12,7 @@ class Build : NukeBuild
     [GitVersion] readonly GitVersion GitVersion;
 
     public override string Configuration => IsServerBuild ? "Release" : Argument("configuration");
-    public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + "-" + GitVersion.BuildMetaDataPadded;
+    public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + (!string.IsNullOrEmpty(GitVersion.BuildMetaDataPadded) ? "-" + GitVersion.BuildMetaDataPadded : string.Empty);
 
     public static int Main() => Execute<Build>(x => x.Pack);
 
