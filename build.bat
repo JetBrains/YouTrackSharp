@@ -5,7 +5,6 @@ if "%config%" == "" (
 )
 
 echo ##teamcity[blockOpened name='Prepare' description='Preparing build environment...']
-mkdir artifacts
 dotnet clean
 if not "%errorlevel%"=="0" goto failure
 echo ##teamcity[blockClosed name='Prepare']
@@ -26,12 +25,13 @@ if not "%errorlevel%"=="0" goto failure
 echo ##teamcity[blockClosed name='Test']
 
 echo ##teamcity[blockOpened name='Pack' description='Creating NuGet packages...']
+mkdir artifacts
 dotnet pack src\YouTrackSharp\YouTrackSharp.csproj --output %cd%\artifacts --include-symbols --include-source --configuration %config%
 if not "%errorlevel%"=="0" goto failure
 echo ##teamcity[blockClosed name='Pack']
 
 :success
-REM exit 0
+exit 0
 
 :failure
-REM exit -1
+exit -1
