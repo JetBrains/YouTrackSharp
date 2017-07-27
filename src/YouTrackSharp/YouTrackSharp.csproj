@@ -4,9 +4,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
-    <PackageIconUrl>https://raw.githubusercontent.com/maartenba/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
     <FileVersion>3.0.0.0</FileVersion>
@@ -15,7 +15,7 @@
     <Company>Maarten Balliauw and Contributors</Company>
     <Product>YouTrackSharp</Product>
     <Copyright>Maarten Balliauw and Contributors</Copyright>
-    <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>3.0.0-preview</Version>
   </PropertyGroup>

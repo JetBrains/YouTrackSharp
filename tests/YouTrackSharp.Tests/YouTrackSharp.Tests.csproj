@@ -7,11 +7,11 @@
     <Company>Maarten Balliauw and Contributors</Company>
     <Product>YouTrackSharp</Product>
     <Description>Tests for YouTrackSharp.</Description>
-    <PackageLicenseUrl>https://github.com/maartenba/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
     <Copyright>Maarten Balliauw and Contributors</Copyright>
-    <PackageProjectUrl>https://github.com/maartenba/YouTrackSharp/</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/maartenba/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/maartenba/YouTrackSharp.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>3.0.0</Version>
   </PropertyGroup>
