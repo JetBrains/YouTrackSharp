@@ -2,7 +2,7 @@
 
 ![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/master/logo.png)
 
-.NET Library to access YouTrack API.
+.NET Standard 1.3 Library to access YouTrack API.
 
 For more information on YouTrack visit [jetbrains.com/youtrack](http://www.jetbrains.com/youtrack).
 
@@ -32,6 +32,25 @@ var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
 ```
 
 Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/standalone/YouTrack-REST-API-Reference.html) endpoints and operations that are available.
+
+## Supported operations
+
+YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
+
+* Targets .NET Standard 1.3 - can be used with pretty much any .NET runtime!
+* All calls are `async` all the way.
+* Handles serialization of YouTrack's timestamps into `DateTime` where possible.
+* Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html). For YouTrack instances that do not have token support, username/password can be used.
+* Comes with a color indices list.
+
+The following API's are currently supported:
+* [User-related methods](https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html) through `UserService`
+* [Projects-related methods](https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html) through `ProjectsService`
+* [Issues-related methods](https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html) through `IssuesService`
+* [Time-tracking-related methods](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html) through `TimeTrackingService`
+
+Many other API's are not included yet - feel free to [tackle one of the `UpForGrabs` issues](https://github.com/JetBrains/YouTrackSharp/issues?q=is%3Aissue+is%3Aopen+label%3AUpForGrabs) and make YouTrackSharp better!
+
 
 ## Supported YouTrack versions
 
