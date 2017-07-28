@@ -37,7 +37,7 @@ Other services are available as well, mapping to the [YouTrack REST API](https:/
 
 YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
 
-* Targets .NET Standard 1.3 - can be used with pretty much any .NET runtime!
+* Targets .NET Standard 1.3 - can be used with pretty much [any .NET platform](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)!
 * All calls are `async` all the way.
 * Handles serialization of YouTrack's timestamps into `DateTime` where possible.
 * Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html). For YouTrack instances that do not have token support, username/password can be used.
