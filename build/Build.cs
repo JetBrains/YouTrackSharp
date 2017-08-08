@@ -11,8 +11,6 @@ class Build : NukeBuild
 {
     [GitVersion] readonly GitVersion GitVersion;
 
-    public override string Configuration => IsServerBuild ? "Release" : Argument("configuration");
-
     public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + "-" + DateTime.UtcNow.ToString("yyyyMMddhhmm");
 
     public static int Main() => Execute<Build>(x => x.Pack);
@@ -20,7 +18,7 @@ class Build : NukeBuild
     Target Initialize => _ => _
         .Executes(() =>
         {
-            Environment.SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "1");
+            SetVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "1");
         });
 
     Target Clean => _ => _
@@ -54,7 +52,7 @@ class Build : NukeBuild
 
     Target Pack => _ => _
         .DependsOn(Test)
-        .Requires(() => GitVersion != null)
+        .Requires(() => GitVersion)
         .Executes(() =>
         {
             EnsureExistingDirectory(ArtifactsDirectory);
