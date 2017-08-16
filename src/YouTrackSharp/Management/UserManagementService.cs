@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -28,7 +29,7 @@ namespace YouTrackSharp.Management
         /// Get user by login name.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/GET-User.html">Get user by login name</a>.</remarks>
-        /// <returns>A <see cref="User" /> instance that represents the user matching <paramref name="username"/>.</returns>
+        /// <returns>A <see cref="User" /> instance that represents the user matching <paramref name="username"/> or <value>null</value> if the user does not exist.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="username"/> is null or empty.</exception>
         public async Task<User> GetUser(string username)
@@ -37,6 +38,11 @@ namespace YouTrackSharp.Management
             
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/admin/user/{username}");
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
             
             response.EnsureSuccessStatusCode();
             
@@ -92,6 +98,56 @@ namespace YouTrackSharp.Management
             var query = string.Join("&", queryString);
             
             return await GetUsersFromPath($"rest/admin/user?{query}");
+        }
+
+        /// <summary>
+        /// Create a new user.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/PUT-User.html">Create a new user</a>.</remarks>
+        /// <param name="username">Login name of the user to be created.</param>
+        /// <param name="fullName">Full name of a new user.</param>
+        /// <param name="email">E-mail address of the user.</param>
+        /// <param name="jabber">Jabber address for the new user.</param>
+        /// <param name="password">Password for the new user.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task CreateUser(string username, string fullName, string email, string jabber, string password)
+        {
+            var queryString = new Dictionary<string, string>(4);
+            if (!string.IsNullOrEmpty(fullName))
+            {
+                queryString.Add("fullName", WebUtility.UrlEncode(fullName));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                queryString.Add("email", WebUtility.UrlEncode(email));
+            }
+            if (!string.IsNullOrEmpty(jabber))
+            {
+                queryString.Add("jabber", WebUtility.UrlEncode(jabber));
+            }
+            if (!string.IsNullOrEmpty(password))
+            {
+                queryString.Add("password", WebUtility.UrlEncode(password));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PutAsync($"rest/admin/user/{username}", new FormUrlEncodedContent(queryString));
+            
+            response.EnsureSuccessStatusCode();
+        }
+
+        /// <summary>
+        /// Delete specific user account.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/DELETE-User.html">Delete a user</a>.</remarks>
+        /// <param name="username">Login name of the user to be deleted.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task DeleteUser(string username)
+        {
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.DeleteAsync($"rest/admin/user/{username}");
+            
+            response.EnsureSuccessStatusCode();
         }
 
         private async Task<List<User>> GetUsersFromPath(string path)

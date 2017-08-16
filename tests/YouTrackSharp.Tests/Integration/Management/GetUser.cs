@@ -23,6 +23,20 @@ namespace YouTrackSharp.Tests.Integration.Management
                 Assert.NotNull(result);
                 Assert.Equal("demo1", result.Username);
             }
+            
+            [Fact]
+            public async Task Valid_Connection_Returns_Null_For_NonExistant_User()
+            {
+                // Arrange
+                var connection = Connections.Demo3Token;
+                var service = connection.CreateUserManagementService();
+                
+                // Act
+                var result = await service.GetUser("does-not-exist");
+                
+                // Assert
+                Assert.Null(result);
+            }
         }
     }
 }
