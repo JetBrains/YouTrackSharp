@@ -150,6 +150,21 @@ namespace YouTrackSharp.Management
             response.EnsureSuccessStatusCode();
         }
 
+        /// <summary>
+        /// Merge users.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Merge-Users.html">Delete a user</a>.</remarks>
+        /// <param name="usernameToMerge">Login name of the user to be merged.</param>
+        /// <param name="targetUser">Login name of the user to merge <paramref name="usernameToMerge"/> into.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task MergeUsers(string usernameToMerge, string targetUser)
+        {
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PostAsync($"rest/admin/user/{targetUser}/merge/{usernameToMerge}", new StringContent(string.Empty));
+            
+            response.EnsureSuccessStatusCode();
+        }
+
         private async Task<List<User>> GetUsersFromPath(string path)
         {
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
