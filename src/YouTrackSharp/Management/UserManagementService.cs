@@ -137,6 +137,42 @@ namespace YouTrackSharp.Management
         }
 
         /// <summary>
+        /// Updates a user.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/POST-User.html">Update a user</a>.</remarks>
+        /// <param name="username">Login name of the user to be updated.</param>
+        /// <param name="fullName">Full name of a user.</param>
+        /// <param name="email">E-mail address of the user.</param>
+        /// <param name="jabber">Jabber address for the user.</param>
+        /// <param name="password">Password for the user.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task UpdateUser(string username, string fullName = null, string email = null, string jabber = null, string password = null)
+        {
+            var queryString = new Dictionary<string, string>(4);
+            if (!string.IsNullOrEmpty(fullName))
+            {
+                queryString.Add("fullName", WebUtility.UrlEncode(fullName));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                queryString.Add("email", WebUtility.UrlEncode(email));
+            }
+            if (!string.IsNullOrEmpty(jabber))
+            {
+                queryString.Add("jabber", WebUtility.UrlEncode(jabber));
+            }
+            if (!string.IsNullOrEmpty(password))
+            {
+                queryString.Add("password", WebUtility.UrlEncode(password));
+            }
+            
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PostAsync($"rest/admin/user/{username}", new FormUrlEncodedContent(queryString));
+            
+            response.EnsureSuccessStatusCode();
+        }
+
+        /// <summary>
         /// Delete specific user account.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/DELETE-User.html">Delete a user</a>.</remarks>
