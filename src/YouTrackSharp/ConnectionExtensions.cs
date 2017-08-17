@@ -6,7 +6,7 @@ using YouTrackSharp.TimeTracking;
 namespace YouTrackSharp
 {
     /// <summary>
-    /// Extension methods for <see cref="Connection" /> , providing easy access to all services.
+    /// Extension methods for <see cref="Connection" />, providing easy access to all services.
     /// </summary>
     public static class ConnectionExtensions
     {
