@@ -34,8 +34,8 @@ namespace YouTrackSharp.Tests.Json
         {
             public static IEnumerable<object[]> GetData()
             {
-                yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero), new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).ToUnixTimeSeconds() };
-                yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).DateTime, new DateTimeOffset(new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).DateTime).ToUnixTimeSeconds() };
+                yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero), new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).ToUnixTimeMilliseconds() };
+                yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).DateTime, new DateTimeOffset(new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).DateTime).ToUnixTimeMilliseconds() };
             }
 
             [Theory]

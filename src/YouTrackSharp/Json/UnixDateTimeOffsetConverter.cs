@@ -5,7 +5,7 @@ using Newtonsoft.Json.Converters;
 namespace YouTrackSharp.Json
 {
     /// <summary>
-    /// A JSON convertor that can convert a unix timestamp into a <see cref="DateTimeOffset" /> value and vice-versa.
+    /// A JSON convertor that can convert a unix timestamp (in milliseconds) into a <see cref="DateTimeOffset" /> value and vice-versa.
     /// </summary>
     public class UnixDateTimeOffsetConverter
         : DateTimeConverterBase
@@ -15,11 +15,11 @@ namespace YouTrackSharp.Json
         {
             if (value is DateTimeOffset)
             {
-                writer.WriteValue(((DateTimeOffset)value).ToUnixTimeSeconds());
+                writer.WriteValue(((DateTimeOffset)value).ToUnixTimeMilliseconds());
             }
             else if (value is DateTime)
             {
-                writer.WriteValue(new DateTimeOffset((DateTime)value).ToUnixTimeSeconds());
+                writer.WriteValue(new DateTimeOffset((DateTime)value).ToUnixTimeMilliseconds());
             }
             else
             {
