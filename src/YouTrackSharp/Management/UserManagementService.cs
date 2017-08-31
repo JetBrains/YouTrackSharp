@@ -60,7 +60,7 @@ namespace YouTrackSharp.Management
         /// <param name="permission">Filter by permission.</param>
         /// <param name="onlineOnly">When <value>true</value>, get only users which are currently online. Defaults to <value>false</value>.</param>
         /// <param name="start">Paginator mode (takes 10 records).</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Users" /> instances.</returns>
+        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="User" /> instances.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         public async Task<ICollection<User>> GetUsers(string filter = null, string group = null, string role = null,
             string project = null, string permission = null, bool onlineOnly = false, int start = 0)
@@ -199,6 +199,24 @@ namespace YouTrackSharp.Management
             var response = await client.PostAsync($"rest/admin/user/{targetUser}/merge/{usernameToMerge}", new StringContent(string.Empty));
             
             response.EnsureSuccessStatusCode();
+        }
+
+        /// <summary>
+        /// Get all groups the specified user participates in.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/GET-User-Groups.html">Get all groups the specified user participates in</a>.</remarks>
+        /// <param name="username">Login name of the user to retrieve information for.</param>
+        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Group" /> instances.</returns>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task<ICollection<Group>> GetGroupsForUser(string username)
+        {
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.GetAsync($"rest/admin/user/{username}/group");
+
+            response.EnsureSuccessStatusCode();
+
+            return JsonConvert.DeserializeObject<List<Group>>(
+                await response.Content.ReadAsStringAsync());
         }
 
         private async Task<List<User>> GetUsersFromPath(string path)
