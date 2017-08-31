@@ -1,11 +1,12 @@
 using YouTrackSharp.Issues;
+using YouTrackSharp.Management;
 using YouTrackSharp.Projects;
 using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp
 {
     /// <summary>
-    /// Extension methods for <see cref="Connection" /> , providing easy access to all services.
+    /// Extension methods for <see cref="Connection" />, providing easy access to all services.
     /// </summary>
     public static class ConnectionExtensions
     {
@@ -33,10 +34,20 @@ namespace YouTrackSharp
         /// Creates a <see cref="TimeTrackingService" />.
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
-        /// <returns><see cref="TimeTrackingService" /> for working with YouTrack issues.</returns>
+        /// <returns><see cref="TimeTrackingService" /> for working with YouTrack time tracking.</returns>
         public static TimeTrackingService CreateTimeTrackingService(this Connection connection)
         {
             return new TimeTrackingService(connection);
+        }
+        
+        /// <summary>
+        /// Creates a <see cref="UserManagementService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="UserManagementService" /> for managing YouTrack users.</returns>
+        public static UserManagementService CreateUserManagementService(this Connection connection)
+        {
+            return new UserManagementService(connection);
         }
     }
 }
