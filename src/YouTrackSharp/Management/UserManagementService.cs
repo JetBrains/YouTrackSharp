@@ -219,6 +219,36 @@ namespace YouTrackSharp.Management
                 await response.Content.ReadAsStringAsync());
         }
 
+        /// <summary>
+        /// Add user to group.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/POST-User-Group.html">Add user account to a group</a>.</remarks>
+        /// <param name="username">Login name of the user to be updated.</param>
+        /// <param name="group">Name of the group to add the user to.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task AddUserToGroup(string username, string group)
+        {
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PostAsync($"rest/admin/user/{username}/group/{WebUtility.UrlEncode(group)}", new StringContent(string.Empty));
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        /// <summary>
+        /// Remove user from group.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/DELETE-User-Group.html">Remove user account from a group</a>.</remarks>
+        /// <param name="username">Login name of the user to be updated.</param>
+        /// <param name="group">Name of the group to remove the user from.</param>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task RemoveUserFromGroup(string username, string group)
+        {
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.DeleteAsync($"rest/admin/user/{username}/group/{WebUtility.UrlEncode(group)}");
+
+            response.EnsureSuccessStatusCode();
+        }
+
         private async Task<List<User>> GetUsersFromPath(string path)
         {
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
