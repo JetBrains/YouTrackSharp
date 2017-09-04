@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace YouTrackSharp.TimeTracking
+namespace YouTrackSharp.Management
 {
 	/// <summary>
 	/// A class that represents YouTrack timetracking settings information.
@@ -8,26 +8,19 @@ namespace YouTrackSharp.TimeTracking
 	public class TimeTrackingSettings
 	{
 		/// <summary>
-		/// Creates an instance of the <see cref="TimeTrackingSettings" /> class.
-		/// </summary>
-		public TimeTrackingSettings()
-		{
-		}
-
-		/// <summary>
-		/// Enabled.
+		/// Is time tracking enabled?
 		/// </summary>
 		[JsonProperty("enabled")]
 		public bool Enabled { get; set; }
 
 		/// <summary>
-		/// Field for Estimation.
+		/// Field that contains Estimation data.
 		/// </summary>
 		[JsonProperty("estimation")]
 		public TimeField Estimation { get; set; }
 
 		/// <summary>
-		/// Field for SpentTime.
+		/// Field that contains SpentTime data.
 		/// </summary>
 		[JsonProperty("spentTime")]
 		public TimeField SpentTime { get; set; }
@@ -41,7 +34,7 @@ namespace YouTrackSharp.TimeTracking
 			public string Name { get; set; }
 
 			/// <summary>
-			/// Uri.
+			/// Url of the field.
 			/// </summary>
 			[JsonProperty("url")]
 			public string Url { get; set; }

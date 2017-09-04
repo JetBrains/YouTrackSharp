@@ -49,5 +49,15 @@ namespace YouTrackSharp
         {
             return new UserManagementService(connection);
         }
+        
+        /// <summary>
+        /// Creates a <see cref="TimeTrackingManagementService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="TimeTrackingManagementService" /> for managing YouTrack time tracking settings.</returns>
+        public static TimeTrackingManagementService CreateTimeTrackingManagementService(this Connection connection)
+        {
+            return new TimeTrackingManagementService(connection);
+        }
     }
 }

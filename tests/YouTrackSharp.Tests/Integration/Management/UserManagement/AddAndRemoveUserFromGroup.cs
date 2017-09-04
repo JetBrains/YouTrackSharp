@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
-namespace YouTrackSharp.Tests.Integration.Management
+namespace YouTrackSharp.Tests.Integration.Management.UserManagement
 {
     public partial class UserManagementServiceTests
     {

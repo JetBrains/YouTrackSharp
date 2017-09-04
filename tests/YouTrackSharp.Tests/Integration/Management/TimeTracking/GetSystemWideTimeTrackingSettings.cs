@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
-namespace YouTrackSharp.Tests.Integration.TimeTracking
+namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 {
     public partial class TimeTrackingServiceTests
     {
@@ -14,7 +14,7 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
 		    {
 			    // Arrange
 			    var connection = Connections.Demo3Token;
-			    var service = connection.CreateTimeTrackingService();
+			    var service = connection.CreateTimeTrackingManagementService();
 
 			    // Act
 			    var results = await service.GetSystemWideTimeTrackingSettings();
@@ -22,7 +22,7 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
 
 				// Assert
 				Assert.Equal(5, results.DaysAWeek);
-			    Assert.Equal(8, results.HoursADay);
+			    Assert.True(results.HoursADay > 0);
 
 			    Assert.Equal(1, workdays[0].Value);
 			    Assert.Equal(2, workdays[1].Value);

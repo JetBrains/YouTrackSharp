@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace YouTrackSharp.TimeTracking
+namespace YouTrackSharp.Management
 {
 	/// <summary>
 	/// A class that represents YouTrack system wide time settings information.
@@ -17,19 +17,19 @@ namespace YouTrackSharp.TimeTracking
 		}
 
 		/// <summary>
-		/// Hours A Day
+		/// Hours A Day.
 		/// </summary>
 		[JsonProperty("hoursADay")]
 		public int HoursADay { get; set; }
 
 		/// <summary>
-		/// Days A Week
+		/// Days A Week.
 		/// </summary>
 		[JsonProperty("daysAWeek")]
 		public int DaysAWeek { get; set; }
 
 		/// <summary>
-		/// WorkDays A Week
+		/// WorkDays A Week.
 		/// </summary>
 		[JsonProperty("workWeek")]
 		public ICollection<SubValue<int>> WorkDays { get; set; }

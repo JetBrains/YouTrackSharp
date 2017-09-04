@@ -1,9 +1,8 @@
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
-namespace YouTrackSharp.Tests.Integration.TimeTracking
+namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 {
     public partial class TimeTrackingServiceTests
     {
@@ -13,8 +12,8 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
             public async Task Valid_Connection_Gets_TimeTracking_Settings_For_Project()
             {
                 // Arrange
-                var connection = Connections.Demo1Token;
-                var service = connection.CreateTimeTrackingService();
+                var connection = Connections.Demo3Token;
+                var service = connection.CreateTimeTrackingManagementService();
                 
                 // Act
                 var results = await service.GetTimeTrackingSettingsForProject("DP1");
