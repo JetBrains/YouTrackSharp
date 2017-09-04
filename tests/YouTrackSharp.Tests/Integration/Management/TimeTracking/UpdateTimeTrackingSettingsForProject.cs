@@ -1,11 +1,9 @@
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Management;
 using YouTrackSharp.Tests.Infrastructure;
-using YouTrackSharp.TimeTracking;
 
-namespace YouTrackSharp.Tests.Integration.TimeTracking
+namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 {
     public partial class TimeTrackingServiceTests
     {
@@ -19,22 +17,11 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                 var service = connection.CreateTimeTrackingManagementService();
 
 				// Act
-                try
-                {
-                    await service.UpdateTimeTrackingSettingsForProject("DP1", new TimeTrackingSettings { Enabled = false });
+                await service.UpdateTimeTrackingSettingsForProject("DP1", new TimeTrackingSettings { Enabled = true });
 
-                    // Assert
-                    var result = await service.GetTimeTrackingSettingsForProject("DP1");
-                    Assert.False(result.Enabled);
-                }
-                finally
-                {
-                    // Restore to original
-                    await service.UpdateTimeTrackingSettingsForProject("DP1", new TimeTrackingSettings { Enabled = true });
-                    
-                    var result = await service.GetTimeTrackingSettingsForProject("DP1");
-                    Assert.True(result.Enabled);
-                }
+                // Assert
+                var result = await service.GetTimeTrackingSettingsForProject("DP1");
+                Assert.True(result.Enabled);
             }
         }
     }
