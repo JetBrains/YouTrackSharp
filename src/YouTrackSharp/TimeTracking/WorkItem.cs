@@ -42,7 +42,7 @@ namespace YouTrackSharp.TimeTracking
         public string Id { get; set; }
         
         /// <summary>
-        /// Represents when the work item was created.
+        /// Represents when the work item was performed.
         /// </summary>
         [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
         [JsonProperty("date")]
@@ -72,5 +72,19 @@ namespace YouTrackSharp.TimeTracking
         /// </summary>
         [JsonProperty("author")]
         public Author Author { get; set; }
+        
+        /// <summary>
+        /// Represents when the work item was created.
+        /// </summary>
+        [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
+        
+        /// <summary>
+        /// Represents when the work item was updated.
+        /// </summary>
+        [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
+        [JsonProperty("updated")]
+        public DateTime? Updated { get; set; }
     }
 }
