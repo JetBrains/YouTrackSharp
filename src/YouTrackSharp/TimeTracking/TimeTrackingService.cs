@@ -170,7 +170,6 @@ namespace YouTrackSharp.TimeTracking
             response.EnsureSuccessStatusCode();
         }
         
-        
         /// <summary>
         /// Deletes a work item for an issue from the server.
         /// </summary>
@@ -196,5 +195,5 @@ namespace YouTrackSharp.TimeTracking
 
             response.EnsureSuccessStatusCode();
         }
-    }
+	}
 }

@@ -19,6 +19,8 @@ namespace YouTrackSharp.Tests.Infrastructure
         public static Connection Demo2Password =>
             new UsernamePasswordConnection(ServerUrl, "demo2", "demo2");
 
+        public static Connection Demo3Token => 
+            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy");
 
         public static class TestData
         {

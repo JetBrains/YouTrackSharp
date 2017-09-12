@@ -50,7 +50,10 @@ The following API's are currently supported:
 * [Projects-related methods](https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html) through `ProjectsService`
 * [Issues-related methods](https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html) through `IssuesService`
 * [Time-tracking-related methods](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html) through `TimeTrackingService`
-
+* Administration API's
+  * [User management](https://www.jetbrains.com/help/youtrack/standalone/Users.html) through `UserManagementService`
+  * [Time Tracker management](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-Settings-Methods.html) through `TimeTrackingManagementService`
+  
 Many other API's are not included yet - feel free to [tackle one of the `UpForGrabs` issues](https://github.com/JetBrains/YouTrackSharp/issues?q=is%3Aissue+is%3Aopen+label%3AUpForGrabs) and make YouTrackSharp better!
 
 

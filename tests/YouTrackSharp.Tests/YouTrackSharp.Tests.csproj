@@ -7,13 +7,13 @@
     <Company>JetBrains</Company>
     <Product>YouTrackSharp</Product>
     <Description>Tests for YouTrackSharp.</Description>
-    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.TXT</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.txt</PackageLicenseUrl>
     <Copyright>JetBrains</Copyright>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>3.0.1</Version>
+    <Version>3.1.0</Version>
     <IsPackable>False</IsPackable>
   </PropertyGroup>
   <ItemGroup>
