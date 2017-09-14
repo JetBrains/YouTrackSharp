@@ -6,6 +6,7 @@ namespace YouTrackSharp.Json
     {   
         public static bool IsSimpleType(JTokenType tokenType)
         {
+            // ReSharper disable once SwitchStatementMissingSomeCases
             switch (tokenType)
             {
                 case JTokenType.Boolean:

@@ -43,11 +43,11 @@ namespace YouTrackSharp.Issues
             {
                 queryString.Add($"attachmentName={attachmentName}");
             }
-            if (!string.IsNullOrEmpty(@group))
+            if (!string.IsNullOrEmpty(group))
             {
-                queryString.Add($"group={@group}");
+                queryString.Add($"group={group}");
             }
-            if (!string.IsNullOrEmpty(@group))
+            if (!string.IsNullOrEmpty(group))
             {
                 queryString.Add($"author={author}");
             }
@@ -61,8 +61,10 @@ namespace YouTrackSharp.Issues
                 Name = attachmentName
             };
 
-            var content = new MultipartFormDataContent();
-            content.Add(streamContent);
+            var content = new MultipartFormDataContent
+            {
+                streamContent
+            };
 
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PostAsync($"rest/issue/{issueId}/attachment?{query}", content);

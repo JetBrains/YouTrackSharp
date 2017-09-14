@@ -17,7 +17,7 @@ namespace YouTrackSharp.Issues
     {
         private readonly Connection _connection;
         
-        private static readonly string[] ReservedFields = new []
+        private static readonly string[] ReservedFields = 
         {
             "id", "entityid", "jiraid", "summary", "description"
         };
@@ -125,7 +125,7 @@ namespace YouTrackSharp.Issues
             response.EnsureSuccessStatusCode();
             
             // Extract issue id from Location header response
-            var marker = "rest/issue/";
+            const string marker = "rest/issue/";
             var locationHeader = response.Headers.Location.ToString();
             
             var issueId = locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
@@ -243,7 +243,7 @@ namespace YouTrackSharp.Issues
             }
             if (disableNotifications)
             {
-                queryString.Add($"disableNotifications=true");
+                queryString.Add("disableNotifications=true");
             }
             if (!string.IsNullOrEmpty(runAs))
             {

@@ -88,7 +88,7 @@ namespace YouTrackSharp.Management
             }
             if (onlineOnly)
             {
-                queryString.Add($"onlineOnly=true");
+                queryString.Add("onlineOnly=true");
             }
             if (start > 0)
             {

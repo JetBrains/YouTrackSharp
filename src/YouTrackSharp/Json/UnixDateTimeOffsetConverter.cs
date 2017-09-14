@@ -13,17 +13,16 @@ namespace YouTrackSharp.Json
         /// <inheritdoc />
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            if (value is DateTimeOffset)
+            switch (value)
             {
-                writer.WriteValue(((DateTimeOffset)value).ToUnixTimeMilliseconds());
-            }
-            else if (value is DateTime)
-            {
-                writer.WriteValue(new DateTimeOffset((DateTime)value).ToUnixTimeMilliseconds());
-            }
-            else
-            {
-                throw new Exception("Expected DateTimeOffset or DateTime.");
+                case DateTimeOffset offset:
+                    writer.WriteValue(offset.ToUnixTimeMilliseconds());
+                    break;
+                case DateTime dateTime:
+                    writer.WriteValue(new DateTimeOffset(dateTime).ToUnixTimeMilliseconds());
+                    break;
+                default:
+                    throw new Exception("Expected DateTimeOffset or DateTime.");
             }
         }
 
@@ -35,32 +34,24 @@ namespace YouTrackSharp.Json
                 return null;
             }
 
-            long ticks = 0;
+            long ticks;
 
-            if (reader.TokenType == JsonToken.Integer || reader.TokenType == JsonToken.Float)
+            switch (reader.TokenType)
             {
-                ticks = (long)reader.Value;
-            }
-            else if (reader.TokenType == JsonToken.String)
-            {
-                long.TryParse(reader.Value.ToString(), out ticks);
-            }
-            else
-            {
-                throw new FormatException(string.Format(Strings.Exception_CouldNotParseUnixTimeStamp, reader.Value.ToString()));
+                case JsonToken.Integer:
+                case JsonToken.Float:
+                    ticks = (long)reader.Value;
+                    break;
+                case JsonToken.String:
+                    long.TryParse(reader.Value.ToString(), out ticks);
+                    break;
+                default:
+                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseUnixTimeStamp, reader.Value.ToString()));
             }
 
-            DateTimeOffset converted;
-            if (Math.Ceiling(Math.Log10(ticks)) >= 12)
-            {
-                // Milliseconds
-                converted = DateTimeOffset.FromUnixTimeMilliseconds(ticks);
-            }
-            else
-            {
-                // Seconds
-                converted = DateTimeOffset.FromUnixTimeSeconds(ticks);
-            }
+            var converted = Math.Ceiling(Math.Log10(ticks)) >= 12 
+                ? DateTimeOffset.FromUnixTimeMilliseconds(ticks) 
+                : DateTimeOffset.FromUnixTimeSeconds(ticks);
 
             // Return value
             if (objectType == typeof(DateTimeOffset) || objectType == typeof(DateTimeOffset?))
