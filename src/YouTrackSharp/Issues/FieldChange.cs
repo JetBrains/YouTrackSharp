@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Newtonsoft.Json;
 
@@ -76,7 +78,26 @@ namespace YouTrackSharp.Issues
         /// Is this a transition from an older value to a newer one?
         /// </summary>
         [JsonIgnore]
-        public bool IsTransition => From.Value != null;
+        public bool IsTransition
+        {
+            get
+            {
+                // If a value exists, return true.
+                switch (From.Value)
+                {
+                    case null:
+                        return false;
+                    case string str:
+                        return !string.IsNullOrEmpty(str);
+                    case ICollection<string> collection:
+                        return collection.Count > 0;
+                    case IEnumerable enumerable:
+                        return enumerable.GetEnumerator().MoveNext();
+                }
+
+                return false;
+            }
+        }
 
         private string GetDebuggerTransition()
         {

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
+using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
 // ReSharper disable once CheckNamespace
