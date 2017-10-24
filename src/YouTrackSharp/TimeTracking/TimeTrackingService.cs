@@ -13,7 +13,7 @@ namespace YouTrackSharp.TimeTracking
     /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html">YouTrack Time Tracking User Methods</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
-    public partial class TimeTrackingService
+    public class TimeTrackingService
     {
         private readonly Connection _connection;
         
@@ -116,7 +116,7 @@ namespace YouTrackSharp.TimeTracking
             response.EnsureSuccessStatusCode();
             
             // Extract work item id from Location header response
-            var marker = "timetracking/workitem/";
+            const string marker = "timetracking/workitem/";
             var locationHeader = response.Headers.Location.ToString();
             
             return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);

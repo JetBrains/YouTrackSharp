@@ -73,10 +73,7 @@ namespace YouTrackSharp.Issues
         /// <summary>
         /// Issue fields.
         /// </summary>
-        public ICollection<Field> Fields
-        {
-            get { return _fields.Values; } 
-        }
+        public ICollection<Field> Fields => _fields.Values;
 
         /// <summary>
         /// Issue comments.
@@ -97,8 +94,7 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Field"/> matching the <paramref name="fieldName"/>; null when not found.</returns>
         public Field GetField(string fieldName)
         {
-            Field field;
-            _fields.TryGetValue(fieldName, out field);
+            _fields.TryGetValue(fieldName, out var field);
             return field;
         }
 
@@ -109,8 +105,7 @@ namespace YouTrackSharp.Issues
         /// <param name="value">The value to set for the <see cref="Field"/>.</param>
         public void SetField(string fieldName, object value)
         {
-            Field field;
-            if (_fields.TryGetValue(fieldName, out field))
+            if (_fields.TryGetValue(fieldName, out var field))
             {
                 field.Value = value;
             }
@@ -177,8 +172,7 @@ namespace YouTrackSharp.Issues
             }
             
             // Regular setter
-            Field field;
-            if (_fields.TryGetValue(binder.Name, out field) || _fields.TryGetValue(binder.Name.Replace("_", " "), out field))
+            if (_fields.TryGetValue(binder.Name, out var field) || _fields.TryGetValue(binder.Name.Replace("_", " "), out field))
             {
                 field.Value = value;
             }

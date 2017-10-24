@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using YouTrackSharp.Issues;
 
@@ -9,7 +8,7 @@ namespace YouTrackSharp.Tests.Infrastructure
     public class TemporaryIssueContext 
         : IDisposable
     {
-        private bool _destroyed = false;
+        private bool _destroyed;
         
         private readonly Connection _connection;
         

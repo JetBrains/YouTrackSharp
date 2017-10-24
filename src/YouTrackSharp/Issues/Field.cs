@@ -42,16 +42,14 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Value" /> as <see cref="T:System.String"/>.</returns>
         public string AsString()
         {
-            if (Value == null)
+            switch (Value)
             {
-                return null;
+                case null:
+                    return null;
+                case ICollection<string> collection:
+                    return collection.SingleOrDefault();
             }
-            
-            if (Value is ICollection<string> collection)
-            {
-                return collection.SingleOrDefault();
-            }
-            
+
             return Value.ToString();
         }
         
@@ -61,20 +59,17 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Value" /> as <see cref="T:System.Collections.Generic.ICollection{System.String}"/>.</returns>
         public ICollection<string> AsCollection()
         {
-            if (Value == null)
+            switch (Value)
             {
-                return new List<string>();
-            }
-            else if (Value is ICollection<string> collection)
-            {
-                return collection;
-            }
-            else
-            {
-                return new List<string>()
-                {
-                    Value.ToString()
-                };
+                case null:
+                    return new List<string>();
+                case ICollection<string> collection:
+                    return collection;
+                default:
+                    return new List<string>
+                    {
+                        Value.ToString()
+                    };
             }
         }
         
@@ -84,19 +79,16 @@ namespace YouTrackSharp.Issues
         /// <returns><see cref="Value" /> as <see cref="T:System.DateTime"/>.</returns>
         public DateTime AsDateTime()
         {
-            if (Value is DateTime dateTime)
+            switch (Value)
             {
-                return dateTime;
-            }
-            else if (Value is DateTimeOffset dateTimeOffset)
-            {
-                return dateTimeOffset.DateTime;
-            }
-            else
-            {
-                var milliseconds = Convert.ToInt64(AsString());
+                case DateTime dateTime:
+                    return dateTime;
+                case DateTimeOffset dateTimeOffset:
+                    return dateTimeOffset.DateTime;
+                default:
+                    var milliseconds = Convert.ToInt64(AsString());
             
-                return DateTimeOffset.FromUnixTimeMilliseconds(milliseconds).DateTime;
+                    return DateTimeOffset.FromUnixTimeMilliseconds(milliseconds).DateTime;
             }
         }
 

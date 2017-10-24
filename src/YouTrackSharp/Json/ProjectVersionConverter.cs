@@ -15,8 +15,7 @@ namespace YouTrackSharp.Json
         /// <inheritdoc />
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var collection = value as ICollection<string>;
-            if (collection != null)
+            if (value is ICollection<string> collection)
             {
                 writer.WriteValue("[" + string.Join(", ", collection) + "]");
             }
@@ -44,7 +43,7 @@ namespace YouTrackSharp.Json
                     var splitEntries = value.Trim('[', ']').Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
                     foreach (var entry in splitEntries)
                     {
-                        collection.Add(entry.Trim());
+                        collection?.Add(entry.Trim());
                     }
                 }
             }

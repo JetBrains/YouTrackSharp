@@ -25,18 +25,15 @@ namespace YouTrackSharp.Json
         /// <inheritdoc />
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null)
+            switch (reader.TokenType)
             {
-                return null;
-            }
-            
-            if (reader.TokenType == JsonToken.Integer || reader.TokenType == JsonToken.Float)
-            {
-                return TimeSpan.FromMinutes((long)reader.Value);
-            }
-            else
-            {
-                throw new FormatException(string.Format(Strings.Exception_CouldNotParseTimeSpan, reader.Value.ToString()));
+                case JsonToken.Null:
+                    return null;
+                case JsonToken.Integer:
+                case JsonToken.Float:
+                    return TimeSpan.FromMinutes((long)reader.Value);
+                default:
+                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseTimeSpan, reader.Value.ToString()));
             }
         }
     }

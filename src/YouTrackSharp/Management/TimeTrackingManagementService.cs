@@ -5,7 +5,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp.Management
 {
@@ -35,11 +34,11 @@ namespace YouTrackSharp.Management
 		public async Task<SystemWideTimeTrackingSettings> GetSystemWideTimeTrackingSettings()
 	    {
 		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.GetAsync($"rest/admin/timetracking");
+		    var response = await client.GetAsync("rest/admin/timetracking");
 
 		    response.EnsureSuccessStatusCode();
-
-			return JsonConvert.DeserializeObject<SystemWideTimeTrackingSettings>(await response.Content.ReadAsStringAsync());
+            
+            return JsonConvert.DeserializeObject<SystemWideTimeTrackingSettings>(await response.Content.ReadAsStringAsync());
 	    }
 
 
@@ -61,12 +60,12 @@ namespace YouTrackSharp.Management
 		    stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
 
 		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.PutAsync($"rest/admin/timetracking", stringContent);
+		    var response = await client.PutAsync("rest/admin/timetracking", stringContent);
 
 		    if (response.StatusCode == HttpStatusCode.BadRequest)
 		    {
-			    // Try reading the error message
-			    var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
+                // Try reading the error message
+                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
 			    if (responseJson["value"] != null)
 			    {
 				    throw new YouTrackErrorException(responseJson["value"].Value<string>());
