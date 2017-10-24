@@ -8,14 +8,14 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService
     {
         /// <summary>
-        /// Get changes for a specific issue from the server.
+        /// Get change history for a specific issue from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Historical-Changes-of-an-Issue.html">Get Changes of an Issue</a>.</remarks>
-        /// <param name="issueId">Id of the issue to get changes for.</param>
-        /// <returns><see cref="Changeset" /> for the requested issue <paramref name="issueId"/>.</returns>
+        /// <param name="issueId">Id of the issue to get change history for.</param>
+        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Change" /> for the requested issue <paramref name="issueId"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<Changeset> GetChangsetForIssue(string issueId)
+        public async Task<IEnumerable<Change>> GetChangeHistoryForIssue(string issueId)
         {
             if (string.IsNullOrEmpty(issueId))
             {
@@ -27,7 +27,8 @@ namespace YouTrackSharp.Issues
 
             response.EnsureSuccessStatusCode();
 
-            return JsonConvert.DeserializeObject<Changeset>(await response.Content.ReadAsStringAsync());
+            var wrapper = JsonConvert.DeserializeObject<ChangeCollectionWrapper>(await response.Content.ReadAsStringAsync());
+            return wrapper.Changes;
         }
     }
 }

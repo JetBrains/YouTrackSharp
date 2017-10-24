@@ -25,18 +25,6 @@ namespace YouTrackSharp.Issues
         public object Value;
 
         /// <summary>
-        /// Value.
-        /// </summary>
-        [JsonProperty("oldValue")]
-        public object OldValue;
-
-        /// <summary>
-        /// Value.
-        /// </summary>
-        [JsonProperty("newValue")]
-        public object NewValue;
-
-        /// <summary>
         /// Value Id.
         /// </summary>
         [JsonProperty("valueId")]

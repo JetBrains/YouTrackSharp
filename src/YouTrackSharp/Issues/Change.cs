@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace YouTrackSharp.Issues
 {
     /// <summary>
-    /// A class that represents YouTrack issue change.
+    /// A class that represents a YouTrack issue change.
     /// </summary>
     public class Change
     {
@@ -13,19 +15,23 @@ namespace YouTrackSharp.Issues
         /// </summary>
         public Change()
         {
-            Fields = new List<Field>();
+            Fields = new List<FieldChange>();
         }
-
+        
         /// <summary>
-        /// Id of the change.
-        /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Fields.
+        /// Fields that have been changed.
         /// </summary>
         [JsonProperty("field")]
-        public ICollection<Field> Fields { get; set; }
+        public ICollection<FieldChange> Fields { get; set; }
+
+        /// <summary>
+        /// Get <see cref="FieldChange"/> for a field identified by <paramref name="fieldName"/>.
+        /// </summary>
+        /// <param name="fieldName">Name of the field to retrieve <see cref="FieldChange"/> for.</param>
+        /// <returns><see cref="FieldChange"/> for a field identified by <paramref name="fieldName"/>. Can be <value>null</value>.</returns>
+        public FieldChange ForField(string fieldName)
+        {
+            return Fields.FirstOrDefault(field => string.Equals(field.Name, fieldName, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

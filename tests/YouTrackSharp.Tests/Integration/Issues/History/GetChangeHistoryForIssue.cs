@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
@@ -7,7 +9,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
 {
     public partial class IssuesServiceTests
     {
-        public class GetChangesForIssue
+        public class GetChangeHistoryForIssue
         {
             [Fact]
             public async Task Valid_Connection_Returns_Changeset_For_Issue()
@@ -17,10 +19,18 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 var service = connection.CreateIssuesService();
                 
                 // Act
-                var result = await service.GetChangsetForIssue("DP1-1");
+                var result = await service.GetChangeHistoryForIssue("DP1-1");
                 
                 // Assert
                 Assert.NotNull(result);
+                Assert.True(result.Any());
+
+                // Get an item and check for two common properties (updaterName & updated)
+                var firstChange = result.First();
+
+                Assert.True(firstChange.Fields.Count > 0);
+                Assert.True(firstChange.ForField("updaterName") != null);
+                Assert.True(firstChange.ForField("updated") != null && firstChange.ForField("updated").To.AsDateTime() < DateTime.UtcNow);
             }
             
             [Fact]
@@ -31,7 +41,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await service.GetChangsetForIssue("NOT-EXIST"));
+                    async () => await service.GetChangeHistoryForIssue("NOT-EXIST"));
             }
         }
     }
