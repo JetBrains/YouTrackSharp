@@ -24,11 +24,11 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 				Assert.Equal(5, results.DaysAWeek);
 			    Assert.True(results.HoursADay > 0);
 
-			    Assert.Equal(1, workdays[0].Value);
-			    Assert.Equal(2, workdays[1].Value);
-			    Assert.Equal(3, workdays[2].Value);
-			    Assert.Equal(4, workdays[3].Value);
-			    Assert.Equal(5, workdays[4].Value);
+			    Assert.Equal(1, workdays[0]);
+			    Assert.Equal(2, workdays[1]);
+			    Assert.Equal(3, workdays[2]);
+			    Assert.Equal(4, workdays[3]);
+			    Assert.Equal(5, workdays[4]);
 		    }
 	    }
     }

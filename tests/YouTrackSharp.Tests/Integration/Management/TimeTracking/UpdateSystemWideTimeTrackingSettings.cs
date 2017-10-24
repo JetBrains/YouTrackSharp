@@ -25,13 +25,13 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 				var timeSettings = new SystemWideTimeTrackingSettings
 				{
 					HoursADay = hoursADay,
-					WorkDays = new List<SubValue<int>>(5)
+					WorkDays = new List<int>(5)
 				};
-				timeSettings.WorkDays.Add(new SubValue<int> { Value = 1 });
-				timeSettings.WorkDays.Add(new SubValue<int> { Value = 2 });
-				timeSettings.WorkDays.Add(new SubValue<int> { Value = 3 });
-				timeSettings.WorkDays.Add(new SubValue<int> { Value = 4 });
-				timeSettings.WorkDays.Add(new SubValue<int> { Value = 5 });
+				timeSettings.WorkDays.Add(1);
+				timeSettings.WorkDays.Add(2);
+				timeSettings.WorkDays.Add(3);
+				timeSettings.WorkDays.Add(4);
+				timeSettings.WorkDays.Add(5);
 
 				await service.UpdateSystemWideTimeTrackingSettings(timeSettings);
 

@@ -37,8 +37,8 @@ namespace YouTrackSharp.Management
 		    var response = await client.GetAsync("rest/admin/timetracking");
 
 		    response.EnsureSuccessStatusCode();
-
-			return JsonConvert.DeserializeObject<SystemWideTimeTrackingSettings>(await response.Content.ReadAsStringAsync());
+            
+            return JsonConvert.DeserializeObject<SystemWideTimeTrackingSettings>(await response.Content.ReadAsStringAsync());
 	    }
 
 
@@ -64,8 +64,8 @@ namespace YouTrackSharp.Management
 
 		    if (response.StatusCode == HttpStatusCode.BadRequest)
 		    {
-			    // Try reading the error message
-			    var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
+                // Try reading the error message
+                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
 			    if (responseJson["value"] != null)
 			    {
 				    throw new YouTrackErrorException(responseJson["value"].Value<string>());

@@ -13,7 +13,7 @@ namespace YouTrackSharp.Management
 		/// </summary>
 		public SystemWideTimeTrackingSettings()
 		{
-			WorkDays = new List<SubValue<int>>();
+			WorkDays = new List<int>();
 		}
 
 		/// <summary>
@@ -32,6 +32,6 @@ namespace YouTrackSharp.Management
 		/// WorkDays A Week.
 		/// </summary>
 		[JsonProperty("workWeek")]
-		public ICollection<SubValue<int>> WorkDays { get; set; }
+		public ICollection<int> WorkDays { get; set; }
 	}
 }
