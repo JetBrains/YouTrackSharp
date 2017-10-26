@@ -72,12 +72,13 @@ namespace YouTrackSharp.Issues
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-the-List-of-Issues.html">Get the List of Issues</a>.</remarks>
         /// <param name="filter">Apply a filter to issues.</param>
         /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
-        /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance..</param>
+        /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance.</param>
+        /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
         /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null)
+        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
         {
-            var queryString = new List<string>(6);
+            var queryString = new List<string>(4);
             if (!string.IsNullOrEmpty(filter))
             {
                 queryString.Add($"filter={WebUtility.UrlEncode(filter)}");
@@ -90,6 +91,8 @@ namespace YouTrackSharp.Issues
             {
                 queryString.Add($"max={take}");
             }
+            
+            queryString.Add($"wikifyDescription={wikifyDescription}");
 
             var query = string.Join("&", queryString);
 
