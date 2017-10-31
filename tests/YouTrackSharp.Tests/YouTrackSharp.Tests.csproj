@@ -13,7 +13,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>3.2.3</Version>
+    <Version>3.2.4</Version>
     <IsPackable>False</IsPackable>
   </PropertyGroup>
   <ItemGroup>
