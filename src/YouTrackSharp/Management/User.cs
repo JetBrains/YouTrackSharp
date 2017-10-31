@@ -8,6 +8,11 @@ namespace YouTrackSharp.Management
     public class User
     {
         /// <summary>
+        /// Ring ID of the user.
+        /// </summary>
+        [JsonProperty("ringId")]
+        public string RingId { get; set; }
+        /// <summary>
         /// Username of the user.
         /// </summary>
         [JsonProperty("login")]
