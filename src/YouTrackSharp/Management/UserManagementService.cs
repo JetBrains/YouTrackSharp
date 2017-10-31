@@ -50,7 +50,7 @@ namespace YouTrackSharp.Management
         }
 
         /// <summary>
-        /// Get a list of all available registered users.
+        /// Get a list of available registered users, paged per 10. Use the <paramref name="start"/> parameter to get subsequent results.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/GET-Users.html">Get a list of all available registered users</a>.</remarks>
         /// <param name="filter">Search query (part of user login, name or email).</param>
