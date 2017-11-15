@@ -17,19 +17,30 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 // Arrange
                 var connection = Connections.Demo1Password;
                 var service = connection.ProjectCustomFieldsService();
-                var customField = new CustomField {Name = "TestField", EmptyText = "my empty"};
+                var customField = new CustomField { Name = "TestField" };
                 var projectId = "DP1";
 
-                // Act
-                await service.UpdateProjectCustomField(projectId, customField);
+                try
+                {
+                    await service.CreateProjectCustomField(projectId, customField);
 
-                var created = await service.GetProjectCustomField(projectId, customField.Name);
+                    // Act
+                    customField.EmptyText = "My empty text";
+                    await service.UpdateProjectCustomField(projectId, customField);
+                    
+                    var created = await service.GetProjectCustomField(projectId, customField.Name);
 
-                // Assert
-                Assert.NotNull(created);
+                    // Assert
+                    Assert.NotNull(created);
 
-                Assert.Equal(customField.Name, created.Name);
-                Assert.Equal(customField.EmptyText, created.EmptyText);
+                    Assert.Equal(customField.Name, created.Name);
+                    Assert.Equal(customField.EmptyText, created.EmptyText);
+                }
+                finally
+                {
+                    // Cleanup
+                    await service.DeleteProjectCustomField(projectId, customField.Name);
+                }
             }
 
             [Fact]

@@ -19,7 +19,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
 
                 // Act & Assert
                 var acted = false;
-                await service.DeleteProjectCustomField("DP1", " TestField");
+                await service.DeleteProjectCustomField("DP1", "TestField");
                 acted = true;
 
                 Assert.True(acted);

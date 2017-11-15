@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Projects;
@@ -17,22 +15,27 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 // Arrange
                 var connection = Connections.Demo1Password;
                 var service = connection.ProjectCustomFieldsService();
-                var customField = new CustomField {Name = "TestField"};
+                var customField = new CustomField { Name = "TestField" };
                 var projectId = "DP1";
 
-                // Act
-                await service.CreateProjectCustomField(projectId, customField);
+                try
+                {
+                    // Act
+                    await service.CreateProjectCustomField(projectId, customField);
 
-                var created = await service.GetProjectCustomField(projectId, customField.Name);
+                    var created = await service.GetProjectCustomField(projectId, customField.Name);
 
-                // Assert
-                Assert.NotNull(created);
+                    // Assert
+                    Assert.NotNull(created);
 
-                Assert.Equal(customField.Name, created.Name);
-                Assert.Equal(customField.EmptyText, string.Empty);
-
-                // cleanup
-                await service.DeleteProjectCustomField(projectId, customField.Name);
+                    Assert.Equal(customField.Name, created.Name);
+                    Assert.Equal(customField.EmptyText, string.Empty);
+                }
+                finally
+                {
+                    // Cleanup
+                    await service.DeleteProjectCustomField(projectId, customField.Name);
+                }
             }
 
             [Fact]
@@ -44,19 +47,27 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 var customField = new CustomField { Name = "TestField", EmptyText = "empty" };
                 var projectId = "DP1";
 
-                // Act
-                await service.CreateProjectCustomField(projectId, customField);
+                try
+                {
+                    // Act
+                    await service.CreateProjectCustomField(projectId, customField);
 
-                var created = await service.GetProjectCustomField(projectId, customField.Name);
+                    var created = await service.GetProjectCustomField(projectId, customField.Name);
 
-                // Assert
-                Assert.NotNull(created);
+                    // Assert
+                    Assert.NotNull(created);
 
-                Assert.Equal(customField.Name, created.Name);
-                Assert.Equal(customField.EmptyText, created.EmptyText);
+                    Assert.Equal(customField.Name, created.Name);
+                    Assert.Equal(customField.EmptyText, created.EmptyText);
 
-                // cleanup
-                await service.DeleteProjectCustomField(projectId, customField.Name);
+                    // Cleanup
+                    await service.DeleteProjectCustomField(projectId, customField.Name);
+                }
+                finally
+                {
+                    // Cleanup
+                    await service.DeleteProjectCustomField(projectId, customField.Name);
+                }
             }
 
             [Fact]
