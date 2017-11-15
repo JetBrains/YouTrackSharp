@@ -30,7 +30,7 @@ namespace YouTrackSharp.TimeTracking
         /// Get work types for a specific project from the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/GET-Work-Types-for-a-Project.html">GET Work Types for a Project</a>.</remarks>
-        /// <param name="projectId">Id of the issue to get work items for.</param>
+        /// <param name="projectId">Id of the project to get work items for.</param>
         /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="WorkType" /> for the requested project <paramref name="projectId"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>

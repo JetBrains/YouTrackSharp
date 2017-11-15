@@ -59,5 +59,15 @@ namespace YouTrackSharp
         {
             return new TimeTrackingManagementService(connection);
         }
+
+        /// <summary>
+        /// Creates a <see cref="ProjectCustomFieldsService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="ProjectCustomFieldsService" /> for accessing custom project fields.</returns>
+        public static ProjectCustomFieldsService ProjectCustomFieldsService(this Connection connection)
+        {
+            return new ProjectCustomFieldsService(connection);
+        }
     }
 }
