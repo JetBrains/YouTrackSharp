@@ -8,6 +8,8 @@ namespace YouTrackSharp.TimeTracking
     /// </summary>
     public class Author
     {
+        // YTS-234 Add additional fields to the issue
+
         /// <summary>
         /// Login.
         /// </summary>
