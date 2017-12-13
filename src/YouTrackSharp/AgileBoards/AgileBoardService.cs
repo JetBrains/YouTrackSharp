@@ -44,13 +44,13 @@ namespace YouTrackSharp.AgileBoards
         /// Get the agile board with the specified id.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Agile-Configuration-by-ID.html">Get Agile Configuration by ID</a>.</remarks>
-        ///  <param name="agileId">Id of the agile board containing the sprint.</param>
+        ///  <param name="agileBoardId">Id of the agile board containing the sprint.</param>
         /// <returns>An <see cref="AgileSettings" /> that match the specified parameter.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<AgileSettings> GetAgileBoard(string agileId)
+        public async Task<AgileSettings> GetAgileBoard(string agileBoardId)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"/rest/admin/agile/{agileId}");
+            var response = await client.GetAsync($"/rest/admin/agile/{agileBoardId}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
@@ -66,14 +66,14 @@ namespace YouTrackSharp.AgileBoards
         /// Get sprint by id
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Sprint-by-ID.html">Get Sprint by ID</a>.</remarks>
-        ///  <param name="agileId">Id of the agile board containing the sprint.</param>
+        ///  <param name="agileBoardId">Id of the agile board containing the sprint.</param>
         ///  <param name="sprintId">Id of the sprint.</param>
         /// <returns>A <see cref="Sprint" /> that match the specified parameters.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<Sprint> GetSprint(string agileId, string sprintId)
+        public async Task<Sprint> GetSprint(string agileBoardId, string sprintId)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"/rest/admin/agile/{agileId}/sprint/{sprintId}");
+            var response = await client.GetAsync($"/rest/admin/agile/{agileBoardId}/sprint/{sprintId}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
