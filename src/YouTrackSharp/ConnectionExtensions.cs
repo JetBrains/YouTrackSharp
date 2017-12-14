@@ -76,7 +76,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="AgileBoardService" /> for working with YouTrack agile boards.</returns>
-        public static AgileBoardService CreateAgileBoardsService(this Connection connection)
+        public static AgileBoardService CreateAgileBoardService(this Connection connection)
         {
             return new AgileBoardService(connection);
         }
