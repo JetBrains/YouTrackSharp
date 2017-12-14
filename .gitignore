@@ -206,3 +206,4 @@ artifacts/
 .vs/YouTrackSharp/v15/sqlite3/storage.ide
 .idea/.idea.YouTrackSharp/.idea/inspectionProfiles/profiles_settings.xml
 .idea/.idea.YouTrackSharp/.idea/contentModel.xml
+/.vs
