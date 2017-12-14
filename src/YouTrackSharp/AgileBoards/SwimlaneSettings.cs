@@ -29,7 +29,7 @@ namespace YouTrackSharp.AgileBoards
         public string DefaultCardType { get; set; }
 
         /// <summary>
-        /// Gets an <see cref="ICollection{string}"/> of the valus use to represent swimlanes
+        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="T:System.String"/> of the values used to represent swimlanes of a board
         /// </summary>
         [JsonProperty("values")]
         public ICollection<string> Values { get; set; }
