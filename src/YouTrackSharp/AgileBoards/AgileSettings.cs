@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace YouTrackSharp.AgileBoards
 {
+    /// <summary>
+    /// A class that represents an agile board
+    /// </summary>
     public class AgileSettings
     {
         /// <summary>
