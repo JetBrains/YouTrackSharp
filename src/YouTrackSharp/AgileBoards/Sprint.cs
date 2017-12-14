@@ -34,5 +34,11 @@ namespace YouTrackSharp.AgileBoards
         [JsonConverter(typeof(UnixDateTimeOffsetConverter))]
         [JsonProperty("finish")]
         public DateTimeOffset? Finish { get; set; }
+
+        /// <summary>
+        /// Gets or sets the is default sprint status
+        /// </summary>
+        [JsonProperty("isDefault")]
+        public bool IsDefault { get; set; }
     }
 }
