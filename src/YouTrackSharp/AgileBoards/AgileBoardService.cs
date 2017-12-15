@@ -28,7 +28,7 @@ namespace YouTrackSharp.AgileBoards
         public async Task<ICollection<AgileSettings>> GetAgileBoards()
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"/rest/admin/agile");
+            var response = await client.GetAsync("rest/admin/agile");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
@@ -50,7 +50,7 @@ namespace YouTrackSharp.AgileBoards
         public async Task<AgileSettings> GetAgileBoard(string agileBoardId)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"/rest/admin/agile/{agileBoardId}");
+            var response = await client.GetAsync($"rest/admin/agile/{agileBoardId}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
@@ -73,7 +73,7 @@ namespace YouTrackSharp.AgileBoards
         public async Task<Sprint> GetSprint(string agileBoardId, string sprintId)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"/rest/admin/agile/{agileBoardId}/sprint/{sprintId}");
+            var response = await client.GetAsync($"rest/admin/agile/{agileBoardId}/sprint/{sprintId}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
