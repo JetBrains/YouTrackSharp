@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp.AgileBoards
 {
@@ -34,7 +33,7 @@ namespace YouTrackSharp.AgileBoards
         /// <code>
         /// var connection = new BearerTokenConnection("youtrack url", "some token");
         /// var service = connection.CreateAgileBoardsService();
-        /// 
+        ///
         /// var projects = new List<Project> { new Project { Id = "TP" } };
         /// var columnSettings = new ColumnSettings
         /// {
@@ -45,9 +44,9 @@ namespace YouTrackSharp.AgileBoards
         ///     Name = "Test Board",
         ///     Projects = projects,
         ///     ColumnSettings = columnSettings
-        /// 
+        ///
         /// };
-        /// 
+        ///
         /// string newBoardId = await service.CreateAgileBoard(agileSettings);
         /// </code>
         /// </example>
