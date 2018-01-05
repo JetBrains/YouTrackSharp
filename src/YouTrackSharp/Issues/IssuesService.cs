@@ -204,10 +204,16 @@ namespace YouTrackSharp.Issues
             
             var query = string.Join("&", queryString);
             
+            try { 
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PostAsync($"rest/issue/{issueId}?{query}", new MultipartFormDataContent());
 
             response.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         
         /// <summary>

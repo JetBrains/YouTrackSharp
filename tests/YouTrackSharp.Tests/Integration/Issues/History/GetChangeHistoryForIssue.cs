@@ -20,8 +20,11 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
                 {
                     var service = connection.CreateIssuesService();
-                    
-                    await service.UpdateIssue(temporaryIssueContext.Issue.Id, temporaryIssueContext.Issue.Summary, "Updated description");
+
+                    // YouTrack only records history for changes that are a minute apart. Let's sit and wait before making changes and generating history...
+                    await Task.Delay(70000);
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");  
+                    await service.UpdateIssue(temporaryIssueContext.Issue.Id, temporaryIssueContext.Issue.Summary + " (updated)", temporaryIssueContext.Issue.Description + " (updated)");
 
                     // Act
                     var result = await service.GetChangeHistoryForIssue(temporaryIssueContext.Issue.Id);
@@ -35,7 +38,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
 
                     Assert.True(firstChange.Fields.Count > 0);
                     Assert.True(firstChange.ForField("updaterName") != null);
-                    Assert.True(firstChange.ForField("updated") != null && firstChange.ForField("updated").To.AsDateTime() < DateTime.UtcNow);
+                    Assert.True(firstChange.ForField("updated") != null);
 
                     await temporaryIssueContext.Destroy();
                 }

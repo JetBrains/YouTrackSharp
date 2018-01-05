@@ -17,6 +17,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 {
                     var service = connection.CreateIssuesService();
 
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "Type Bug comment", "This is a test comment.");
+
                     // Act
                     var result = await service.GetIssue(temporaryIssueContext.Issue.Id);
 
