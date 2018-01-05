@@ -17,21 +17,31 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.GetChangeHistoryForIssue("DP1-1");
-                
-                // Assert
-                Assert.NotNull(result);
-                Assert.True(result.Any());
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
 
-                // Get an item and check for two common properties (updaterName & updated)
-                var firstChange = result.First();
+                    // YouTrack only records history for changes that are a minute apart. Let's sit and wait before making changes and generating history...
+                    await Task.Delay(70000);
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");  
+                    await service.UpdateIssue(temporaryIssueContext.Issue.Id, temporaryIssueContext.Issue.Summary + " (updated)", temporaryIssueContext.Issue.Description + " (updated)");
 
-                Assert.True(firstChange.Fields.Count > 0);
-                Assert.True(firstChange.ForField("updaterName") != null);
-                Assert.True(firstChange.ForField("updated") != null && firstChange.ForField("updated").To.AsDateTime() < DateTime.UtcNow);
+                    // Act
+                    var result = await service.GetChangeHistoryForIssue(temporaryIssueContext.Issue.Id);
+
+                    // Assert
+                    Assert.NotNull(result);
+                    Assert.True(result.Any());
+
+                    // Get an item and check for two common properties (updaterName & updated)
+                    var firstChange = result.First();
+
+                    Assert.True(firstChange.Fields.Count > 0);
+                    Assert.True(firstChange.ForField("updaterName") != null);
+                    Assert.True(firstChange.ForField("updated") != null);
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
             
             [Fact]

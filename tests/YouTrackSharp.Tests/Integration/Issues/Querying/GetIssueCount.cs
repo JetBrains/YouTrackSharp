@@ -14,13 +14,20 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");
+
+                    // Act
+                    var result = await service.GetIssueCount("assignee:me");
                 
-                // Act
-                var result = await service.GetIssueCount("assignee:me");
-                
-                // Assert
-                Assert.True(result > 0);
+                    // Assert
+                    Assert.True(result > 0);
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
         }
     }

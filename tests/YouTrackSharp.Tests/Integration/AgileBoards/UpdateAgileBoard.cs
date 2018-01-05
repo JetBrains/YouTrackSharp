@@ -21,7 +21,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 var existingAgileBoards = await service.GetAgileBoards();
                 foreach (var agileBoard in existingAgileBoards.Where(b => b.Projects.Any(p => p.Id == "DP1")))
                 {
-                    var updatedBoardName = "Test Board " + Guid.NewGuid();
+                    var updatedBoardName = DemoBoardNamePrefix + Guid.NewGuid();
 
                     // Act
                     await service.UpdateAgileBoard(agileBoard.Id, new AgileSettings

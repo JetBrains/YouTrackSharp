@@ -78,7 +78,7 @@ namespace YouTrackSharp.Tests.Infrastructure
         {
             if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
             {
-                throw new Exception("Please call the Destroy() method manually.");
+                Console.WriteLine($"The temporary issue will not be cleaned up. Please call the {nameof(TemporaryIssueContext)}.{nameof(Destroy)}() method before disposing.");
             }
         }
     }

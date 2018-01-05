@@ -45,6 +45,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 Assert.Equal(newIssue.GetField("State").Value, createdIssue.State[0]);
                 Assert.Equal(newIssue.GetField("Fix versions").Value, createdIssue.Fix_versions);
                 Assert.Equal(newIssue.GetField("Due Date").AsDateTime().ToString("d"), createdIssue.GetField("Due Date").AsDateTime().ToString("d"));
+
+                await service.DeleteIssue(result);
             }
         }
     }

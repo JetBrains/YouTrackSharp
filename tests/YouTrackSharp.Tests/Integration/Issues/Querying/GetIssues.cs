@@ -14,17 +14,24 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.GetIssues("assignee:me", take: 100);
-                
-                // Assert
-                Assert.NotNull(result);
-                foreach (dynamic issue in result)
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
                 {
-                    Assert.Equal("demo1", issue.Assignee[0].UserName);
-                    Assert.NotNull(issue.ProjectShortName);
+                    var service = connection.CreateIssuesService();
+
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");
+
+                    // Act
+                    var result = await service.GetIssues("assignee:me", take: 100);
+
+                    // Assert
+                    Assert.NotNull(result);
+                    foreach (dynamic issue in result)
+                    {
+                        Assert.Equal("demo1", issue.Assignee[0].UserName);
+                        Assert.NotNull(issue.ProjectShortName);
+                    }
+
+                    await temporaryIssueContext.Destroy();
                 }
             }
             

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Projects;
@@ -22,7 +23,14 @@ namespace YouTrackSharp.Tests.Integration.Projects
 
                 try
                 {
-                    await service.CreateProjectCustomField(projectId, customField);
+                    try
+                    {
+                        await service.CreateProjectCustomField(projectId, customField);
+                    }
+                    catch (HttpRequestException conflict) when (conflict.Message.Contains("409"))
+                    {
+                        // means the custom field already exists, so no need to fail here
+                    }
 
                     // Act
                     customField.EmptyText = "My empty text";
