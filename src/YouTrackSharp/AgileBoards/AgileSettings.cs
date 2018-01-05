@@ -24,16 +24,16 @@ namespace YouTrackSharp.AgileBoards
         public ICollection<Project> Projects { get; set; }
 
         /// <summary>
-        /// The name of the agile board
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        /// <summary>
         /// The internal id used by YouTrack to identify the board
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }
+
+        /// <summary>
+        /// The name of the agile board
+        /// </summary>
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// The filter query used by the board
@@ -60,10 +60,10 @@ namespace YouTrackSharp.AgileBoards
         public ColorConfig ColorConfig { get; set; }
 
         /// <summary>
-        /// I have no idea what this field means.
+        /// Internal property.
         /// </summary>
         [JsonProperty("completeBacklogHierarhy")]
-        public bool CompleteBacklogHierarhy { get; set; }
+        public bool? CompleteBacklogHierarhy { get; set; }
 
         /// <summary>
         /// The <see cref="SwimlaneSettings"/> of the board

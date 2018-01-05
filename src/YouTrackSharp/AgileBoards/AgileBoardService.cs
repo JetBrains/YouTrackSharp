@@ -135,6 +135,54 @@ namespace YouTrackSharp.AgileBoards
         }
 
         /// <summary>
+        /// Updates an agile board on the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Update-Agile-Configuration.html">Update Agile Configuration</a>.
+        /// Note that the data contained in the <paramref name="agileSettings"/> needs to be accurate i.e. any projects referenced should exist on the server.</remarks>
+        /// <param name="agileBoardId">Id of the agile board to update.</param>
+        /// <param name="agileSettings">The <see cref="AgileSettings"/> to update.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="agileSettings"/> is null.</exception>
+        /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        public async Task UpdateAgileBoard(string agileBoardId, AgileSettings agileSettings)
+        {
+            if (agileSettings == null)
+            {
+                throw new ArgumentNullException(nameof(agileSettings));
+            }
+
+            // Ensure no null values or empty collections are sent
+            if (agileSettings.Projects?.Count == 0) agileSettings.Projects = null;
+            if (agileSettings.Sprints?.Count == 0) agileSettings.Sprints = null;
+
+            var stringContent = new StringContent(JsonConvert.SerializeObject(agileSettings, 
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                }));
+            stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
+
+            var client = await _connection.GetAuthenticatedHttpClient();
+            var response = await client.PutAsync($"rest/admin/agile/{agileBoardId}", stringContent);
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                // Try reading the error message
+                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
+                if (responseJson["value"] != null)
+                {
+                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
+                }
+                else
+                {
+                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
+                }
+            }
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        /// <summary>
         /// Get sprint by id
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Sprint-by-ID.html">Get Sprint by ID</a>.</remarks>
