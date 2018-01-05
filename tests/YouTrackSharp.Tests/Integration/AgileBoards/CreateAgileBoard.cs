@@ -20,7 +20,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 var service = connection.CreateAgileBoardService();
 
                 // Act
-                var projects = new List<Project> { new Project { Id = "TP" } };
+                var projects = new List<Project> { new Project { Id = "DP1" } };
                 var columnSettings = new ColumnSettings
                 {
                     Field = new Field { Name = "State" }
@@ -44,11 +44,10 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 Assert.NotNull(newBoard.ColumnSettings.Field);
                 Assert.Equal("Test Board", newBoard.Name);
                 Assert.Equal("State", newBoard.ColumnSettings.Field.Name);
-                Assert.Contains(newBoard.Projects, p=>p.Id=="TP");
+                Assert.Contains(newBoard.Projects, p => p.Id == "DP1");
 
                 //Clean up
                 // Remove the newly created board (currently not supported)
-
             }
 
             [Fact]
