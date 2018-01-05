@@ -34,7 +34,7 @@ namespace YouTrackSharp.AgileBoards
         /// var connection = new BearerTokenConnection("youtrack url", "some token");
         /// var service = connection.CreateAgileBoardsService();
         ///
-        /// var projects = new List<Project> { new Project { Id = "TP" } };
+        /// var projects = new List&lt;Project&gt; { new Project { Id = "TP" } };
         /// var columnSettings = new ColumnSettings
         /// {
         ///     Field = new Field { Name = "State" }
