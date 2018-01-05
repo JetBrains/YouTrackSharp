@@ -1,3 +1,4 @@
+using YouTrackSharp.AgileBoards;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Management;
 using YouTrackSharp.Projects;
@@ -19,7 +20,7 @@ namespace YouTrackSharp
         {
             return new ProjectsService(connection);
         }
-        
+
         /// <summary>
         /// Creates a <see cref="IssuesService" />.
         /// </summary>
@@ -29,7 +30,7 @@ namespace YouTrackSharp
         {
             return new IssuesService(connection);
         }
-        
+
         /// <summary>
         /// Creates a <see cref="TimeTrackingService" />.
         /// </summary>
@@ -39,7 +40,7 @@ namespace YouTrackSharp
         {
             return new TimeTrackingService(connection);
         }
-        
+
         /// <summary>
         /// Creates a <see cref="UserManagementService" />.
         /// </summary>
@@ -49,7 +50,7 @@ namespace YouTrackSharp
         {
             return new UserManagementService(connection);
         }
-        
+
         /// <summary>
         /// Creates a <see cref="TimeTrackingManagementService" />.
         /// </summary>
@@ -58,6 +59,26 @@ namespace YouTrackSharp
         public static TimeTrackingManagementService CreateTimeTrackingManagementService(this Connection connection)
         {
             return new TimeTrackingManagementService(connection);
+        }
+
+        /// <summary>
+        /// Creates a <see cref="ProjectCustomFieldsService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="ProjectCustomFieldsService" /> for accessing custom project fields.</returns>
+        public static ProjectCustomFieldsService ProjectCustomFieldsService(this Connection connection)
+        {
+            return new ProjectCustomFieldsService(connection);
+        }
+
+        /// <summary>
+        /// Creates a <see cref="AgileBoardService" />.
+        /// </summary>
+        /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
+        /// <returns><see cref="AgileBoardService" /> for working with YouTrack agile boards.</returns>
+        public static AgileBoardService CreateAgileBoardService(this Connection connection)
+        {
+            return new AgileBoardService(connection);
         }
     }
 }
