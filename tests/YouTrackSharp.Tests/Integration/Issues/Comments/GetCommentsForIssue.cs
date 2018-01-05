@@ -15,13 +15,21 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.GetCommentsForIssue("DP1-1");
-                
-                // Assert
-                Assert.True(result.Any());
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "comment", "New comment on issue");
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "comment", "Another comment on issue");
+
+                    // Act
+                    var result = await service.GetCommentsForIssue(temporaryIssueContext.Issue.Id);
+
+                    // Assert
+                    Assert.True(result.Any());
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
             
             [Fact]

@@ -17,21 +17,28 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.GetChangeHistoryForIssue("DP1-1");
-                
-                // Assert
-                Assert.NotNull(result);
-                Assert.True(result.Any());
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+                    
+                    await service.UpdateIssue(temporaryIssueContext.Issue.Id, temporaryIssueContext.Issue.Summary, "Updated description");
 
-                // Get an item and check for two common properties (updaterName & updated)
-                var firstChange = result.First();
+                    // Act
+                    var result = await service.GetChangeHistoryForIssue(temporaryIssueContext.Issue.Id);
 
-                Assert.True(firstChange.Fields.Count > 0);
-                Assert.True(firstChange.ForField("updaterName") != null);
-                Assert.True(firstChange.ForField("updated") != null && firstChange.ForField("updated").To.AsDateTime() < DateTime.UtcNow);
+                    // Assert
+                    Assert.NotNull(result);
+                    Assert.True(result.Any());
+
+                    // Get an item and check for two common properties (updaterName & updated)
+                    var firstChange = result.First();
+
+                    Assert.True(firstChange.Fields.Count > 0);
+                    Assert.True(firstChange.ForField("updaterName") != null);
+                    Assert.True(firstChange.ForField("updated") != null && firstChange.ForField("updated").To.AsDateTime() < DateTime.UtcNow);
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
             
             [Fact]

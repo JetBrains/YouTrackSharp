@@ -22,7 +22,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 Assert.NotNull(demoBoard);
 
                 Assert.Equal(demoBoard.Id, DemoBoardId);
-                Assert.Equal(demoBoard.Name, DemoBoardName);
+                Assert.StartsWith(DemoBoardNamePrefix, demoBoard.Name);
                 Assert.NotNull(demoBoard.Id);
                 Assert.NotNull(demoBoard.Name);
                 Assert.NotNull(demoBoard.ColumnSettings);

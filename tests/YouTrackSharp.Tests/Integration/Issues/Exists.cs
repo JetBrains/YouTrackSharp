@@ -9,20 +9,26 @@ namespace YouTrackSharp.Tests.Integration.Issues
         public class Exists
         {
             [Theory]
-            [InlineData("DP1-1", true)]
-            [InlineData("DP1-0", false)]
-            [InlineData("DP404-1", false)]
-            public async Task Valid_Connection_Returns_Boolran_For_Issue(string issueId, bool expectedResult)
+            [InlineData(true)]
+            [InlineData(false)]
+            public async Task Valid_Connection_Returns_Boolean_For_Issue(bool issueExists)
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.Exists(issueId);
-                
-                // Assert
-                Assert.Equal(expectedResult, result);
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+
+                    // Act
+                    var result = issueExists
+                        ? await service.Exists(temporaryIssueContext.Issue.Id)
+                        : await service.Exists("NOT-EXIST");
+
+                    // Assert
+                    Assert.Equal(issueExists, result);
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
             
             [Fact]

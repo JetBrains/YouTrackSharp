@@ -2,9 +2,10 @@
 {
     public partial class AgileBoardServiceTests
     {
-        public static string DemoBoardId => "108-0";
-        public static string DemoBoardName => "Demo Test Board";
-        public static string DemoSprintId => "109-0";
+        public static string DemoBoardId => "108-2";
+        public static string DemoBoardNamePrefix => "Test Board";
+
+        public static string DemoSprintId => "109-2";
         public static string DemoSprintName => "First sprint";
     }
 }

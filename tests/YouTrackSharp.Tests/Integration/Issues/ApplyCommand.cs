@@ -38,13 +38,18 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 // Arrange
                 var connection = Connections.Demo1Token;
                 var service = connection.CreateIssuesService();
-                
-                // Act
-                var exception = await Assert.ThrowsAsync<YouTrackErrorException>(async () => 
-                    await service.ApplyCommand("DP1-1", "gibberish"));
 
-                // Assert
-                Assert.True(exception.Message.Contains("Command [gibberish] is invalid"));
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    // Act
+                    var exception = await Assert.ThrowsAsync<YouTrackErrorException>(async () =>
+                        await service.ApplyCommand(temporaryIssueContext.Issue.Id, "gibberish"));
+
+                    // Assert
+                    Assert.True(exception.Message.Contains("Command [gibberish] is invalid"));
+
+                    await temporaryIssueContext.Destroy();
+                }
             }
         }
     }

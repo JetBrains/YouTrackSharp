@@ -13,20 +13,30 @@ namespace YouTrackSharp.Tests.Integration.Issues
             {
                 // Arrange
                 var connection = Connections.Demo1Token;
-                var service = connection.CreateIssuesService();
-                
-                // Act
-                var result = await service.GetLinksForIssue("DP1-1");
-                
-                // Assert
-                Assert.NotNull(result);
-                foreach (var link in result)
+                using (var temporaryIssueContext1 = await TemporaryIssueContext.Create(connection, GetType()))
+                using (var temporaryIssueContext2 = await TemporaryIssueContext.Create(connection, GetType()))
                 {
-                    Assert.NotNull(link.InwardType);
-                    Assert.NotNull(link.OutwardType);
-                    Assert.NotNull(link.TypeName);
-                    Assert.NotNull(link.Source);
-                    Assert.NotNull(link.Target);
+                    var service = connection.CreateIssuesService();
+
+                    await service.ApplyCommand(temporaryIssueContext1.Issue.Id, "assignee me");
+                    await service.ApplyCommand(temporaryIssueContext2.Issue.Id, "assignee me relates to " + temporaryIssueContext1.Issue.Id);
+
+                    // Act
+                    var result = await service.GetLinksForIssue(temporaryIssueContext1.Issue.Id);
+
+                    // Assert
+                    Assert.NotNull(result);
+                    foreach (var link in result)
+                    {
+                        Assert.NotNull(link.InwardType);
+                        Assert.NotNull(link.OutwardType);
+                        Assert.NotNull(link.TypeName);
+                        Assert.NotNull(link.Source);
+                        Assert.NotNull(link.Target);
+                    }
+
+                    await temporaryIssueContext2.Destroy();
+                    await temporaryIssueContext1.Destroy();
                 }
             }
         }
