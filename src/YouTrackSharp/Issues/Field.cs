@@ -100,5 +100,14 @@ namespace YouTrackSharp.Issues
         {
             return Convert.ToInt32(AsString());
         }
+
+        /// <summary>
+        /// Gets the value as a <see cref="T:System.Boolean"/>.
+        /// </summary>
+        /// <returns><see cref="Value" /> as <see cref="T:System.Boolean"/>.</returns>
+        public bool AsBool()
+        {
+            return Convert.ToBoolean(AsString());
+        }
     }
 }

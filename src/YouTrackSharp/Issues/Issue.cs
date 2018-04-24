@@ -69,6 +69,18 @@ namespace YouTrackSharp.Issues
             }
             set => SetField("Description", value);
         }
+
+        /// <summary>
+        /// Is the issue description in Markdown format?
+        /// </summary>
+        public bool IsMarkdown {
+            get
+            {
+                var field = GetField("markdown");
+                return field != null && field.AsBool();
+            }
+            set => SetField("markdown", value);
+        }
         
         /// <summary>
         /// Issue fields.

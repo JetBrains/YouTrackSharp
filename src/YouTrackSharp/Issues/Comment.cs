@@ -55,6 +55,12 @@ namespace YouTrackSharp.Issues
         public bool IsDeleted { get; set; }
 
         /// <summary>
+        /// Is the comment in Markdown format?
+        /// </summary>
+        [JsonProperty("markdown")]
+        public bool IsMarkdown { get; set; }
+
+        /// <summary>
         /// If comment was imported from JIRA, represents the Id it has in JIRA.
         /// </summary>
         [JsonProperty("jiraId")]
