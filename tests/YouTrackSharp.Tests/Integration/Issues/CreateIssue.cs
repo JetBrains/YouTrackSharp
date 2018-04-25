@@ -20,7 +20,8 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 var newIssue = new Issue
                 {
                     Summary = "Test issue - " + DateTime.UtcNow.ToString("U"),
-                    Description = "This is a test issue created while running unit tests."
+                    Description = "This is a **test** issue created while running unit tests.",
+                    // TODO 2018.2 IsMarkdown = true
                 };
                 
                 newIssue.SetField("Assignee", "demo1");
@@ -39,6 +40,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 dynamic createdIssue = await service.GetIssue(result);
                 Assert.Equal(newIssue.Summary, createdIssue.Summary);
                 Assert.Equal(newIssue.Description, createdIssue.Description);
+                // TODO 2018.2 Assert.Equal(newIssue.IsMarkdown, createdIssue.IsMarkdown);
                 
                 Assert.Equal(newIssue.GetField("Assignee").Value, createdIssue.Assignee[0].UserName);
                 Assert.Equal(newIssue.GetField("Type").Value, createdIssue.Type[0]);
