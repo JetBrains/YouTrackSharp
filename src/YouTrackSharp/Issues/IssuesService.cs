@@ -106,7 +106,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(projectId));
             }
             
-            var queryString = new List<string>(3);
+            var queryString = new List<string>(4);
             queryString.Add($"project={projectId}");
             
             if (!string.IsNullOrEmpty(issue.Summary))
@@ -116,6 +116,10 @@ namespace YouTrackSharp.Issues
             if (!string.IsNullOrEmpty(issue.Description))
             {
                 queryString.Add($"description={WebUtility.UrlEncode(issue.Description)}");
+            }
+            if (issue.IsMarkdown)
+            {
+                queryString.Add($"markdown=true");
             }
             
             var query = string.Join("&", queryString);
@@ -178,10 +182,11 @@ namespace YouTrackSharp.Issues
         /// <param name="issueId">Id of the issue to update.</param>
         /// <param name="summary">Updated summary of the issue.</param>
         /// <param name="description">Updated description of the issue.</param>
+        /// <param name="isMarkdown">Is the updated description of the issue in Markdown format? Setting the format to Markdown is supported in YouTrack versions 2018.2 and later.</param>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:YouTrackErrorException">When the call to the remote YouTrack server instance failed and YouTrack reported an error message.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task UpdateIssue(string issueId, string summary = null, string description = null)
+        public async Task UpdateIssue(string issueId, string summary = null, string description = null, bool? isMarkdown = null)
         {
             if (string.IsNullOrEmpty(issueId))
             {
@@ -193,7 +198,7 @@ namespace YouTrackSharp.Issues
                 return;
             }
             
-            var queryString = new List<string>(2);
+            var queryString = new List<string>(3);
             if (!string.IsNullOrEmpty(summary))
             {
                 queryString.Add($"summary={WebUtility.UrlEncode(summary)}");
@@ -201,6 +206,10 @@ namespace YouTrackSharp.Issues
             if (!string.IsNullOrEmpty(description))
             {
                 queryString.Add($"description={WebUtility.UrlEncode(description)}");
+            }
+            if (isMarkdown.HasValue)
+            {
+                queryString.Add($"markdown={isMarkdown.ToString().ToLowerInvariant()}");
             }
             
             var query = string.Join("&", queryString);
