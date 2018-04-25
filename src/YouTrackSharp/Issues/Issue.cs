@@ -73,13 +73,14 @@ namespace YouTrackSharp.Issues
         /// <summary>
         /// Is the issue description in Markdown format?
         /// </summary>
+        /// <remarks>Setting the format to Markdown is supported in YouTrack versions 2018.2 and later.</remarks>
         public bool IsMarkdown {
             get
             {
                 var field = GetField("markdown");
                 return field != null && field.AsBool();
             }
-            set => SetField("markdown", value);
+            set => SetField("markdown", value.ToString().ToLowerInvariant());
         }
         
         /// <summary>

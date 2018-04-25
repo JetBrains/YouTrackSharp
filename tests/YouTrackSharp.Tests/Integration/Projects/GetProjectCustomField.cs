@@ -16,7 +16,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 // Arrange
                 var connection = Connections.Demo1Token;
                 var service = connection.ProjectCustomFieldsService();
-                string customFieldName = "Assignee";
+                var customFieldName = "Assignee";
 
                 // Act
                 var result = await service.GetProjectCustomField("DP1", customFieldName);

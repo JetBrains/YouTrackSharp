@@ -110,7 +110,7 @@ namespace YouTrackSharp.Projects
                 throw new ArgumentNullException(nameof(customField));
             }
 
-            string query = string.Empty;
+            var query = string.Empty;
             if (!string.IsNullOrEmpty(customField.EmptyText))
             {
                 query = $"?emptyFieldText={WebUtility.UrlEncode(customField.EmptyText)}";
@@ -144,7 +144,7 @@ namespace YouTrackSharp.Projects
                 throw new ArgumentNullException(nameof(customField));
             }
 
-            string query = string.Empty;
+            var query = string.Empty;
             if (!string.IsNullOrEmpty(customField.EmptyText))
             {
                 query = $"?emptyFieldText={WebUtility.UrlEncode(customField.EmptyText)}";
