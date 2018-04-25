@@ -4,7 +4,7 @@ using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration
 {
-    public class ConnectionTests
+    public partial class ConnectionTests
     {
         public class GetAuthenticatedHttpClient
         {
