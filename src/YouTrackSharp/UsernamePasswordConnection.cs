@@ -19,6 +19,8 @@ namespace YouTrackSharp
         private readonly string _username;
         private readonly string _password;
 
+        private Action<HttpClientHandler> _configureHandler;
+
         /// <summary>
         /// Creates an instance of the <see cref="UsernamePasswordConnection" /> class.
         /// </summary>
@@ -29,10 +31,26 @@ namespace YouTrackSharp
         /// The <paramref name="serverUrl" /> was null, empty or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
         public UsernamePasswordConnection(string serverUrl, string username, string password)
+            : this(serverUrl, username, password, null)
+        {
+        }
+
+        /// <summary>
+        /// Creates an instance of the <see cref="UsernamePasswordConnection" /> class.
+        /// </summary>
+        /// <param name="serverUrl">YouTrack server instance URL that will be connected against.</param>
+        /// <param name="username">The username to be used when authenticating.</param>
+        /// <param name="password">The password to be used when authenticating.</param>
+        /// <param name="configureHandler">An action that configures the underlying <see cref="T:System.Net.HttpClientHandler" />, e.g. to override SSL settings.</param>
+        /// <exception cref="ArgumentException">
+        /// The <paramref name="serverUrl" /> was null, empty or did not represent a valid, absolute <see cref="T:System.Uri" />.
+        /// </exception>
+        public UsernamePasswordConnection(string serverUrl, string username, string password, Action<HttpClientHandler> configureHandler)
             : base(serverUrl)
         {
             _username = username;
             _password = password;
+            _configureHandler = configureHandler;
         }
 
         /// <inheritdoc />
@@ -41,11 +59,15 @@ namespace YouTrackSharp
             // Initialize HTTP client
             if (_httpClient == null)
             {
-                _httpClient = new HttpClient(new HttpClientHandler
+                var handler = new HttpClientHandler
                 {
                     CookieContainer = new CookieContainer(),
                     UseCookies = true
-                })
+                };
+
+                _configureHandler?.Invoke(handler);
+
+                _httpClient = new HttpClient(handler)
                 {
                     BaseAddress = ServerUri
                 };

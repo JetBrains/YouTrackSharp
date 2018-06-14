@@ -18,6 +18,8 @@ namespace YouTrackSharp
         
         private readonly string _bearerToken;
 
+        private Action<HttpClientHandler> _configureHandler;
+
         /// <summary>
         /// Creates an instance of the <see cref="BearerTokenConnection" /> class.
         /// </summary>
@@ -27,9 +29,24 @@ namespace YouTrackSharp
         /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
         public BearerTokenConnection(string serverUrl, string bearerToken)
+            : this(serverUrl, bearerToken, null)
+        {
+        }
+
+        /// <summary>
+        /// Creates an instance of the <see cref="BearerTokenConnection" /> class.
+        /// </summary>
+        /// <param name="serverUrl">YouTrack server instance URL that will be connected against.</param>
+        /// <param name="bearerToken">The bearer token to inject into HTTP request headers.</param>
+        /// <param name="configureHandler">An action that configures the underlying <see cref="T:System.Net.HttpClientHandler" />, e.g. to override SSL settings.</param>
+        /// <exception cref="ArgumentException">
+        /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
+        /// </exception>
+        public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler)
             : base(serverUrl)
         {
             _bearerToken = bearerToken;
+            _configureHandler = configureHandler;
         }
 
         /// <inheritdoc />
@@ -38,7 +55,11 @@ namespace YouTrackSharp
             // Initialize HTTP client
             if (_httpClient == null)
             {
-                _httpClient = new HttpClient(new BearerTokenHttpClientHandler(_bearerToken))
+                var handler = new BearerTokenHttpClientHandler(_bearerToken);
+
+                _configureHandler?.Invoke(handler);
+
+                _httpClient = new HttpClient(handler)
                 {
                     BaseAddress = ServerUri
                 };

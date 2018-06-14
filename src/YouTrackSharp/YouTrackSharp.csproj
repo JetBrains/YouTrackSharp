@@ -17,7 +17,7 @@
     <Copyright>JetBrains</Copyright>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>3.4.1</VersionPrefix>
+    <VersionPrefix>3.5.0</VersionPrefix>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
