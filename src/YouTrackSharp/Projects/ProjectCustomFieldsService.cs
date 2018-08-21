@@ -14,7 +14,7 @@ namespace YouTrackSharp.Projects
     /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Project-Custom-Fields.html"> methods related to operations with custom fields of a project</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
-    public class ProjectCustomFieldsService
+    public class ProjectCustomFieldsService : Interfaces.IProjectCustomFieldsService
     {
         private readonly Connection _connection;
 

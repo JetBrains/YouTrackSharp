@@ -9,7 +9,7 @@ namespace YouTrackSharp.Projects
     /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html">YouTrack Projects Related Methods</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
-    public class ProjectsService
+    public class ProjectsService : Interfaces.IProjectsService
     {
         private readonly Connection _connection;
 
