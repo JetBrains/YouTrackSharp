@@ -207,3 +207,4 @@ artifacts/
 .idea/.idea.YouTrackSharp/.idea/inspectionProfiles/profiles_settings.xml
 .idea/.idea.YouTrackSharp/.idea/contentModel.xml
 /.vs
+.idea/.idea.YouTrackSharp/.idea/indexLayout.xml
