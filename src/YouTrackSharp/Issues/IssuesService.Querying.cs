@@ -9,19 +9,7 @@ namespace YouTrackSharp.Issues
 {
     public partial class IssuesService
     {
-        /// <summary>
-        /// Get issues in a project from the server.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Issues-in-a-Project.html">Get Issues in a Project</a>.</remarks>
-        /// <param name="projectId">Id of a project to get issues from.</param>
-        /// <param name="filter">Apply a filter to issues in a project.</param>
-        /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
-        /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance..</param>
-        /// <param name="updatedAfter">Only issues updated after the specified date will be retrieved.</param>
-        /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task<ICollection<Issue>> GetIssuesInProject(string projectId, string filter = null,
             int? skip = null, int? take = null, DateTime? updatedAfter = null, bool wikifyDescription = false)
         {
@@ -66,16 +54,7 @@ namespace YouTrackSharp.Issues
             return JsonConvert.DeserializeObject<ICollection<Issue>>(await response.Content.ReadAsStringAsync());
         }
 
-        /// <summary>
-        /// Get issues from the server.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-the-List-of-Issues.html">Get the List of Issues</a>.</remarks>
-        /// <param name="filter">Apply a filter to issues.</param>
-        /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
-        /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance.</param>
-        /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
         {
             var queryString = new List<string>(4);
@@ -111,13 +90,7 @@ namespace YouTrackSharp.Issues
             return wrapper.Issues;
         }
 
-        /// <summary>
-        /// Get issue count from the server. This operation may be retried internally and take a while to complete.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-a-Number-of-Issues.html">Get a Number of Issues</a>.</remarks>
-        /// <param name="filter">Apply a filter to issues.</param>
-        /// <returns>The number of <see cref="Issue" /> that match the specified filter.</returns>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task<long> GetIssueCount(string filter = null)
         {
             var query = !string.IsNullOrEmpty(filter)

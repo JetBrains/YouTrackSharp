@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
+using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp.Tests.Integration.TimeTracking
 {
@@ -20,8 +21,9 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                 var results = await service.GetWorkTypesForProject("DP1");
                 
                 // Assert
-                Assert.True(results.Any());
-                foreach (var workType in results)
+                var workTypes = results as WorkType[] ?? results.ToArray();
+                Assert.True(workTypes.Any());
+                foreach (var workType in workTypes)
                 {
                     Assert.NotNull(workType.Id);
                     Assert.NotNull(workType.Name);

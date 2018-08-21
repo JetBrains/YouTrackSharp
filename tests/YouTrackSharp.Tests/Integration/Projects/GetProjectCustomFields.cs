@@ -1,8 +1,5 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Projects;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Projects
