@@ -15,7 +15,7 @@ namespace YouTrackSharp.Issues
     /// </summary>
     [DebuggerDisplay("{Id}: {Summary}")]
     public class Issue
-        : DynamicObject, Interfaces.IIssue
+        : DynamicObject
     {
         private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.OrdinalIgnoreCase);
         
