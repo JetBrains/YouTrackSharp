@@ -30,7 +30,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                     var result = await service.GetUser(randomUsername);
                     
                     Assert.NotNull(result);
-                    Assert.Equal(randomUsername, "Test user (updated)");
+                    Assert.Equal("Test user (updated)", randomUsername);
                 }
                 finally
                 {

@@ -129,4 +129,7 @@
   <data name="Exception_UnknownError" xml:space="preserve">
     <value>Unknown error.</value>
   </data>
+  <data name="ServerUrlIsInvalid" xml:space="preserve">
+    <value>The server URL is invalid. Please provide a valid URL to a self-hosted YouTrack instance or YouTrack InCloud.</value>
+  </data>
 </root>

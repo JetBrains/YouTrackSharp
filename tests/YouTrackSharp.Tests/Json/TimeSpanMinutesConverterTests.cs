@@ -77,7 +77,6 @@ namespace YouTrackSharp.Tests.Json
                 }
 
                 // Assert
-                Assert.NotNull(result);
                 Assert.Equal(destination, result);
             }
         }

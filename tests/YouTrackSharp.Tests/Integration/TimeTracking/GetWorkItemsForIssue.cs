@@ -35,7 +35,6 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                     {
                         Assert.NotNull(workItem.Id);
                         Assert.NotNull(workItem.Date);
-                        Assert.NotNull(workItem.Duration);
                         Assert.True(workItem.Duration.TotalMinutes > 0);
                         Assert.NotNull(workItem.Description);
                         Assert.NotNull(workItem.WorkType);

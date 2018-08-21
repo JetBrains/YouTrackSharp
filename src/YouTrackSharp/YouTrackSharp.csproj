@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
@@ -8,8 +8,8 @@
     <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.0.0</FileVersion>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
     <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
     <Authors>JetBrains</Authors>
     <Company>JetBrains</Company>
@@ -17,11 +17,12 @@
     <Copyright>JetBrains</Copyright>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>3.6.0</VersionPrefix>
+    <VersionPrefix>4.0.0</VersionPrefix>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.2</Version>
+      <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

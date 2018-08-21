@@ -46,7 +46,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                         await service.ApplyCommand(temporaryIssueContext.Issue.Id, "gibberish"));
 
                     // Assert
-                    Assert.True(exception.Message.Contains("Command [gibberish] is invalid"));
+                    Assert.Contains("Command [gibberish] is invalid", exception.Message);
 
                     await temporaryIssueContext.Destroy();
                 }
