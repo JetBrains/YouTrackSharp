@@ -19,7 +19,7 @@ namespace YouTrackSharp {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -57,6 +57,15 @@ namespace YouTrackSharp {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server returned HTTP status 400 - Bad Request. This could indicate that the feature is not enabled on the server. Check the Response property for more details..
+        /// </summary>
+        internal static string Exception_BadRequest {
+            get {
+                return ResourceManager.GetString("Exception_BadRequest", resourceCulture);
             }
         }
         

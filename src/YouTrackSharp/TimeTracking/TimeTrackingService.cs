@@ -37,6 +37,11 @@ namespace YouTrackSharp.TimeTracking
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/admin/project/{projectId}/timetracking/worktype");
 
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
+            }
+            
             response.EnsureSuccessStatusCode();
             
             return JsonConvert.DeserializeObject<IEnumerable<WorkType>>(await response.Content.ReadAsStringAsync());
@@ -52,6 +57,11 @@ namespace YouTrackSharp.TimeTracking
 
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/issue/{issueId}/timetracking/workitem");
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
+            }
 
             response.EnsureSuccessStatusCode();
 
@@ -152,6 +162,11 @@ namespace YouTrackSharp.TimeTracking
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 return;
+            }
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
             }
 
             response.EnsureSuccessStatusCode();
