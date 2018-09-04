@@ -128,7 +128,7 @@
   </data>
   <data name="Exception_BadRequest" xml:space="preserve">
     <value>Server returned HTTP status 400 - Bad Request. This could indicate that the feature is not enabled on the server. Check the Response property for more details.</value>
-  </data>
+  </data>  
   <data name="Exception_UnknownError" xml:space="preserve">
     <value>Unknown error.</value>
   </data>

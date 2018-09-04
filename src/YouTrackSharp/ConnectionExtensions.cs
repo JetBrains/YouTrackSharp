@@ -1,3 +1,4 @@
+using System;
 using YouTrackSharp.AgileBoards;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Management;
@@ -74,8 +75,12 @@ namespace YouTrackSharp
         /// <summary>
         /// Creates a <see cref="AgileBoardService" />.
         /// </summary>
+        /// <remarks>
+        /// YouTrack 2018.2 no longer supports the agile board API. Please check <a href="https://github.com/JetBrains/YouTrackSharp/issues/81">https://github.com/JetBrains/YouTrackSharp/issues/81</a> for more information.
+        /// </remarks>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="AgileBoardService" /> for working with YouTrack agile boards.</returns>
+        [Obsolete("YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
         public static IAgileBoardService CreateAgileBoardService(this Connection connection)
         {
             return new AgileBoardService(connection);
