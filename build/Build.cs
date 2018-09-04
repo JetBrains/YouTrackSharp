@@ -1,7 +1,6 @@
 using System;
 using Nuke.Common;
 using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Tools.GitVersion;
 using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
