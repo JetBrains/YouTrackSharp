@@ -5,6 +5,7 @@ using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 using YouTrackSharp.TimeTracking;
 
+// ReSharper disable PossibleMultipleEnumeration
 namespace YouTrackSharp.Tests.Integration.TimeTracking
 {
     public partial class TimeTrackingServiceTests
