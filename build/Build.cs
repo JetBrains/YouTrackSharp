@@ -9,9 +9,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 class Build : NukeBuild
 {
-    [GitVersion] readonly GitVersion GitVersion;
-
-    public string PackageVersionSuffix => GitVersion.BranchName.Replace("/", "-") + "-" + DateTime.UtcNow.ToString("yyyyMMddhhmm");
+    public string PackageVersionSuffix => "develop-" + DateTime.UtcNow.ToString("yyyyMMddhhmm");
 
     public static int Main() => Execute<Build>(x => x.Pack);
 
@@ -34,7 +32,6 @@ class Build : NukeBuild
 
     Target Compile => _ => _
         .DependsOn(Restore)
-        .Requires(() => GitVersion != null)
         .Executes(() =>
         {
             DotNetBuild(SolutionFile, settings => settings
@@ -52,7 +49,6 @@ class Build : NukeBuild
 
     Target Pack => _ => _
         .DependsOn(Test)
-        .Requires(() => GitVersion)
         .Executes(() =>
         {
             EnsureExistingDirectory(ArtifactsDirectory);
