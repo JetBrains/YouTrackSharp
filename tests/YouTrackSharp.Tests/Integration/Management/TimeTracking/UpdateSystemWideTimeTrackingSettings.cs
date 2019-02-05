@@ -11,7 +11,7 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
     {
         public class UpdateSystemWideTimeTrackingSettings
 		{
-			[Fact]
+			[Fact(Skip = "Ignore flaky test.")]
 			public async Task Valid_Connection_Updates_Systemwide_TimeTracking_Settings()
 			{
 				// Arrange
