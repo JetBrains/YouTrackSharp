@@ -57,13 +57,15 @@ The following API's are currently supported:
   
 Many other API's are not included yet - feel free to [tackle one of the `UpForGrabs` issues](https://github.com/JetBrains/YouTrackSharp/issues?q=is%3Aissue+is%3Aopen+label%3AUpForGrabs) and make YouTrackSharp better!
 
-
 ## Supported YouTrack versions
 
-YouTrack versions 2017.x and higher as well as YouTrack InCloud are officially supported by this library.
+YouTrackSharp versions follow YouTrack versioning. This means that YouTrackSharp 2018.4 supports YouTrack version 2018.4 as well as YouTrack InCloud for that version.
 
-Some features will work with older versions of YouTrack as well but they are not officially suppported. For other YouTrack versions:
+Some features will work with both newer and older versions of YouTrack as well but they are not officially suppported.
 
+For YouTrack versions before 2018.4:
+
+* YouTrack versions before 2018.4 - Use [YouTrackSharp 3.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 7.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 6.5 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 6.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
