@@ -1,10 +1,9 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using YouTrackSharp.Issues;
 using YouTrackSharp.Tests.Infrastructure;
 
+// ReSharper disable PossibleMultipleEnumeration
 // ReSharper disable once CheckNamespace
 namespace YouTrackSharp.Tests.Integration.Issues
 {

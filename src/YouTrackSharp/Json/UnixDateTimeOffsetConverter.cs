@@ -46,7 +46,7 @@ namespace YouTrackSharp.Json
                     long.TryParse(reader.Value.ToString(), out ticks);
                     break;
                 default:
-                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseUnixTimeStamp, reader.Value.ToString()));
+                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseUnixTimeStamp, reader.Value));
             }
 
             var converted = Math.Ceiling(Math.Log10(ticks)) >= 12 

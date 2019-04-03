@@ -4,7 +4,7 @@
 
 ![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/master/logo.png)
 
-.NET Standard 1.3 Library to access YouTrack API.
+.NET Standard 2.0 Library to access YouTrack API.
 
 For more information on YouTrack visit [jetbrains.com/youtrack](http://www.jetbrains.com/youtrack).
 
@@ -39,7 +39,7 @@ Other services are available as well, mapping to the [YouTrack REST API](https:/
 
 YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
 
-* Targets .NET Standard 1.3 - can be used with pretty much [any .NET platform](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)!
+* Targets .NET Standard 2.0 - can be used with pretty much [any .NET platform](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)!
 * All calls are `async` all the way.
 * Handles serialization of YouTrack's timestamps into `DateTime` where possible.
 * Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html). For YouTrack instances that do not have token support, username/password can be used.
@@ -57,13 +57,15 @@ The following API's are currently supported:
   
 Many other API's are not included yet - feel free to [tackle one of the `UpForGrabs` issues](https://github.com/JetBrains/YouTrackSharp/issues?q=is%3Aissue+is%3Aopen+label%3AUpForGrabs) and make YouTrackSharp better!
 
-
 ## Supported YouTrack versions
 
-YouTrack versions 2017.x and higher as well as YouTrack InCloud are officially supported by this library.
+YouTrackSharp versions follow YouTrack versioning. This means that YouTrackSharp 2018.4 supports YouTrack version 2018.4 as well as YouTrack InCloud for that version.
 
-Some features will work with older versions of YouTrack as well but they are not officially suppported. For other YouTrack versions:
+Some features will work with both newer and older versions of YouTrack as well but they are not officially suppported.
 
+For YouTrack versions before 2018.4:
+
+* YouTrack versions before 2018.4 - Use [YouTrackSharp 3.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 7.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 6.5 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)
 * YouTrack Standalone 6.0 - [use the 2.x branch](https://github.com/JetBrains/YouTrackSharp/tree/2.x) or [YouTrackSharp 2.x](https://www.nuget.org/packages/YouTrackSharp/)

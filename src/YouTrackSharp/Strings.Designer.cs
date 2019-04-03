@@ -10,7 +10,6 @@
 
 namespace YouTrackSharp {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -40,7 +39,7 @@ namespace YouTrackSharp {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("YouTrackSharp.Strings", typeof(Strings).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("YouTrackSharp.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,20 +61,20 @@ namespace YouTrackSharp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server returned HTTP status 400 - Bad Request. This could indicate that the feature is not enabled on the server. Check the Response property for more details..
+        /// </summary>
+        internal static string Exception_BadRequest {
+            get {
+                return ResourceManager.GetString("Exception_BadRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not authenticate. Server did not return expected authentication response. Check the Response property for more details..
         /// </summary>
         internal static string Exception_CouldNotAuthenticate {
             get {
                 return ResourceManager.GetString("Exception_CouldNotAuthenticate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Could not parse value \&quot;{0}\&quot; as Unix timestamp..
-        /// </summary>
-        internal static string Exception_CouldNotParseUnixTimeStamp {
-            get {
-                return ResourceManager.GetString("Exception_CouldNotParseUnixTimeStamp", resourceCulture);
             }
         }
         
@@ -89,11 +88,29 @@ namespace YouTrackSharp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not parse value \&quot;{0}\&quot; as Unix timestamp..
+        /// </summary>
+        internal static string Exception_CouldNotParseUnixTimeStamp {
+            get {
+                return ResourceManager.GetString("Exception_CouldNotParseUnixTimeStamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown error..
         /// </summary>
         internal static string Exception_UnknownError {
             get {
                 return ResourceManager.GetString("Exception_UnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The server URL is invalid. Please provide a valid URL to a self-hosted YouTrack instance or YouTrack InCloud..
+        /// </summary>
+        internal static string ServerUrlIsInvalid {
+            get {
+                return ResourceManager.GetString("ServerUrlIsInvalid", resourceCulture);
             }
         }
     }

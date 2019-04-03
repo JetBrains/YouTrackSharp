@@ -78,6 +78,7 @@ namespace YouTrackSharp.Tests.Infrastructure
         {
             if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
             {
+                // ReSharper disable once LocalizableElement
                 Console.WriteLine($"The temporary issue will not be cleaned up. Please call the {nameof(TemporaryIssueContext)}.{nameof(Destroy)}() method before disposing.");
             }
         }

@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
@@ -10,7 +8,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
     {
         public class GetProjectCustomField
         {
-            [Fact]
+            [Fact(Skip = "Ignore flaky test.")]
             public async Task Valid_Connection_Gets_CustomFields_For_Project()
             {
                 // Arrange

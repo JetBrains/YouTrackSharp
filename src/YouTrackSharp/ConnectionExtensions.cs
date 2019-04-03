@@ -1,3 +1,4 @@
+using System;
 using YouTrackSharp.AgileBoards;
 using YouTrackSharp.Issues;
 using YouTrackSharp.Management;
@@ -16,7 +17,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="ProjectsService" /> for working with YouTrack projects.</returns>
-        public static ProjectsService CreateProjectsService(this Connection connection)
+        public static IProjectsService CreateProjectsService(this Connection connection)
         {
             return new ProjectsService(connection);
         }
@@ -26,7 +27,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="IssuesService" /> for working with YouTrack issues.</returns>
-        public static IssuesService CreateIssuesService(this Connection connection)
+        public static IIssuesService CreateIssuesService(this Connection connection)
         {
             return new IssuesService(connection);
         }
@@ -36,7 +37,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="TimeTrackingService" /> for working with YouTrack time tracking.</returns>
-        public static TimeTrackingService CreateTimeTrackingService(this Connection connection)
+        public static ITimeTrackingService CreateTimeTrackingService(this Connection connection)
         {
             return new TimeTrackingService(connection);
         }
@@ -46,7 +47,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="UserManagementService" /> for managing YouTrack users.</returns>
-        public static UserManagementService CreateUserManagementService(this Connection connection)
+        public static IUserManagementService CreateUserManagementService(this Connection connection)
         {
             return new UserManagementService(connection);
         }
@@ -56,7 +57,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="TimeTrackingManagementService" /> for managing YouTrack time tracking settings.</returns>
-        public static TimeTrackingManagementService CreateTimeTrackingManagementService(this Connection connection)
+        public static ITimeTrackingManagementService CreateTimeTrackingManagementService(this Connection connection)
         {
             return new TimeTrackingManagementService(connection);
         }
@@ -66,7 +67,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="ProjectCustomFieldsService" /> for accessing custom project fields.</returns>
-        public static ProjectCustomFieldsService ProjectCustomFieldsService(this Connection connection)
+        public static IProjectCustomFieldsService ProjectCustomFieldsService(this Connection connection)
         {
             return new ProjectCustomFieldsService(connection);
         }
@@ -74,9 +75,13 @@ namespace YouTrackSharp
         /// <summary>
         /// Creates a <see cref="AgileBoardService" />.
         /// </summary>
+        /// <remarks>
+        /// YouTrack 2018.2 no longer supports the agile board API. Please check <a href="https://github.com/JetBrains/YouTrackSharp/issues/81">https://github.com/JetBrains/YouTrackSharp/issues/81</a> for more information.
+        /// </remarks>
         /// <param name="connection">The <see cref="Connection" /> to create a service with.</param>
         /// <returns><see cref="AgileBoardService" /> for working with YouTrack agile boards.</returns>
-        public static AgileBoardService CreateAgileBoardService(this Connection connection)
+        [Obsolete("YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+        public static IAgileBoardService CreateAgileBoardService(this Connection connection)
         {
             return new AgileBoardService(connection);
         }

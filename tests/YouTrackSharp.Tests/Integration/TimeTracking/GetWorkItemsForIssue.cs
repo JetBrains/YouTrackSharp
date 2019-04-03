@@ -5,6 +5,7 @@ using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 using YouTrackSharp.TimeTracking;
 
+// ReSharper disable PossibleMultipleEnumeration
 namespace YouTrackSharp.Tests.Integration.TimeTracking
 {
     public partial class TimeTrackingServiceTests
@@ -35,7 +36,6 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                     {
                         Assert.NotNull(workItem.Id);
                         Assert.NotNull(workItem.Date);
-                        Assert.NotNull(workItem.Duration);
                         Assert.True(workItem.Duration.TotalMinutes > 0);
                         Assert.NotNull(workItem.Description);
                         Assert.NotNull(workItem.WorkType);

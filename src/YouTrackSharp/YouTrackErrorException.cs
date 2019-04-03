@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 
 namespace YouTrackSharp
 {
@@ -35,5 +36,22 @@ namespace YouTrackSharp
             : base(message, innerException)
         {
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:YouTrackSharp.YouTrackErrorException" /> class
+        /// with a specific message and <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+        /// </summary>
+        /// <param name="message">A message that describes the current exception.</param>
+        /// <param name="response">The <see cref="T:System.Net.Http.HttpResponseMessage"/> that was received from the YouTrack server.</param>
+        public YouTrackErrorException(string message, HttpResponseMessage response) 
+            : base(message)
+        {
+            Response = response;
+        }
+        
+        /// <summary>
+        /// The <see cref="T:System.Net.Http.HttpResponseMessage"/> that was received from the YouTrack server.
+        /// </summary>
+        public HttpResponseMessage Response { get; }
     }
 }

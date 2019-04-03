@@ -14,7 +14,7 @@ namespace YouTrackSharp.Issues
     /// A class that represents YouTrack issue information. Can be casted to a <see cref="DynamicObject"/>.
     /// </summary>
     [DebuggerDisplay("{Id}: {Summary}")]
-    public class Issue 
+    public class Issue
         : DynamicObject
     {
         private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.OrdinalIgnoreCase);

@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
@@ -18,7 +16,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 var service = connection.ProjectCustomFieldsService();
 
                 // Act & Assert
-                var acted = false;
+                bool acted;
                 await service.DeleteProjectCustomField("DP1", "TestField");
                 acted = true;
 

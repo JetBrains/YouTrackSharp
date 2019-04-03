@@ -33,7 +33,7 @@ namespace YouTrackSharp.Json
                 case JsonToken.Float:
                     return TimeSpan.FromMinutes((long)reader.Value);
                 default:
-                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseTimeSpan, reader.Value.ToString()));
+                    throw new FormatException(string.Format(Strings.Exception_CouldNotParseTimeSpan, reader.Value));
             }
         }
     }

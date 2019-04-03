@@ -30,7 +30,7 @@ namespace YouTrackSharp
             if (string.IsNullOrEmpty(serverUrl)
                 || !Uri.TryCreate(EnsureTrailingSlash(serverUrl), UriKind.Absolute, out var serverUri))
             {
-                throw new ArgumentException("The server URL is invalid. Please provide a valid URL to a self-hosted YouTrack instance or YouTrack InCloud.", nameof(serverUrl));
+                throw new ArgumentException(Strings.ServerUrlIsInvalid, nameof(serverUrl));
             }
 
             ServerUri = serverUri;

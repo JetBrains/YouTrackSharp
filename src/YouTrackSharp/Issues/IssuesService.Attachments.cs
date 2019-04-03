@@ -12,17 +12,7 @@ namespace YouTrackSharp.Issues
 {
     public partial class IssuesService
     {
-        /// <summary>
-        /// Attaches a file to an issue on the server.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Attach-File-to-an-Issue.html">Attach File to an Issue</a>.</remarks>
-        /// <param name="issueId">Id of the issue to attach the file to.</param>
-        /// <param name="attachmentName">Filename for the attachment.</param>
-        /// <param name="attachmentStream">The <see cref="T:System.IO.Stream"/> to attach.</param>
-        /// <param name="group">Attachment visibility group.</param>
-        /// <param name="author">Creator of the attachment. Note to define author the 'Low-Level Administration' permission is required.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/>, <paramref name="attachmentName"/> or <paramref name="attachmentStream"/> is null or empty.</exception>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null)
         {
             if (string.IsNullOrEmpty(issueId))
@@ -86,14 +76,7 @@ namespace YouTrackSharp.Issues
             response.EnsureSuccessStatusCode();
         }
 
-        /// <summary>
-        /// Get attachments for a specific issue from the server.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Get-Attachments-of-an-Issue.html">Get Attachments of an Issue</a>.</remarks>
-        /// <param name="issueId">Id of the issue to get comments for.</param>
-        /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Attachment" /> for the requested issue <paramref name="issueId"/>.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task<IEnumerable<Attachment>> GetAttachmentsForIssue(string issueId)
         {
             if (string.IsNullOrEmpty(issueId))
@@ -110,13 +93,7 @@ namespace YouTrackSharp.Issues
             return wrapper.Attachments;
         }
 
-        /// <summary>
-        /// Downloads an attachment from the server.
-        /// </summary>
-        /// <param name="attachmentUrl">The <see cref="T:System.Uri" /> of the attachment.</param>
-        /// <returns>A <see cref="T:System.IO.Stream" /> containing the attachment data.</returns>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="attachmentUrl"/> is null.</exception>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task<Stream> DownloadAttachment(Uri attachmentUrl)
         {
             if (attachmentUrl == null)
@@ -132,14 +109,7 @@ namespace YouTrackSharp.Issues
             return await response.Content.ReadAsStreamAsync();
         }
 
-        /// <summary>
-        /// Deletes an attachment for an issue from the server.
-        /// </summary>
-        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Delete-Attachment-from-an-Issue.html">Delete Attachment from an Issue</a>.</remarks>
-        /// <param name="issueId">Id of the issue to which the attachment belongs.</param>
-        /// <param name="attachmentId">Id of the attachment.</param>
-        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="attachmentId"/> is null or empty.</exception>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        /// <inheritdoc />
         public async Task DeleteAttachmentForIssue(string issueId, string attachmentId)
         {
             if (string.IsNullOrEmpty(issueId))

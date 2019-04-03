@@ -34,7 +34,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                 
                 // Assert
                 Assert.NotNull(result);
-                Assert.True(result.StartsWith("DP1"));
+                Assert.StartsWith("DP1", result);
                 
                 dynamic createdIssue = await service.GetIssue(result);
                 Assert.Equal(newIssue.Summary, createdIssue.Summary);
