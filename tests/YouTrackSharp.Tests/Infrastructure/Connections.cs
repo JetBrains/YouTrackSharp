@@ -8,16 +8,13 @@ namespace YouTrackSharp.Tests.Infrastructure
             => "https://ytsharp.myjetbrains.com/youtrack/";
         
         public static Connection UnauthorizedConnection =>
-            new UsernamePasswordConnection(ServerUrl, "demogod", "demogod");
-        
-        public static Connection Demo1Password =>
-            new UsernamePasswordConnection(ServerUrl, "demo1", "demo1");
+            new BearerTokenConnection(ServerUrl, "invalidtoken");
 
         public static Connection Demo1Token => 
             new BearerTokenConnection(ServerUrl, "perm:ZGVtbzE=.WW91VHJhY2tTaGFycA==.AX3uf8RYk3y2bupWA1xyd9BhAHoAxc");
         
-        public static Connection Demo2Password =>
-            new UsernamePasswordConnection(ServerUrl, "demo2", "demo2");
+        public static Connection Demo2Token =>
+            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzI=.WW91VHJhY2tTaGFycA==.GQEOl33LyTtmJvhWuz0Q629wbo8dk0");
 
         public static Connection Demo3Token => 
             new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy");
@@ -27,9 +24,8 @@ namespace YouTrackSharp.Tests.Infrastructure
             public static readonly List<object[]> ValidConnections
                 = new List<object[]>
                 {
-                    new object[] { Demo1Password },
                     new object[] { Demo1Token },
-                    new object[] { Demo2Password }
+                    new object[] { Demo2Token }
                 };
             
             public static readonly List<object[]> InvalidConnections
