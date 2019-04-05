@@ -25,7 +25,7 @@ namespace YouTrackSharp.Users
         public async Task<User> GetCurrentUserInfo()
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync("rest/user/current");
+            var response = await client.GetAsync("api/admin/users/me");
             
             response.EnsureSuccessStatusCode();
 

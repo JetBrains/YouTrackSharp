@@ -13,7 +13,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
             public async Task Valid_Connection_Creates_CustomField_For_Project()
             {
                 // Arrange
-                var connection = Connections.Demo1Password;
+                var connection = Connections.Demo1Token;
                 var service = connection.ProjectCustomFieldsService();
                 var customField = new CustomField { Name = "TestField" };
                 var projectId = "DP1";
@@ -42,7 +42,7 @@ namespace YouTrackSharp.Tests.Integration.Projects
             public async Task Valid_Connection_Creates_CustomField_With_EmptyText_For_Project()
             {
                 // Arrange
-                var connection = Connections.Demo1Password;
+                var connection = Connections.Demo1Token;
                 var service = connection.ProjectCustomFieldsService();
                 var customField = new CustomField { Name = "TestField", EmptyText = "empty" };
                 var projectId = "DP1";
