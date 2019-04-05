@@ -11,7 +11,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
     {
         public class UpdateAgileBoard
         {
-            [Fact(Skip = "YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+            [Fact(Skip = "YouTrack 2018.2 and higher no longer support the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
             public async Task Valid_Connection_Updates_Agile_Board()
             {
                 // Arrange
