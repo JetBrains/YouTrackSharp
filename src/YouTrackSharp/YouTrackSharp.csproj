@@ -5,7 +5,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
     <AssemblyVersion>2019.1.0</AssemblyVersion>
