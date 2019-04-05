@@ -10,13 +10,13 @@ namespace YouTrackSharp.Tests.Infrastructure
             => "https://ytsharp.myjetbrains.com/youtrack/";
         
         public static Connection UnauthorizedConnection =>
-            new BearerTokenConnection(ServerUrl, "invalidtoken", handler => ConfigureTestsHandler(handler));
+            new BearerTokenConnection(ServerUrl, "invalidtoken", ConfigureTestsHandler);
 
         public static Connection Demo1Token => 
-            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzE=.WW91VHJhY2tTaGFycA==.AX3uf8RYk3y2bupWA1xyd9BhAHoAxc", handler => ConfigureTestsHandler(handler));
+            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzE=.WW91VHJhY2tTaGFycA==.AX3uf8RYk3y2bupWA1xyd9BhAHoAxc", ConfigureTestsHandler);
         
         public static Connection Demo2Token =>
-            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzI=.WW91VHJhY2tTaGFycA==.GQEOl33LyTtmJvhWuz0Q629wbo8dk0", handler => ConfigureTestsHandler(handler));
+            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzI=.WW91VHJhY2tTaGFycA==.GQEOl33LyTtmJvhWuz0Q629wbo8dk0", ConfigureTestsHandler);
 
         public static Connection Demo3Token => 
             new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy", handler => ConfigureTestsHandler(handler));
