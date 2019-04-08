@@ -33,7 +33,7 @@ namespace YouTrackSharp.Management
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/admin/user/{username}");
 
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.BadRequest)
             {
                 return null;
             }
