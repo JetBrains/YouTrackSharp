@@ -8,7 +8,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
     {
         public class GetSprint
         {
-            [Fact(Skip = "YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+            [Fact(Skip = "YouTrack 2018.2 and higher no longer support the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
             public async Task Valid_Connection_Returns_Sprint()
             {
                 // Arrange
@@ -27,7 +27,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 Assert.NotNull(demoSprint.Version);
             }
 
-            [Fact(Skip = "YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+            [Fact(Skip = "YouTrack 2018.2 and higher no longer support the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
             public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {
                 // Arrange

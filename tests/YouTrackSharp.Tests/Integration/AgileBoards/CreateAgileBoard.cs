@@ -49,7 +49,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                 // Remove the newly created board (currently not supported)
             }
 
-            [Fact(Skip = "YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+            [Fact(Skip = "YouTrack 2018.2 and higher no longer support the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
             public async Task Valid_Connection_Throws_HttpRequestException_On_Bad_Parameter()
             {
                 // Arrange
@@ -60,7 +60,7 @@ namespace YouTrackSharp.Tests.Integration.AgileBoards
                     async () => await service.CreateAgileBoard(new AgileSettings()));
             }
 
-            [Fact(Skip = "YouTrack 2018.2 no longer supports the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
+            [Fact(Skip = "YouTrack 2018.2 and higher no longer support the agile board API. Please check https://github.com/JetBrains/YouTrackSharp/issues/81 for more information.")]
             public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {
                 // Arrange

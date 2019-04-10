@@ -5,11 +5,11 @@
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/JetBrains/YouTrackSharp/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
-    <AssemblyVersion>2018.4.0</AssemblyVersion>
-    <FileVersion>2018.4.0</FileVersion>
+    <AssemblyVersion>2019.1.0</AssemblyVersion>
+    <FileVersion>2019.1.0</FileVersion>
     <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
     <Authors>JetBrains</Authors>
     <Company>JetBrains</Company>

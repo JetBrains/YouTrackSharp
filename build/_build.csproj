@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,24 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nuke.Common" Version="0.7.0" />
-    <PackageReference Include="GitVersion.CommandLine" Version="3.6.5">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Nuke.Common" Version="0.18.0" />
   </ItemGroup>
 
   <ItemGroup>
     <NukeMetadata Include="**\*.json" Exclude="bin\**;obj\**" />
     <NukeExternalFiles Include="**\*.*.ext" Exclude="bin\**;obj\**" />
     <None Remove="*.csproj.DotSettings;*.ref.*.txt" />
-    
+
     <!-- Common build related files -->
     <None Include="..\build.ps1" />
     <None Include="..\build.sh" />
-    <None Include="..\.nuke" />     
+    <None Include="..\.nuke" />
     <None Include="..\global.json" Condition="Exists('..\global.json')" />
     <None Include="..\nuget.config" Condition="Exists('..\nuget.config')" />
+    <None Include="..\azure-pipelines.yml" Condition="Exists('..\azure-pipelines.yml')" />
     <None Include="..\Jenkinsfile" Condition="Exists('..\Jenkinsfile')" />
     <None Include="..\appveyor.yml" Condition="Exists('..\appveyor.yml')" />
     <None Include="..\.travis.yml" Condition="Exists('..\.travis.yml')" />

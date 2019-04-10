@@ -34,7 +34,44 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     await temporaryIssueContext.Destroy();
                 }
             }
-            
+
+            [Fact]
+            public async Task Valid_Connection_Page_Issues()
+            {
+                // Arrange
+                var connection = Connections.Demo1Token;
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+                    
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");
+
+                    // Act
+                    var totalResultsCount = 0;
+                    
+                    var skip = 0;
+                    while (skip < 1000)
+                    {
+                        var result = await service.GetIssues("assignee: me", skip, take: 100);
+                        if (result?.Count > 0)
+                        {
+                            totalResultsCount += result.Count;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                        skip += 100;
+                    }
+                    
+                    // Assert
+                    Assert.True(totalResultsCount > 100);
+
+                    await temporaryIssueContext.Destroy();
+                }
+            }
+
             [Fact]
             public async Task Invalid_Connection_Throws_UnauthorizedConnectionException()
             {

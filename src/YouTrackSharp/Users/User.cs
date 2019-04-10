@@ -8,6 +8,12 @@ namespace YouTrackSharp.Users
     public class User
     {
         /// <summary>
+        /// Login of the user.
+        /// </summary>
+        [JsonProperty("login")]
+        public string Login { get; set; }
+        
+        /// <summary>
         /// Full name of the user.
         /// </summary>
         [JsonProperty("fullName")]
@@ -20,15 +26,21 @@ namespace YouTrackSharp.Users
         public string Email { get; set; }
         
         /// <summary>
-        /// Project that was last created.
+        /// Is a guest?
         /// </summary>
-        [JsonProperty("lastCreatedProject")]
-        public string LastCreatedProject { get; set; }
+        [JsonProperty("guest")]
+        public bool IsGuest { get; set; }
         
         /// <summary>
-        /// Project that is filtered on.
+        /// Is online?
         /// </summary>
-        [JsonProperty("filterProject")]
-        public string FilterProject { get; set; }
+        [JsonProperty("online")]
+        public bool IsOnline { get; set; }
+        
+        /// <summary>
+        /// Avatar URL.
+        /// </summary>
+        [JsonProperty("avatarUrl")]
+        public string AvatarUrl { get; set; }
     }
 }
