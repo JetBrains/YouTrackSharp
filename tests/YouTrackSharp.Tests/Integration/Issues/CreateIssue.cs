@@ -19,7 +19,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
 
                 var newIssue = new Issue
                 {
-                    Summary = "Test issue - " + DateTime.UtcNow.ToString("U"),
+                    Summary = "Test issue -  " + DateTime.UtcNow.ToString("U"),
                     Description = "This is a **test** issue created while running unit tests."
                 };
                 
