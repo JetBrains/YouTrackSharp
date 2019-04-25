@@ -16,14 +16,10 @@ First of all, install `YouTrackSharp` into your project using a NuGet client.
 
 If you want to work with pre-release builds, configure our [MyGet feed](https://www.myget.org/gallery/youtracksharp) as a package source.
 
-To communicate with a YouTrack server instance, we'll need a connection. It is recommended to always use [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html) to authenticate against YouTrack, using the `BearerTokenConnection`. For YouTrack instances that do not have token support, `UsernamePasswordConnection` can be used.
+To communicate with a YouTrack server instance, we'll need a connection. It is recommended to always use [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html) to authenticate against YouTrack, using the `BearerTokenConnection`.
 
 ```csharp
 var connection = new BearerTokenConnection("https://ytsharp.myjetbrains.com/youtrack/", "perm:abcdefghijklmn");
-
-// or:
-
-var connection = new UsernamePasswordConnection("https://ytsharp.myjetbrains.com/youtrack/", "username", "password");
 ```
 
 Once a connection is made, various services can be used. For example to get a list of projects the user has access to, the `ProjectsService` can be used:
@@ -42,7 +38,7 @@ YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
 * Targets .NET Standard 2.0 - can be used with pretty much [any .NET platform](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)!
 * All calls are `async` all the way.
 * Handles serialization of YouTrack's timestamps into `DateTime` where possible.
-* Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html). For YouTrack instances that do not have token support, username/password can be used.
+* Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html).
 * Comes with a color indices list.
 
 The following API's are currently supported:
