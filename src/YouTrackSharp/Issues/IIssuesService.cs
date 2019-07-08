@@ -175,9 +175,10 @@ namespace YouTrackSharp.Issues
         /// <param name="attachmentStream">The <see cref="T:System.IO.Stream"/> to attach.</param>
         /// <param name="group">Attachment visibility group.</param>
         /// <param name="author">Creator of the attachment. Note to define author the 'Low-Level Administration' permission is required.</param>
+        /// <param name="attachmentContentType">Content type of the attachment, for example text/plain or image/png.</param>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/>, <paramref name="attachmentName"/> or <paramref name="attachmentStream"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null);
+        Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null, string attachmentContentType = null);
 
         /// <summary>
         /// Get attachments for a specific issue from the server.

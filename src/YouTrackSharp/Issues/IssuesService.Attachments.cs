@@ -13,7 +13,7 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService
     {
         /// <inheritdoc />
-        public async Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null)
+        public async Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null, string attachmentContentType = null)
         {
             if (string.IsNullOrEmpty(issueId))
             {
@@ -45,6 +45,10 @@ namespace YouTrackSharp.Issues
             var query = string.Join("&", queryString);
 
             var streamContent = new StreamContent(attachmentStream);
+            if (!string.IsNullOrEmpty(attachmentContentType))
+            {
+                streamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(attachmentContentType);
+            }
             streamContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
             {
                 FileName = attachmentName,
