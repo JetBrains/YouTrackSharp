@@ -23,6 +23,11 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     Description = "This is a **test** issue created while running unit tests."
                 };
                 
+                newIssue.SetField("Assignee", "demo1");
+                newIssue.SetField("Type", "Task");
+                newIssue.SetField("State", "Fixed");
+                newIssue.SetField("Fix versions", new[] { "0.0.1", "0.0.2" });
+                newIssue.SetField("Due Date", DateTime.UtcNow.AddDays(5));
                 
                 // Act
                 var result = await service.CreateIssue("DP1", newIssue);
