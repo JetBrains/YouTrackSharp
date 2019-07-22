@@ -12,7 +12,7 @@
 
 #### **Did you write a patch that fixes a bug?**
 
-* Open a new GitHub pull request with the patch. Note that pull requests should target our `master` branch.
+* Open a new GitHub pull request with the patch. Note that pull requests should target our current default branch.
 
 * Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
 
@@ -22,9 +22,9 @@ Changes that are cosmetic in nature and do not add anything substantial to the s
 
 #### **Do you intend to add a new feature or change an existing one?**
 
-* Suggest your change under [Issues](https://github.com/JetBrains/YouTrackSharp/issues) and start writing code against our `master` branch.
+* Suggest your change under [Issues](https://github.com/JetBrains/YouTrackSharp/issues) and start writing code against our current default branch.
 
-* Once completed, open a new GitHub pull request with the code changes. Note that pull requests should target our `master` branch.
+* Once completed, open a new GitHub pull request with the code changes. Note that pull requests should target our current default branch.
 
 * The pull request will be reviewed and may require updates to the contributed code.
 
