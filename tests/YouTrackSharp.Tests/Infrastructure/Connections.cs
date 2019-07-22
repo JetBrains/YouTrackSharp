@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Security.Authentication;
 
 namespace YouTrackSharp.Tests.Infrastructure
 {
-    public class Connections
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    public static class Connections
     {
         public static string ServerUrl 
             => "https://ytsharp.myjetbrains.com/youtrack/";
@@ -19,7 +21,7 @@ namespace YouTrackSharp.Tests.Infrastructure
             new BearerTokenConnection(ServerUrl, "perm:ZGVtbzI=.WW91VHJhY2tTaGFycA==.GQEOl33LyTtmJvhWuz0Q629wbo8dk0", ConfigureTestsHandler);
 
         public static Connection Demo3Token => 
-            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy", handler => ConfigureTestsHandler(handler));
+            new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy", ConfigureTestsHandler);
 
         public static class TestData
         {

@@ -94,10 +94,8 @@ namespace YouTrackSharp.TimeTracking
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
 
             response.EnsureSuccessStatusCode();
@@ -139,10 +137,8 @@ namespace YouTrackSharp.TimeTracking
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
 
             response.EnsureSuccessStatusCode();
@@ -159,17 +155,17 @@ namespace YouTrackSharp.TimeTracking
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.DeleteAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}");
 
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            // ReSharper disable once SwitchStatementMissingSomeCases
+            switch (response.StatusCode)
             {
-                return;
+                case HttpStatusCode.NotFound:
+                    return;
+                case HttpStatusCode.BadRequest:
+                    throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
+                default:
+                    response.EnsureSuccessStatusCode();
+                    break;
             }
-
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
-            }
-
-            response.EnsureSuccessStatusCode();
         }
 	}
 }

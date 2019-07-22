@@ -1,10 +1,12 @@
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Projects
 {
+    [UsedImplicitly]
     public class ProjectsServiceTests
     {
         public class GetAccessibleProjects
@@ -47,8 +49,8 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 Assert.Equal("DP1", demoProject.ShortName);
                 Assert.Equal("DemoProject1", demoProject.Name);
                 Assert.Equal("Demo project 1", demoProject.Description);
-                Assert.True(demoProject.Versions.Any(v => v == "0.0.1"));
-                Assert.True(demoProject.AssigneesLogin.Any(a => a.Value == "demo1"));
+                Assert.Contains(demoProject.Versions, v => v == "0.0.1");
+                Assert.Contains(demoProject.AssigneesLogin, a => a.Value == "demo1");
             }
             
             [Fact]

@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Projects
 {
+    [UsedImplicitly]
     public partial class ProjectCustomFieldsServiceTests
     {
         public class GetProjectCustomFields

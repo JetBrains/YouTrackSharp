@@ -27,11 +27,13 @@ namespace YouTrackSharp.Tests.Integration.Issues
                     var comments = await service.GetCommentsForIssue(temporaryIssueContext.Issue.Id);                
                     foreach (var comment in comments)
                     {
-                        if (string.Equals(comment.Text, commentText, StringComparison.OrdinalIgnoreCase))
+                        if (!string.Equals(comment.Text, commentText, StringComparison.OrdinalIgnoreCase))
                         {
-                            await service.DeleteCommentForIssue(temporaryIssueContext.Issue.Id, comment.Id, permanent: true);  
-                            acted = true;
+                            continue;
                         }
+                        
+                        await service.DeleteCommentForIssue(temporaryIssueContext.Issue.Id, comment.Id, permanent: true);  
+                        acted = true;
                     }
                 
                     // Assert

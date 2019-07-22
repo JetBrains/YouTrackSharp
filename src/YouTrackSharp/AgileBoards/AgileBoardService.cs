@@ -44,10 +44,8 @@ namespace YouTrackSharp.AgileBoards
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
 
             response.EnsureSuccessStatusCode();
@@ -121,10 +119,8 @@ namespace YouTrackSharp.AgileBoards
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
 
             response.EnsureSuccessStatusCode();

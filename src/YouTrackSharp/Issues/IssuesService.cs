@@ -80,10 +80,12 @@ namespace YouTrackSharp.Issues
             {
                 throw new ArgumentNullException(nameof(projectId));
             }
-            
-            var queryString = new List<string>(4);
-            queryString.Add($"project={projectId}");
-            
+
+            var queryString = new List<string>(4)
+            {
+                $"project={projectId}"
+            };
+
             if (!string.IsNullOrEmpty(issue.Summary))
             {
                 queryString.Add($"summary={WebUtility.UrlEncode(issue.Summary)}");
@@ -94,7 +96,7 @@ namespace YouTrackSharp.Issues
             }
             if (issue.IsMarkdown)
             {
-                queryString.Add($"markdown=true");
+                queryString.Add("markdown=true");
             }
             
             var query = string.Join("&", queryString);
@@ -121,17 +123,17 @@ namespace YouTrackSharp.Issues
                 {
                     await ApplyCommand(issueId, $"{customField.Key} {string.Join(" ", enumerable.OfType<string>())}", string.Empty);
                 }
-                else if (customField.Value is DateTime dateTime)
+                else switch (customField.Value)
                 {
-                    await ApplyCommand(issueId, $"{customField.Key} {dateTime:s}", string.Empty);
-                }
-                else if (customField.Value is DateTimeOffset dateTimeOffset)
-                {
-                    await ApplyCommand(issueId, $"{customField.Key} {dateTimeOffset:s}", string.Empty);
-                }
-                else
-                {
-                    await ApplyCommand(issueId, $"{customField.Key} {customField.Value}", string.Empty);
+                    case DateTime dateTime:
+                        await ApplyCommand(issueId, $"{customField.Key} {dateTime:s}", string.Empty);
+                        break;
+                    case DateTimeOffset dateTimeOffset:
+                        await ApplyCommand(issueId, $"{customField.Key} {dateTimeOffset:s}", string.Empty);
+                        break;
+                    default:
+                        await ApplyCommand(issueId, $"{customField.Key} {customField.Value}", string.Empty);
+                        break;
                 }
             }
             
@@ -197,10 +199,12 @@ namespace YouTrackSharp.Issues
             {
                 throw new ArgumentNullException(nameof(command));
             }
-            
-            var queryString = new List<string>(4);
-            queryString.Add($"command={WebUtility.UrlEncode(command)}");
-            
+
+            var queryString = new List<string>(4)
+            {
+                $"command={WebUtility.UrlEncode(command)}"
+            };
+
             if (!string.IsNullOrEmpty(comment))
             {
                 queryString.Add($"comment={WebUtility.UrlEncode(comment)}");
@@ -227,10 +231,8 @@ namespace YouTrackSharp.Issues
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
             
             response.EnsureSuccessStatusCode();

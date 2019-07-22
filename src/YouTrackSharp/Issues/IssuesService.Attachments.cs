@@ -71,10 +71,8 @@ namespace YouTrackSharp.Issues
                 {
                     throw new YouTrackErrorException(responseJson["value"].Value<string>());
                 }
-                else
-                {
-                    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-                }
+
+                throw new YouTrackErrorException(Strings.Exception_UnknownError);
             }
 
             response.EnsureSuccessStatusCode();

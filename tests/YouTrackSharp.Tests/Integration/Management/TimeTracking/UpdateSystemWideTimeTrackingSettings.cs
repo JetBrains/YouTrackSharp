@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Management;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 {
-    public partial class TimeTrackingManagementServiceTests
+	[UsedImplicitly]
+    public class TimeTrackingManagementServiceTests
     {
         public class UpdateSystemWideTimeTrackingSettings
 		{

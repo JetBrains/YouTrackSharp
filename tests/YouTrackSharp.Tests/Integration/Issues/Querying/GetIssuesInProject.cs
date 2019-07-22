@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
 // ReSharper disable once CheckNamespace
 namespace YouTrackSharp.Tests.Integration.Issues
 {
+    [UsedImplicitly]
     public partial class IssuesServiceTests
     {
         public class GetIssuesInProject

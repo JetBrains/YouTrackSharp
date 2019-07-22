@@ -1,5 +1,8 @@
-﻿namespace YouTrackSharp.Tests.Integration.AgileBoards
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace YouTrackSharp.Tests.Integration.AgileBoards
 {
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public partial class AgileBoardServiceTests
     {
         public static string DemoBoardId => "108-2";

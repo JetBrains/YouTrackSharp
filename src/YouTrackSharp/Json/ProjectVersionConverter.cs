@@ -35,9 +35,12 @@ namespace YouTrackSharp.Json
 
             var collection = existingValue as ICollection<string>;
 
+            // ReSharper disable once InvertIf
             if (reader.TokenType == JsonToken.String)
             {
                 var value = (string)reader.Value;
+                
+                // ReSharper disable once InvertIf
                 if (!string.IsNullOrEmpty(value))
                 {
                     var splitEntries = value.Trim('[', ']').Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.AgileBoards;
 using YouTrackSharp.Tests.Infrastructure;
+#pragma warning disable 618
 
 namespace YouTrackSharp.Tests.Integration.AgileBoards
 {
+    [UsedImplicitly]
     public partial class AgileBoardServiceTests
     {
         public class UpdateAgileBoard

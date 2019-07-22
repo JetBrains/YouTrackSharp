@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Management;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 {
+    [UsedImplicitly]
     public partial class TimeTrackingServiceTests
     {
         public class TimeTrackingManagementServiceTests

@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Nuke.Common;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
@@ -29,12 +30,13 @@ class Build : NukeBuild
     readonly string PackageVersionSuffix = "develop-" + DateTime.UtcNow.ToString("yyyyMMddhhmm");
 
     [Solution] readonly Solution Solution;
-    [GitRepository] readonly GitRepository GitRepository;
+    [GitRepository] [UsedImplicitly] readonly GitRepository GitRepository;
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath TestsDirectory => RootDirectory / "tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
 
+    [UsedImplicitly]
     Target Initialize => _ => _
         .Before(Clean)
         .Executes(() =>

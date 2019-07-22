@@ -41,7 +41,7 @@ namespace YouTrackSharp
         /// </summary>
         /// <param name="url">URL represented as a <see cref="T:System.String" /></param>
         /// <returns>A <see cref="T:System.String" /> with traling slash based on <paramref name="url" />.</returns>
-        protected static string EnsureTrailingSlash(string url)
+        private static string EnsureTrailingSlash(string url)
         {
             if (!url.EndsWith("/"))
             {
@@ -67,7 +67,7 @@ namespace YouTrackSharp
         public async Task<int> GetBuildNumber()
         {
             var client = await GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"api/config?fields=build");
+            var response = await client.GetAsync("api/config?fields=build");
 
             if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.BadRequest)
             {

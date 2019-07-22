@@ -1,8 +1,11 @@
-﻿namespace YouTrackSharp
+﻿using JetBrains.Annotations;
+
+namespace YouTrackSharp
 {
     /// <summary>
     /// Represents the color indices used by YouTrack, as explained on <a href="https://www.jetbrains.com/help/youtrack/standalone/Color-Indices.html">Color Indices List</a>.
     /// </summary>
+    [PublicAPI]
     public static class ColorIndices
     {
         /// <summary>

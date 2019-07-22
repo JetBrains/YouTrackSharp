@@ -36,6 +36,7 @@ namespace YouTrackSharp.Json
 
             long ticks;
 
+            // ReSharper disable once SwitchStatementMissingSomeCases
             switch (reader.TokenType)
             {
                 case JsonToken.Integer:
@@ -58,7 +59,8 @@ namespace YouTrackSharp.Json
             {
                 return converted;
             }
-            else if (objectType == typeof(DateTime) || objectType == typeof(DateTime?))
+
+            if (objectType == typeof(DateTime) || objectType == typeof(DateTime?))
             {
                 return converted.DateTime;
             }

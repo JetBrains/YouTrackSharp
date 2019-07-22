@@ -105,7 +105,7 @@ namespace YouTrackSharp.Issues
 
                     if (response.StatusCode == HttpStatusCode.NotFound)
                     {
-                        return default(long);
+                        return default;
                     }
 
                     response.EnsureSuccessStatusCode();

@@ -1,11 +1,13 @@
 using System;
 using System.Net.Http;
+using JetBrains.Annotations;
 
 namespace YouTrackSharp
 {
     /// <summary>
     /// Represents an exception thrown when the YouTrack server returns an error.
     /// </summary>
+    [PublicAPI]
     public class YouTrackErrorException 
         : Exception
     {

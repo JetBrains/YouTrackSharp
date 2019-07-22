@@ -18,20 +18,7 @@ namespace YouTrackSharp
         
         private readonly string _bearerToken;
 
-        private Action<HttpClientHandler> _configureHandler;
-
-        /// <summary>
-        /// Creates an instance of the <see cref="BearerTokenConnection" /> class.
-        /// </summary>
-        /// <param name="serverUrl">YouTrack server instance URL that will be connected against.</param>
-        /// <param name="bearerToken">The bearer token to inject into HTTP request headers.</param>
-        /// <exception cref="ArgumentException">
-        /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
-        /// </exception>
-        public BearerTokenConnection(string serverUrl, string bearerToken)
-            : this(serverUrl, bearerToken, null)
-        {
-        }
+        private readonly Action<HttpClientHandler> _configureHandler;
 
         /// <summary>
         /// Creates an instance of the <see cref="BearerTokenConnection" /> class.
@@ -42,7 +29,7 @@ namespace YouTrackSharp
         /// <exception cref="ArgumentException">
         /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
-        public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler)
+        public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler = null)
             : base(serverUrl)
         {
             _bearerToken = bearerToken;
@@ -68,22 +55,24 @@ namespace YouTrackSharp
             }
             
             // Authenticate?
-            if (!_authenticated)
+            if (_authenticated)
             {
-                var response = await _httpClient.GetAsync("api/admin/users/me");
-                if (response.IsSuccessStatusCode)
-                {
-                    _authenticated = true;
-                }
-                else 
-                {
-                    var responseString = await response.Content.ReadAsStringAsync();
-                    
-                    throw new UnauthorizedConnectionException(
-                        Strings.Exception_CouldNotAuthenticate, response.StatusCode, responseString);
-                }
+                return _httpClient;
             }
             
+            var response = await _httpClient.GetAsync("api/admin/users/me");
+            if (response.IsSuccessStatusCode)
+            {
+                _authenticated = true;
+            }
+            else 
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+                    
+                throw new UnauthorizedConnectionException(
+                    Strings.Exception_CouldNotAuthenticate, response.StatusCode, responseString);
+            }
+
             return _httpClient;
         }
     }

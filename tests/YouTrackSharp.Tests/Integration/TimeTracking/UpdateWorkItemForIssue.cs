@@ -1,12 +1,14 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 using YouTrackSharp.TimeTracking;
 
 namespace YouTrackSharp.Tests.Integration.TimeTracking
 {
+    [UsedImplicitly]
     public partial class TimeTrackingServiceTests
     {
         public class UpdateWorkItemForIssue

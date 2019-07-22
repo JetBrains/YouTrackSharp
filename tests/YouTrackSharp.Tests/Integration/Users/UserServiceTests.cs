@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 using YouTrackSharp.Users;
 
 namespace YouTrackSharp.Tests.Integration.Users
 {
+    [UsedImplicitly]
     public class UserServiceTests
     {
         public class GetCurrentUserInfo

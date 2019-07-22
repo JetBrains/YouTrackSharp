@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace YouTrackSharp.Users
 {
+    [PublicAPI]
     public interface IUserService
     {
         /// <summary>

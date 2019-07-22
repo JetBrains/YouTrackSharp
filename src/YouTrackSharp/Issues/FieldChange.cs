@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace YouTrackSharp.Issues
@@ -8,6 +9,7 @@ namespace YouTrackSharp.Issues
     /// <summary>
     /// Represents a YouTrack issue field change.
     /// </summary>
+    [PublicAPI]
     [DebuggerDisplay("{Name}: {GetDebuggerTransition()}")]
     public class FieldChange
     {

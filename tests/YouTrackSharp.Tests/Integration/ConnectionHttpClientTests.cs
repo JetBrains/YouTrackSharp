@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration
 {
+    [UsedImplicitly]
     public partial class ConnectionTests
     {
         public class GetAuthenticatedHttpClient

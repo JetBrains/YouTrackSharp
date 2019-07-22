@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Xunit;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Tests.Json
 {
+    [UsedImplicitly]
     public class ProjectVersionConverterTests
     {
         public class CanConvert

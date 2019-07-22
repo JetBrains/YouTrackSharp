@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace YouTrackSharp.AgileBoards
 {
     /// <summary>
     /// A class that represents an agile board
     /// </summary>
+    [PublicAPI]
     public class AgileSettings
     {
         /// <summary>

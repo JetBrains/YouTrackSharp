@@ -1,10 +1,11 @@
-using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Management.UserManagement
 {
+    [UsedImplicitly]
     public partial class UserManagementServiceTests
     {
         public class GetUsers
@@ -22,7 +23,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 // Assert
                 Assert.NotNull(result);
                 Assert.True(result.Count > 0);
-                Assert.True(result.Any(user => user.Username == "demo1"));
+                Assert.Contains(result, user => user.Username == "demo1");
             }
         }
     }

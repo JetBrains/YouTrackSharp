@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using YouTrackSharp.Json;
@@ -13,6 +14,7 @@ namespace YouTrackSharp.Issues
     /// <summary>
     /// A class that represents YouTrack issue information. Can be casted to a <see cref="DynamicObject"/>.
     /// </summary>
+    [PublicAPI]
     [DebuggerDisplay("{Id}: {Summary}")]
     public class Issue
         : DynamicObject
@@ -148,9 +150,9 @@ namespace YouTrackSharp.Issues
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
             // "field" setter when deserializing JSON into Issue object
-            if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray)
+            if (string.Equals(binder.Name, "field", StringComparison.OrdinalIgnoreCase) && value is JArray array)
             {   
-                var fieldElements = ((JArray)value).ToObject<List<Field>>();
+                var fieldElements = array.ToObject<List<Field>>();
                 foreach (var fieldElement in fieldElements)
                 {
                     if (fieldElement.Value is JArray fieldElementAsArray)

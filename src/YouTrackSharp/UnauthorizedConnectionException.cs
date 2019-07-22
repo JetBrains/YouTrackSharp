@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using JetBrains.Annotations;
 
 namespace YouTrackSharp
 {
@@ -7,6 +8,7 @@ namespace YouTrackSharp
     /// Represents an exception thrown by <see cref="T:YouTrackSharp.Connection" /> when authentication
     /// with the remote YouTrack server fails.
     /// </summary>
+    [PublicAPI]
     public class UnauthorizedConnectionException 
         : Exception
     {

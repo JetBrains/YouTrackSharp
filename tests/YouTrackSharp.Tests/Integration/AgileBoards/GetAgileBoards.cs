@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
+#pragma warning disable 618
 
 namespace YouTrackSharp.Tests.Integration.AgileBoards
 {

@@ -47,7 +47,7 @@ namespace YouTrackSharp.Internal
                 }
             }
 
-            return default(TResult);
+            return default;
         }
     }
 }

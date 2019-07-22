@@ -25,6 +25,7 @@ namespace YouTrackSharp.Json
         /// <inheritdoc />
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            // ReSharper disable once SwitchStatementMissingSomeCases
             switch (reader.TokenType)
             {
                 case JsonToken.Null:

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using YouTrackSharp.Tests.Infrastructure;
@@ -23,8 +22,8 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 // Assert
                 Assert.NotNull(result);
                 Assert.True(result.Count > 0);
-                Assert.True(result.Any(group => 
-                    string.Equals(group.Name, "All Users", StringComparison.OrdinalIgnoreCase)));
+                Assert.Contains(result, group => 
+                    string.Equals(group.Name, "All Users", StringComparison.OrdinalIgnoreCase));
             }
         }
     }

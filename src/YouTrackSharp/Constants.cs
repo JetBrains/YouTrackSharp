@@ -13,7 +13,7 @@
             /// <summary>
             /// Content type for application/json.
             /// </summary>
-            public static readonly string ApplicationJson = "application/json";
+            public const string ApplicationJson = "application/json";
         }
     }
 }

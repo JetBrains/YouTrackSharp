@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Xunit;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Tests.Json
 {
+    [UsedImplicitly]
     public class TimeSpanMinutesConverterTests
     {
         public class CanConvert
@@ -29,6 +31,7 @@ namespace YouTrackSharp.Tests.Json
 
         public class WriteJson
         {
+            // ReSharper disable once MemberCanBePrivate.Global
             public static IEnumerable<object[]> GetData()
             {
                 yield return new object[] { TimeSpan.FromMinutes(5), 5 };
@@ -55,6 +58,7 @@ namespace YouTrackSharp.Tests.Json
 
         public class ReadJson
         {
+            // ReSharper disable once MemberCanBePrivate.Global
             public static IEnumerable<object[]> GetData()
             {
                 yield return new object[] { TimeSpan.FromMinutes(5), 5 };

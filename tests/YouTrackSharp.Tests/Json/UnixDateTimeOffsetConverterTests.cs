@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Xunit;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Tests.Json
 {
+    [UsedImplicitly]
     public class UnixDateTimeOffsetConverterTests
     {
         public class CanConvert
@@ -32,6 +34,7 @@ namespace YouTrackSharp.Tests.Json
 
         public class WriteJson
         {
+            // ReSharper disable once MemberCanBePrivate.Global
             public static IEnumerable<object[]> GetData()
             {
                 yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero), new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).ToUnixTimeMilliseconds() };
@@ -58,6 +61,7 @@ namespace YouTrackSharp.Tests.Json
 
         public class ReadJson
         {
+            // ReSharper disable once MemberCanBePrivate.Global
             public static IEnumerable<object[]> GetDateTimeOffsetData()
             {
                 yield return new object[] { new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero), new DateTimeOffset(2001, 01, 01, 10, 11, 0, TimeSpan.Zero).ToUnixTimeSeconds() };

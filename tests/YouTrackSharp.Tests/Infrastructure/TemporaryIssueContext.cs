@@ -13,18 +13,13 @@ namespace YouTrackSharp.Tests.Infrastructure
         private readonly Connection _connection;
         
         public Issue Issue { get; private set; }
-
-        
-        public static async Task<TemporaryIssueContext> Create(Connection connection)
-        {
-            return await Create(connection, "Temporary issue " + DateTime.UtcNow.ToString(CultureInfo.InvariantCulture), "This is a temporary issue.");
-        }
         
         public static async Task<TemporaryIssueContext> Create(Connection connection, Type testType)
         {
             return await Create(connection, "Temporary issue " + DateTime.UtcNow.ToString(CultureInfo.InvariantCulture) + " by " + testType.FullName, "This is a temporary issue created by " + testType.FullName + ".");
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public static async Task<TemporaryIssueContext> Create(Connection connection, string summary, string description)
         {
             var temporaryIssueContext = new TemporaryIssueContext(connection, summary, description);
