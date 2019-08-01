@@ -1,4 +1,4 @@
-[![official project](http://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 # YouTrackSharp
 
@@ -6,7 +6,7 @@
 
 .NET Standard 2.0 Library to access YouTrack API.
 
-For more information on YouTrack visit [jetbrains.com/youtrack](http://www.jetbrains.com/youtrack).
+For more information on YouTrack visit [jetbrains.com/youtrack](https://www.jetbrains.com/youtrack).
 
 ## Getting started
 
