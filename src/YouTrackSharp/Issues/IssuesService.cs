@@ -88,11 +88,11 @@ namespace YouTrackSharp.Issues
 
             if (!string.IsNullOrEmpty(issue.Summary))
             {
-                queryString.Add($"summary={WebUtility.UrlEncode(issue.Summary)}");
+                queryString.Add($"summary={Uri.EscapeDataString(issue.Summary)}");
             }
             if (!string.IsNullOrEmpty(issue.Description))
             {
-                queryString.Add($"description={WebUtility.UrlEncode(issue.Description)}");
+                queryString.Add($"description={Uri.EscapeDataString(issue.Description)}");
             }
             if (issue.IsMarkdown)
             {
@@ -168,11 +168,11 @@ namespace YouTrackSharp.Issues
             var queryString = new List<string>(3);
             if (!string.IsNullOrEmpty(summary))
             {
-                queryString.Add($"summary={WebUtility.UrlEncode(summary)}");
+                queryString.Add($"summary={Uri.EscapeDataString(summary)}");
             }
             if (!string.IsNullOrEmpty(description))
             {
-                queryString.Add($"description={WebUtility.UrlEncode(description)}");
+                queryString.Add($"description={Uri.EscapeDataString(description)}");
             }
             if (isMarkdown.HasValue)
             {
@@ -202,12 +202,12 @@ namespace YouTrackSharp.Issues
 
             var queryString = new List<string>(4)
             {
-                $"command={WebUtility.UrlEncode(command)}"
+                $"command={Uri.EscapeDataString(command)}"
             };
 
             if (!string.IsNullOrEmpty(comment))
             {
-                queryString.Add($"comment={WebUtility.UrlEncode(comment)}");
+                queryString.Add($"comment={Uri.EscapeDataString(comment)}");
             }
             if (disableNotifications)
             {

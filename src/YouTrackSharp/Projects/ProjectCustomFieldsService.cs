@@ -80,7 +80,7 @@ namespace YouTrackSharp.Projects
             var query = string.Empty;
             if (!string.IsNullOrEmpty(customField.EmptyText))
             {
-                query = $"?emptyFieldText={WebUtility.UrlEncode(customField.EmptyText)}";
+                query = $"?emptyFieldText={Uri.EscapeUriString(customField.EmptyText)}";
             }
 
             var client = await _connection.GetAuthenticatedHttpClient();
@@ -105,7 +105,7 @@ namespace YouTrackSharp.Projects
             var query = string.Empty;
             if (!string.IsNullOrEmpty(customField.EmptyText))
             {
-                query = $"?emptyFieldText={WebUtility.UrlEncode(customField.EmptyText)}";
+                query = $"?emptyFieldText={Uri.EscapeUriString(customField.EmptyText)}";
             }
 
             var client = await _connection.GetAuthenticatedHttpClient();

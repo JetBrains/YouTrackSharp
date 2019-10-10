@@ -21,7 +21,7 @@ namespace YouTrackSharp.Issues
             var queryString = new List<string>(6);
             if (!string.IsNullOrEmpty(filter))
             {
-                queryString.Add($"filter={WebUtility.UrlEncode(filter)}");
+                queryString.Add($"filter={Uri.EscapeDataString(filter)}");
             }
             if (skip.HasValue)
             {
@@ -60,7 +60,7 @@ namespace YouTrackSharp.Issues
             var queryString = new List<string>(4);
             if (!string.IsNullOrEmpty(filter))
             {
-                queryString.Add($"filter={WebUtility.UrlEncode(filter)}");
+                queryString.Add($"filter={Uri.EscapeDataString(filter)}");
             }
             if (skip.HasValue)
             {
@@ -94,7 +94,7 @@ namespace YouTrackSharp.Issues
         public async Task<long> GetIssueCount(string filter = null)
         {
             var query = !string.IsNullOrEmpty(filter)
-                ? $"filter={WebUtility.UrlEncode(filter)}"
+                ? $"filter={Uri.EscapeDataString(filter)}"
                 : string.Empty;
 
             var client = await _connection.GetAuthenticatedHttpClient();

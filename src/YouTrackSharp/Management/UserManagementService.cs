@@ -50,23 +50,23 @@ namespace YouTrackSharp.Management
             var queryString = new List<string>(7);
             if (!string.IsNullOrEmpty(filter))
             {
-                queryString.Add($"q={WebUtility.UrlEncode(filter)}");
+                queryString.Add($"q={Uri.EscapeDataString(filter)}");
             }
             if (!string.IsNullOrEmpty(group))
             {
-                queryString.Add($"group={WebUtility.UrlEncode(group)}");
+                queryString.Add($"group={Uri.EscapeDataString(group)}");
             }
             if (!string.IsNullOrEmpty(role))
             {
-                queryString.Add($"role={WebUtility.UrlEncode(role)}");
+                queryString.Add($"role={Uri.EscapeDataString(role)}");
             }
             if (!string.IsNullOrEmpty(project))
             {
-                queryString.Add($"project={WebUtility.UrlEncode(project)}");
+                queryString.Add($"project={Uri.EscapeDataString(project)}");
             }
             if (!string.IsNullOrEmpty(permission))
             {
-                queryString.Add($"permission={WebUtility.UrlEncode(permission)}");
+                queryString.Add($"permission={Uri.EscapeDataString(permission)}");
             }
             if (onlineOnly)
             {
@@ -88,19 +88,19 @@ namespace YouTrackSharp.Management
             var queryString = new Dictionary<string, string>(4);
             if (!string.IsNullOrEmpty(fullName))
             {
-                queryString.Add("fullName", WebUtility.UrlEncode(fullName));
+                queryString.Add("fullName", Uri.EscapeDataString(fullName));
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", WebUtility.UrlEncode(email));
+                queryString.Add("email", Uri.EscapeDataString(email));
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", WebUtility.UrlEncode(jabber));
+                queryString.Add("jabber", Uri.EscapeDataString(jabber));
             }
             if (!string.IsNullOrEmpty(password))
             {
-                queryString.Add("password", WebUtility.UrlEncode(password));
+                queryString.Add("password", Uri.EscapeDataString(password));
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
@@ -115,19 +115,19 @@ namespace YouTrackSharp.Management
             var queryString = new Dictionary<string, string>(4);
             if (!string.IsNullOrEmpty(fullName))
             {
-                queryString.Add("fullName", WebUtility.UrlEncode(fullName));
+                queryString.Add("fullName", Uri.EscapeDataString(fullName));
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", WebUtility.UrlEncode(email));
+                queryString.Add("email", Uri.EscapeDataString(email));
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", WebUtility.UrlEncode(jabber));
+                queryString.Add("jabber", Uri.EscapeDataString(jabber));
             }
             if (!string.IsNullOrEmpty(password))
             {
-                queryString.Add("password", WebUtility.UrlEncode(password));
+                queryString.Add("password", Uri.EscapeDataString(password));
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
@@ -170,7 +170,7 @@ namespace YouTrackSharp.Management
         public async Task AddUserToGroup(string username, string group)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/admin/user/{username}/group/{WebUtility.UrlEncode(group)}", new StringContent(string.Empty));
+            var response = await client.PostAsync($"rest/admin/user/{username}/group/{Uri.EscapeDataString(group)}", new StringContent(string.Empty));
 
             response.EnsureSuccessStatusCode();
         }
@@ -179,7 +179,7 @@ namespace YouTrackSharp.Management
         public async Task RemoveUserFromGroup(string username, string group)
         {
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/admin/user/{username}/group/{WebUtility.UrlEncode(group)}");
+            var response = await client.DeleteAsync($"rest/admin/user/{username}/group/{Uri.EscapeDataString(group)}");
 
             response.EnsureSuccessStatusCode();
         }
