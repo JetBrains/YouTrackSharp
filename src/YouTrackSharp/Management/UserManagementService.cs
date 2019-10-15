@@ -115,7 +115,7 @@ namespace YouTrackSharp.Management
             var queryString = new Dictionary<string, string>(4);
             if (!string.IsNullOrEmpty(fullName))
             {
-                queryString.Add("fullName", Uri.EscapeDataString(fullName));
+                queryString.Add("fullName", fullName);
             }
             if (!string.IsNullOrEmpty(email))
             {
