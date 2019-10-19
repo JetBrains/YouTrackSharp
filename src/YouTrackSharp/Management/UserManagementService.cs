@@ -92,11 +92,11 @@ namespace YouTrackSharp.Management
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", Uri.EscapeDataString(email));
+                queryString.Add("email", email);
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", Uri.EscapeDataString(jabber));
+                queryString.Add("jabber", jabber);
             }
             if (!string.IsNullOrEmpty(password))
             {
@@ -119,11 +119,11 @@ namespace YouTrackSharp.Management
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", Uri.EscapeDataString(email));
+                queryString.Add("email", email);
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", Uri.EscapeDataString(jabber));
+                queryString.Add("jabber", jabber);
             }
             if (!string.IsNullOrEmpty(password))
             {
