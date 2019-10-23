@@ -94,10 +94,7 @@ namespace YouTrackSharp.Issues
             {
                 queryString.Add($"description={Uri.EscapeDataString(issue.Description)}");
             }
-            if (issue.IsMarkdown)
-            {
-                queryString.Add("markdown=true");
-            }
+            queryString.Add("markdown=" + (issue.IsMarkdown ? "true" : "false"));
             
             var query = string.Join("&", queryString);
             
