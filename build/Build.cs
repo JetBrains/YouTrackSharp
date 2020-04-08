@@ -1,48 +1,48 @@
 using System;
-using JetBrains.Annotations;
+using System.Linq;
 using Nuke.Common;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
+using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Utilities.Collections;
-using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+
+public static class Extensions
+{
+    public static string Until(this string source, string marker)
+    {
+        if (string.IsNullOrEmpty(source)) return source;
+
+        var length = source.IndexOf(marker, StringComparison.OrdinalIgnoreCase);
+
+        if (length < 0 || length > source.Length) return source;
+        
+        return source.Substring(0, length);
+    }
+}
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
+// ReSharper disable once ClassNeverInstantiated.Global
 class Build : NukeBuild
 {
-    /// Support plugins are available for:
-    ///   - JetBrains ReSharper        https://nuke.build/resharper
-    ///   - JetBrains Rider            https://nuke.build/rider
-    ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
-    ///   - Microsoft VSCode           https://nuke.build/vscode
-
-    public static int Main () => Execute<Build>(x => x.Pack);
+    public static int Main () => Execute<Build>(x => x.Package);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
-    
-    [Parameter("Package version suffix")]
-    readonly string PackageVersionSuffix = "develop-" + DateTime.UtcNow.ToString("yyyyMMddhhmm");
 
     [Solution] readonly Solution Solution;
-    [GitRepository] [UsedImplicitly] readonly GitRepository GitRepository;
 
-    AbsolutePath SourceDirectory => RootDirectory / "src";
+    AbsolutePath SourceDirectory => RootDirectory;
     AbsolutePath TestsDirectory => RootDirectory / "tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
 
-    [UsedImplicitly]
-    Target Initialize => _ => _
-        .Before(Clean)
-        .Executes(() =>
-        {
-            SetVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "1");
-        });
+    static string AssemblyVersion = Environment.GetEnvironmentVariable("VersionFormat")?.Replace("{0}", "0")?.Until("-") ?? "0.0.1";
+    static string PackageVersion = Environment.GetEnvironmentVariable("PackageVersion") ?? AssemblyVersion + "-dev";
 
     Target Clean => _ => _
         .Before(Restore)
@@ -56,7 +56,7 @@ class Build : NukeBuild
     Target Restore => _ => _
         .Executes(() =>
         {
-            DotNetRestore(s => s
+            DotNetRestore(_ => _
                 .SetProjectFile(Solution));
         });
 
@@ -64,31 +64,39 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() =>
         {
-            DotNetBuild(s => s
+            DotNetBuild(_ => _
+                .SetProjectFile(Solution)
+                .SetConfiguration(Configuration)
+                .SetAssemblyVersion(AssemblyVersion)
+                .SetFileVersion(AssemblyVersion)
+                .SetInformationalVersion(PackageVersion)
+                .EnableNoRestore());
+        });
+
+    Target Test => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+        {
+            DotNetTest(_ => _
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
         });
     
-    Target Test => _ => _
-        .DependsOn(Compile)
-        .Executes(() =>
-        {
-            DotNetTest(settings => settings
-                .SetProjectFile(TestsDirectory / "YouTrackSharp.Tests" / "YouTrackSharp.Tests.csproj")
-                .EnableNoBuild());
-        });
-    
-    Target Pack => _ => _
+    Target Package => _ => _
         .DependsOn(Test)
         .Executes(() =>
         {
-            EnsureExistingDirectory(ArtifactsDirectory);
-
-            DotNetPack(settings => settings
-                .SetOutputDirectory(ArtifactsDirectory)
-                .EnableIncludeSource()
-                .EnableIncludeSymbols()
-                .SetVersionSuffix(PackageVersionSuffix));
+            foreach (var project in Solution.AllProjects.Where(p => p.GetProperty<bool>("GeneratePackageOnBuild")).ToList())
+            {
+                DotNetPack(_ => _
+                    .SetProject(project)
+                    .EnableIncludeSource()
+                    .EnableIncludeSymbols()
+                    .EnableNoRestore()
+                    .EnableNoBuild()
+                    .SetVersion(PackageVersion)
+                    .SetOutputDirectory(ArtifactsDirectory));
+            }
         });
 }
