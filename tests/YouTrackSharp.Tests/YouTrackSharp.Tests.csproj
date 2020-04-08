@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyVersion>2020.1.0</AssemblyVersion>
-    <FileVersion>2020.1.0</FileVersion>
+    <AssemblyVersion>2020.2.0</AssemblyVersion>
+    <FileVersion>2020.2.0</FileVersion>
     <Authors>JetBrains</Authors>
     <Company>JetBrains</Company>
     <Product>YouTrackSharp</Product>
@@ -13,7 +13,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>2020.1.0</VersionPrefix>
+    <VersionPrefix>2020.2.0</VersionPrefix>
     <IsPackable>False</IsPackable>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
