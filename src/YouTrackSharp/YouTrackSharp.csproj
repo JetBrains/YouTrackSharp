@@ -8,8 +8,8 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
     <PackageTags>YouTrack JetBrains SDK</PackageTags>
-    <AssemblyVersion>2019.2.0</AssemblyVersion>
-    <FileVersion>2019.2.0</FileVersion>
+    <AssemblyVersion>2019.3.0</AssemblyVersion>
+    <FileVersion>2019.3.0</FileVersion>
     <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
     <Authors>JetBrains</Authors>
     <Company>JetBrains</Company>
@@ -17,12 +17,22 @@
     <Copyright>JetBrains</Copyright>
     <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>2019.2.4</VersionPrefix>
+    <VersionPrefix>2019.3.0</VersionPrefix>
     <LangVersion>7.3</LangVersion>
+
+    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSource>True</IncludeSource>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" PrivateAssets="All" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0"
+                      PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers">
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Strings.Designer.cs">
