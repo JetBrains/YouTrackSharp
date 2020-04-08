@@ -58,31 +58,5 @@ namespace YouTrackSharp
         /// <returns>An authenticated <see cref="T:System.Net.Http.HttpClient" />.</returns>
         /// <exception cref="UnauthorizedConnectionException">The connection could not be authenticated.</exception>
         public abstract Task<HttpClient> GetAuthenticatedHttpClient();
-        
-        /// <summary>
-        /// Gets the build number of the YouTrack server instance.
-        /// </summary>
-        /// <returns>Build number of the YouTrack server instance. When the YouTrack server does not support returning its build number, the value <value>-1</value> will be returned.</returns>
-        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        public async Task<int> GetBuildNumber()
-        {
-            var client = await GetAuthenticatedHttpClient();
-            var response = await client.GetAsync("api/config?fields=build");
-
-            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                return -1;
-            }
-
-            response.EnsureSuccessStatusCode();
-            
-            var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-            if (responseJson["build"] != null)
-            {
-                return responseJson["build"].Value<int>();
-            }
-            
-            return -1;
-        }
     }
 }
