@@ -1,0 +1,36 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>8</LangVersion>
+        <Nullable>disable</Nullable>
+    
+        <!-- NuGet -->
+        <PackageIcon>package_icon.png</PackageIcon>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>YouTrack JetBrains SDK</PackageTags>
+        <AssemblyVersion>2020.2.0</AssemblyVersion>
+        <FileVersion>2020.2.0</FileVersion>
+        <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
+        <Authors>JetBrains</Authors>
+        <Company>JetBrains</Company>
+        <Copyright>JetBrains</Copyright>
+        
+        <!-- Symbols -->
+        <IncludeSymbols>True</IncludeSymbols>
+        <IncludeSource>True</IncludeSource>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+        <Product>YouTrackSharp</Product>
+    </PropertyGroup>
+
+    <ItemGroup Condition="$(GeneratePackageOnBuild)">
+        <None Include="../../package_icon.png">
+            <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>

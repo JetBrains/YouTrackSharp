@@ -2,7 +2,7 @@
 
 # YouTrackSharp
 
-![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/master/logo.png)
+![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/202/package_icon.png)
 
 .NET Standard 2.0 Library to access YouTrack API.
 
