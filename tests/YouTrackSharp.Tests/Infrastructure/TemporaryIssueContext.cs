@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
-using YouTrackSharp.Issues;
 
 namespace YouTrackSharp.Tests.Infrastructure
 {
@@ -31,9 +31,9 @@ namespace YouTrackSharp.Tests.Infrastructure
 
         public async Task Destroy()
         {
-            if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
+            if (!string.IsNullOrEmpty(Issue?.IdReadable) && !_destroyed)
             {
-                await DeleteTemporaryIssue(_connection, Issue.Id);
+                await DeleteTemporaryIssue(_connection, Issue.IdReadable);
                 
                 _destroyed = true;
                 Issue = null;
@@ -50,28 +50,30 @@ namespace YouTrackSharp.Tests.Infrastructure
                 Description = description
             };
 
-            Issue.SetField("State", "Fixed");
+            // Issue.CustomFields = new List<IssueCustomField>
+            // {
+            //     new IssueCustomField() {  }
+            // };
+            // TODO MIGRATION Issue.("State", "Fixed");
         }
         
         private static async Task<Issue> CreateTemporaryIssue(Connection connection, Issue issue)
         {
-            var service = connection.CreateIssuesService();
+            var client = await connection.CreateClientAsync();
 
-            var issueId = await service.CreateIssue("DP1", issue);
-
-            return await service.GetIssue(issueId);
+            return await client.IssuesPostAsync(body: issue);
         }
         
         private static async Task DeleteTemporaryIssue(Connection connection, string issueId)
         {
-            var service = connection.CreateIssuesService();
+            var client = await connection.CreateClientAsync();
 
-            await service.DeleteIssue(issueId);
+            await client.IssuesDeleteAsync(issueId);
         }
 
         public void Dispose()
         {
-            if (!string.IsNullOrEmpty(Issue?.Id) && !_destroyed)
+            if (!string.IsNullOrEmpty(Issue?.IdReadable) && !_destroyed)
             {
                 // ReSharper disable once LocalizableElement
                 Console.WriteLine($"The temporary issue will not be cleaned up. Please call the {nameof(TemporaryIssueContext)}.{nameof(Destroy)}() method before disposing.");

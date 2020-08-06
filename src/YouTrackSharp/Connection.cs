@@ -43,7 +43,12 @@ namespace YouTrackSharp
         {
             if (!url.EndsWith("/"))
             {
-                return url + "/";
+                url = url + "/";
+            }
+            
+            if (!url.EndsWith("api/"))
+            {
+                url = url + "api/";
             }
 
             return url;

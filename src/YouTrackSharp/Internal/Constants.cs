@@ -1,9 +1,9 @@
-﻿namespace YouTrackSharp
+﻿namespace YouTrackSharp.Internal
 {
     /// <summary>
     /// Constants used throughout the YouTrackSharp projects.
     /// </summary>
-    public static class Constants
+    internal static class Constants
     {
         /// <summary>
         /// HTTP request and response content type representations.

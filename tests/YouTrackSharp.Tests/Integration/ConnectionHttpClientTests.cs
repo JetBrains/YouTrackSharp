@@ -16,7 +16,7 @@ namespace YouTrackSharp.Tests.Integration
             {
                 // Arrange & Act
                 var httpClient = await connection.GetAuthenticatedHttpClient();
-                var response = await httpClient.GetAsync("api/admin/users/me");
+                var response = await httpClient.GetAsync("admin/users/me");
                 
                 // Assert
                 Assert.True(response.IsSuccessStatusCode);

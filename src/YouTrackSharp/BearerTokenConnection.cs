@@ -60,7 +60,7 @@ namespace YouTrackSharp
                 return _httpClient;
             }
             
-            var response = await _httpClient.GetAsync("api/admin/users/me");
+            var response = await _httpClient.GetAsync("admin/users/me");
             if (response.IsSuccessStatusCode)
             {
                 _authenticated = true;
