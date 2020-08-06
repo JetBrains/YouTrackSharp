@@ -59,16 +59,16 @@ namespace YouTrackSharp.Tests.Infrastructure
         
         private static async Task<Issue> CreateTemporaryIssue(Connection connection, Issue issue)
         {
-            var client = await connection.CreateClientAsync();
+            var client = await connection.CreateYouTrackProjectsClientAsync();
 
-            return await client.IssuesPostAsync(body: issue);
+            return await client.IssuesPostAsync(id: "DP1", body: issue);
         }
         
         private static async Task DeleteTemporaryIssue(Connection connection, string issueId)
         {
-            var client = await connection.CreateClientAsync();
+            var client = await connection.CreateYouTrackProjectsClientAsync();
 
-            await client.IssuesDeleteAsync(issueId);
+            await client.IssuesDeleteAsync(id: "DP1", issueId: issueId);
         }
 
         public void Dispose()
