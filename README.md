@@ -29,7 +29,7 @@ var projectsService = connection.CreateProjectsService();
 var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
 ```
 
-Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/standalone/YouTrack-REST-API-Reference.html) endpoints and operations that are available.
+Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/incloud/deprecated-rest-api-reference.html) endpoints and operations that are available.
 
 ## Supported operations
 
