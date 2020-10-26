@@ -91,6 +91,11 @@ namespace YouTrackSharp.Issues
         public ICollection<Field> Fields => _fields.Values;
 
         /// <summary>
+        /// Get all field names
+        /// </summary>
+        public ICollection<string> FieldNames => _fields.Keys;
+
+        /// <summary>
         /// Issue comments.
         /// </summary>
         [JsonProperty("comment")]
@@ -158,7 +163,9 @@ namespace YouTrackSharp.Issues
                     if (fieldElement.Value is JArray fieldElementAsArray)
                     {
                         // Map collection
-                        if (string.Equals(fieldElement.Name, "assignee", StringComparison.OrdinalIgnoreCase))
+                        // Heuristics for finding fields of the type List<Assignee>
+                        var children = new List<JToken>(fieldElementAsArray.First.Children());
+                        if(children.Count == 2 && children[0].Path == "[0].value" && children[1].Path == "[0].fullName")
                         {
                             // For assignees, we can do a strong-typed list.
                             fieldElement.Value = fieldElementAsArray.ToObject<List<Assignee>>();
