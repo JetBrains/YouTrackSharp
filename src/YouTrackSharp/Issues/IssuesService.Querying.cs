@@ -106,8 +106,8 @@ namespace YouTrackSharp.Issues
 
             response.EnsureSuccessStatusCode();
 
-            var wrapper =
-                JsonConvert.DeserializeObject<IssueCollectionWrapper>(await response.Content.ReadAsStringAsync());
+            var res = await response.Content.ReadAsStringAsync();
+            var wrapper = JsonConvert.DeserializeObject<IssueCollectionWrapper>(res);
             return wrapper.Issues;
         }
 

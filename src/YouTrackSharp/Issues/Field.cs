@@ -48,6 +48,8 @@ namespace YouTrackSharp.Issues
                     return null;
                 case ICollection<string> collection:
                     return collection.SingleOrDefault();
+                case ICollection<Assignee> collection:
+                    return collection.SingleOrDefault().FullName;
             }
 
             return Value.ToString();
