@@ -165,7 +165,8 @@ namespace YouTrackSharp.Issues
                         // Map collection
                         // Heuristics for finding fields of the type List<Assignee>
                         var children = new List<JToken>(fieldElementAsArray.First.Children());
-                        if(children.Count == 2 && children[0].Path == "[0].value" && children[1].Path == "[0].fullName")
+                        if (children.Count == 2 && children[0] is JProperty && ((JProperty)children[0]).Name == "value"
+                            && children[1] is JProperty && ((JProperty)children[1]).Name == "fullName")
                         {
                             // For assignees, we can do a strong-typed list.
                             fieldElement.Value = fieldElementAsArray.ToObject<List<Assignee>>();
