@@ -1,31 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <IncludeSymbols>True</IncludeSymbols>
-    <IncludeSource>True</IncludeSource>
-    <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
-    <PackageTags>YouTrack JetBrains SDK</PackageTags>
-    <AssemblyVersion>2020.1.0</AssemblyVersion>
-    <FileVersion>2020.1.0</FileVersion>
-    <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
-    <Authors>JetBrains</Authors>
-    <Company>JetBrains</Company>
-    <Product>YouTrackSharp</Product>
-    <Copyright>JetBrains</Copyright>
-    <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>2020.1.0</VersionPrefix>
-    <LangVersion>7.3</LangVersion>
-
-    <IncludeSymbols>True</IncludeSymbols>
-    <IncludeSource>True</IncludeSource>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>    
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

@@ -2,7 +2,7 @@
 
 # YouTrackSharp
 
-![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/master/logo.png)
+![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/202/package_icon.png)
 
 .NET Standard 2.0 Library to access YouTrack API.
 
@@ -29,7 +29,7 @@ var projectsService = connection.CreateProjectsService();
 var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
 ```
 
-Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/standalone/YouTrack-REST-API-Reference.html) endpoints and operations that are available.
+Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/incloud/deprecated-rest-api-reference.html) endpoints and operations that are available.
 
 ## Supported operations
 
@@ -46,7 +46,6 @@ The following API's are currently supported:
 * [Projects-related methods](https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html) through `ProjectsService`
 * [Issues-related methods](https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html) through `IssuesService`
 * [Time-tracking-related methods](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html) through `TimeTrackingService`
-* [Agile Board-related methods](https://www.jetbrains.com/help/youtrack/standalone/Agile-Board-REST-API.html) through `AgileBoardService`
 * Administration API's
   * [User management](https://www.jetbrains.com/help/youtrack/standalone/Users.html) through `UserManagementService`
   * [Time Tracker management](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-Settings-Methods.html) through `TimeTrackingManagementService`

@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
@@ -12,6 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AFD08188-88DE-4FCF-BB47-95923037CF58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{CB1F4239-E5A2-4998-9479-5D9F8293D200}"
+ProjectSection(SolutionItems) = preProject
+	Directory.Build.targets = Directory.Build.targets
+	LICENSE.txt = LICENSE.txt
+	package_icon.png = package_icon.png
+	README.md = README.md
+	global.json = global.json
+EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_build", "build\_build.csproj", "{991265FB-840B-47A6-882F-EF0FA919A31D}"
 EndProject

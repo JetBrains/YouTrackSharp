@@ -1,27 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyVersion>2020.1.0</AssemblyVersion>
-    <FileVersion>2020.1.0</FileVersion>
-    <Authors>JetBrains</Authors>
-    <Company>JetBrains</Company>
-    <Product>YouTrackSharp</Product>
-    <Description>Tests for YouTrackSharp.</Description>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Copyright>JetBrains</Copyright>
-    <PackageProjectUrl>https://github.com/JetBrains/YouTrackSharp/</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/JetBrains/YouTrackSharp/master/logo.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <VersionPrefix>2020.1.0</VersionPrefix>
-    <IsPackable>False</IsPackable>
-    <LangVersion>7.3</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>Tests for YouTrackSharp.</Description>    
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
