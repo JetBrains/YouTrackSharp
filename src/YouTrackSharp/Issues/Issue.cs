@@ -19,7 +19,18 @@ namespace YouTrackSharp.Issues
     public class Issue
         : DynamicObject
     {
-        private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.Ordinal);
+        /// <summary>
+        /// Use case-sensitive field names? Defaults to false.
+        /// </summary>
+        /// <remarks>
+        /// When set to true, fields like "assignee" and "Assignee" can be used.
+        /// </remarks>
+        public static bool UseCaseSensitiveFieldNames { get; set; }
+        
+        private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(
+            UseCaseSensitiveFieldNames
+                ? StringComparer.Ordinal
+                : StringComparer.OrdinalIgnoreCase);
         
         /// <summary>
         /// Creates an instance of the <see cref="Issue" /> class.
@@ -86,12 +97,12 @@ namespace YouTrackSharp.Issues
         }
         
         /// <summary>
-        /// Issue fields.
+        /// Get all issue fields.
         /// </summary>
         public ICollection<Field> Fields => _fields.Values;
 
         /// <summary>
-        /// Get all field names
+        /// Get all issue field names.
         /// </summary>
         public ICollection<string> FieldNames => _fields.Keys;
 
@@ -131,7 +142,7 @@ namespace YouTrackSharp.Issues
             }
             else
             {
-                _fields.Add(fieldName, new Field { Name = fieldName, Value = value });
+                _fields[fieldName] = new Field { Name = fieldName, Value = value };
             }
         }
         
