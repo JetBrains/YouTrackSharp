@@ -19,7 +19,7 @@ namespace YouTrackSharp.Issues
     public class Issue
         : DynamicObject
     {
-        private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.OrdinalIgnoreCase);
+        private readonly IDictionary<string, Field> _fields = new Dictionary<string, Field>(StringComparer.Ordinal);
         
         /// <summary>
         /// Creates an instance of the <see cref="Issue" /> class.
