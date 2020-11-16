@@ -4,7 +4,7 @@
 
 ![YouTrackSharp](https://github.com/JetBrains/YouTrackSharp/raw/202/package_icon.png)
 
-.NET Standard 2.0 Library to access YouTrack API.
+.NET library to access YouTrack API.
 
 For more information on YouTrack visit [jetbrains.com/youtrack](https://www.jetbrains.com/youtrack).
 
@@ -35,7 +35,6 @@ Other services are available as well, mapping to the [YouTrack REST API](https:/
 
 YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
 
-* Targets .NET Standard 2.0 - can be used with pretty much [any .NET platform](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)!
 * All calls are `async` all the way.
 * Handles serialization of YouTrack's timestamps into `DateTime` where possible.
 * Authentication using [permanent tokens](https://www.jetbrains.com/help/youtrack/incloud/Manage-Permanent-Token.html).
