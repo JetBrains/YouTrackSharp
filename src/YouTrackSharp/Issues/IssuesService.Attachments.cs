@@ -37,7 +37,7 @@ namespace YouTrackSharp.Issues
             {
                 queryString.Add($"group={group}");
             }
-            if (!string.IsNullOrEmpty(group))
+            if (!string.IsNullOrEmpty(author))
             {
                 queryString.Add($"author={author}");
             }
