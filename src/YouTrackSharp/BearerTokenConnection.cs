@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using YouTrackSharp.Internal;
 
 namespace YouTrackSharp
@@ -10,6 +11,7 @@ namespace YouTrackSharp
     /// A class that represents a connection against a YouTrack server instance and provides an authenticated
     /// <see cref="T:System.Net.Http.HttpClient" /> that uses a bearer token.
     /// </summary>
+    [PublicAPI]
     public class BearerTokenConnection 
         : Connection
     {
@@ -19,6 +21,8 @@ namespace YouTrackSharp
         private readonly string _bearerToken;
 
         private readonly Action<HttpClientHandler> _configureHandler;
+        
+        private TimeSpan _timeout = TimeSpan.FromSeconds(100);
 
         /// <summary>
         /// Creates an instance of the <see cref="BearerTokenConnection" /> class.
@@ -35,6 +39,25 @@ namespace YouTrackSharp
             _bearerToken = bearerToken;
             _configureHandler = configureHandler;
         }
+        
+        /// <summary>
+        /// Gets or sets the timespan to wait before the request times out.
+        /// </summary>
+        /// <remarks>
+        /// The default value is 100,000 milliseconds (100 seconds).
+        /// </remarks>
+        public TimeSpan Timeout 
+        {
+            get => _httpClient?.Timeout ?? _timeout;
+            set
+            {
+                _timeout = value;
+                if (_httpClient != null)
+                {
+                    _httpClient.Timeout = _timeout;
+                }
+            }
+        } 
 
         /// <inheritdoc />
         public override async Task<HttpClient> GetAuthenticatedHttpClient()
@@ -48,7 +71,8 @@ namespace YouTrackSharp
 
                 _httpClient = new HttpClient(handler)
                 {
-                    BaseAddress = ServerUri
+                    BaseAddress = ServerUri,
+                    Timeout = _timeout
                 };
 
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.HttpContentTypes.ApplicationJson));
