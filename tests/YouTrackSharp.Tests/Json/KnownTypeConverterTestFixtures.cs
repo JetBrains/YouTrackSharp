@@ -10,27 +10,108 @@ namespace YouTrackSharp.Tests.Json {
   [UsedImplicitly]
   public class KnownTypeConverterTestFixtures {
     public class Json {
+      /// <summary>
+      /// Creates a Json string representation of a <see cref="ChildA"/> instance, with given id and name.
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <returns>Json representation of <see cref="ChildA"/> with given id and name</returns>
       public string GetJsonForChildA(int id, string name) {
         return $"{{ \"id\": {id}, \"name\": \"{name}\", \"$type\": \"ChildA\" }}";
       }
 
+      /// <summary>
+      /// Creates a Json string representation of a <see cref="ChildB"/> instance, with given id and title.
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="title">Title</param>
+      /// <returns>Json representation of <see cref="ChildB"/> with given id and title</returns>
       public string GetJsonForChildB(int id, string title) {
         return $"{{ \"id\": {id}, \"title\": \"{title}\", \"$type\": \"ChildB\" }}";
       }
 
+      /// <summary>
+      /// Creates a Json string representation of an unknown sub-type of <see cref="BaseType"/> (unknown to
+      /// serialization), with given id and title.
+      /// </summary>
+      /// <param name="id">Id of object</param>
+      /// <param name="title">Title of object</param>
+      /// <returns>Json representation of an unknown sub-type of <see cref="BaseType"/></returns>
       public string GetJsonForUnknownType(int id, string title) {
         return $"{{ \"id\": {id}, \"title\": \"{title}\", \"$type\": \"UnknownType\" }}";
       }
 
+      /// <summary>
+      /// Creates a Json string representation of an object, with no "$type" field, with given id and title. 
+      /// </summary>
+      /// <param name="id">Id of object</param>
+      /// <param name="title">Title of object</param>
+      /// <returns>Json representation of an untyped object</returns>
       public string GetJsonForUnspecifiedType(int id, string title) {
         return $"{{ \"id\": {id}, \"title\": \"{title}\" }}";
       }
 
+      /// <summary>
+      /// Creates a Json representation of a <see cref="CompoundType"/>, with given id, name.<br/>
+      /// The <see cref="CompoundType.Child"/> instance is a json representation of  concrete type <see cref="ChildA"/>,
+      /// with given child id and child name.
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <param name="childId">Id of child</param>
+      /// <param name="childName">Name of child</param>
+      /// <returns>
+      /// Json representation of <see cref="CompoundType"/>, with <see cref="ChildA"/> instance variable.
+      /// </returns>
       public string GetJsonForCompoundType(int id, string name, int childId, string childName) {
         string childJson = GetJsonForChildA(childId, childName);
 
         return $"{{ \"id\": {id}, \"name\": \"{name}\", \"child\": {childJson}, \"$type\": \"CompoundType\" }}";
       }
+      
+      /// <summary>
+      /// Creates json representation of <see cref="CompoundTypeWithList"/>, with given id and name.
+      /// The <see cref="CompoundTypeWithList.Children"/> is a list made of multiple <see cref="ChildA"/> and
+      /// <see cref="ChildB"/> instances, created from the given <see cref="children"/> enumerable.
+      /// This enumerable contains a tuple per child to create, with the concrete type to use (<see cref="ChildA"/> or
+      /// <see cref="ChildB"/>, the child id and its name).
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <param name="children">Children specifications</param>
+      /// <returns>
+      /// Json representation of <see cref="CompoundTypeWithList"/>, with array of children of types
+      /// <see cref="ChildA"/> or <see cref="ChildB"/>.
+      /// </returns>
+      public string GetJsonForCompoundTypeWithList(int id, string name, IEnumerable<Tuple<Type, int, string>> children) {
+        IEnumerable<string> childrenJson =
+          children.Select(child => GetJsonForChild(child.Item1, child.Item2, child.Item3));
+
+        string childrenJsonArray = string.Join(", ", childrenJson);
+
+        return $"{{ \"id\": {id}, \"name\": \"{name}\", \"children\": " +
+               $"[{childrenJsonArray}], \"$type\": \"CompoundTypeWithList\" }}";
+      }
+
+      private string GetJsonForChild(Type concreteType, int id, string nameOrTitle) {
+        if (concreteType == typeof(ChildA)) {
+          return GetJsonForChildA(id, nameOrTitle);
+        }
+
+        return GetJsonForChildB(id, nameOrTitle);
+      }
+    }
+    
+    public class CompoundTypeWithList {
+      [JsonProperty("id")]
+      public int Id { get; set; }
+
+      [JsonProperty("name")]
+      public string Name { get; set; }
+
+      [JsonProperty("children")]
+      [JsonConverter(typeof(KnownTypeListConverter<BaseType>))]
+      public List<BaseType> Children { get; set; }
     }
 
     public class CompoundType {
