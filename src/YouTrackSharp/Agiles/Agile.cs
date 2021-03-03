@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using YouTrackSharp.Json;
 using YouTrackSharp.Management;
 using YouTrackSharp.Projects;
 
@@ -103,6 +104,7 @@ namespace YouTrackSharp.Agiles {
     /// Settings of the board swimlanes. Can be null.
     /// </summary>
     [JsonProperty("swimlaneSettings")]
+    [JsonConverter(typeof(KnownTypeConverter<SwimlaneSettings>))]
     public SwimlaneSettings SwimlaneSettings { get; set; }
 
     /// <summary>
@@ -115,6 +117,7 @@ namespace YouTrackSharp.Agiles {
     /// Color coding settings for the board. Can be null.
     /// </summary>
     [JsonProperty("colorCoding")]
+    [JsonConverter(typeof(KnownTypeConverter<ColorCoding>))]
     public ColorCoding ColorCoding { get; set; }
 
     /// <summary>

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Agiles {
   /// <summary>
@@ -10,6 +11,7 @@ namespace YouTrackSharp.Agiles {
     /// CustomField which values are used to identify swimlane.
     /// </summary>
     [JsonProperty("field")]
+    [JsonConverter(typeof(KnownTypeConverter<FilterField>))]
     public FilterField Field { get; set; }
 
     /// <summary>
