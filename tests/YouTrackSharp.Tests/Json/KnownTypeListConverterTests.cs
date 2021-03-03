@@ -55,6 +55,40 @@ namespace YouTrackSharp.Tests.Json {
           }
         }
       }
+      
+      [Fact]
+      public void Deserialize_Type_With_Polymorphic_Collection_Null() {
+        string expectedName = "Example Name";
+        int expectedId = 123;
+
+        Fixtures.Json fixtures = new Fixtures.Json();
+        string json = fixtures.GetJsonForCompoundTypeWithNullList(expectedId, expectedName);
+
+        Fixtures.CompoundTypeWithList result = JsonConvert.DeserializeObject<Fixtures.CompoundTypeWithList>(json);
+
+        Assert.NotNull(result);
+        Assert.Equal(expectedId, result.Id);
+        Assert.Equal(expectedName, result.Name);
+
+        Assert.Null(result.Children);
+      }
+      
+      [Fact]
+      public void Deserialize_Type_With_Polymorphic_Collection_Empty() {
+        string expectedName = "Example Name";
+        int expectedId = 123;
+
+        Fixtures.Json fixtures = new Fixtures.Json();
+        string json = fixtures.GetJsonForCompoundTypeWithEmptyList(expectedId, expectedName);
+
+        Fixtures.CompoundTypeWithList result = JsonConvert.DeserializeObject<Fixtures.CompoundTypeWithList>(json);
+
+        Assert.NotNull(result);
+        Assert.Equal(expectedId, result.Id);
+        Assert.Equal(expectedName, result.Name);
+        Assert.NotNull(result.Children);
+        Assert.Empty(result.Children);
+      }
     }
   }
 }

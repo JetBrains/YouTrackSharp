@@ -44,6 +44,8 @@ namespace YouTrackSharp.Json {
     /// <param name="serializer">The calling serializer.</param>
     /// <returns>The object value.</returns>
     public override T ReadJson(JsonReader reader, Type objectType, T existingValue, bool hasExistingValue, JsonSerializer serializer) {
+      if (reader.TokenType == JsonToken.Null) return default;
+      
       List<Type> types = typeof(T).GetCustomAttributes<KnownTypeAttribute>().Select(attr => attr.Type).ToList();
 
       JObject obj = JObject.Load(reader);

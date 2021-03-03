@@ -118,6 +118,25 @@ namespace YouTrackSharp.Tests.Json {
         Assert.Equal(expectedChildId, child.Id);
         Assert.Equal(expectedChildName, child.Name);
       }
+      
+      [Fact]
+      public void Deserialize_Type_With_Null_Polymorphic_Field() {
+        string expectedName = "Example Name";
+        int expectedId = 123;
+        
+        Fixtures.Json fixtures = new Fixtures.Json();
+        string json = fixtures.GetJsonForCompoundTypeWithNullField(expectedId, expectedName);
+        
+        Fixtures.CompoundType result = JsonConvert.DeserializeObject<Fixtures.CompoundType>(json);
+        
+
+        Assert.NotNull(result);
+        Assert.Equal(expectedId, result.Id);
+        Assert.Equal(expectedName, result.Name);
+
+        Fixtures.ChildA child = result.Child as Fixtures.ChildA;
+        Assert.Null(child);
+      }
     }
   }
 }

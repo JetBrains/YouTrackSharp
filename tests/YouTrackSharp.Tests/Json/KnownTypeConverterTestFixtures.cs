@@ -70,7 +70,19 @@ namespace YouTrackSharp.Tests.Json {
       }
       
       /// <summary>
-      /// Creates json representation of <see cref="CompoundTypeWithList"/>, with given id and name.
+      /// Creates a Json representation of a <see cref="CompoundType"/>, with given id, name, but null child<br/>
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <returns>
+      /// Json representation of <see cref="CompoundType"/>, with null child.
+      /// </returns>
+      public string GetJsonForCompoundTypeWithNullField(int id, string name) {
+        return $"{{ \"id\": {id}, \"name\": \"{name}\", \"child\": null, \"$type\": \"CompoundType\" }}";
+      }
+      
+      /// <summary>
+      /// Creates Json representation of <see cref="CompoundTypeWithList"/>, with given id and name.
       /// The <see cref="CompoundTypeWithList.Children"/> is a list made of multiple <see cref="ChildA"/> and
       /// <see cref="ChildB"/> instances, created from the given <see cref="children"/> enumerable.
       /// This enumerable contains a tuple per child to create, with the concrete type to use (<see cref="ChildA"/> or
@@ -93,12 +105,46 @@ namespace YouTrackSharp.Tests.Json {
                $"[{childrenJsonArray}], \"$type\": \"CompoundTypeWithList\" }}";
       }
 
+      /// <summary>
+      /// Creates Json representation of <see cref="ChildA"/> or <see cref="ChildB"/>, depending on the given
+      /// <see cref="Type"/> 
+      /// </summary>
+      /// <param name="concreteType">Concrete type (<see cref="ChildA"/> or <see cref="ChildB"/>)</param>
+      /// <param name="id">Id of child</param>
+      /// <param name="nameOrTitle">Name (for <see cref="ChildA"/>) or Title (for <see cref="ChildB"/>)</param>
+      /// <returns>Json representation of given <see cref="Type"/></returns>
       private string GetJsonForChild(Type concreteType, int id, string nameOrTitle) {
         if (concreteType == typeof(ChildA)) {
           return GetJsonForChildA(id, nameOrTitle);
         }
 
         return GetJsonForChildB(id, nameOrTitle);
+      }
+      
+      /// <summary>
+      /// Creates json representation of <see cref="CompoundTypeWithList"/>, with given id and name, but
+      /// with children field set to <c>null</c>.
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <returns>
+      /// Json representation of <see cref="CompoundTypeWithList"/> with <c>null</c> children.
+      /// </returns>
+      public string GetJsonForCompoundTypeWithNullList(int id, string name) {
+        return $"{{ \"id\": {id}, \"name\": \"{name}\", \"children\": null, \"$type\": \"CompoundTypeWithList\" }}";
+      }
+      
+      /// <summary>
+      /// Creates json representation of <see cref="CompoundTypeWithList"/>, with given id and name, but
+      /// with the children field set to an empty array.
+      /// </summary>
+      /// <param name="id">Id</param>
+      /// <param name="name">Name</param>
+      /// <returns>
+      /// Json representation of <see cref="CompoundTypeWithList"/> with empty children array.
+      /// </returns>
+      public string GetJsonForCompoundTypeWithEmptyList(int id, string name) {
+        return $"{{ \"id\": {id}, \"name\": \"{name}\", \"children\": [], \"$type\": \"CompoundTypeWithList\" }}";
       }
     }
     
