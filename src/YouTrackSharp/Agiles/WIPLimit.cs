@@ -15,12 +15,12 @@ namespace YouTrackSharp.Agiles {
     /// Maximum number of cards in column. Can be null.
     /// </summary>
     [JsonProperty("max")]
-    public int Max { get; set; }
+    public int? Max { get; set; }
 
     /// <summary>
     /// Minimum number of cards in column. Can be null.
     /// </summary>
     [JsonProperty("min")]
-    public int Min { get; set; }
+    public int? Min { get; set; }
   }
 }
