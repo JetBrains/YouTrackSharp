@@ -1,17 +1,19 @@
 using Newtonsoft.Json;
 using YouTrackSharp.SerializationAttributes;
 
-namespace YouTrackSharp.Agiles {
-  /// <summary>
-  /// Represents string reference to the value.
-  /// </summary>
-  [KnownType(typeof(SwimlaneEntityAttributeValue))]
-  [KnownType(typeof(AgileColumnFieldValue))]
-  public class DatabaseAttributeValue {
+namespace YouTrackSharp.Agiles
+{
     /// <summary>
-    /// Id of the DatabaseAttributeValue.
+    /// Represents string reference to the value.
     /// </summary>
-    [JsonProperty("id")]
-    public string Id { get; set; }
-  }
+    [KnownType(typeof(SwimlaneEntityAttributeValue))]
+    [KnownType(typeof(AgileColumnFieldValue))]
+    public class DatabaseAttributeValue
+    {
+        /// <summary>
+        /// Id of the DatabaseAttributeValue.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; }
+    }
 }
