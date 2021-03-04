@@ -18,4 +18,8 @@
       <Name>YouTrackSharp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\agile.json" />
+    <EmbeddedResource Include="Resources\CompleteAgile.json" />
+  </ItemGroup>
 </Project>

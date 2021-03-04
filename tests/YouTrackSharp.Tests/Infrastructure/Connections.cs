@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Net.Http;
 using System.Security.Authentication;
 
@@ -22,7 +23,14 @@ namespace YouTrackSharp.Tests.Infrastructure
 
         public static Connection Demo3Token => 
             new BearerTokenConnection(ServerUrl, "perm:ZGVtbzM=.WW91VHJhY2tTaGFycA==.L04RdcCnjyW2UPCVg1qyb6dQflpzFy", ConfigureTestsHandler);
-
+        
+        public static Connection ConnectionStub(string content, HttpStatusCode status = HttpStatusCode.OK) {
+          HttpResponseMessage response = new HttpResponseMessage(status);
+          response.Content = new StringContent(content);
+          
+          return new ConnectionStub(_ => response);
+        } 
+        
         public static class TestData
         {
             public static readonly List<object[]> ValidConnections
