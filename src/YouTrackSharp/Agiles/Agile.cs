@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using YouTrackSharp.Json;
-using YouTrackSharp.Management;
 using YouTrackSharp.Projects;
 using YouTrackSharp.SerializationAttributes;
 
@@ -33,12 +32,11 @@ namespace YouTrackSharp.Agiles {
     /// </summary>
     [Verbose]
     [JsonProperty("visibleFor")]
-    public Group VisibleFor { get; set; }
+    public UserGroup VisibleFor { get; set; }
 
     /// <summary>
     /// When true, the board is visible to everyone who can view all projects that are associated with the board.
     /// </summary>
-    [Verbose]
     [JsonProperty("visibleForProjectBased")]
     public bool VisibleForProjectBased { get; set; }
 
@@ -47,12 +45,11 @@ namespace YouTrackSharp.Agiles {
     /// </summary>
     [Verbose]
     [JsonProperty("updateableBy")]
-    public Group UpdateableBy { get; set; }
+    public UserGroup UpdateableBy { get; set; }
 
     /// <summary>
     /// When true, anyone who can update the associated projects can update the board.
     /// </summary>
-    [Verbose]
     [JsonProperty("updateableByProjectBased")]
     public bool UpdateableByProjectBased { get; set; }
 
@@ -60,14 +57,12 @@ namespace YouTrackSharp.Agiles {
     /// When true, the orphan swimlane is placed at the top of the board. Otherwise, the orphans swimlane is located
     /// below all other swimlanes.
     /// </summary>
-    [Verbose]
     [JsonProperty("orphansAtTheTop")]
     public bool OrphansAtTheTop { get; set; }
 
     /// <summary>
     /// When true, the orphans swimlane is not displayed on the board.
     /// </summary>
-    [Verbose]
     [JsonProperty("hideOrphansSwimlane")]
     public bool HideOrphansSwimlane { get; set; }
 
