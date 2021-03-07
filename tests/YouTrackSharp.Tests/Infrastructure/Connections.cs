@@ -26,12 +26,12 @@ namespace YouTrackSharp.Tests.Infrastructure
         
         public static Connection ConnectionStub(string content, HttpStatusCode status = HttpStatusCode.OK)
         {
-          HttpResponseMessage response = new HttpResponseMessage(status);
-          response.Content = new StringContent(content);
-          
-          return new ConnectionStub(_ => response);
+            HttpResponseMessage response = new HttpResponseMessage(status);
+            response.Content = new StringContent(content);
+            
+            return new ConnectionStub(_ => response);
         } 
-        
+  
         public static class TestData
         {
             public static readonly List<object[]> ValidConnections

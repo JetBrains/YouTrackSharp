@@ -14,7 +14,7 @@ namespace YouTrackSharp.Tests.Integration.Agiles
         public class GetAgiles
         {
             [Fact]
-            public async Task Valid_Connection_Return_Existing_Agile_Verbose()
+            public async Task Valid_Connection_Return_Existing_Agiles_Verbose()
             {
                 // Arrange
                 IAgileService agileService = Connections.Demo1Token.CreateAgileService();
@@ -30,35 +30,10 @@ namespace YouTrackSharp.Tests.Integration.Agiles
                 Assert.NotNull(demoBoard);
                 Assert.Equal(DemoBoardId, demoBoard.Id);
                 Assert.Equal(DemoBoardNamePrefix, demoBoard.Name);
-
-                Assert.NotNull(demoBoard.ColumnSettings);
-                Assert.NotNull(demoBoard.Projects);
-                Assert.NotNull(demoBoard.Sprints);
-                Assert.NotNull(demoBoard.Projects);
-                Assert.NotNull(demoBoard.Sprints);
-                Assert.NotNull(demoBoard.Status);
-
-                Assert.NotNull(demoBoard.ColumnSettings);
-                Assert.NotNull(demoBoard.CurrentSprint);
-                Assert.NotNull(demoBoard.EstimationField);
-                Assert.NotNull(demoBoard.SprintsSettings);
-                Assert.NotNull(demoBoard.SwimlaneSettings);
-
-
-                // These fields are null in the agile test
-                Assert.Null(demoBoard.ColorCoding);
-                Assert.Null(demoBoard.UpdateableBy);
-                Assert.Null(demoBoard.VisibleFor);
-                Assert.Null(demoBoard.OriginalEstimationField);
-
-                Sprint sprint = demoBoard.Sprints.FirstOrDefault();
-                Assert.NotNull(sprint);
-                Assert.Equal(DemoSprintId, sprint.Id);
-                Assert.Equal(DemoSprintName, sprint.Name);
             }
 
             [Fact]
-            public async Task Verbose_Disabled_Returns_Agile_Minimum_Info()
+            public async Task Verbose_Disabled_Returns_Agiles_Non_Verbose()
             {
                 // Arrange
                 IAgileService agileService = Connections.Demo1Token.CreateAgileService();
@@ -72,7 +47,6 @@ namespace YouTrackSharp.Tests.Integration.Agiles
 
                 Agile demoBoard = result.FirstOrDefault();
                 Assert.NotNull(demoBoard);
-
                 Assert.Equal(DemoBoardId, demoBoard.Id);
                 Assert.Equal(DemoBoardNamePrefix, demoBoard.Name);
             }
@@ -92,7 +66,7 @@ namespace YouTrackSharp.Tests.Integration.Agiles
             public async Task Full_Agile_Json_Gets_Deserialized_Successfully()
             {
                 // Arrange
-                IAgileService agileService = Connections.ConnectionStub(CompleteAgileJson).CreateAgileService();
+                IAgileService agileService = Connections.ConnectionStub(GetAgileJsonArray(1)).CreateAgileService();
 
                 // Act
                 ICollection<Agile> result = await agileService.GetAgileBoards(true);

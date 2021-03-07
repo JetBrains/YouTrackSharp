@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -35,15 +36,15 @@ namespace YouTrackSharp.Agiles
         {
             HttpClient client = await _connection.GetAuthenticatedHttpClient();
 
-            const int batchSize = 50;
+            const int batchSize = 10;
             List<Agile> agileBoards = new List<Agile>();
             List<Agile> currentBatch;
-
+            
             do
             {
                 string fields = _fieldSyntaxEncoder.Encode(typeof(Agile), verbose);
 
-                HttpResponseMessage message = await client.GetAsync($"api/agiles?fields={fields}");
+                HttpResponseMessage message = await client.GetAsync($"api/agiles?fields={fields}&$top={batchSize}&$skip={agileBoards.Count}");
 
                 string response = await message.Content.ReadAsStringAsync();
 

@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace YouTrackSharp.Tests.Integration.Agiles
@@ -11,7 +12,16 @@ namespace YouTrackSharp.Tests.Integration.Agiles
         private static string DemoSprintId => "109-2";
         private static string DemoSprintName => "First sprint";
 
-        private static string CompleteAgileJson => GetTextResource("YouTrackSharp.Tests.Resources.CompleteAgile.json");
+        private static string SingleAgileJson => GetTextResource("YouTrackSharp.Tests.Resources.CompleteAgile.json");
+
+        private static string GetAgileJsonArray(int count)
+        {
+            string agileJson = SingleAgileJson;
+
+            string agilesJson = string.Join(",", Enumerable.Range(0, count).Select(_ => agileJson));
+
+            return $"[{agilesJson}]";
+        }
 
         private static string GetTextResource(string name)
         {
