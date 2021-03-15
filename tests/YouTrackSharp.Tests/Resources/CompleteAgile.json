@@ -1,0 +1,200 @@
+{
+  "projects": [
+    {
+      "shortName": "DP1",
+      "name": "DemoProject1",
+      "id": "0-1",
+      "$type": "Project"
+    }
+  ],
+  "swimlaneSettings": {
+    "field": {
+      "customField": {
+        "name": "Type",
+        "$type": "CustomField"
+      },
+      "presentation": "Type",
+      "id": "51-2",
+      "name": "Type",
+      "$type": "CustomFilterField"
+    },
+    "values": [
+      {
+        "name": "Feature",
+        "id": "Feature",
+        "$type": "SwimlaneValue"
+      }
+    ],
+    "defaultCardType": {
+      "name": "Task",
+      "id": "Task",
+      "$type": "SwimlaneValue"
+    },
+    "id": "105-3",
+    "$type": "IssueBasedSwimlaneSettings"
+  },
+  "estimationField": {
+    "name": "Estimation",
+    "$type": "CustomField"
+  },
+  "sprints": [
+    {
+      "name": "First sprint",
+      "id": "109-2",
+      "$type": "Sprint"
+    }
+  ],
+  "hideOrphansSwimlane": false,
+  "orphansAtTheTop": false,
+  "visibleForProjectBased": true,
+  "updateableByProjectBased": true,
+  "columnSettings": {
+    "field": {
+      "name": "State",
+      "$type": "CustomField"
+    },
+    "columns": [
+      {
+        "fieldValues": [
+          {
+            "name": "Open",
+            "isResolved": false,
+            "id": "111-12",
+            "$type": "AgileColumnFieldValue"
+          }
+        ],
+        "ordinal": 0,
+        "presentation": "Open",
+        "wipLimit": null,
+        "isResolved": false,
+        "id": "110-8",
+        "$type": "AgileColumn"
+      },
+      {
+        "fieldValues": [
+          {
+            "name": "In Progress",
+            "isResolved": false,
+            "id": "111-13",
+            "$type": "AgileColumnFieldValue"
+          }
+        ],
+        "ordinal": 1,
+        "presentation": "In Progress",
+        "wipLimit": null,
+        "isResolved": false,
+        "id": "110-9",
+        "$type": "AgileColumn"
+      },
+      {
+        "fieldValues": [
+          {
+            "name": "Fixed",
+            "isResolved": true,
+            "id": "111-14",
+            "$type": "AgileColumnFieldValue"
+          }
+        ],
+        "ordinal": 2,
+        "presentation": "Fixed",
+        "wipLimit": null,
+        "isResolved": true,
+        "id": "110-10",
+        "$type": "AgileColumn"
+      },
+      {
+        "fieldValues": [
+          {
+            "name": "Verified",
+            "isResolved": true,
+            "id": "111-15",
+            "$type": "AgileColumnFieldValue"
+          }
+        ],
+        "ordinal": 3,
+        "presentation": "Verified",
+        "wipLimit": null,
+        "isResolved": true,
+        "id": "110-11",
+        "$type": "AgileColumn"
+      }
+    ],
+    "id": "108-2",
+    "$type": "ColumnSettings"
+  },
+  "colorCoding": {
+    "prototype": {
+        "name": "Type",
+        "$type": "CustomField"
+    },
+    "id": "108-5",
+    "$type": "FieldBasedColorCoding"
+  },
+  "currentSprint": {
+    "name": "First sprint",
+    "id": "109-2",
+    "$type": "Sprint"
+  },
+  "originalEstimationField": {
+    "name": "OriginalEstimationField",
+    "$type": "CustomField"
+  },
+  "sprintsSettings": {
+    "explicitQuery": null,
+    "isExplicit": true,
+    "disableSprints": false,
+    "hideSubtasksOfCards": false,
+    "cardOnSeveralSprints": false,
+    "defaultSprint": null,
+    "sprintSyncField": null,
+    "id": "108-2",
+    "$type": "SprintsSettings"
+  },
+  "visibleFor": {
+    "allUsersGroup" : false,
+    "icon" : "String",
+    "name" : "String",
+    "ringId" : "String",
+    "teamForProject" : {
+      "shortName": "DP1",
+      "name": "DemoProject1",
+      "id": "0-1",
+      "$type": "Project"
+    },
+    "usersCount" : 2,
+    "id" : "String",
+    "$type" : "UserGroup"
+  },
+  "updateableBy": {
+    "allUsersGroup" : false,
+    "icon" : "String",
+    "name" : "String",
+    "ringId" : "String",
+    "teamForProject" : {
+      "shortName": "DP1",
+      "name": "DemoProject1",
+      "id": "0-1",
+      "$type": "Project"
+    },
+    "usersCount" : 2,
+    "id" : "String",
+    "$type" : "UserGroup"
+  },
+  "status": {
+    "errors": [],
+    "valid": true,
+    "hasJobs": false,
+    "warnings": [],
+    "id": "boardStatus",
+    "$type": "AgileStatus"
+  },
+  "owner": {
+    "fullName": "Demo User 1",
+    "ringId": "0692a47b-3670-452e-8e73-8b166a774705",
+    "id": "1-2",
+    "$type": "User"
+  },
+  "name": "Test Board597fb561-ea1f-4095-9636-859ae4439605",
+  "id": "108-2",
+  "$type": "Agile"
+}
