@@ -26,7 +26,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="Generated.Issue"/> to convert from.</param>
         /// <param name="wikify">If set to <value>true</value>, then issue description will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        public static Issue FromApiEntity(Generated.Issue entity, bool wikify = false)
+        internal static Issue FromApiEntity(Generated.Issue entity, bool wikify = false)
         {
             var issue = new Issue
             {

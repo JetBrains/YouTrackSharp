@@ -435,7 +435,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task HubUsersDeleteAsync(string id, string successorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task HubUsersDeleteAsync(string id, string successorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -746,7 +746,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task HubUsergroupsUsersDeleteAsync(string id, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task HubUsergroupsUsersDeleteAsync(string id, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");

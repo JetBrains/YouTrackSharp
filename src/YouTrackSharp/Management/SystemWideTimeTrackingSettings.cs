@@ -21,7 +21,7 @@ namespace YouTrackSharp.Management
 		/// Creates an instance of the <see cref="SystemWideTimeTrackingSettings" /> class from api client entity.
 		/// </summary>
 		/// <param name="entity">Api client entity of type <see cref="GlobalTimeTrackingSettings"/> to convert from.</param>
-		public static SystemWideTimeTrackingSettings FromApiEntity(WorkTimeSettings entity)
+		internal static SystemWideTimeTrackingSettings FromApiEntity(WorkTimeSettings entity)
 		{
 			return new SystemWideTimeTrackingSettings()
 			{
@@ -34,7 +34,7 @@ namespace YouTrackSharp.Management
 		/// <summary>
 		/// Converts to instance of the <see cref="GlobalTimeTrackingSettings" /> class used in api client.
 		/// </summary>
-		public WorkTimeSettings ToApiEntity()
+		internal WorkTimeSettings ToApiEntity()
 		{
 			var workTimeSettings = new WorkTimeSettings(){MinutesADay = MinutesADay, DaysAWeek = DaysAWeek};
 			if (WorkDays != null)

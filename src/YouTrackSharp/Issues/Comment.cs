@@ -18,7 +18,7 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="IssueComment"/> to convert from.</param>
         /// <param name="wikify">If set to <value>true</value>, then comment text will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        public static Comment FromApiEntity(IssueComment entity, bool wikify = false)
+        internal static Comment FromApiEntity(IssueComment entity, bool wikify = false)
         {
             return new Comment()
             {

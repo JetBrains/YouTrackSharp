@@ -15,7 +15,7 @@ namespace YouTrackSharp.Issues
         /// Creates an instance of the <see cref="Attachment" /> class from api client entity.
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="IssueAttachment"/> to convert from.</param>
-        public static Attachment FromApiEntity(IssueAttachment entity)
+        internal static Attachment FromApiEntity(IssueAttachment entity)
         {
             return new Attachment()
             {

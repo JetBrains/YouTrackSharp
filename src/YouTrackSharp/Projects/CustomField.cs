@@ -26,7 +26,7 @@ namespace YouTrackSharp.Projects
         /// Creates an instance of the <see cref="CustomField" /> class from api client entity.
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="BundleProjectCustomField"/> to convert from.</param>
-        public static CustomField FromApiEntity(BundleProjectCustomField entity)
+        internal static CustomField FromApiEntity(BundleProjectCustomField entity)
         {
             return new CustomField()
             {
@@ -41,7 +41,7 @@ namespace YouTrackSharp.Projects
         /// <summary>
         /// Converts to instance of the <see cref="BundleProjectCustomField" /> class used in api client.
         /// </summary>
-        public BundleProjectCustomField ToApiEntity(ICollection<Generated.CustomField> allFields)
+        internal BundleProjectCustomField ToApiEntity(ICollection<Generated.CustomField> allFields)
         {
             //TODO we allow fields with the same name but different types, so .Single() won't work
             var field = allFields.First(f => f.Name == Name);

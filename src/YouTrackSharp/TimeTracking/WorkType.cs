@@ -12,7 +12,7 @@ namespace YouTrackSharp.TimeTracking
         /// Creates an instance of the <see cref="WorkType" /> class from api client entity.
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="WorkItemType"/> to convert from.</param>
-        public static WorkType FromApiEntity(WorkItemType entity)
+        internal static WorkType FromApiEntity(WorkItemType entity)
         {
             var workType = new WorkType {Id = entity.Id, Name = entity.Name};
             return workType;
@@ -21,7 +21,7 @@ namespace YouTrackSharp.TimeTracking
         /// <summary>
         /// Converts to instance of the <see cref="WorkItemType" /> class used in api client.
         /// </summary>
-        public WorkItemType ToApiEntity()
+        internal WorkItemType ToApiEntity()
         {
             return new WorkItemType() {Id = Id, Name = Name};
         }

@@ -16,7 +16,7 @@ namespace YouTrackSharp.Management
 		/// Creates an instance of the <see cref="TimeTrackingSettings" /> class from api client entity.
 		/// </summary>
 		/// <param name="entity">Api client entity of type <see cref="ProjectTimeTrackingSettings"/> to convert from.</param>
-		public static TimeTrackingSettings FromApiEntity(ProjectTimeTrackingSettings entity)
+		internal static TimeTrackingSettings FromApiEntity(ProjectTimeTrackingSettings entity)
 		{
 			return new TimeTrackingSettings()
 			{
@@ -29,7 +29,7 @@ namespace YouTrackSharp.Management
 		/// <summary>
 		/// Converts to instance of the <see cref="ProjectTimeTrackingSettings" /> class used in api client.
 		/// </summary>
-		public ProjectTimeTrackingSettings ToApiEntity(ICollection<CustomField> pcfList)
+		internal ProjectTimeTrackingSettings ToApiEntity(ICollection<CustomField> pcfList)
 		{
 			var projectTimeTracking = new ProjectTimeTrackingSettings(){Enabled = Enabled};
 			

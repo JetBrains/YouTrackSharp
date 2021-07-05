@@ -12,7 +12,7 @@ namespace YouTrackSharp.TimeTracking
         /// Creates an instance of the <see cref="Author" /> class from api client entity.
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="Me"/> to convert from.</param>
-        public static Author FromApiEntity(Me entity)
+        internal static Author FromApiEntity(Me entity)
         {
             return new Author() {Login = entity.Login};
         }
@@ -20,7 +20,7 @@ namespace YouTrackSharp.TimeTracking
         /// <summary>
         /// Converts to instance of the <see cref="Me" /> class used in api client.
         /// </summary>
-        public Me ToApiEntity()
+        internal Me ToApiEntity()
         {
             return new Me() {Login = Login};
         }

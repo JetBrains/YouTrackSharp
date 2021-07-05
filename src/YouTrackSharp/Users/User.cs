@@ -12,7 +12,7 @@ namespace YouTrackSharp.Users
         /// Creates an instance of the <see cref="User" /> class from api client entity.
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="Me"/> to convert from.</param>
-        public static User FromApiEntity(Me entity)
+        internal static User FromApiEntity(Me entity)
         {
             return new User()
             {
