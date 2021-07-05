@@ -25,6 +25,8 @@ namespace YouTrackSharp.AgileBoards
         /// <inheritdoc />
         public async Task<string> CreateAgileBoard(AgileSettings agileSettings)
         {
+            throw new NotImplementedException();
+            /*
             if (agileSettings == null)
             {
                 throw new ArgumentNullException(nameof(agileSettings));
@@ -55,11 +57,14 @@ namespace YouTrackSharp.AgileBoards
             var locationHeader = response.Headers.Location.ToString();
 
             return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+            */
         }
 
         /// <inheritdoc />
         public async Task<ICollection<AgileSettings>> GetAgileBoards()
         {
+            throw new NotImplementedException();
+            /*
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync("rest/admin/agile");
 
@@ -71,11 +76,14 @@ namespace YouTrackSharp.AgileBoards
             response.EnsureSuccessStatusCode();
 
             return JsonConvert.DeserializeObject<ICollection<AgileSettings>>(await response.Content.ReadAsStringAsync());
+            */
         }
 
         /// <inheritdoc />
         public async Task<AgileSettings> GetAgileBoard(string agileBoardId)
         {
+            throw new NotImplementedException();
+            /*
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/admin/agile/{agileBoardId}");
 
@@ -87,11 +95,14 @@ namespace YouTrackSharp.AgileBoards
             response.EnsureSuccessStatusCode();
 
             return JsonConvert.DeserializeObject<AgileSettings>(await response.Content.ReadAsStringAsync());
+            */
         }
 
         /// <inheritdoc />
         public async Task UpdateAgileBoard(string agileBoardId, AgileSettings agileSettings)
         {
+            throw new NotImplementedException();
+            /*
             if (agileSettings == null)
             {
                 throw new ArgumentNullException(nameof(agileSettings));
@@ -124,11 +135,14 @@ namespace YouTrackSharp.AgileBoards
             }
 
             response.EnsureSuccessStatusCode();
+            */
         }
 
         /// <inheritdoc />
         public async Task<Sprint> GetSprint(string agileBoardId, string sprintId)
         {
+            throw new NotImplementedException();
+            /*
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.GetAsync($"rest/admin/agile/{agileBoardId}/sprint/{sprintId}");
 
@@ -140,6 +154,7 @@ namespace YouTrackSharp.AgileBoards
             response.EnsureSuccessStatusCode();
 
             return JsonConvert.DeserializeObject<Sprint>(await response.Content.ReadAsStringAsync());
+            */
         }
     }
 }
