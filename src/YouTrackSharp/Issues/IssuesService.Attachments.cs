@@ -24,6 +24,8 @@ namespace YouTrackSharp.Issues
             {
                 throw new ArgumentNullException(nameof(attachmentStream));
             }
+            
+            var client = await _connection.GetAuthenticatedApiClient();
 
             var attachment = new IssueAttachment();
             if (!string.IsNullOrEmpty(attachmentName))
@@ -32,10 +34,11 @@ namespace YouTrackSharp.Issues
             }
             if (!string.IsNullOrEmpty(group))
             {
+                var response = await client.GroupsGetAsync("id, name", 0, -1);
+                var userGroup = response.First(g => g.Name == group);
                 attachment.Visibility = group == "All Users"
                     ? new UnlimitedVisibility()
-                    //TODO id: new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = group}}};
-                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = "jetbrains-team", Id = "10-3"}}};
+                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {userGroup}};
             }
             if (!string.IsNullOrEmpty(author))
             {
@@ -45,8 +48,6 @@ namespace YouTrackSharp.Issues
             {
                 attachment.MimeType = attachmentContentType;
             }
-            
-            var client = await _connection.GetAuthenticatedApiClient();
             
             await client.IssuesAttachmentsPostFromStreamAsync(issueId, attachmentStream, "id", attachment);
         }

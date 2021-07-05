@@ -47,6 +47,7 @@ namespace YouTrackSharp.Management
 
 			return projectTimeTracking;
 		}
+		
 		/// <summary>
 		/// Is time tracking enabled?
 		/// </summary>
