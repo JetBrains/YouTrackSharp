@@ -19451,7 +19451,7 @@ namespace YouTrackSharp.Generated
         public int? MinutesADay { get; set; }
     
         [Newtonsoft.Json.JsonProperty("workDays", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? WorkDays { get; set; }
+        public System.Collections.Generic.ICollection<int> WorkDays { get; set; }
     
         [Newtonsoft.Json.JsonProperty("firstDayOfWeek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? FirstDayOfWeek { get; set; }
