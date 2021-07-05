@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
 using YouTrackSharp.Json;
@@ -24,9 +23,7 @@ namespace YouTrackSharp.Issues
                 Url = new Uri(entity.Url.TrimStart('/'), UriKind.RelativeOrAbsolute),
                 Name = entity.Name,
                 Author = entity.Author.Login,
-                Group = entity.Visibility is LimitedVisibility visibility
-                    ? visibility.PermittedGroups.First().Name
-                    : "All Users",
+                Group = entity.Visibility?.ToSinglePermittedGroup(),
                 Created = new DateTime(entity.Created ?? 0)
             };
         }

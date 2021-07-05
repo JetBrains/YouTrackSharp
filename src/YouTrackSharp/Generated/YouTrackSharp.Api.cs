@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -138,6 +139,16 @@ namespace YouTrackSharp.Generated
                 if (disposeClient_)
                     client_.Dispose();
             }
+        }
+    }
+
+    public partial class UnlimitedVisibility
+    {
+        public string ToSinglePermittedGroup()
+        {
+            return this is LimitedVisibility visibility
+                ? visibility.PermittedGroups.First().Name
+                : "All Users";
         }
     }
 }
