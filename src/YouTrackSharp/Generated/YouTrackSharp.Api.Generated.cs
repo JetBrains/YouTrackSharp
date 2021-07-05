@@ -15053,6 +15053,12 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("timestamp", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Me Author { get; set; }
+    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -15266,6 +15272,9 @@ namespace YouTrackSharp.Generated
     {
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueAttachment Target { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField field { get; set; }
     
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Removed { get; set; }
@@ -15888,6 +15897,9 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField field { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
@@ -16324,6 +16336,9 @@ namespace YouTrackSharp.Generated
     {
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Presentation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
@@ -17181,6 +17196,9 @@ namespace YouTrackSharp.Generated
     {
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField field { get; set; }
     
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Removed { get; set; }
@@ -18235,6 +18253,9 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField field { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Removed { get; set; }
     
@@ -18706,12 +18727,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Removed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Added { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
     
@@ -18778,6 +18793,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextMarkupActivityItem : SimpleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField field { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Removed { get; set; }
     
@@ -19040,9 +19058,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
