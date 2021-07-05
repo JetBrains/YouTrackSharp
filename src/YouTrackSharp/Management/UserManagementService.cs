@@ -231,7 +231,7 @@ namespace YouTrackSharp.Management
                     "Could not find user with login " + user, null, null);
             }
             
-            var response = await client.HubApiUsergroupsGetAsync("user:" + user.RingId + " or is:allUsers", "id");
+            var response = await client.HubApiUsergroupsGetAsync("user:" + user.RingId + " or is:allUsers", "id,name", 0, -1);
             
             return response.Usergroups.Select(Group.FromApiEntity).ToList();
         }
@@ -242,7 +242,8 @@ namespace YouTrackSharp.Management
             var client = await _connection.GetAuthenticatedApiClient();
             
             var user = await GetUser(username);
-            var apiGroup = (await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id,usergroup(id)")).Usergroups.FirstOrDefault();
+            var apiGroups = await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id", 0, -1);
+            var apiGroup = apiGroups.Usergroups.FirstOrDefault();
             
             if (user == null)
             {
@@ -255,7 +256,7 @@ namespace YouTrackSharp.Management
                     "Could not find group with name " + group, null, null);
             }
 
-            await client.HubUsergroupsPostAsync(apiGroup.Id, "id", new HubApiUser(){Id = user.RingId});
+            await client.HubUsergroupsUsersPostAsync(apiGroup.Id, "id", new HubApiUser(){Id = user.RingId});
         }
 
         /// <inheritdoc />
@@ -264,7 +265,8 @@ namespace YouTrackSharp.Management
             var client = await _connection.GetAuthenticatedApiClient();
             
             var user = await GetUser(username);
-            var apiGroup = (await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id")).Usergroups.FirstOrDefault();
+            var apiGroups = await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id", 0, -1);
+            var apiGroup = apiGroups.Usergroups.FirstOrDefault();
             
             if (user == null)
             {

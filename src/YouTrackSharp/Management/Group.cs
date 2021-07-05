@@ -14,7 +14,7 @@ namespace YouTrackSharp.Management
         /// <param name="entity">Api client entity of type <see cref="HubApiUser"/> to convert from.</param>
         internal static Group FromApiEntity(HubApiUserGroup entity)
         {
-            return new Group() {RingId = entity.Id};
+            return new Group() {RingId = entity.Id, Name = entity.Name};
         }
         
         /// <summary>

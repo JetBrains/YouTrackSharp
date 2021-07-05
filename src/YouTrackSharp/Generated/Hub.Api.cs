@@ -583,7 +583,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single HubApiUsergroupsPage</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        internal async System.Threading.Tasks.Task<HubApiUsergroupsPage> HubApiUsergroupsGetAsync(string query = null, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task<HubApiUsergroupsPage> HubApiUsergroupsGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/usergroups?");
@@ -594,6 +594,14 @@ namespace YouTrackSharp.Generated
             if (query != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("query") + "=").Append(System.Uri.EscapeDataString(ConvertToString(query, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -659,13 +667,13 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single HubApiUser</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        internal async System.Threading.Tasks.Task<HubApiUser> HubUsergroupsPostAsync(string id, string fields = null, HubApiUser body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task<HubApiUser> HubUsergroupsUsersPostAsync(string id, string fields = null, HubApiUser body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
             
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/usergroups/{id}?failOnPermissionReduce=true&");
+            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/usergroups/{id}/users?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -899,5 +907,8 @@ namespace YouTrackSharp.Generated
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+        
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     }
 }
