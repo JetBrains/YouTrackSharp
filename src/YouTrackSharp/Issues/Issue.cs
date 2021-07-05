@@ -27,7 +27,6 @@ namespace YouTrackSharp.Issues
         /// <param name="wikify">If set to <value>true</value>, then issue description will be formatted ("wikified"). Defaults to <value>false</value>.</param>
         public static Issue FromApiEntity(Generated.Issue entity, bool wikify = false)
         {
-            //TODO
             var issue = new Issue
             {
                 Id = entity.IdReadable,
@@ -38,6 +37,18 @@ namespace YouTrackSharp.Issues
                 Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)).ToList(),
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };
+            
+            issue.SetField("numberInProject", entity.NumberInProject);
+            issue.SetField("wikified", wikify);
+            issue.SetField("created", entity.Created);
+            issue.SetField("reporterName", entity.Reporter.Login);
+            issue.SetField("reporterFullName", entity.Reporter.FullName);
+            issue.SetField("updated", entity.Updated);
+            issue.SetField("updaterName", entity.Updater.Login);
+            issue.SetField("updaterFullName", entity.Updater.FullName);
+            issue.SetField("commentsCount", entity.CommentsCount);
+            issue.SetField("votes", entity.Votes);
+            
             /*
             TODO field converters for every type -- SimpleCustomField etc 
             foreach (var customField in entity.CustomFields)

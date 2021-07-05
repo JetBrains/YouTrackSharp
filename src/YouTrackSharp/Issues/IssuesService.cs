@@ -41,7 +41,9 @@ namespace YouTrackSharp.Issues
             try
             {
                 //TODO custom fields customFields(value(id,name))
-                var response = await client.IssuesGetAsync(issueId, "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)", default(System.Threading.CancellationToken));
+                var response = await client.IssuesGetAsync(issueId,
+                    "id,idReadable,usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
+                    default(System.Threading.CancellationToken));
                 return Issue.FromApiEntity(response);
             }
             catch (YouTrackErrorException e)
@@ -66,9 +68,9 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             try
             {
-                //TODO fields
+                //TODO custom fields customFields(value(id,name))
                 await client.IssuesGetAsync(issueId,
-                    "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
+                    "id,idReadable,usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
                     default(System.Threading.CancellationToken));
             }
             catch (YouTrackErrorException e)
