@@ -45,7 +45,7 @@ namespace YouTrackSharp.Issues
                 Visibility = string.IsNullOrEmpty(Group) || Group == "All Users"
                     ? new UnlimitedVisibility()
                     : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = Group}}},
-                Created = Created.Ticks
+                Created = new DateTimeOffset(Created).ToUnixTimeMilliseconds()
             };
         }
         
