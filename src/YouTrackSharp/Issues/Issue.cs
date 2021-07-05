@@ -13,6 +13,30 @@ namespace YouTrackSharp.Issues
 {
     // TODO: Add dynamic object implementation cache so no iteration is needed over Fields
 
+    internal class IssueLinkStub
+    {
+        [JsonProperty("value")]
+        public string Value { get; set; }
+        
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        
+        [JsonProperty("role")]
+        public string Role { get; set; }
+    }
+    
+    internal class AttachmentStub
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        
+        [JsonProperty("value")]
+        public string Value { get; set; }
+        
+        [JsonProperty("url")]
+        public string Url { get; set; }
+    }
+
     /// <summary>
     /// A class that represents YouTrack issue information. Can be casted to a <see cref="DynamicObject"/>.
     /// </summary>
@@ -54,12 +78,46 @@ namespace YouTrackSharp.Issues
             issue.SetField("updated", entity.Updated);
             issue.SetField("updaterName", entity.Updater.Login);
             issue.SetField("updaterFullName", entity.Updater.FullName);
+            issue.SetField("commentsCount", entity.CommentsCount);
+            issue.SetField("votes", entity.Votes);
+            
             if (entity.Resolved != null)
             {
                 issue.SetField("resolved", entity.Resolved);
             }
-            issue.SetField("commentsCount", entity.CommentsCount);
-            issue.SetField("votes", entity.Votes);
+
+            if (entity.Attachments != null && entity.Attachments.Any())
+            {
+                var rawValue =
+                    entity.Attachments.Select(a => new AttachmentStub() {Id = a.Id, Value = a.Name, Url = a.Url});
+                issue._fields["attachments"] = new Field {Name = "attachments", Value = JArray.FromObject(rawValue)};
+            }
+
+            if (entity.Visibility.GetType() == typeof(LimitedVisibility))
+            {
+                issue._fields["permittedGroup"] = new Field()
+                {
+                    Name = "permittedGroup",
+                    Value = ((LimitedVisibility)entity.Visibility).PermittedGroups.First().Name
+                };
+            }
+
+            var links = Link.FromApiEntities(entity.Links, entity.IdReadable);
+            if (links.Any())
+            {
+                var rawValue = links.Select(l => new IssueLinkStub()
+                {
+                    Value =
+                        l.Source.Equals(entity.IdReadable, StringComparison.InvariantCultureIgnoreCase)
+                            ? l.Target
+                            : l.Source,
+                    Type = l.TypeName,
+                    Role = l.Source.Equals(entity.IdReadable, StringComparison.InvariantCultureIgnoreCase)
+                        ? l.OutwardType
+                        : l.InwardType
+                });
+                issue.SetField("links", JArray.FromObject(rawValue));
+            }
             
             foreach (var customField in entity.CustomFields)
             {

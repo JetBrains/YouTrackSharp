@@ -10,6 +10,9 @@ namespace YouTrackSharp.Issues
 {
     public partial class IssuesService
     {
+        private static string ATTACHMENTS_FIELDS_QUERY =
+            "id,url,name,author(login),visibility(permittedGroups(name)),created";
+        
         /// <inheritdoc />
         public async Task AttachFileToIssue(string issueId, string attachmentName, Stream attachmentStream, string group = null, string author = null, string attachmentContentType = null)
         {
@@ -63,7 +66,7 @@ namespace YouTrackSharp.Issues
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response =
-                await client.IssuesAttachmentsGetAsync(issueId, "id,url,name,author(login),visibility(permittedGroups(name)),created", 0, -1);
+                await client.IssuesAttachmentsGetAsync(issueId, ATTACHMENTS_FIELDS_QUERY, 0, -1);
 
             return response.Select(Attachment.FromApiEntity);
         }

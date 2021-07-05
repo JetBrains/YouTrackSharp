@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
+using YouTrackSharp.Internal;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
@@ -20,11 +21,11 @@ namespace YouTrackSharp.Issues
             return new Attachment()
             {
                 Id = entity.Id,
-                Url = new Uri(entity.Url.TrimStart('/'), UriKind.RelativeOrAbsolute),
+                Url = entity.Url == null ? null : new Uri(entity.Url.TrimStart('/'), UriKind.RelativeOrAbsolute),
                 Name = entity.Name,
-                Author = entity.Author.Login,
+                Author = entity.Author?.Login,
                 Group = entity.Visibility?.ToSinglePermittedGroup(),
-                Created = new DateTime(entity.Created ?? 0)
+                Created = (entity.Created ?? 0).TimestampToDateTime()
             };
         }
         

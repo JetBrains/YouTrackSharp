@@ -14,11 +14,12 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService : IIssuesService
     {
         private readonly Connection _connection;
+        
+        private static string LINKS_FIELDS_QUERY = "direction,linkType(name,targetToSource,localizedTargetToSource,sourceToTarget,localizedSourceToTarget),issues(id,idReadable)";
 
-        private static string COMMENTS_FIELDS_QUERY = "id,author(id,login,fullName),issue(idReadable),deleted,usesMarkdown,text,textPreview,created,updated,visibility(permittedGroups(name))";
-
-        private static string ISSUES_FIELDS_QUERY = "comments(" + COMMENTS_FIELDS_QUERY +
-                                                    "),id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground)))";
+        private static string ISSUES_FIELDS_QUERY = "comments(" + COMMENTS_FIELDS_QUERY + "),links(" +
+                                                    LINKS_FIELDS_QUERY + "),attachments(" + ATTACHMENTS_FIELDS_QUERY +
+                                                    "),id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
         
         private static readonly string[] ReservedFields = 
         {
@@ -265,37 +266,9 @@ namespace YouTrackSharp.Issues
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesLinksGetAsync(issueId,
-                "direction,linkType(name,targetToSource,localizedTargetToSource,sourceToTarget,localizedSourceToTarget),issues(id,idReadable)",
-                0, -1);
-
-            var links = new List<Link>();
+            var response = await client.IssuesLinksGetAsync(issueId, LINKS_FIELDS_QUERY, 0, -1);
             
-            foreach (var linkType in response)
-            {
-                var both = linkType.LinkType.LocalizedSourceToTarget
-                           ?? linkType.LinkType.LocalizedTargetToSource
-                           ?? linkType.LinkType.SourceToTarget;
-                var inward = linkType.Direction == IssueLinkDirection.BOTH
-                    ? both
-                    : linkType.LinkType.LocalizedTargetToSource ?? linkType.LinkType.TargetToSource;
-                var outward = linkType.Direction == IssueLinkDirection.BOTH
-                    ? both
-                    : (linkType.LinkType.LocalizedSourceToTarget ?? linkType.LinkType.SourceToTarget);
-                
-                var linksPack = linkType.Issues.Select(issue => new Link()
-                {
-                    InwardType = inward,
-                    OutwardType = outward,
-                    TypeName = linkType.LinkType.Name,
-                    Source = linkType.Direction == IssueLinkDirection.INWARD ? issue.IdReadable : issueId,
-                    Target = linkType.Direction == IssueLinkDirection.INWARD ? issueId : issue.IdReadable
-                });
-                
-                links.AddRange(linksPack.ToList());
-            }
-
-            return links;
+            return Link.FromApiEntities(response, issueId);
         }
     }
 }
