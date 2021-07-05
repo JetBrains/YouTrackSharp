@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using YouTrackSharp.Generated;
 
@@ -56,5 +57,12 @@ namespace YouTrackSharp
         /// <returns>An authenticated <see cref="T:System.Net.Http.HttpClient" />.</returns>
         /// <exception cref="UnauthorizedConnectionException">The connection could not be authenticated.</exception>
         public abstract Task<YouTrackClient> GetAuthenticatedApiClient();
+        
+        /// <summary>
+        /// Provides a simple <see cref="T:System.Net.Http.HttpClient" />
+        /// which can be used for HTTP calls that don't require authentication 
+        /// </summary>
+        /// <returns>A non-authenticated <see cref="T:System.Net.Http.HttpClient" />.</returns>
+        public abstract HttpClient GetRawHttpClient();
     }
 }

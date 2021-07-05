@@ -16,6 +16,7 @@ namespace YouTrackSharp
     public class BearerTokenConnection 
         : Connection
     {
+        private HttpClient _rawHttpClient;
         private HttpClient _httpClient;
         private YouTrackClient _youTrackClient;
         private bool _authenticated;
@@ -59,7 +60,14 @@ namespace YouTrackSharp
                     _httpClient.Timeout = _timeout;
                 }
             }
-        } 
+        }
+
+        /// <inheritdoc />
+        public override HttpClient GetRawHttpClient()
+        {
+            _rawHttpClient ??= new HttpClient();
+            return _rawHttpClient;
+        }
 
         /// <inheritdoc />
         public override async Task<YouTrackClient> GetAuthenticatedApiClient()
