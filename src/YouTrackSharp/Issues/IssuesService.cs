@@ -42,7 +42,8 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             try
             {
-                var response = await client.IssuesGetAsync(issueId, "", default(System.Threading.CancellationToken));
+                //TODO custom fields customFields(value(id,name))
+                var response = await client.IssuesGetAsync(issueId, "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)", default(System.Threading.CancellationToken));
                 return Issue.FromApiEntity(response);
             }
             catch (YouTrackErrorException e)
