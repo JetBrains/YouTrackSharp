@@ -39,18 +39,26 @@ namespace YouTrackSharp.Issues
             }
             if (!string.IsNullOrEmpty(group))
             {
-                var response = await client.GroupsGetAsync("id,name", 0, -1);
+                var response = await client.VisibilityGroupsPostAsync(
+                    "groupsWithoutRecommended(id,name),recommendedGroups(id,name)",
+                    new VisibilityGroupsRequest()
+                    {
+                        Prefix = group.ToLower(),
+                        Top = 1000000000,
+                        Issues = new List<Generated.Issue>() {new Generated.Issue() {IdReadable = issueId}}
+                    });
                 var userGroup =
-                    response.FirstOrDefault(g => g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase));
+                    response.RecommendedGroups.FirstOrDefault(g =>
+                        g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase)) ??
+                    response.GroupsWithoutRecommended.FirstOrDefault(g =>
+                        g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase));
                 if (userGroup == null)
                 {
                     throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
-                        "Could not find group with name " + group,
+                        $"Could not suggest visibility group with name {group} for issue {issueId}",
                         null, null);
                 }
-                attachment.Visibility = group == "All Users"
-                    ? new UnlimitedVisibility()
-                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {userGroup}};
+                attachment.Visibility = new LimitedVisibility() {PermittedGroups = new List<UserGroup> {userGroup}};
             }
             if (!string.IsNullOrEmpty(author))
             {
@@ -61,7 +69,10 @@ namespace YouTrackSharp.Issues
                 attachment.MimeType = attachmentContentType;
             }
             
-            await client.IssuesAttachmentsPostFromStreamAsync(issueId, attachmentStream, "id", attachment);
+            var apiAttachment =
+                await client.IssuesAttachmentsPostFromStreamAsync(issueId, attachmentStream, "id", attachment);
+            //TODO for some reason, group in the body above is ignored
+            await client.IssuesAttachmentsPostAsync(issueId, apiAttachment.Id, "id", attachment);
         }
 
         /// <inheritdoc />
