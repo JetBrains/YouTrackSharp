@@ -14964,7 +14964,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ActivityCategory 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -14987,25 +14987,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ActivityCursorPage 
     {
-        [Newtonsoft.Json.JsonProperty("reverse", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("reverse", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Reverse { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("beforeCursor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("beforeCursor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BeforeCursor { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("afterCursor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("afterCursor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AfterCursor { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasBefore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasBefore", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasBefore { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasAfter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasAfter", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasAfter { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("activities", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("activities", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ActivityItem> Activities { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15050,7 +15050,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ActivityItem 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15070,61 +15070,61 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Agile 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Owner { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibleFor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup VisibleFor { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibleForProjectBased", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibleForProjectBased", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? VisibleForProjectBased { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updateableBy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updateableBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup UpdateableBy { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updateableByProjectBased", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updateableByProjectBased", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UpdateableByProjectBased { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("orphansAtTheTop", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("orphansAtTheTop", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? OrphansAtTheTop { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hideOrphansSwimlane", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hideOrphansSwimlane", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HideOrphansSwimlane { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("estimationField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("estimationField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField EstimationField { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("originalEstimationField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("originalEstimationField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField OriginalEstimationField { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("projects", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("projects", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Project> Projects { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("sprints", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("sprints", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Sprints { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("currentSprint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("currentSprint", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Sprint CurrentSprint { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("columnSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("columnSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ColumnSettings ColumnSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("swimlaneSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("swimlaneSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SwimlaneSettings SwimlaneSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("sprintsSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("sprintsSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SprintsSettings SprintsSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("colorCoding", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("colorCoding", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ColorCoding ColorCoding { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("status", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AgileStatus Status { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15144,25 +15144,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileColumn 
     {
-        [Newtonsoft.Json.JsonProperty("presentation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isResolved", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isResolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsResolved { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ordinal", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Ordinal { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("parent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ColumnSettings Parent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("wipLimit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("wipLimit", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public WIPLimit WipLimit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fieldValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AgileColumnFieldValue> FieldValues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15181,10 +15181,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileColumnFieldValue : DatabaseAttributeValue
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isResolved", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isResolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsResolved { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15204,19 +15204,19 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileStatus 
     {
-        [Newtonsoft.Json.JsonProperty("valid", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("valid", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Valid { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasJobs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasJobs", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasJobs { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("errors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Errors { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("warnings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("warnings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Warnings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15236,16 +15236,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AppearanceSettings 
     {
-        [Newtonsoft.Json.JsonProperty("timeZone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("timeZone", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TimeZoneDescriptor TimeZone { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("dateFieldFormat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("dateFieldFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DateFormatDescriptor DateFieldFormat { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("logo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("logo", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Logo Logo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15264,13 +15264,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AttachmentActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueAttachment Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15288,10 +15288,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AttributeBasedSwimlaneSettings : SwimlaneSettings
     {
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterField Field { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SwimlaneEntityAttributeValue> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15311,13 +15311,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupError 
     {
-        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("date", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Date { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("errorMessage", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("errorMessage", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ErrorMessage { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15337,19 +15337,19 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupFile 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("size", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Size { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("creationDate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? CreationDate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("link", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Link { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15369,16 +15369,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupStatus 
     {
-        [Newtonsoft.Json.JsonProperty("backupInProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("backupInProgress", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? BackupInProgress { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("backupCancelled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("backupCancelled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? BackupCancelled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("backupError", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("backupError", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BackupError BackupError { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15404,10 +15404,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BaseBundle 
     {
-        [Newtonsoft.Json.JsonProperty("isUpdateable", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isUpdateable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsUpdateable { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15426,7 +15426,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15445,10 +15445,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BuildBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15467,7 +15467,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundleElement : BundleElement
     {
-        [Newtonsoft.Json.JsonProperty("assembleDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("assembleDate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? AssembleDate { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15486,10 +15486,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BuildBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15515,19 +15515,19 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BundleCustomFieldDefaults 
     {
-        [Newtonsoft.Json.JsonProperty("canBeEmpty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("canBeEmpty", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? CanBeEmpty { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emptyFieldText", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("emptyFieldText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmptyFieldText { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isPublic", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsPublic { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("parent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Parent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15552,25 +15552,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BundleElement 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BaseBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ordinal", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Ordinal { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("color", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("color", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FieldStyle Color { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasRunningJob", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15597,28 +15597,28 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BundleProjectCustomField 
     {
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Field { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("project", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("canBeEmpty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("canBeEmpty", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? CanBeEmpty { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emptyFieldText", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("emptyFieldText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmptyFieldText { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ordinal", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Ordinal { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isPublic", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsPublic { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasRunningJob", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15640,7 +15640,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ColorCoding 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15660,13 +15660,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ColumnSettings 
     {
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Field { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("columns", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("columns", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AgileColumn> Columns { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15685,10 +15685,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommandLimitedVisibility : CommandUnlimitedVisibility
     {
-        [Newtonsoft.Json.JsonProperty("permittedGroups", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("permittedUsers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15709,37 +15709,37 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommandList 
     {
-        [Newtonsoft.Json.JsonProperty("comment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("comment", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Comment { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CommandUnlimitedVisibility Visibility { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("caret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("caret", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Caret { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("silent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("silent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Silent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UsesMarkdown { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("runAs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("runAs", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RunAs { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("commands", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("commands", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ParsedCommand> Commands { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("suggestions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("suggestions", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Suggestion> Suggestions { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15760,7 +15760,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommandUnlimitedVisibility 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15779,16 +15779,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommentActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueComment Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueComment> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueComment> Added { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("authorGroup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("authorGroup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup AuthorGroup { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15807,13 +15807,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommentAttachmentsActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueComment Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15833,40 +15833,40 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomField 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("localizedName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fieldType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fieldType", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FieldType FieldType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isAutoAttached", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isAutoAttached", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsAutoAttached { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isDisplayedInIssueList", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isDisplayedInIssueList", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsDisplayedInIssueList { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ordinal", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Ordinal { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("aliases", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("aliases", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Aliases { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fieldDefaults", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fieldDefaults", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleCustomFieldDefaults FieldDefaults { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hasRunningJob", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isUpdateable", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isUpdateable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsUpdateable { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("instances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("instances", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BundleProjectCustomField> Instances { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15885,13 +15885,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomFieldActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15910,7 +15910,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomFilterField : FilterField
     {
-        [Newtonsoft.Json.JsonProperty("customField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField CustomField { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15932,7 +15932,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseAttributeValue 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15952,32 +15952,32 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseBackupSettings 
     {
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("location", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Location { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("filesToKeep", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("filesToKeep", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? FilesToKeep { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("cronExpression", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CronExpression { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("archiveFormat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("archiveFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DatabaseBackupSettingsArchiveFormat? ArchiveFormat { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isOn", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isOn", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsOn { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("availableDiskSpace", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("availableDiskSpace", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? AvailableDiskSpace { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notifiedUsers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notifiedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> NotifiedUsers { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("backupStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("backupStatus", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BackupStatus BackupStatus { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -15997,16 +15997,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DateFormatDescriptor 
     {
-        [Newtonsoft.Json.JsonProperty("presentation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("pattern", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("datePattern", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("datePattern", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DatePattern { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16045,13 +16045,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DuplicateVote 
     {
-        [Newtonsoft.Json.JsonProperty("issue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("user", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me User { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16071,13 +16071,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DurationValue 
     {
-        [Newtonsoft.Json.JsonProperty("minutes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("minutes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Minutes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("presentation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16097,35 +16097,35 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EmailSettings 
     {
-        [Newtonsoft.Json.JsonProperty("isEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("host", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("host", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Host { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("port", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("port", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Port { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("mailProtocol", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("mailProtocol", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmailSettingsMailProtocol? MailProtocol { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("anonymous", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("anonymous", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Anonymous { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("login", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("login", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Login { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("sslKey", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("sslKey", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StorageEntry SslKey { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("from", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string From { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("replyTo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("replyTo", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReplyTo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16144,7 +16144,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16163,10 +16163,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EnumBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16204,10 +16204,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EnumBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16227,16 +16227,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ExternalIssue 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("key", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Key { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16255,7 +16255,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FieldBasedColorCoding : ColorCoding
     {
-        [Newtonsoft.Json.JsonProperty("prototype", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("prototype", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Prototype { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16275,13 +16275,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FieldStyle 
     {
-        [Newtonsoft.Json.JsonProperty("background", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("background", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Background { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("foreground", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("foreground", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Foreground { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16301,7 +16301,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FieldType 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16322,10 +16322,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FilterField 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16345,16 +16345,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GeneralUserProfile 
     {
-        [Newtonsoft.Json.JsonProperty("dateFieldFormat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("dateFieldFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DateFormatDescriptor DateFieldFormat { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("timezone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("timezone", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TimeZoneDescriptor Timezone { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("locale", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocaleDescriptor Locale { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16374,25 +16374,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GlobalSettings 
     {
-        [Newtonsoft.Json.JsonProperty("systemSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("systemSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SystemSettings SystemSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notificationSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notificationSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public NotificationSettings NotificationSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("restSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("restSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public RestCorsSettings RestSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("appearanceSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("appearanceSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AppearanceSettings AppearanceSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("localeSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localeSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocaleSettings LocaleSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("license", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("license", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public License License { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16412,13 +16412,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GlobalTimeTrackingSettings 
     {
-        [Newtonsoft.Json.JsonProperty("workItemTypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("workItemTypes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WorkItemType> WorkItemTypes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("workTimeSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("workTimeSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public WorkTimeSettings WorkTimeSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16437,7 +16437,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GroupProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16457,88 +16457,88 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Issue 
     {
-        [Newtonsoft.Json.JsonProperty("idReadable", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("idReadable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdReadable { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Created { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Updated { get; set; }
     
         [Newtonsoft.Json.JsonProperty("resolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Resolved { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("numberInProject", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("numberInProject", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? NumberInProject { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("project", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("summary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("summary", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Summary { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UsesMarkdown { get; set; }
     
         [Newtonsoft.Json.JsonProperty("wikifiedDescription", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WikifiedDescription { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("reporter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("reporter", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Reporter { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updater", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updater", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Updater { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("draftOwner", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("draftOwner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me DraftOwner { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isDraft", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isDraft", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsDraft { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UnlimitedVisibility Visibility { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("votes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("votes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Votes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("comments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueComment> Comments { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("commentsCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("commentsCount", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CommentsCount { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("tags", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueTag> Tags { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("links", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("links", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueLink> Links { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("externalIssue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("externalIssue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ExternalIssue ExternalIssue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("customFields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customFields", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueCustomField> CustomFields { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("voters", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("voters", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueVoters Voters { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("watchers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWatchers Watchers { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("attachments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("attachments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Attachments { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("subtasks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("subtasks", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueLink Subtasks { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("parent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueLink Parent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16558,58 +16558,58 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueAttachment 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("author", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Author { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Created { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Updated { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("size", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Size { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("extension", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("charset", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("charset", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Charset { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("mimeType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("mimeType", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MimeType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("metaData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("metaData", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MetaData { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("draft", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("draft", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Draft { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("base64Content", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("base64Content", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Base64Content { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UnlimitedVisibility Visibility { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("comment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("comment", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueComment Comment { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("thumbnailURL", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("thumbnailURL", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThumbnailURL { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16628,13 +16628,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueBasedSwimlaneSettings : SwimlaneSettings
     {
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterField Field { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultCardType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultCardType", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SwimlaneValue DefaultCardType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SwimlaneValue> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16654,37 +16654,37 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueComment 
     {
-        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UsesMarkdown { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("textPreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("textPreview", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TextPreview { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Created { get; set; }
     
         [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Updated { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("author", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Author { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("attachments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("attachments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Attachments { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UnlimitedVisibility Visibility { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("deleted", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("deleted", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16703,13 +16703,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCreatedActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16747,10 +16747,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCustomField 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16774,10 +16774,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueFolder 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16797,20 +16797,20 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueLink 
     {
-        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("direction", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public IssueLinkDirection? Direction { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("linkType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("linkType", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueLinkType LinkType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("trimmedIssues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("trimmedIssues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> TrimmedIssues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16830,34 +16830,34 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueLinkType 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("sourceToTarget", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("sourceToTarget", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SourceToTarget { get; set; }
     
         [Newtonsoft.Json.JsonProperty("localizedSourceToTarget", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedSourceToTarget { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("targetToSource", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetToSource", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetToSource { get; set; }
     
         [Newtonsoft.Json.JsonProperty("localizedTargetToSource", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedTargetToSource { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("directed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("directed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Directed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("aggregation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("aggregation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Aggregation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("readOnly", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("readOnly", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? ReadOnly { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16876,10 +16876,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueResolvedActivityItem : SimpleValueActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16898,13 +16898,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueTag : WatchFolder
     {
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("color", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("color", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FieldStyle Color { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("untagOnResolve", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("untagOnResolve", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UntagOnResolve { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16924,13 +16924,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueTimeTracker 
     {
-        [Newtonsoft.Json.JsonProperty("workItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("workItems", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWorkItem> WorkItems { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16950,16 +16950,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueVoters 
     {
-        [Newtonsoft.Json.JsonProperty("hasVote", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasVote", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasVote { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("original", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("original", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Original { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("duplicate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("duplicate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DuplicateVote> Duplicate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -16979,16 +16979,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueWatcher 
     {
-        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("user", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me User { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isStarred", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isStarred", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsStarred { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17008,16 +17008,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueWatchers 
     {
-        [Newtonsoft.Json.JsonProperty("hasStar", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hasStar", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasStar { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issueWatchers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issueWatchers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWatcher> IssueWatchers1 { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("duplicateWatchers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("duplicateWatchers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWatcher> DuplicateWatchers { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17037,40 +17037,40 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueWorkItem 
     {
-        [Newtonsoft.Json.JsonProperty("author", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Author { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("creator", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Creator { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("textPreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("textPreview", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TextPreview { get; set; }
     
         [Newtonsoft.Json.JsonProperty("type", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public WorkItemType Type { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Created { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Updated { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("duration", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DurationValue Duration { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("date", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Date { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UsesMarkdown { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17090,22 +17090,22 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class JabberSettings 
     {
-        [Newtonsoft.Json.JsonProperty("isEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("host", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("host", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Host { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("port", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("port", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Port { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("login", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("login", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Login { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("serviceName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17125,16 +17125,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class License 
     {
-        [Newtonsoft.Json.JsonProperty("username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("username", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Username { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("license", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("license", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string License1 { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("error", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17153,10 +17153,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LimitedVisibility : UnlimitedVisibility
     {
-        [Newtonsoft.Json.JsonProperty("permittedGroups", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("permittedUsers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17179,13 +17179,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LinksActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17205,19 +17205,19 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LocaleDescriptor 
     {
-        [Newtonsoft.Json.JsonProperty("locale", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Locale { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("language", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Language { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("community", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("community", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Community { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17237,13 +17237,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LocaleSettings 
     {
-        [Newtonsoft.Json.JsonProperty("locale", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocaleDescriptor Locale { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isRTL", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isRTL", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsRTL { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17263,10 +17263,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Logo 
     {
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17289,43 +17289,43 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Me 
     {
-        [Newtonsoft.Json.JsonProperty("login", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("login", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Login { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fullName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fullName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FullName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("email", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("jabberAccountName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("jabberAccountName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string JabberAccountName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ringId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ringId", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RingId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("guest", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("guest", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Guest { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("online", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("online", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Online { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("banned", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("banned", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Banned { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("tags", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueTag> Tags { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("savedQueries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("savedQueries", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SavedQuery> SavedQueries { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("avatarUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("avatarUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AvatarUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("profiles", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("profiles", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserProfiles Profiles { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17344,7 +17344,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiBuildIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17363,7 +17363,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiEnumIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17382,7 +17382,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiGroupIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17401,7 +17401,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiOwnedIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17420,7 +17420,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiUserIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17439,10 +17439,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseMultiValueIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleProjectCustomField ProjectCustomField { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17461,7 +17461,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiVersionIssueCustomField : DatabaseMultiValueIssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17481,13 +17481,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class NotificationSettings 
     {
-        [Newtonsoft.Json.JsonProperty("emailSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("emailSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EmailSettings EmailSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("jabberSettings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("jabberSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public JabberSettings JabberSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17507,40 +17507,40 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class NotificationsUserProfile 
     {
-        [Newtonsoft.Json.JsonProperty("notifyOnOwnChanges", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notifyOnOwnChanges", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? NotifyOnOwnChanges { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("jabberNotificationsEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("jabberNotificationsEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? JabberNotificationsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailNotificationsEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("emailNotificationsEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? EmailNotificationsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("mentionNotificationsEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("mentionNotificationsEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? MentionNotificationsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("duplicateClusterNotificationsEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("duplicateClusterNotificationsEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? DuplicateClusterNotificationsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("mailboxIntegrationNotificationsEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("mailboxIntegrationNotificationsEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? MailboxIntegrationNotificationsEnabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usePlainTextEmails", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usePlainTextEmails", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UsePlainTextEmails { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("autoWatchOnComment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("autoWatchOnComment", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoWatchOnComment { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("autoWatchOnCreate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("autoWatchOnCreate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoWatchOnCreate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("autoWatchOnVote", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("autoWatchOnVote", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoWatchOnVote { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("autoWatchOnUpdate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("autoWatchOnUpdate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoWatchOnUpdate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17560,10 +17560,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OnlineUsers 
     {
-        [Newtonsoft.Json.JsonProperty("users", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("users", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Users { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17582,7 +17582,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17601,10 +17601,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OwnedBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17623,7 +17623,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundleElement : BundleElement
     {
-        [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Owner { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17642,10 +17642,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OwnedBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17665,16 +17665,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ParsedCommand 
     {
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("error", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Error { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("delete", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("delete", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Delete { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17694,7 +17694,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class PeriodFieldFormat 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17733,13 +17733,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class PeriodValue 
     {
-        [Newtonsoft.Json.JsonProperty("minutes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("minutes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Minutes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("presentation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17758,43 +17758,43 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Project : IssueFolder
     {
-        [Newtonsoft.Json.JsonProperty("startingNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("startingNumber", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? StartingNumber { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("shortName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("shortName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ShortName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("leader", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("leader", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Leader { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("createdBy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("createdBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me CreatedBy { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("customFields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customFields", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object CustomFields { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("archived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("archived", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Archived { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fromEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fromEmail", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FromEmail { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("replyToEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("replyToEmail", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReplyToEmail { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("template", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Template { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("iconUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("iconUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IconUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("team", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("team", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup Team { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17813,13 +17813,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17838,7 +17838,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectBasedColorCoding : ColorCoding
     {
-        [Newtonsoft.Json.JsonProperty("projectColors", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("projectColors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ProjectColor> ProjectColors { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17858,13 +17858,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectColor 
     {
-        [Newtonsoft.Json.JsonProperty("project", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("color", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("color", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FieldStyle Color { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17884,22 +17884,22 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectTimeTrackingSettings 
     {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("estimate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("estimate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleProjectCustomField Estimate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("timeSpent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("timeSpent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleProjectCustomField TimeSpent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("workItemTypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("workItemTypes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WorkItemType> WorkItemTypes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("project", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17919,13 +17919,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RestCorsSettings 
     {
-        [Newtonsoft.Json.JsonProperty("allowedOrigins", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allowedOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AllowedOrigins { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allowAllOrigins", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allowAllOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AllowAllOrigins { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17944,10 +17944,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SavedQuery : WatchFolder
     {
-        [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -17967,22 +17967,22 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchSuggestions 
     {
-        [Newtonsoft.Json.JsonProperty("caret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("caret", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Caret { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ignoreUnresolvedSetting", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ignoreUnresolvedSetting", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IgnoreUnresolvedSetting { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("suggestions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("suggestions", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Suggestion> Suggestions { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("folders", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("folders", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueFolder> Folders { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18001,7 +18001,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SimpleIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleProjectCustomField ProjectCustomField { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -18024,10 +18024,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SimpleValueActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18141,7 +18141,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseSingleValueIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BundleProjectCustomField ProjectCustomField { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -18183,37 +18183,37 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Sprint 
     {
-        [Newtonsoft.Json.JsonProperty("agile", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("agile", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Agile Agile { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("goal", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("goal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Goal { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("start", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Start { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("finish", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("finish", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Finish { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("archived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("archived", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Archived { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isDefault", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isDefault", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsDefault { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("unresolvedIssuesCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("unresolvedIssuesCount", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? UnresolvedIssuesCount { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("previousSprint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("previousSprint", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Sprint PreviousSprint { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18232,13 +18232,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SprintActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18258,28 +18258,28 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SprintsSettings 
     {
-        [Newtonsoft.Json.JsonProperty("isExplicit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isExplicit", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsExplicit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cardOnSeveralSprints", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("cardOnSeveralSprints", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? CardOnSeveralSprints { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultSprint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultSprint", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Sprint DefaultSprint { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("disableSprints", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("disableSprints", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? DisableSprints { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("explicitQuery", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("explicitQuery", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExplicitQuery { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("sprintSyncField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("sprintSyncField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField SprintSyncField { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("hideSubtasksOfCards", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("hideSubtasksOfCards", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HideSubtasksOfCards { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18298,7 +18298,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<StateBundleElement> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18317,10 +18317,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<StateBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18339,7 +18339,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateBundleElement : EnumBundleElement
     {
-        [Newtonsoft.Json.JsonProperty("isResolved", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isResolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsResolved { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18377,10 +18377,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<StateBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18400,10 +18400,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StorageEntry 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18423,46 +18423,46 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Suggestion 
     {
-        [Newtonsoft.Json.JsonProperty("completionStart", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("completionStart", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CompletionStart { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("completionEnd", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("completionEnd", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CompletionEnd { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("matchingStart", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("matchingStart", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MatchingStart { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("matchingEnd", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("matchingEnd", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MatchingEnd { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("caret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("caret", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Caret { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("option", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("option", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Option { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("prefix", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Prefix { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("suffix", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("suffix", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Suffix { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("group", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("group", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Group { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("icon", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("icon", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Icon { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("auxiliaryIcon", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("auxiliaryIcon", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AuxiliaryIcon { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("className", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("className", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ClassName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18481,10 +18481,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneEntityAttributeValue : DatabaseAttributeValue
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isResolved", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isResolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsResolved { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18506,10 +18506,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneSettings 
     {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18529,10 +18529,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneValue 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18552,25 +18552,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SystemSettings 
     {
-        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("baseUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxUploadFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("maxUploadFileSize", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? MaxUploadFileSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxExportItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("maxExportItems", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaxExportItems { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("administratorEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("administratorEmail", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AdministratorEmail { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allowStatisticsCollection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allowStatisticsCollection", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AllowStatisticsCollection { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isApplicationReadOnly", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("isApplicationReadOnly", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsApplicationReadOnly { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18589,13 +18589,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TagsActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueTag> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueTag> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18615,76 +18615,76 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Telemetry 
     {
-        [Newtonsoft.Json.JsonProperty("installationFolder", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("installationFolder", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InstallationFolder { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("databaseLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("databaseLocation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DatabaseLocation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("logsLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("logsLocation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LogsLocation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("availableProcessors", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("availableProcessors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? AvailableProcessors { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("availableMemory", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("availableMemory", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AvailableMemory { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allocatedMemory", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allocatedMemory", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AllocatedMemory { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usedMemory", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usedMemory", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UsedMemory { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("uptime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("uptime", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Uptime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("startedTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("startedTime", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? StartedTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("databaseBackgroundThreads", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("databaseBackgroundThreads", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? DatabaseBackgroundThreads { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pendingAsyncJobs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("pendingAsyncJobs", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? PendingAsyncJobs { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cachedResultsCountInDBQueriesCache", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("cachedResultsCountInDBQueriesCache", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CachedResultsCountInDBQueriesCache { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("databaseQueriesCacheHitRate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("databaseQueriesCacheHitRate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DatabaseQueriesCacheHitRate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("blobStringsCacheHitRate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("blobStringsCacheHitRate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BlobStringsCacheHitRate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("totalTransactions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("totalTransactions", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? TotalTransactions { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("transactionsPerSecond", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("transactionsPerSecond", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransactionsPerSecond { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("requestsPerSecond", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("requestsPerSecond", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestsPerSecond { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("databaseSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("databaseSize", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DatabaseSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fullDatabaseSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("fullDatabaseSize", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FullDatabaseSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("textIndexSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("textIndexSize", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TextIndexSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("onlineUsers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("onlineUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OnlineUsers OnlineUsers { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("reportCalculatorThreads", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("reportCalculatorThreads", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ReportCalculatorThreads { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notificationAnalyzerThreads", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notificationAnalyzerThreads", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? NotificationAnalyzerThreads { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18703,16 +18703,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextCustomFieldActivityItem : CustomFieldActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Added { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("markup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18732,13 +18732,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextFieldValue 
     {
-        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("markdownText", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("markdownText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MarkdownText { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18778,13 +18778,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextMarkupActivityItem : SimpleValueActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Added { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("markup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18804,10 +18804,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TimeTrackingUserProfile 
     {
-        [Newtonsoft.Json.JsonProperty("periodFormat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("periodFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PeriodFieldFormat PeriodFormat { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18827,13 +18827,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TimeZoneDescriptor 
     {
-        [Newtonsoft.Json.JsonProperty("presentation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("offset", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("offset", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Offset { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18854,7 +18854,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UnlimitedVisibility 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18873,13 +18873,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("groups", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("groups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Groups { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("individuals", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("individuals", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Individuals { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("aggregatedUsers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("aggregatedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> AggregatedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18898,10 +18898,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18921,25 +18921,25 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserGroup 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("ringId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ringId", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RingId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usersCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("usersCount", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? UsersCount { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("icon", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("icon", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Icon { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allUsersGroup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allUsersGroup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AllUsersGroup { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("teamForProject", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("teamForProject", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project TeamForProject { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18958,16 +18958,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserProfiles 
     {
-        [Newtonsoft.Json.JsonProperty("general", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("general", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeneralUserProfile General { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notifications", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public NotificationsUserProfile Notifications { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("timetracking", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("timetracking", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TimeTrackingUserProfile Timetracking { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18986,10 +18986,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19010,13 +19010,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UsesMarkupActivityItem : SimpleValueActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Added { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("markup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19035,13 +19035,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VcsChangeActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("author", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Author { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19060,7 +19060,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VcsUnresolvedUser : Me
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19079,7 +19079,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundle : BaseBundle
     {
-        [Newtonsoft.Json.JsonProperty("values", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> Values { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19098,10 +19098,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19120,13 +19120,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundleElement : BundleElement
     {
-        [Newtonsoft.Json.JsonProperty("archived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("archived", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Archived { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("releaseDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("releaseDate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? ReleaseDate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("released", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("released", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Released { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19145,10 +19145,10 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionProjectCustomField : BundleProjectCustomField
     {
-        [Newtonsoft.Json.JsonProperty("bundle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundle Bundle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19168,7 +19168,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("targetMember", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19187,16 +19187,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityGroupActivityItem : VisibilityActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("targetMember", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("targetSubMember", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetSubMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetSubMember { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19215,16 +19215,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityUserActivityItem : VisibilityActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("targetMember", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("targetSubMember", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("targetSubMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetSubMember { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19243,13 +19243,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VotersActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Me> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19269,16 +19269,16 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WIPLimit 
     {
-        [Newtonsoft.Json.JsonProperty("max", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("max", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Max { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("min", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("min", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Min { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("column", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("column", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AgileColumn Column { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19298,13 +19298,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WatchFolder : IssueFolder
     {
-        [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Owner { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("visibleFor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup VisibleFor { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("updateableBy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("updateableBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup UpdateableBy { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19323,13 +19323,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWorkItem> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWorkItem> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19348,13 +19348,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemAuthorActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19373,13 +19373,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemDurationActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DurationValue Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DurationValue Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19399,13 +19399,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemType 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("autoAttached", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("autoAttached", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoAttached { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19424,13 +19424,13 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemTypeActivityItem : ActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WorkItemType> Removed { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WorkItemType> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -19450,19 +19450,19 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkTimeSettings 
     {
-        [Newtonsoft.Json.JsonProperty("minutesADay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("minutesADay", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinutesADay { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("workDays", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("workDays", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<int> WorkDays { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("firstDayOfWeek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("firstDayOfWeek", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? FirstDayOfWeek { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("daysAWeek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("daysAWeek", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? DaysAWeek { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();

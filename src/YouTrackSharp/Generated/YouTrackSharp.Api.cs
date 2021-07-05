@@ -611,51 +611,51 @@ namespace YouTrackSharp.Generated
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class FrontendConfig
     {
-        [Newtonsoft.Json.JsonProperty("ring", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ring", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public RingFrontendConfig Ring { get; set; }
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class RingFrontendConfig
     {
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class IssueCountRequest
     {
-        [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     }
 
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class IssueCountResponse
     {
-        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("count", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Count { get; set; }
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class VisibilityGroupsRequest
     {
-        [Newtonsoft.Json.JsonProperty("issues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
         
-        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("prefix", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Prefix { get; set; }
         
-        [Newtonsoft.Json.JsonProperty("top", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("top", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Top { get; set; }
     }
         
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     internal class VisibilityGroups
     {
-        [Newtonsoft.Json.JsonProperty("recommendedGroups", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("recommendedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> RecommendedGroups { get; set; }
         
-        [Newtonsoft.Json.JsonProperty("groupsWithoutRecommended", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("groupsWithoutRecommended", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> GroupsWithoutRecommended { get; set; }
     }
 }
