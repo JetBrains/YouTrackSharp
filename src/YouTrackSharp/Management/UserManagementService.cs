@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -30,56 +31,44 @@ namespace YouTrackSharp.Management
         {
             if (string.IsNullOrEmpty(username)) throw new ArgumentNullException(nameof(username));
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/admin/user/{username}");
-
-            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                return null;
-            }
+            var client = await _connection.GetAuthenticatedApiClient();
+            var foundUsers = await GetUsers("login: {" + username + "}");
             
-            response.EnsureSuccessStatusCode();
-            
-            return JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
+            return foundUsers.FirstOrDefault();
         }
 
         /// <inheritdoc />
         public async Task<ICollection<User>> GetUsers(string filter = null, string group = null, string role = null,
-            string project = null, string permission = null, bool onlineOnly = false, int start = 0)
+            string project = null, string permission = null, int start = 0, int take = 10)
         {
-            var queryString = new List<string>(7);
+            var query = string.Empty;
             if (!string.IsNullOrEmpty(filter))
             {
-                queryString.Add($"q={Uri.EscapeDataString(filter)}");
+                query += filter + " ";
             }
-            if (!string.IsNullOrEmpty(group))
+            if (!string.IsNullOrEmpty(group) && !group.Equals("All Users", StringComparison.InvariantCultureIgnoreCase))
             {
-                queryString.Add($"group={Uri.EscapeDataString(group)}");
+                query += "group:" + group + " ";
             }
             if (!string.IsNullOrEmpty(role))
             {
-                queryString.Add($"role={Uri.EscapeDataString(role)}");
+                query += "access(with:{" + role + "}) ";
             }
             if (!string.IsNullOrEmpty(project))
             {
-                queryString.Add($"project={Uri.EscapeDataString(project)}");
+                query += "access(project:" + project + ") ";
             }
             if (!string.IsNullOrEmpty(permission))
             {
-                queryString.Add($"permission={Uri.EscapeDataString(permission)}");
-            }
-            if (onlineOnly)
-            {
-                queryString.Add("onlineOnly=true");
-            }
-            if (start > 0)
-            {
-                queryString.Add($"start={start}");
+                query += "access(with:{" + permission + "}) ";
             }
 
-            var query = string.Join("&", queryString);
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response = await client.HubApiUsersGetAsync(query,
+                "id,login,name,profile(email(email),jabber(jabber))", 
+                start, take);
             
-            return await GetUsersFromPath($"rest/admin/user?{query}");
+            return response.Users.Select(User.FromApiEntity).ToList();
         }
 
         /// <inheritdoc />
@@ -182,25 +171,6 @@ namespace YouTrackSharp.Management
             var response = await client.DeleteAsync($"rest/admin/user/{username}/group/{Uri.EscapeDataString(group)}");
 
             response.EnsureSuccessStatusCode();
-        }
-
-        private async Task<List<User>> GetUsersFromPath(string path)
-        {
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync(path);
-            
-            response.EnsureSuccessStatusCode();
-
-            var users = new List<User>();
-            var userRefs = JArray.Parse(await response.Content.ReadAsStringAsync());
-            foreach (var userRef in userRefs)
-            {
-                users.Add(await GetUser(userRef["login"].Value<string>()));
-            }
-
-            return users;
         }
     }
 }

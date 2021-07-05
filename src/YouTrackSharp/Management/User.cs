@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Management
 {
@@ -7,6 +8,22 @@ namespace YouTrackSharp.Management
     /// </summary>
     public class User
     {
+        /// <summary>
+        /// Creates an instance of the <see cref="User" /> class from api client entity.
+        /// </summary>
+        /// <param name="entity">Api client entity of type <see cref="HubApiUser"/> to convert from.</param>
+        internal static User FromApiEntity(HubApiUser entity)
+        {
+            return new User()
+            {
+                RingId = entity.Id,
+                Username = entity.Login,
+                FullName = entity.Name,
+                Email = entity.Profile?.Email?.Email,
+                Jabber = entity.Profile?.Jabber?.Jabber
+            };
+        }
+        
         /// <summary>
         /// Ring ID of the user.
         /// </summary>
