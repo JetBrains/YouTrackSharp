@@ -69,8 +69,9 @@ namespace YouTrackSharp.Management
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Merge-Users.html">Delete a user</a>.</remarks>
         /// <param name="usernameToMerge">Login name of the user to be merged.</param>
         /// <param name="targetUser">Login name of the user to merge <paramref name="usernameToMerge"/> into.</param>
+        /// <param name="promoteBan">If set to <value>true</value>, bans target user when source user is banned. Defaults to <value>true</value></param>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task MergeUsers(string usernameToMerge, string targetUser);
+        Task MergeUsers(string usernameToMerge, string targetUser, bool promoteBan = true);
 
         /// <summary>
         /// Get all groups the specified user participates in.

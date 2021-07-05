@@ -64,7 +64,7 @@ namespace YouTrackSharp.Management
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.HubApiUsersGetAsync(query,
-                "id,login,name,profile(email(email),jabber(jabber))", 
+                "id,banned,banBadge,banReason,login,name,profile(email(email),jabber(jabber))",
                 start, take);
             
             return response.Users.Select(User.FromApiEntity).ToList();
@@ -182,13 +182,42 @@ namespace YouTrackSharp.Management
         }
 
         /// <inheritdoc />
-        public async Task MergeUsers(string usernameToMerge, string targetUser)
+        public async Task MergeUsers(string usernameToMerge, string targetUser, bool promoteBan = true)
         {
-            //TODO when merging, check both users to exist and throw
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/admin/user/{targetUser}/merge/{usernameToMerge}", new StringContent(string.Empty));
+            var source = await GetUser(usernameToMerge);
+            var target = await GetUser(targetUser);
+
+            if (source == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + usernameToMerge,
+                    null, null);
+            }
             
-            response.EnsureSuccessStatusCode();
+            if (target == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find target user with login " + targetUser,
+                    null, null);
+            }
+
+            var users = new List<HubApiUser>()
+            {
+                new HubApiUser() {Id = source.RingId},
+                new HubApiUser() {Id = target.RingId}
+            };
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            if (target.Banned || !(promoteBan && source.Banned))
+            {
+                await client.HubUsersMergePostAsync("id", targetUser, target.FullName, target.Email, target.Banned,
+                    target.BanBadge, target.BanReason, target.RingId, users);
+            }
+            else
+            {
+                await client.HubUsersMergePostAsync("id", targetUser, target.FullName, target.Email, source.Banned,
+                    source.BanBadge, source.BanReason, target.RingId, users);
+            }
         }
 
         /// <inheritdoc />
