@@ -43,7 +43,7 @@ namespace YouTrackSharp.Management
             {
                 query += filter + " ";
             }
-            if (!string.IsNullOrEmpty(group) && !group.Equals("All Users", StringComparison.InvariantCultureIgnoreCase))
+            if (!string.IsNullOrEmpty(group))
             {
                 query += "group:" + group + " ";
             }
@@ -170,7 +170,7 @@ namespace YouTrackSharp.Management
             if (userToInherit == null)
             {
                 throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
-                    "Could not find target user with login " + successor,
+                    "Could not find user with login " + successor,
                     null, null);
             }
             

@@ -40,7 +40,14 @@ namespace YouTrackSharp.Issues
             if (!string.IsNullOrEmpty(group))
             {
                 var response = await client.GroupsGetAsync("id,name", 0, -1);
-                var userGroup = response.First(g => g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase));
+                var userGroup =
+                    response.FirstOrDefault(g => g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase));
+                if (userGroup == null)
+                {
+                    throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                        "Could not find group with name " + group,
+                        null, null);
+                }
                 attachment.Visibility = group == "All Users"
                     ? new UnlimitedVisibility()
                     : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {userGroup}};

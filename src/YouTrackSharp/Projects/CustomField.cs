@@ -1,6 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
 
@@ -43,8 +44,13 @@ namespace YouTrackSharp.Projects
         /// </summary>
         internal BundleProjectCustomField ToApiEntity(ICollection<Generated.CustomField> allFields)
         {
-            //TODO we allow fields with the same name but different types, so .Single() won't work
-            var field = allFields.First(f => f.Name == Name);
+            var field = allFields.FirstOrDefault(f => f.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase));
+
+            if (field == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    $"Custom field prototype [ {Name} ] not found", null, null);
+            }
             
             var fieldTypeId = field.FieldType.Id;
             var pos = fieldTypeId.IndexOf('[');

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
@@ -35,13 +37,25 @@ namespace YouTrackSharp.Management
 			
 			if (Estimation != null)
 			{
-				var field = pcfList.Single(cf => cf.Name == Estimation.Name);
+				var field = pcfList.SingleOrDefault(cf =>
+					cf.Name.Equals(Estimation.Name, StringComparison.InvariantCultureIgnoreCase));
+				if (field == null)
+				{
+					throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+						$"Project custom field [ {Estimation.Name} ] not found.", null, null);
+				}
 				projectTimeTracking.Estimate = new BuildProjectCustomField(){Field = field};
 			}
 
 			if (SpentTime != null)
 			{
-				var field = pcfList.Single(cf => cf.Name == SpentTime.Name);
+				var field = pcfList.SingleOrDefault(cf =>
+					cf.Name.Equals(SpentTime.Name, StringComparison.InvariantCultureIgnoreCase));
+				if (field == null)
+				{
+					throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+						$"Project custom field [ {SpentTime.Name} ] not found.", null, null);
+				}
 				projectTimeTracking.TimeSpent = new BuildProjectCustomField(){Field = field};
 			}
 
@@ -73,13 +87,6 @@ namespace YouTrackSharp.Management
 			/// </summary>
 			[JsonProperty("name")]
 			public string Name { get; set; }
-
-			/*TODO remove completely or assemble on-the-fly
-			/// <summary>
-			/// Url of the field.
-			/// </summary>
-			[JsonProperty("url")]
-			public string Url { get; set; }*/
 		}
 	}
 }

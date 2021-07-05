@@ -527,7 +527,7 @@ namespace YouTrackSharp.Generated
     {
         public string ToSinglePermittedGroup()
         {
-            return this is LimitedVisibility visibility
+            return this is LimitedVisibility visibility && visibility.PermittedGroups.Any()
                 ? visibility.PermittedGroups.First().Name
                 : "All Users";
         }
