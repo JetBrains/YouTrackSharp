@@ -36,7 +36,7 @@ namespace YouTrackSharp.Management
 
         /// <inheritdoc />
         public async Task<ICollection<User>> GetUsers(string filter = null, string group = null, string role = null,
-            string project = null, string permission = null, int start = 0, int take = 10)
+            string project = null, string permission = null, bool onlineOnly = false, int start = 0, int take = 10)
         {
             var query = string.Empty;
             if (!string.IsNullOrEmpty(filter))

@@ -24,11 +24,12 @@ namespace YouTrackSharp.Management
         /// <param name="project">Filter by project (projectID)</param>
         /// <param name="permission">Filter by permission.</param>
         /// <param name="start">Paginator mode.</param>
+        /// <param name="onlineOnly">Currently ignored</value>.</param>
         /// <param name="take">Paginator page size (default is 10 records).</param>
         /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="User" /> instances.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
         Task<ICollection<User>> GetUsers(string filter = null, string group = null, string role = null,
-            string project = null, string permission = null, int start = 0, int take = 10);
+            string project = null, string permission = null, bool onlineOnly = false, int start = 0, int take = 10);
 
         /// <summary>
         /// Create a new user.
