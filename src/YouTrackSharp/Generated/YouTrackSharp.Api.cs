@@ -1,4 +1,4 @@
-namespace YouTrackSharp
+namespace YouTrackSharp.Generated
 {
     public partial class YouTrackClient : IYouTrackClient
     {

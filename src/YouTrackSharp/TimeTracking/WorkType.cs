@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.TimeTracking
 {
