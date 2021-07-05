@@ -16830,19 +16830,19 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("localizedName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sourceToTarget", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SourceToTarget { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("localizedSourceToTarget", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localizedSourceToTarget", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedSourceToTarget { get; set; }
     
         [Newtonsoft.Json.JsonProperty("targetToSource", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetToSource { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("localizedTargetToSource", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localizedTargetToSource", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedTargetToSource { get; set; }
     
         [Newtonsoft.Json.JsonProperty("directed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
