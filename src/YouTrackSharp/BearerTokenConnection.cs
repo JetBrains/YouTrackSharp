@@ -36,7 +36,7 @@ namespace YouTrackSharp
         /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
         public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler = null)
-            : base(serverUrl + "/api/")
+            : base(serverUrl.TrimEnd('/')  + "/api/")
         {
             _bearerToken = bearerToken;
             _configureHandler = configureHandler;
