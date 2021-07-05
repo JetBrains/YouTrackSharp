@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Issues
 {
@@ -39,7 +40,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
+            var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.GetAsync($"rest/issue/{issueId}?wikifyDescription={wikifyDescription}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
@@ -60,15 +61,20 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}/exists");
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            var client = await _connection.GetAuthenticatedApiClient();
+            try
             {
-                return false;
+                await client.IssuesGetAsync(issueId, "", default(System.Threading.CancellationToken));
             }
-
-            response.EnsureSuccessStatusCode();
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return false;
+                }
+                
+                throw;
+            }
 
             return true;
         }
@@ -243,15 +249,8 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/issue/{issueId}");
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return;
-            }
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            await client.IssuesDeleteAsync(issueId);
         }
 
         /// <inheritdoc />
