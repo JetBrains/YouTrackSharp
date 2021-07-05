@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Issues
@@ -263,12 +262,38 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}/link");
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response = await client.IssuesLinksGetAsync(issueId,
+                "direction,linkType(name,targetToSource,localizedTargetToSource,sourceToTarget,localizedSourceToTarget),issues(id,idReadable)",
+                0, -1);
 
-            response.EnsureSuccessStatusCode();
+            var links = new List<Link>();
             
-            return JsonConvert.DeserializeObject<IEnumerable<Link>>(await response.Content.ReadAsStringAsync());
+            foreach (var linkType in response)
+            {
+                var both = linkType.LinkType.LocalizedSourceToTarget
+                           ?? linkType.LinkType.LocalizedTargetToSource
+                           ?? linkType.LinkType.SourceToTarget;
+                var inward = linkType.Direction == IssueLinkDirection.BOTH
+                    ? both
+                    : linkType.LinkType.LocalizedTargetToSource ?? linkType.LinkType.TargetToSource;
+                var outward = linkType.Direction == IssueLinkDirection.BOTH
+                    ? both
+                    : (linkType.LinkType.LocalizedSourceToTarget ?? linkType.LinkType.SourceToTarget);
+                
+                var linksPack = linkType.Issues.Select(issue => new Link()
+                {
+                    InwardType = inward,
+                    OutwardType = outward,
+                    TypeName = linkType.LinkType.Name,
+                    Source = linkType.Direction == IssueLinkDirection.INWARD ? issue.IdReadable : issueId,
+                    Target = linkType.Direction == IssueLinkDirection.INWARD ? issueId : issue.IdReadable
+                });
+                
+                links.AddRange(linksPack.ToList());
+            }
+
+            return links;
         }
     }
 }
