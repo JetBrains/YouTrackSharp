@@ -20,7 +20,10 @@ namespace YouTrackSharp.Management
                 Username = entity.Login,
                 FullName = entity.Name,
                 Email = entity.Profile?.Email?.Email,
-                Jabber = entity.Profile?.Jabber?.Jabber
+                Jabber = entity.Profile?.Jabber?.Jabber,
+                Banned = entity.Banned ?? false,
+                BanBadge = entity.BanBadge,
+                BanReason = entity.BanReason
             };
         }
         
@@ -52,5 +55,23 @@ namespace YouTrackSharp.Management
         /// </summary>
         [JsonProperty("jabber")]
         public string Jabber { get; set; }
+        
+        /// <summary>
+        /// Jabber of the user.
+        /// </summary>
+        [JsonProperty("banned")]
+        public bool Banned { get; set; }
+        
+        /// <summary>
+        /// Jabber of the user.
+        /// </summary>
+        [JsonProperty("banBadge")]
+        public string BanBadge { get; set; }
+        
+        /// <summary>
+        /// Jabber of the user.
+        /// </summary>
+        [JsonProperty("banReason")]
+        public string BanReason { get; set; }
     }
 }
