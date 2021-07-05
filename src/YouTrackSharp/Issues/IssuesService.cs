@@ -19,7 +19,7 @@ namespace YouTrackSharp.Issues
 
         private static string ISSUES_FIELDS_QUERY = "comments(" + COMMENTS_FIELDS_QUERY + "),links(" +
                                                     LINKS_FIELDS_QUERY + "),attachments(" + ATTACHMENTS_FIELDS_QUERY +
-                                                    "),id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
+                                                    "),id,idReadable,externalIssue(id),project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
         
         private static readonly string[] ReservedFields = 
         {

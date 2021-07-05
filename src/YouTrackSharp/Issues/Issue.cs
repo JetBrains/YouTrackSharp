@@ -56,6 +56,7 @@ namespace YouTrackSharp.Issues
             {
                 Id = entity.IdReadable,
                 EntityId = entity.Id,
+                JiraId = entity.ExternalIssue?.Id,
                 Summary = entity.Summary,
                 Description = wikify ? entity.WikifiedDescription : entity.Description,
                 IsMarkdown = entity.UsesMarkdown ?? true,
@@ -369,6 +370,12 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonProperty("entityId")]
         public string EntityId { get; set; }
+        
+        /// <summary>
+        /// If issue was imported from JIRA, represents the Id it has in JIRA.
+        /// </summary>
+        [JsonProperty("jiraId")]
+        public string JiraId { get; set; }
 
         /// <summary>
         /// Summary of the issue.
