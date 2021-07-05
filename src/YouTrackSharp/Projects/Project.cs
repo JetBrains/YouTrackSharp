@@ -10,6 +10,20 @@ namespace YouTrackSharp.Projects
     public class Project
     {
         /// <summary>
+        /// Creates an instance of the <see cref="Project" /> class from api client entity.
+        /// </summary>
+        /// <param name="entity">Api client entity of type <see cref="Generated.Project"/> to convert from.</param>
+        internal static Project FromApiEntity(Generated.Project entity)
+        {
+            return new Project()
+            {
+                Name = entity.Name,
+                Description = entity.Description,
+                ShortName = entity.ShortName
+            };
+        }
+        
+        /// <summary>
         /// Creates an instance of the <see cref="Project" /> class.
         /// </summary>
         public Project()

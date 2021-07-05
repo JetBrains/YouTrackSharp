@@ -17,8 +17,6 @@ namespace YouTrackSharp.Projects
         public CustomField()
         {
             Name = string.Empty;
-            //TODO subject to removal
-            //Url = string.Empty;
             Type = string.Empty;
             CanBeEmpty = false;
             EmptyText = string.Empty;
