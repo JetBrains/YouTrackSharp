@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using YouTrackSharp.Generated;
-using YouTrackSharp.Internal;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
@@ -39,6 +38,12 @@ namespace YouTrackSharp.Issues
                 Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)).ToList(),
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };
+
+            if (entity.Watchers.HasStar ?? false)
+            {
+                var starTag = new SubValue<string>() {Value = "Star"};
+                issue.Tags = issue.Tags == null ? new List<SubValue<string>>(){starTag} : issue.Tags.Append(starTag);
+            }
             
             issue.SetField("projectShortName", entity.Project.ShortName);
             issue.SetField("numberInProject", entity.NumberInProject);
@@ -49,6 +54,10 @@ namespace YouTrackSharp.Issues
             issue.SetField("updated", entity.Updated);
             issue.SetField("updaterName", entity.Updater.Login);
             issue.SetField("updaterFullName", entity.Updater.FullName);
+            if (entity.Resolved != null)
+            {
+                issue.SetField("resolved", entity.Resolved);
+            }
             issue.SetField("commentsCount", entity.CommentsCount);
             issue.SetField("votes", entity.Votes);
             
@@ -56,82 +65,111 @@ namespace YouTrackSharp.Issues
             {
                 switch (customField)
                 {
+                    //TODO somehow if we skip block for DateIssueCustomField, it won't be processed
+                    //      even though it's a descendant of SimpleIssueCustomField
                     case DateIssueCustomField f:
                         if (f.Value != null)
                         {
-                            var dateTime = ((long)f.Value).TimestampToDateTime();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = dateTime, ValueId = dateTime});
+                            var rawValue = new List<string>() {f.Value.ToString()};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = rawValue, ValueId = JArray.FromObject(rawValue)
+                            };
+                        }
+                        break;
+                    case SimpleIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var rawValue = new List<string>() {f.Value.ToString()};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = rawValue, ValueId = JArray.FromObject(rawValue)
+                            };
                         }
                         break;
                     case PeriodIssueCustomField f:
                         if (f.Value != null)
                         {
-                            var period = f.Value.Id.Substring(1, f.Value.Id.Length - 1).ToLower();
-                            issue.SetField(f.Name,
-                                new Field() {Name = f.Name, Value = f.Value.Minutes, ValueId = period});
+                            var rawValue = new List<string>() {f.Value.Id.Substring(1, f.Value.Id.Length - 1).ToLower()};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = new List<string>() {(f.Value.Minutes ?? 0).ToString()},
+                                ValueId = JArray.FromObject(rawValue)
+                            };
                         }
                         break;
                     case TextIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field() {Name = f.Name, Value = f.Value.Text, ValueId = f.Value.Text});
+                            var rawValue = new List<string>() {f.Value.Text};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = rawValue, ValueId = JArray.FromObject(rawValue)
+                            };
                         }
                         break;
-                    //TODO use Assignee class and check if verified by are rendered as Assignee as well
-                    //TODO valueId and Value are not very appropriate atm it seems
                     case SingleUserIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field() {Name = f.Name, Value = f.Value.Login, ValueId = f.Value.Login});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = new List<Assignee>()
+                                {
+                                    new Assignee() {UserName = f.Value.Login, FullName = f.Value.FullName}
+                                }
+                            };
                         }
                         break;
                     case SingleGroupIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field() {Name = f.Name, Value = f.Value.Name, ValueId = f.Value.Name});
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = rawValue, ValueId = JArray.FromObject(rawValue)
+                            };
                         }
                         break;
                     //TODO could identical case bodies be optimized with switch over type? _3_ blocks below
                     case SingleBuildIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field()
-                                {
-                                    Name = f.Name,
-                                    Value = f.Value.Name,
-                                    ValueId = f.Value.Name,
-                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
-                                });
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = rawValue,
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
                         }
                         break;
                     case SingleOwnedIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field()
-                                {
-                                    Name = f.Name,
-                                    Value = f.Value.Name,
-                                    ValueId = f.Value.Name,
-                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
-                                });
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = rawValue,
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
                         }
                         break;
                     case SingleVersionIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field()
-                                {
-                                    Name = f.Name,
-                                    Value = f.Value.Name,
-                                    ValueId = f.Value.Name,
-                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
-                                });
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = rawValue,
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
                         }
                         break;
                     //^^ end TODO
@@ -139,73 +177,96 @@ namespace YouTrackSharp.Issues
                     case SingleEnumIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field()
-                                {
-                                    Name = f.Name,
-                                    Value = f.Value.LocalizedName ?? f.Value.Name,
-                                    ValueId = f.Value.Name,
-                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
-                                });
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = new List<string>() {f.Value.LocalizedName ?? f.Value.Name},
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
                         }
                         break;
                     case StateIssueCustomField f:
                         if (f.Value != null)
                         {
-                            issue.SetField(f.Name,
-                                new Field()
-                                {
-                                    Name = f.Name,
-                                    Value = f.Value.LocalizedName ?? f.Value.Name,
-                                    ValueId = f.Value.Name,
-                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
-                                });
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = new List<string>() {f.Value.LocalizedName ?? f.Value.Name},
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
                         }
                         break;
                     //^^ end TODO
                     case MultiUserIssueCustomField f:
-                        //TODO ^^ see TODO above for SingleUser 
+                        if (f.Value != null && f.Value.Any())
+                        {
+                            var values = f.Value.Select(v => new Assignee()
+                            {
+                                UserName = v.Login, FullName = v.FullName
+                            }).ToList();
+                            
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = values
+                            };
+                        }
                         break;
                     //TODO could identical case bodies be optimized with switch over type? _4_ blocks below
                     case MultiGroupIssueCustomField f:
-                        if (f.Value != null)
+                        if (f.Value != null && f.Value.Any())
                         {
                             var values = f.Value.Select(v => v.Name).ToList();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = values, ValueId = JArray.FromObject(values)
+                            };
                         }
                         break;
                     case MultiBuildIssueCustomField f:
-                        if (f.Value != null)
+                        if (f.Value != null && f.Value.Any())
                         {
                             var values = f.Value.Select(v => v.Name).ToList();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = values, ValueId = JArray.FromObject(values)
+                            };
                         }
                         break;
                     case MultiOwnedIssueCustomField f:
-                        if (f.Value != null)
+                        if (f.Value != null && f.Value.Any())
                         {
                             var values = f.Value.Select(v => v.Name).ToList();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = values, ValueId = JArray.FromObject(values)
+                            };
                         }
                         break;
                     case MultiVersionIssueCustomField f:
-                        if (f.Value != null)
+                        if (f.Value != null && f.Value.Any())
                         {
                             var values = f.Value.Select(v => v.Name).ToList();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = values, ValueId = JArray.FromObject(values)
+                            };
                         }
                         break;
                     //^^ end TODO
                     case MultiEnumIssueCustomField f:
-                        if (f.Value != null)
+                        if (f.Value != null && f.Value.Any())
                         {
                             var localizedValues = f.Value.Select(v => v.LocalizedName).ToList();
                             var values = f.Value.Select(v => v.Name).ToList();
-                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = localizedValues, ValueId = values});
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name, Value = localizedValues, ValueId = JArray.FromObject(values)
+                            };
                         }
-                        break;
-                    case SimpleIssueCustomField f:
-                        //TODO
                         break;
                     default:
                         //TODO

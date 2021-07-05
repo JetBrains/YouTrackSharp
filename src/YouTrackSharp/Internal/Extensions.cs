@@ -17,7 +17,7 @@ namespace YouTrackSharp.Internal
 
         public static DateTime TimestampToDateTime(this long timestamp)
         {
-            return new DateTime(timestamp);
+            return DateTimeOffset.FromUnixTimeMilliseconds(timestamp).DateTime;
         }
 
         public static TimeSpan MinutesToTimeSpan(this int? minutes)
