@@ -15,11 +15,10 @@ namespace YouTrackSharp.Tests.Integration
             public async Task Valid_Connection_Returns_Authenticated_HttpClient(Connection connection)
             {
                 // Arrange & Act
-                var httpClient = await connection.GetAuthenticatedHttpClient();
-                var response = await httpClient.GetAsync("api/admin/users/me");
-                
-                // Assert
-                Assert.True(response.IsSuccessStatusCode);
+                var httpClient = await connection.GetAuthenticatedApiClient();
+
+                var result = await httpClient.UsersMeAsync("id,guest");
+                Assert.Equal(false, result.Guest);
             }
             
             [Theory]
@@ -28,7 +27,7 @@ namespace YouTrackSharp.Tests.Integration
             {
                 // Act & Assert
                 await Assert.ThrowsAsync<UnauthorizedConnectionException>(
-                    async () => await connection.GetAuthenticatedHttpClient());
+                    async () => await connection.GetAuthenticatedApiClient());
             }
         }
     }
