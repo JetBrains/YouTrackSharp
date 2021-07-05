@@ -10,26 +10,6 @@ using Newtonsoft.Json.Linq;
 
 namespace YouTrackSharp.Generated
 {
-    
-    public partial interface IYouTrackClient
-    {
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueAttachment</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueAttachment> IssuesAttachmentsPostFromStreamAsync(string id, Stream attachmentStream, string fields = null, IssueAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueCountResponse</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueCountResponse> IssuesGetterCountPostAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        
-        
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueCountResponse</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    }
-
     // class stub for exposing additional json attribute 
     [JsonInheritanceAttribute("SimpleProjectCustomField", typeof(VersionProjectCustomField))]
     public partial class BundleProjectCustomField
@@ -54,7 +34,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueAttachment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async Task<IssueAttachment> IssuesAttachmentsPostFromStreamAsync(string id, Stream attachmentStream, string fields = null,
+        internal async Task<IssueAttachment> IssuesAttachmentsPostFromStreamAsync(string id, Stream attachmentStream, string fields = null,
             IssueAttachment body = null, CancellationToken cancellationToken = default(CancellationToken))
         { 
             
@@ -155,7 +135,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueCountResponse> IssuesGetterCountPostAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task<IssueCountResponse> IssuesGetterCountPostAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issuesGetter/count?");
@@ -230,7 +210,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        internal async System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands?");
@@ -314,14 +294,14 @@ namespace YouTrackSharp.Generated
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    public class IssueCountRequest
+    internal class IssueCountRequest
     {
         [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     }
 
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    public class IssueCountResponse
+    internal class IssueCountResponse
     {
         [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Count { get; set; }
