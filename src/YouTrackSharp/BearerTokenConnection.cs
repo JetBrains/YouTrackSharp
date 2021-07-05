@@ -37,7 +37,7 @@ namespace YouTrackSharp
         /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
         public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler = null)
-            : base(serverUrl.TrimEnd('/')  + "/api/")
+            : base(serverUrl)
         {
             _bearerToken = bearerToken;
             _configureHandler = configureHandler;
@@ -65,7 +65,11 @@ namespace YouTrackSharp
         /// <inheritdoc />
         public override HttpClient GetRawHttpClient()
         {
-            _rawHttpClient ??= new HttpClient();
+            _rawHttpClient ??= new HttpClient()
+            {
+                BaseAddress = ServerUri,
+                Timeout = _timeout
+            };
             return _rawHttpClient;
         }
 
@@ -85,7 +89,10 @@ namespace YouTrackSharp
                     Timeout = _timeout
                 };
 
-                _youTrackClient = new YouTrackClient(_httpClient) {BaseUrl = ServerUri.ToString()};
+                _youTrackClient = new YouTrackClient(_httpClient)
+                {
+                    BaseUrl = ServerUri.ToString().TrimEnd('/')  + "/api/"
+                };
             }
             
             // Authenticate?

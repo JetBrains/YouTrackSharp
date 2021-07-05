@@ -21,7 +21,7 @@ namespace YouTrackSharp.Issues
             return new Attachment()
             {
                 Id = entity.Id,
-                Url = new Uri(entity.Url),
+                Url = new Uri(entity.Url.TrimStart('/'), UriKind.RelativeOrAbsolute),
                 Name = entity.Name,
                 Author = entity.Author.Login,
                 Group = entity.Visibility is LimitedVisibility visibility
