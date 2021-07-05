@@ -59,10 +59,10 @@ namespace YouTrackSharp
         public abstract Task<YouTrackClient> GetAuthenticatedApiClient();
 
         /// <summary>
-        /// Provides a simple <see cref="T:System.Net.Http.HttpClient" />
-        /// which can be used for HTTP calls that don't require authentication 
+        /// Provides an authenticated <see cref="T:System.Net.Http.HttpClient" />
+        /// which can be used for any HTTP calls not implemented in the library
         /// </summary>
         /// <returns>A non-authenticated <see cref="T:System.Net.Http.HttpClient" />.</returns>
-        public abstract HttpClient GetRawHttpClient();
+        public abstract Task<HttpClient> GetAuthenticatedRawClient();
     }
 }

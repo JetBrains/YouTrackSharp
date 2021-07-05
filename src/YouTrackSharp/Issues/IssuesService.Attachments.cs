@@ -76,7 +76,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(attachmentUrl));
             }
 
-            var client = _connection.GetRawHttpClient();
+            var client = await _connection.GetAuthenticatedRawClient();
             var response = await client.GetAsync(attachmentUrl);
             
             //TODO some handling is required here

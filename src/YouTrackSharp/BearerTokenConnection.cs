@@ -16,7 +16,6 @@ namespace YouTrackSharp
     public class BearerTokenConnection 
         : Connection
     {
-        private HttpClient _rawHttpClient;
         private HttpClient _httpClient;
         private YouTrackClient _youTrackClient;
         private bool _authenticated;
@@ -63,14 +62,14 @@ namespace YouTrackSharp
         }
 
         /// <inheritdoc />
-        public override HttpClient GetRawHttpClient()
+        public override async Task<HttpClient> GetAuthenticatedRawClient()
         {
-            _rawHttpClient ??= new HttpClient()
+            if (_youTrackClient == null)
             {
-                BaseAddress = ServerUri,
-                Timeout = _timeout
-            };
-            return _rawHttpClient;
+                await GetAuthenticatedApiClient();
+            }
+
+            return _httpClient;
         }
 
         /// <inheritdoc />
@@ -108,7 +107,26 @@ namespace YouTrackSharp
                 if (response.Guest == true || response.Guest == null)
                 {
                     throw new UnauthorizedConnectionException(
-                        Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)200, "Server responds that current user is guest");
+                        Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)200, "YouTrack responds that current user is guest");
+                }
+            }
+            catch (YouTrackErrorException e)
+            {
+                throw new UnauthorizedConnectionException(
+                    Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)e.StatusCode, e.Response);
+            }
+
+            try
+            {
+                var response = await _youTrackClient.ConfigGetAsync("ring(url)");
+
+                _youTrackClient.HubApiUrl = response.Ring.Url.TrimEnd('/') + "/api/rest/";
+
+                var me = await _youTrackClient.HubApiUserGetAsync("me", "guest");
+                if (me.Guest == true || me.Guest == null)
+                {
+                    throw new UnauthorizedConnectionException(
+                        Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)200, "Hub responds that current user is guest");
                 }
             }
             catch (YouTrackErrorException e)
