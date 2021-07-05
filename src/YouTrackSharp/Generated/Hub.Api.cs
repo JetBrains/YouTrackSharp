@@ -97,7 +97,7 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users?");
             if (query != null)
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("query") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("query") + "=").Append(System.Uri.EscapeDataString(ConvertToString(query, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (fields != null)
             {
