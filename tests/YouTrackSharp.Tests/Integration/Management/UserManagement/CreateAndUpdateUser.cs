@@ -19,7 +19,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 var randomUsername = "test" + Guid.NewGuid().ToString().Replace("-", string.Empty);
                 var randomPassword = "pwd" + Guid.NewGuid().ToString().Replace("-", string.Empty);
                 
-                await service.CreateUser(randomUsername, "Test User", "test1@example.org", null, randomPassword);
+                await service.CreateUser(randomUsername, "Test User", randomUsername + "@example.org", null, randomPassword);
                 
                 // Act
                 await service.UpdateUser(randomUsername, "Test user (updated)");
@@ -30,7 +30,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                     var result = await service.GetUser(randomUsername);
                     
                     Assert.NotNull(result);
-                    Assert.Equal("Test user (updated)", randomUsername);
+                    Assert.Equal("Test user (updated)", result.FullName);
                 }
                 finally
                 {
