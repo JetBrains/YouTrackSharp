@@ -35,7 +35,7 @@ namespace YouTrackSharp
         /// The <paramref name="serverUrl" /> was null, empty  or did not represent a valid, absolute <see cref="T:System.Uri" />.
         /// </exception>
         public BearerTokenConnection(string serverUrl, string bearerToken, Action<HttpClientHandler> configureHandler = null)
-            : base(serverUrl)
+            : base(serverUrl + "/api/")
         {
             _bearerToken = bearerToken;
             _configureHandler = configureHandler;
@@ -75,8 +75,8 @@ namespace YouTrackSharp
                     BaseAddress = ServerUri,
                     Timeout = _timeout
                 };
-                
-                _youTrackClient = new YouTrackClient(_httpClient);
+
+                _youTrackClient = new YouTrackClient(_httpClient) {BaseUrl = ServerUri.ToString()};
             }
             
             // Authenticate?
@@ -87,7 +87,13 @@ namespace YouTrackSharp
 
             try
             {
-                var response = await _youTrackClient.UsersMeAsync();
+                _authenticated = true;
+                var response = await _youTrackClient.UsersMeAsync("id,guest");
+                if (response.Guest == true || response.Guest == null)
+                {
+                    throw new UnauthorizedConnectionException(
+                        Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)200, "Server responds that current user is guest");
+                }
             }
             catch (YouTrackErrorException e)
             {
