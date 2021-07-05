@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Issues
@@ -208,42 +207,27 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(command));
             }
 
-            var queryString = new List<string>(4)
+            var commandList = new CommandList()
             {
-                $"command={Uri.EscapeDataString(command)}"
+                Query = command,
+                Issues = new List<Generated.Issue>() {new Generated.Issue() {IdReadable = issueId}}
             };
-
             if (!string.IsNullOrEmpty(comment))
             {
-                queryString.Add($"comment={Uri.EscapeDataString(comment)}");
+                commandList.Comment = comment;
             }
             if (disableNotifications)
             {
-                queryString.Add("disableNotifications=true");
+                commandList.Silent = true;
             }
             if (!string.IsNullOrEmpty(runAs))
             {
-                queryString.Add($"runAs={runAs}");
+                commandList.RunAs = runAs;
             }
             
-            var query = string.Join("&", queryString);
+            var client = await _connection.GetAuthenticatedApiClient();
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{issueId}/execute?{query}", new MultipartFormDataContent());
-            
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                // Try reading the error message
-                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-                if (responseJson["value"] != null)
-                {
-                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-                }
-
-                throw new YouTrackErrorException(Strings.Exception_UnknownError);
-            }
-            
-            response.EnsureSuccessStatusCode();
+            await client.CommandsPostAsync("id", commandList);
         }
         
         /// <inheritdoc />
