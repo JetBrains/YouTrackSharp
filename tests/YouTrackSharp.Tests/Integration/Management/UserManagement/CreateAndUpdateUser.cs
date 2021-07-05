@@ -35,7 +35,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 finally
                 {
                     // Delete the user
-                    await service.DeleteUser(randomUsername);
+                    await service.DeleteUser(randomUsername, "demo1");
                 }
             }
         }

@@ -59,9 +59,6 @@ namespace YouTrackSharp.Tests.Integration.Projects
 
                     Assert.Equal(customField.Name, created.Name);
                     Assert.Equal(customField.EmptyText, created.EmptyText);
-
-                    // Cleanup
-                    await service.DeleteProjectCustomField(projectId, customField.Name);
                 }
                 finally
                 {

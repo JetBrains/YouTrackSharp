@@ -22,7 +22,7 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 
 				// Assert
 				Assert.Equal(5, results.DaysAWeek);
-			    Assert.True(results.HoursADay > 0);
+			    Assert.True(results.MinutesADay > 0);
 
 			    Assert.Equal(1, workdays[0]);
 			    Assert.Equal(2, workdays[1]);

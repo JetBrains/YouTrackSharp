@@ -19,8 +19,8 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 var randomUsername = "test" + Guid.NewGuid().ToString().Replace("-", string.Empty);
                 var randomPassword = "pwd" + Guid.NewGuid().ToString().Replace("-", string.Empty);
                 
-                await service.CreateUser(randomUsername + "1", "Test 1 User", "test1@example.org", null, randomPassword);
-                await service.CreateUser(randomUsername + "2", "Test 2 User", "test2@example.org", null, randomPassword);
+                await service.CreateUser(randomUsername + "1", "Test 1 User", randomUsername + "1" + "@example.org", null, randomPassword);
+                await service.CreateUser(randomUsername + "2", "Test 2 User", randomUsername + "2" + "test2@example.org", null, randomPassword);
                 
                 // Act
                 await service.MergeUsers(randomUsername + "1", randomUsername + "2");
@@ -39,7 +39,7 @@ namespace YouTrackSharp.Tests.Integration.Management.UserManagement
                 finally
                 {
                     // Delete the user
-                    await service.DeleteUser(randomUsername + "2");
+                    await service.DeleteUser(randomUsername + "2", "demo1");
                 }
             }
         }

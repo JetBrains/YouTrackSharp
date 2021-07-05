@@ -23,7 +23,6 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 Assert.NotNull(result);
 
                 Assert.Equal(customFieldName, result.Name);
-                Assert.Equal(string.Empty, result.Url);
                 Assert.Equal("user[1]", result.Type);
                 Assert.True(result.CanBeEmpty);
                 Assert.Equal("Unassigned", result.EmptyText);

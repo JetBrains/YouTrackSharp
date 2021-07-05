@@ -26,7 +26,6 @@ namespace YouTrackSharp.Tests.Integration.Projects
                 {
                     Assert.NotNull(customField);
                     Assert.NotEqual(string.Empty, customField.Name);
-                    Assert.NotEqual(string.Empty, customField.Url);
                 }
             }
 

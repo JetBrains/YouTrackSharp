@@ -26,7 +26,7 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 				// Act
 				var timeSettings = new SystemWideTimeTrackingSettings
 				{
-					HoursADay = hoursADay,
+					MinutesADay = hoursADay,
 					WorkDays = new List<int>(5)
 				};
 				timeSettings.WorkDays.Add(1);
@@ -40,7 +40,7 @@ namespace YouTrackSharp.Tests.Integration.Management.TimeTracking
 				// Assert
 				var result = await service.GetSystemWideTimeTrackingSettings();
 				Assert.NotNull(result);
-				Assert.Equal(hoursADay, result.HoursADay);
+				Assert.Equal(hoursADay, result.MinutesADay);
 			}
 		}
     }

@@ -39,8 +39,16 @@ namespace YouTrackSharp.Projects
         /// <inheritdoc />
         public async Task<CustomField> GetProjectCustomField(string projectId, string customFieldName)
         {
-            var result = await GetProjectCustomFields(projectId);
-            return result.Single(f => f.Name == customFieldName);
+            var fields = await GetProjectCustomFields(projectId);
+            var field =  fields.SingleOrDefault(f => f.Name == customFieldName);
+
+            if (field == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.NotFound,
+                    "Project custom field [ " + customFieldName + " ] not found ", null, null);
+            }
+
+            return field;
         }
 
         /// <inheritdoc />
@@ -56,11 +64,11 @@ namespace YouTrackSharp.Projects
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            var field = await GetProjectCustomField(projectId, customFieldName);
 
+            CustomField field;
             try
             {
-                await client.AdminProjectsCustomfieldsDeleteAsync(projectId, field.Id);
+                field = await GetProjectCustomField(projectId, customFieldName);
             }
             catch (YouTrackErrorException e)
             {
@@ -71,6 +79,8 @@ namespace YouTrackSharp.Projects
 
                 throw;
             }
+            
+            await client.AdminProjectsCustomfieldsDeleteAsync(projectId, field.Id);
         }
 
         /// <inheritdoc />
