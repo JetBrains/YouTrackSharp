@@ -1,4 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Management
 {
@@ -7,6 +12,41 @@ namespace YouTrackSharp.Management
 	/// </summary>
 	public class TimeTrackingSettings
 	{
+		/// <summary>
+		/// Creates an instance of the <see cref="TimeTrackingSettings" /> class from api client entity.
+		/// </summary>
+		/// <param name="entity">Api client entity of type <see cref="ProjectTimeTrackingSettings"/> to convert from.</param>
+		public static TimeTrackingSettings FromApiEntity(ProjectTimeTrackingSettings entity)
+		{
+			return new TimeTrackingSettings()
+			{
+				Enabled = entity.Enabled ?? false,
+				Estimation = new TimeField(){Name = entity.Estimate?.Field.Name},
+				SpentTime = new TimeField(){Name = entity.TimeSpent?.Field.Name}
+			};
+		}
+
+		/// <summary>
+		/// Converts to instance of the <see cref="ProjectTimeTrackingSettings" /> class used in api client.
+		/// </summary>
+		public ProjectTimeTrackingSettings ToApiEntity(ICollection<CustomField> pcfList)
+		{
+			var projectTimeTracking = new ProjectTimeTrackingSettings(){Enabled = Enabled};
+			
+			if (Estimation != null)
+			{
+				var field = pcfList.Single(cf => cf.Name == Estimation.Name);
+				projectTimeTracking.Estimate = new BuildProjectCustomField(){Field = field};
+			}
+
+			if (SpentTime != null)
+			{
+				var field = pcfList.Single(cf => cf.Name == SpentTime.Name);
+				projectTimeTracking.TimeSpent = new BuildProjectCustomField(){Field = field};
+			}
+
+			return projectTimeTracking;
+		}
 		/// <summary>
 		/// Is time tracking enabled?
 		/// </summary>
@@ -33,11 +73,12 @@ namespace YouTrackSharp.Management
 			[JsonProperty("name")]
 			public string Name { get; set; }
 
+			/*TODO remove completely or assemble on-the-fly
 			/// <summary>
 			/// Url of the field.
 			/// </summary>
 			[JsonProperty("url")]
-			public string Url { get; set; }
+			public string Url { get; set; }*/
 		}
 	}
 }

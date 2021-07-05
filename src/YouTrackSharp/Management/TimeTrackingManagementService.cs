@@ -28,12 +28,11 @@ namespace YouTrackSharp.Management
 		/// <inheritdoc />
 		public async Task<SystemWideTimeTrackingSettings> GetSystemWideTimeTrackingSettings()
 	    {
-		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.GetAsync("rest/admin/timetracking");
-
-		    response.EnsureSuccessStatusCode();
-            
-            return JsonConvert.DeserializeObject<SystemWideTimeTrackingSettings>(await response.Content.ReadAsStringAsync());
+		    var client = await _connection.GetAuthenticatedApiClient();
+		    var response =
+			    await client.AdminTimetrackingsettingsWorktimesettingsGetAsync("workDays,minutesADay,daysAWeek");
+			
+		    return SystemWideTimeTrackingSettings.FromApiEntity(response);
 	    }
 
 		/// <inheritdoc />
@@ -47,22 +46,9 @@ namespace YouTrackSharp.Management
 		    var stringContent = new StringContent(JsonConvert.SerializeObject(timeSettings));
 		    stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
 
-		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.PutAsync("rest/admin/timetracking", stringContent);
-
-		    if (response.StatusCode == HttpStatusCode.BadRequest)
-		    {
-                // Try reading the error message
-                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-			    if (responseJson["value"] != null)
-			    {
-				    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-			    }
-
-			    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-		    }
-
-		    response.EnsureSuccessStatusCode();
+		    var client = await _connection.GetAuthenticatedApiClient();
+		    var response =
+			    await client.AdminTimetrackingsettingsWorktimesettingsPostAsync(null, timeSettings.ToApiEntity());
 	    }
 
 		/// <inheritdoc />
@@ -73,12 +59,11 @@ namespace YouTrackSharp.Management
 			    throw new ArgumentNullException(nameof(projectId));
 		    }
 
-		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.GetAsync($"rest/admin/project/{projectId}/timetracking");
+		    var client = await _connection.GetAuthenticatedApiClient();
+		    var response = await client.AdminProjectsTimetrackingsettingsGetAsync(projectId,
+			    "enabled,estimate(field(id,name)),timeSpent(field(id,name))");
 
-		    response.EnsureSuccessStatusCode();
-
-			return JsonConvert.DeserializeObject<TimeTrackingSettings>(await response.Content.ReadAsStringAsync());
+		    return TimeTrackingSettings.FromApiEntity(response);
 	    }
 
 		/// <inheritdoc />
@@ -94,25 +79,12 @@ namespace YouTrackSharp.Management
 			    throw new ArgumentNullException(nameof(timeTrackingSettings));
 		    }
 
-		    var stringContent = new StringContent(JsonConvert.SerializeObject(timeTrackingSettings));
-		    stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
+		    var client = await _connection.GetAuthenticatedApiClient();
+		    var pcfList = await client.AdminCustomfieldsettingsCustomfieldsGetAsync("id,name", 0, -1);
 
-		    var client = await _connection.GetAuthenticatedHttpClient();
-		    var response = await client.PutAsync($"rest/admin/project/{projectId}/timetracking", stringContent);
-
-		    if (response.StatusCode == HttpStatusCode.BadRequest)
-		    {
-			    // Try reading the error message
-			    var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-			    if (responseJson["value"] != null)
-			    {
-				    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-			    }
-
-			    throw new YouTrackErrorException(Strings.Exception_UnknownError);
-		    }
-
-		    response.EnsureSuccessStatusCode();
-		}
+		    await client.AdminProjectsTimetrackingsettingsPostAsync(projectId, "id",
+			    timeTrackingSettings.ToApiEntity(pcfList));
+		    
+	    }
     }
 }
