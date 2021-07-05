@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using YouTrackSharp.Internal;
@@ -16,7 +16,7 @@ namespace YouTrackSharp
         : Connection
     {
         private HttpClient _httpClient;
-        private YouTrackClient _youtrackAPI;
+        private YouTrackClient _youTrackClient;
         private bool _authenticated;
         
         private readonly string _bearerToken;
@@ -61,10 +61,10 @@ namespace YouTrackSharp
         } 
 
         /// <inheritdoc />
-        public override async Task<YouTrackClient> GetAuthenticatedAPIClient()
+        public override async Task<YouTrackClient> GetAuthenticatedApiClient()
         {
             // Initialize HTTP client
-            if (_httpClient == null)
+            if (_youTrackClient == null)
             {
                 var handler = new BearerTokenHttpClientHandler(_bearerToken);
 
@@ -75,30 +75,27 @@ namespace YouTrackSharp
                     BaseAddress = ServerUri,
                     Timeout = _timeout
                 };
-
-                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.HttpContentTypes.ApplicationJson));
+                
+                _youTrackClient = new YouTrackClient(_httpClient);
             }
             
             // Authenticate?
             if (_authenticated)
             {
-                return _httpClient;
-            }
-            
-            var response = await _httpClient.GetAsync("api/admin/users/me");
-            if (response.IsSuccessStatusCode)
-            {
-                _authenticated = true;
-            }
-            else 
-            {
-                var responseString = await response.Content.ReadAsStringAsync();
-                    
-                throw new UnauthorizedConnectionException(
-                    Strings.Exception_CouldNotAuthenticate, response.StatusCode, responseString);
+                return _youTrackClient;
             }
 
-            return _httpClient;
+            try
+            {
+                var response = await _youTrackClient.UsersMeAsync();
+            }
+            catch (YouTrackErrorException e)
+            {
+                throw new UnauthorizedConnectionException(
+                    Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)e.StatusCode, e.Response);
+            }
+
+            return _youTrackClient;
         }
     }
 }
