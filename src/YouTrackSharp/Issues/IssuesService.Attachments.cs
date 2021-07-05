@@ -1,12 +1,16 @@
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Generated;
+using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.Issues
 {
@@ -28,54 +32,32 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(attachmentStream));
             }
 
-            var queryString = new List<string>(3);
+            var attachment = new IssueAttachment()
+            {
+                Base64Content = attachmentStream.ConvertToBase64()
+            };
             if (!string.IsNullOrEmpty(attachmentName))
             {
-                queryString.Add($"attachmentName={attachmentName}");
+                attachment.Name = attachmentName;
             }
             if (!string.IsNullOrEmpty(group))
             {
-                queryString.Add($"group={group}");
+                attachment.Visibility = group == "All Users"
+                    ? new UnlimitedVisibility()
+                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = group}}};
             }
             if (!string.IsNullOrEmpty(author))
             {
-                queryString.Add($"author={author}");
+                attachment.Author = new Me() {Login = author};
             }
-
-            var query = string.Join("&", queryString);
-
-            var streamContent = new StreamContent(attachmentStream);
             if (!string.IsNullOrEmpty(attachmentContentType))
             {
-                streamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(attachmentContentType);
+                attachment.MimeType = attachmentContentType;
             }
-            streamContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
-            {
-                FileName = attachmentName,
-                Name = attachmentName
-            };
-
-            var content = new MultipartFormDataContent
-            {
-                streamContent
-            };
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{issueId}/attachment?{query}", content);
-
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                // Try reading the error message
-                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-                if (responseJson["value"] != null)
-                {
-                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-                }
-
-                throw new YouTrackErrorException(Strings.Exception_UnknownError);
-            }
-
-            response.EnsureSuccessStatusCode();
+            
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.IssuesAttachmentsPostAsync(issueId, "id", attachment);
         }
 
         /// <inheritdoc />
@@ -86,13 +68,11 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}/attachment");
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response =
+                await client.IssuesAttachmentsGetAsync(issueId, "id,url,name,author(login),visibility(permittedGroups(name)),created", 0, -1);
 
-            response.EnsureSuccessStatusCode();
-
-            var wrapper = JsonConvert.DeserializeObject<AttachmentCollectionWrapper>(await response.Content.ReadAsStringAsync());
-            return wrapper.Attachments;
+            return response.Select(Attachment.FromApiEntity);
         }
 
         /// <inheritdoc />
@@ -103,7 +83,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(attachmentUrl));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
+            var client = _connection.GetRawHttpClient();
             var response = await client.GetAsync(attachmentUrl);
 
             response.EnsureSuccessStatusCode();
@@ -119,15 +99,9 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/issue/{issueId}/attachment/{attachmentId}");
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return;
-            }
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.IssuesAttachmentsDeleteAsync(issueId, attachmentId);
         }
     }
 }
