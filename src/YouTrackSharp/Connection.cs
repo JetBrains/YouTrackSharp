@@ -51,13 +51,13 @@ namespace YouTrackSharp
         }
 
         /// <summary>
-        /// Provides an authenticated <see cref="T:System.Net.Http.HttpClient" />
+        /// Provides an authenticated <see cref="YouTrackClient" />
         /// which can be used by REST API client implementations.
         /// </summary>
-        /// <returns>An authenticated <see cref="T:System.Net.Http.HttpClient" />.</returns>
+        /// <returns>An authenticated <see cref="YouTrackClient" />.</returns>
         /// <exception cref="UnauthorizedConnectionException">The connection could not be authenticated.</exception>
         public abstract Task<YouTrackClient> GetAuthenticatedApiClient();
-        
+
         /// <summary>
         /// Provides a simple <see cref="T:System.Net.Http.HttpClient" />
         /// which can be used for HTTP calls that don't require authentication 

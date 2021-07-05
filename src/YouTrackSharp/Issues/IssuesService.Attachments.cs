@@ -1,16 +1,9 @@
 using System;
-using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using YouTrackSharp.Generated;
-using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.Issues
 {
@@ -32,10 +25,7 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(attachmentStream));
             }
 
-            var attachment = new IssueAttachment()
-            {
-                Base64Content = attachmentStream.ConvertToBase64()
-            };
+            var attachment = new IssueAttachment();
             if (!string.IsNullOrEmpty(attachmentName))
             {
                 attachment.Name = attachmentName;
@@ -44,7 +34,8 @@ namespace YouTrackSharp.Issues
             {
                 attachment.Visibility = group == "All Users"
                     ? new UnlimitedVisibility()
-                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = group}}};
+                    //TODO id: new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = group}}};
+                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = "jetbrains-team", Id = "10-3"}}};
             }
             if (!string.IsNullOrEmpty(author))
             {
@@ -57,7 +48,7 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesAttachmentsPostAsync(issueId, "id", attachment);
+            await client.IssuesAttachmentsPostFromStreamAsync(issueId, attachmentStream, "id", attachment);
         }
 
         /// <inheritdoc />
@@ -85,6 +76,8 @@ namespace YouTrackSharp.Issues
 
             var client = _connection.GetRawHttpClient();
             var response = await client.GetAsync(attachmentUrl);
+            
+            //TODO some handling is required here
 
             response.EnsureSuccessStatusCode();
 
