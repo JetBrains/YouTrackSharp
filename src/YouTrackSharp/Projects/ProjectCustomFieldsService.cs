@@ -27,13 +27,13 @@ namespace YouTrackSharp.Projects
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<CustomField>> GetProjectCustomFields(string projectId)
+        public async Task<ICollection<CustomField>> GetProjectCustomFields(string projectId)
         {
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.AdminProjectsCustomfieldsGetAsync(projectId,
                 "id,field(name,fieldType(id,name)),canBeEmpty,emptyFieldText", 0, -1);
             
-            return response.Select(CustomField.FromApiEntity);
+            return response.Select(CustomField.FromApiEntity).ToList();
         }
 
         /// <inheritdoc />

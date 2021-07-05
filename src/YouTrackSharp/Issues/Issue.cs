@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
@@ -7,7 +6,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using YouTrackSharp.Generated;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
@@ -37,7 +35,7 @@ namespace YouTrackSharp.Issues
                 Summary = entity.Summary,
                 Description = wikify ? entity.WikifiedDescription : entity.Description,
                 IsMarkdown = entity.UsesMarkdown ?? true,
-                Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)),
+                Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)).ToList(),
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };
             /*
@@ -137,7 +135,7 @@ namespace YouTrackSharp.Issues
         /// Issue comments.
         /// </summary>
         [JsonProperty("comment")]
-        public IEnumerable<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
         /// <summary>
         /// Issue tags.

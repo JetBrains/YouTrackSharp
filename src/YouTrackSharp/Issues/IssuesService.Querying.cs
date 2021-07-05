@@ -12,7 +12,7 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService
     {
         /// <inheritdoc />
-        public async Task<IEnumerable<Issue>> GetIssuesInProject(string projectId, string filter = null,
+        public async Task<ICollection<Issue>> GetIssuesInProject(string projectId, string filter = null,
             int? skip = null, int? take = null, DateTime? updatedAfter = null, bool wikifyDescription = false)
         {
             if (string.IsNullOrEmpty(projectId))
@@ -32,7 +32,7 @@ namespace YouTrackSharp.Issues
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
+        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
         {
             var client = await _connection.GetAuthenticatedApiClient();
             //TODO custom fields customFields(value(id,name))
@@ -40,7 +40,7 @@ namespace YouTrackSharp.Issues
                 "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
                 skip, take);
             
-            return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription));
+            return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription)).ToList();
         }
 
         /// <inheritdoc />
