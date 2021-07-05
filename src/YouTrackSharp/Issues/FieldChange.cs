@@ -57,7 +57,7 @@ namespace YouTrackSharp.Issues
         public string Name
         {
             get => To.Name;
-            private set
+            internal set
             {
                 From.Name = value;
                 To.Name = value;
