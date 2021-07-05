@@ -25,12 +25,12 @@ namespace YouTrackSharp.Issues
                 Id = entity.Id,
                 Author = entity.Author?.Login,
                 AuthorFullName = entity.Author?.FullName,
-                IssueId = entity.Issue?.Id,
+                IssueId = entity.Issue?.IdReadable,
                 IsDeleted = entity.Deleted ?? false,
                 IsMarkdown = entity.UsesMarkdown ?? true,
                 Text = wikify ? entity.TextPreview : entity.Text,
-                Created = entity.Created?.TimestampToDateTime(),
-                Updated = entity.Updated?.TimestampToDateTime(),
+                Created = (entity.Created ?? 0).TimestampToDateTime(),
+                Updated = (entity.Updated ?? 0).TimestampToDateTime(),
                 PermittedGroup = entity.Visibility?.ToSinglePermittedGroup()
             };
         }

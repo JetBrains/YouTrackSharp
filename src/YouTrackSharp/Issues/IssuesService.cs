@@ -15,8 +15,10 @@ namespace YouTrackSharp.Issues
     {
         private readonly Connection _connection;
 
-        private static string ISSUES_FIELDS_QUERY =
-            "id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name,value(id,name,localizedName,text,login,minutes,color(id,background,foreground)))";
+        private static string COMMENTS_FIELDS_QUERY = "id,author(id,login,fullName),issue(idReadable),deleted,usesMarkdown,text,textPreview,created,updated,visibility(permittedGroups(name))";
+
+        private static string ISSUES_FIELDS_QUERY = "comments(" + COMMENTS_FIELDS_QUERY +
+                                                    "),id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground)))";
         
         private static readonly string[] ReservedFields = 
         {
