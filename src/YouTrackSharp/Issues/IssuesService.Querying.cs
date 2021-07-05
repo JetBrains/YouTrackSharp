@@ -36,7 +36,7 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             //TODO custom fields customFields(value(id,name))
             var response = await client.IssuesGetAsync(filter,
-                "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
+                "id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
                 skip, take);
             
             return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription)).ToList();

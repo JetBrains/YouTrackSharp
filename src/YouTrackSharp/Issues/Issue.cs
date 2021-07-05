@@ -38,6 +38,7 @@ namespace YouTrackSharp.Issues
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };
             
+            issue.SetField("projectShortName", entity.Project.ShortName);
             issue.SetField("numberInProject", entity.NumberInProject);
             issue.SetField("wikified", wikify);
             issue.SetField("created", entity.Created);
