@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using Newtonsoft.Json;
 
 namespace YouTrackSharp.AgileBoards
 {

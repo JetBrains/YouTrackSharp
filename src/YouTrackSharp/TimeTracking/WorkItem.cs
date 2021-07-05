@@ -1,8 +1,8 @@
 using System;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
-using YouTrackSharp.Json;
 using YouTrackSharp.Internal;
+using YouTrackSharp.Json;
 
 namespace YouTrackSharp.TimeTracking
 {
