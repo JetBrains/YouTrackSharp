@@ -205,7 +205,7 @@ namespace YouTrackSharp.Generated
         }
         
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single Issue</returns>
+        /// <returns>single IssueCountResponse</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         internal async System.Threading.Tasks.Task<IssueCountResponse> IssuesGetterCountPostAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -280,7 +280,7 @@ namespace YouTrackSharp.Generated
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single Issue</returns>
+        /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         internal async System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
