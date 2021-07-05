@@ -16466,7 +16466,7 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("updated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Updated { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("resolved", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("resolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Resolved { get; set; }
     
         [Newtonsoft.Json.JsonProperty("numberInProject", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
