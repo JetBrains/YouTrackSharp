@@ -84,13 +84,6 @@ namespace YouTrackSharp.Projects
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        /*TODO remove completely or assembel on-the-fly
-        /// <summary>
-        /// The Url of the custom field.
-        /// </summary>
-        [JsonProperty("url")]
-        public string Url { get; set; }*/
-
         /// <summary>
         /// Type of this custom field.
         /// </summary>

@@ -30,13 +30,5 @@ namespace YouTrackSharp.TimeTracking
         /// </summary>
         [JsonProperty("login")]
         public string Login { get; set; }
-
-        /*TODO remove completely or generate on-the-fly
-        /// <summary>
-        /// Uri.
-        /// </summary>
-        [JsonProperty("url")]
-        public Uri Url { get; set; }
-        */
     }
 }
