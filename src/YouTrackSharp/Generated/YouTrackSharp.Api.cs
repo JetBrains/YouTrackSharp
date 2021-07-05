@@ -18,6 +18,17 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<IssueAttachment> IssuesAttachmentsPostFromStreamAsync(string id, Stream attachmentStream, string fields = null, IssueAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 
+    // class stub for exposing additional json attribute 
+    [JsonInheritanceAttribute("SimpleProjectCustomField", typeof(VersionProjectCustomField))]
+    public partial class BundleProjectCustomField
+    {
+    }
+
+    /// <summary>Represents project settings stub for fields not directly exposed in openapi model.</summary>
+    public class SimpleProjectCustomField : BundleProjectCustomField
+    {
+    }
+
     public partial class YouTrackClient : IYouTrackClient
     {
         private string _baseUrl;

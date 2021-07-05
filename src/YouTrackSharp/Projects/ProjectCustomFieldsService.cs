@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Projects
 {
@@ -25,25 +27,20 @@ namespace YouTrackSharp.Projects
         }
 
         /// <inheritdoc />
-        public async Task<ICollection<CustomField>> GetProjectCustomFields(string projectId)
+        public async Task<IEnumerable<CustomField>> GetProjectCustomFields(string projectId)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/admin/project/{projectId}/customfield");
-
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<ICollection<CustomField>>(await response.Content.ReadAsStringAsync());
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response = await client.AdminProjectsCustomfieldsGetAsync(projectId,
+                "id,field(name,fieldType(id,name)),canBeEmpty,emptyFieldText", 0, -1);
+            
+            return response.Select(CustomField.FromApiEntity);
         }
 
         /// <inheritdoc />
         public async Task<CustomField> GetProjectCustomField(string projectId, string customFieldName)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/admin/project/{projectId}/customfield/{customFieldName}");
-
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<CustomField>(await response.Content.ReadAsStringAsync());
+            var result = await GetProjectCustomFields(projectId);
+            return result.Single(f => f.Name == customFieldName);
         }
 
         /// <inheritdoc />
@@ -58,15 +55,10 @@ namespace YouTrackSharp.Projects
                 throw new ArgumentNullException(nameof(customFieldName));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/admin/project/{projectId}/customfield/{customFieldName}");
+            var client = await _connection.GetAuthenticatedApiClient();
+            var field = await GetProjectCustomField(projectId, customFieldName);
 
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return;
-            }
-
-            response.EnsureSuccessStatusCode();
+            await client.AdminProjectsCustomfieldsDeleteAsync(projectId, field.Id);
         }
 
         /// <inheritdoc />
@@ -77,16 +69,12 @@ namespace YouTrackSharp.Projects
                 throw new ArgumentNullException(nameof(customField));
             }
 
-            var query = string.Empty;
-            if (!string.IsNullOrEmpty(customField.EmptyText))
-            {
-                query = $"?emptyFieldText={Uri.EscapeUriString(customField.EmptyText)}";
-            }
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PutAsync($"rest/admin/project/{projectId}/customfield/{customField.Name}{query}", new MultipartContent());
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            var allFields = await client.AdminCustomfieldsettingsCustomfieldsGetAsync("id,name,fieldType(id,name)", 0, -1);
+            var bundleField = customField.ToApiEntity(allFields);
+            
+            var projectField = await client.AdminProjectsCustomfieldsPostAsync(projectId, "id", bundleField);
+            await client.AdminProjectsCustomfieldsPostAsync(projectId, projectField.Id, "id", bundleField);
         }
 
         /// <inheritdoc />
@@ -102,16 +90,10 @@ namespace YouTrackSharp.Projects
                 throw new ArgumentNullException(nameof(customField));
             }
 
-            var query = string.Empty;
-            if (!string.IsNullOrEmpty(customField.EmptyText))
-            {
-                query = $"?emptyFieldText={Uri.EscapeUriString(customField.EmptyText)}";
-            }
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/admin/project/{projectId}/customfield/{customField.Name}{query}", new MultipartContent());
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            var projectField = await GetProjectCustomField(projectId, customField.Name);
+            var allFields = await client.AdminCustomfieldsettingsCustomfieldsGetAsync("id,name,fieldType(id,name)", 0, -1);
+            await client.AdminProjectsCustomfieldsPostAsync(projectId, projectField.Id, customField.ToApiEntity(allFields));
         }
     }
 }

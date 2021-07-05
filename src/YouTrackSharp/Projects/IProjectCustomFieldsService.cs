@@ -10,9 +10,9 @@ namespace YouTrackSharp.Projects
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/GET-Project-Custom-Fields.html">Get Project Custom Fields</a>.</remarks>
         /// <param name="projectId">Id of the project to get the custom fields for.</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="CustomField" /> that are accessible for currently logged in user.</returns>
+        /// <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="CustomField" /> that are accessible for currently logged in user.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task<ICollection<CustomField>> GetProjectCustomFields(string projectId);
+        Task<IEnumerable<CustomField>> GetProjectCustomFields(string projectId);
 
         /// <summary>
         /// Get a project's custom field by its name.
