@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Management
 {
@@ -66,74 +68,124 @@ namespace YouTrackSharp.Management
                 start, take);
             
             return response.Users.Select(User.FromApiEntity).ToList();
+            
+            //TODO isOnline? get from youtrack directly and filter
         }
 
         /// <inheritdoc />
         public async Task CreateUser(string username, string fullName, string email, string jabber, string password)
         {
-            var queryString = new Dictionary<string, string>(4);
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+
+            var user = new HubApiUser() {Login = username};
+            var details = new EmailuserdetailsJSON();
+            
             if (!string.IsNullOrEmpty(fullName))
             {
-                queryString.Add("fullName", fullName);
+                user.Name = fullName;
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", email);
+                details.Email = new HubApiEmail() {Email = email};
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", jabber);
+                details.Jabber = new HubApiJabber() {Jabber = jabber};
             }
             if (!string.IsNullOrEmpty(password))
             {
-                queryString.Add("password", Uri.EscapeDataString(password));
+                user.Password = new PlainpasswordJSON() {Value = password};
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PutAsync($"rest/admin/user/{username}", new FormUrlEncodedContent(queryString));
+            user.Details = new List<DetailsJSON>() {details};
             
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.HubUsersPostAsync("id", user);
         }
 
         /// <inheritdoc />
         public async Task UpdateUser(string username, string fullName = null, string email = null, string jabber = null, string password = null)
         {
-            var queryString = new Dictionary<string, string>(4);
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+            
+            var client = await _connection.GetAuthenticatedApiClient();
+            var users = await client.HubApiUsersGetAsync("login: {" + username + "}", "id,details(id,login)");
+            var user = users.Users.FirstOrDefault();
+
+            if (user == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + username,
+                    null, null);
+            }
+
             if (!string.IsNullOrEmpty(fullName))
             {
-                queryString.Add("fullName", fullName);
+                user.Name = fullName;
             }
             if (!string.IsNullOrEmpty(email))
             {
-                queryString.Add("email", email);
+                user.Profile.Email = new HubApiEmail() {Email = email};
             }
             if (!string.IsNullOrEmpty(jabber))
             {
-                queryString.Add("jabber", jabber);
+                user.Profile.Jabber = new HubApiJabber() {Jabber = jabber};
             }
+            
+            await client.HubUsersPostAsync(user.Id, "id", user);
+
             if (!string.IsNullOrEmpty(password))
             {
-                queryString.Add("password", Uri.EscapeDataString(password));
+                var detail = user.Details.SingleOrDefault(d => d is EmailuserdetailsJSON);
+                if (detail == null)
+                {
+                    throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                        "Could not change password for user " + username + ": no single EmailUserDetails found",
+                        null, null);
+                }
+                
+                //TODO server response could be empty
+                await client.HubUserdetailsPostAsync(detail.Id, "id",
+                    new EmailuserdetailsJSON() {Password = new PlainpasswordJSON() {Value = password}});
             }
-            
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/admin/user/{username}", new FormUrlEncodedContent(queryString));
-            
-            response.EnsureSuccessStatusCode();
         }
 
         /// <inheritdoc />
-        public async Task DeleteUser(string username)
+        public async Task DeleteUser(string username, string successor)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/admin/user/{username}");
+            var userToDelete = await GetUser(username);
+            var userToInherit = await GetUser(successor);
             
-            response.EnsureSuccessStatusCode();
+            if (userToDelete == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + username,
+                    null, null);
+            }
+            
+            if (userToInherit == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find target user with login " + successor,
+                    null, null);
+            }
+            
+            var client = await _connection.GetAuthenticatedApiClient();
+
+            await client.HubUsersDeleteAsync(userToDelete.RingId, userToInherit.RingId);
         }
 
         /// <inheritdoc />
         public async Task MergeUsers(string usernameToMerge, string targetUser)
         {
+            //TODO when merging, check both users to exist and throw
             var client = await _connection.GetAuthenticatedHttpClient();
             var response = await client.PostAsync($"rest/admin/user/{targetUser}/merge/{usernameToMerge}", new StringContent(string.Empty));
             

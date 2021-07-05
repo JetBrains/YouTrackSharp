@@ -59,8 +59,9 @@ namespace YouTrackSharp.Management
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/DELETE-User.html">Delete a user</a>.</remarks>
         /// <param name="username">Login name of the user to be deleted.</param>
+        /// <param name="successor">Login name of the user to inherit all data from user being deleted.</param>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task DeleteUser(string username);
+        Task DeleteUser(string username, string successor);
 
         /// <summary>
         /// Merge users.
