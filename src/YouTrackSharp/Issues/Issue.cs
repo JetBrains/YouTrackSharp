@@ -1,10 +1,13 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Generated;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
@@ -19,6 +22,36 @@ namespace YouTrackSharp.Issues
     public class Issue
         : DynamicObject
     {
+        /// <summary>
+        /// Creates an instance of the <see cref="Issue" /> class from api client entity.
+        /// </summary>
+        /// <param name="entity">Api client entity of type <see cref="Generated.Issue"/> to convert from.</param>
+        /// <param name="wikify">If set to <value>true</value>, then issue description will be formatted ("wikified"). Defaults to <value>false</value>.</param>
+        public static Issue FromApiEntity(Generated.Issue entity, bool wikify = false)
+        {
+            //TODO
+            var issue = new Issue
+            {
+                Id = entity.IdReadable,
+                EntityId = entity.Id,
+                Summary = entity.Summary,
+                Description = wikify ? entity.WikifiedDescription : entity.Description,
+                IsMarkdown = entity.UsesMarkdown ?? true,
+                Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)),
+                Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
+            };
+            /*
+            TODO field converters for every type -- SimpleCustomField etc 
+            foreach (var customField in entity.CustomFields)
+            {
+                customField.
+            }
+            issue.Fields.Append()
+            */
+
+            return issue;
+        }
+        
         /// <summary>
         /// Use case-sensitive field names? Defaults to false.
         /// </summary>
@@ -52,12 +85,6 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonProperty("entityId")]
         public string EntityId { get; set; }
-
-        /// <summary>
-        /// If issue was imported from JIRA, represents the Id it has in JIRA.
-        /// </summary>
-        [JsonProperty("jiraId")]
-        public string JiraId { get; set; }
 
         /// <summary>
         /// Summary of the issue.
@@ -110,13 +137,13 @@ namespace YouTrackSharp.Issues
         /// Issue comments.
         /// </summary>
         [JsonProperty("comment")]
-        public ICollection<Comment> Comments { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
 
         /// <summary>
         /// Issue tags.
         /// </summary>
         [JsonProperty("tag")]
-        public ICollection<SubValue<string>> Tags { get; set; }
+        public IEnumerable<SubValue<string>> Tags { get; set; }
 
         /// <summary>
         /// Gets a specific <see cref="Field"/> from the <see cref="Fields"/> collection.

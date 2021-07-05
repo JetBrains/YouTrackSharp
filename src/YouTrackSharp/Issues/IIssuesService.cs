@@ -96,10 +96,10 @@ namespace YouTrackSharp.Issues
         /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance..</param>
         /// <param name="updatedAfter">Only issues updated after the specified date will be retrieved.</param>
         /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
+        /// <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="projectId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task<ICollection<Issue>> GetIssuesInProject(string projectId, string filter = null,
+        Task<IEnumerable<Issue>> GetIssuesInProject(string projectId, string filter = null,
             int? skip = null, int? take = null, DateTime? updatedAfter = null, bool wikifyDescription = false);
 
         /// <summary>
@@ -110,9 +110,9 @@ namespace YouTrackSharp.Issues
         /// <param name="skip">The number of issues to skip before getting a list of issues.</param>
         /// <param name="take">Maximum number of issues to be returned. Defaults to the server-side default of the YouTrack server instance.</param>
         /// <param name="wikifyDescription">If set to <value>true</value>, then issue description in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        /// <returns>A <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
+        /// <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Issue" /> that match the specified parameters.</returns>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false);
+        Task<IEnumerable<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false);
 
         /// <summary>
         /// Get issue count from the server. This operation may be retried internally and take a while to complete.
