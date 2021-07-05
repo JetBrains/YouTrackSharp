@@ -34,7 +34,7 @@ namespace YouTrackSharp.Issues
             }
             if (!string.IsNullOrEmpty(group))
             {
-                var response = await client.GroupsGetAsync("id, name", 0, -1);
+                var response = await client.GroupsGetAsync("id,name", 0, -1);
                 var userGroup = response.First(g => g.Name == group);
                 attachment.Visibility = group == "All Users"
                     ? new UnlimitedVisibility()
