@@ -97,7 +97,7 @@ namespace YouTrackSharp.Management
             }
             if (!string.IsNullOrEmpty(password))
             {
-                user.Password = new PlainpasswordJSON() {Value = password};
+                details.Password = new PlainpasswordJSON() {Value = password};
             }
             
             user.Details = new List<DetailsJSON>() {details};
@@ -151,7 +151,6 @@ namespace YouTrackSharp.Management
                         null, null);
                 }
                 
-                //TODO server response could be empty
                 await client.HubUserdetailsPostAsync(detail.Id, "id",
                     new EmailuserdetailsJSON() {Password = new PlainpasswordJSON() {Value = password}});
             }

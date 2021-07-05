@@ -178,7 +178,7 @@ namespace YouTrackSharp.Generated
         internal async System.Threading.Tasks.Task<HubApiUser> HubUsersPostAsync(string fields = null, HubApiUser body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users?failOnPermissionReduce=true");
+            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users?failOnPermissionReduce=true&");
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -256,7 +256,7 @@ namespace YouTrackSharp.Generated
                 throw new System.ArgumentNullException("id");
             
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true");
+            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -302,7 +302,7 @@ namespace YouTrackSharp.Generated
                             var objectResponse_ = await ReadObjectResponseAsync<HubApiUser>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                return null;
                             }
                             return objectResponse_.Object;
                         }
@@ -338,7 +338,7 @@ namespace YouTrackSharp.Generated
                 throw new System.ArgumentNullException("successorId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true");
+            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append(System.Uri.EscapeDataString("successor") + "=").Append(System.Uri.EscapeDataString(ConvertToString(successorId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
 
@@ -404,7 +404,7 @@ namespace YouTrackSharp.Generated
                 throw new System.ArgumentNullException("id");
             
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/userdetails/{id}?failOnPermissionReduce=true");
+            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/userdetails/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -450,7 +450,7 @@ namespace YouTrackSharp.Generated
                             var objectResponse_ = await ReadObjectResponseAsync<DetailsJSON>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                return null;
                             }
                             return objectResponse_.Object;
                         }
@@ -497,10 +497,7 @@ namespace YouTrackSharp.Generated
         
         [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public HubApiProfile Profile { get; set; }
-        
-        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlainpasswordJSON Password { get; set; }
-        
+
         [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DetailsJSON> Details { get; set; }
     }
@@ -527,7 +524,7 @@ namespace YouTrackSharp.Generated
     }
 
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "type")]
-    [JsonInheritanceAttribute("DateIssueCustomField", typeof(EmailuserdetailsJSON))]
+    [JsonInheritanceAttribute("EmailuserdetailsJSON", typeof(EmailuserdetailsJSON))]
     internal class DetailsJSON
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
