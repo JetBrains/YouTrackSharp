@@ -51,7 +51,7 @@ namespace YouTrackSharp.Issues
                 case ICollection<string> collection:
                     return collection.SingleOrDefault();
                 case ICollection<Assignee> collection:
-                    return collection.SingleOrDefault().FullName;
+                    return collection.SingleOrDefault()?.FullName;
             }
 
             return Value.ToString();

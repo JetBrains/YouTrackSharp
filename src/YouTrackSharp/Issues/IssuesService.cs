@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using YouTrackSharp.Generated;
 
@@ -93,33 +92,34 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(projectId));
             }
 
-            var queryString = new List<string>(4)
-            {
-                $"project={projectId}"
-            };
-
+            var apiIssue = new Generated.Issue {UsesMarkdown = issue.IsMarkdown};
             if (!string.IsNullOrEmpty(issue.Summary))
             {
-                queryString.Add($"summary={Uri.EscapeDataString(issue.Summary)}");
+                apiIssue.Summary = issue.Summary;
             }
             if (!string.IsNullOrEmpty(issue.Description))
             {
-                queryString.Add($"description={Uri.EscapeDataString(issue.Description)}");
+                apiIssue.Description = issue.Description;
             }
-            queryString.Add("markdown=" + (issue.IsMarkdown ? "true" : "false"));
             
-            var query = string.Join("&", queryString);
+            var client = await _connection.GetAuthenticatedApiClient();
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PutAsync($"rest/issue?{query}", new MultipartFormDataContent());
-
-            response.EnsureSuccessStatusCode();
+            var projects = await client.AdminProjectsGetAsync("id,name,shortName", 0, -1);
+            var project = projects.FirstOrDefault(p =>
+                p.Name.Equals(projectId, StringComparison.InvariantCultureIgnoreCase)
+                || p.ShortName.Equals(projectId, StringComparison.InvariantCultureIgnoreCase));
             
-            // Extract issue id from Location header response
-            const string marker = "rest/issue/";
-            var locationHeader = response.Headers.Location.ToString();
+            if (project == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.OK, 
+                    "Project " + projectId + " not found or not accesible", null, null);
+            }
             
-            var issueId = locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+            apiIssue.Project = new Project() {Id = project.Id};
+            
+            var response = await client.IssuesPostAsync__FromDraft(null, "id,idReadable", apiIssue);
+            var issueId = response.Id;
+            var issueIdReadable = response.IdReadable;
 
             // For every custom field, apply a command
             var customFields = issue.Fields
@@ -158,7 +158,7 @@ namespace YouTrackSharp.Issues
                 await ApplyCommand(issueId, $"tag {issueTag.Value}");
             }
             
-            return issueId;
+            return issueIdReadable;
         }
 
         /// <inheritdoc />
