@@ -27,7 +27,6 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                 {
                     Assert.NotNull(workType.Id);
                     Assert.NotNull(workType.Name);
-                    Assert.NotNull(workType.Url);
                 }
             }
         }

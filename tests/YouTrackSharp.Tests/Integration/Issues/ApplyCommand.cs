@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Xunit;
+using YouTrackSharp.Generated;
 using YouTrackSharp.Tests.Infrastructure;
 
 namespace YouTrackSharp.Tests.Integration.Issues
@@ -45,7 +46,7 @@ namespace YouTrackSharp.Tests.Integration.Issues
                         await service.ApplyCommand(temporaryIssueContext.Issue.Id, "gibberish"));
 
                     // Assert
-                    Assert.Contains("Command [gibberish] is invalid", exception.Message);
+                    Assert.Contains("Unknown command: gibberish", exception.Message);
 
                     await temporaryIssueContext.Destroy();
                 }
