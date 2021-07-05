@@ -2,6 +2,7 @@ using System;
 using Newtonsoft.Json;
 using YouTrackSharp.Generated;
 using YouTrackSharp.Json;
+using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.TimeTracking
 {
@@ -44,8 +45,8 @@ namespace YouTrackSharp.TimeTracking
             return new WorkItem()
             {
                 Id = entity.Id,
-                Date = new DateTime(entity.Date ?? 0),
-                Duration = new TimeSpan(0, entity.Duration.Minutes ?? 0, 0),
+                Date = entity.Date?.TimestampToDateTime(),
+                Duration = entity.Duration.Minutes.MinutesToTimeSpan(),
                 Description = entity.Text,
                 WorkType = entity.Type == null ? null : WorkType.FromApiEntity(entity.Type),
                 Author = entity.Author == null ? null : Author.FromApiEntity(entity.Author)
@@ -59,7 +60,7 @@ namespace YouTrackSharp.TimeTracking
         {
             var entity = new IssueWorkItem()
             {
-                Date = (new DateTimeOffset(Date ?? DateTime.Now)).ToUnixTimeMilliseconds(),
+                Date = Date.DateTimeToUnixTimestamp(),
                 Duration = new DurationValue() {Minutes = (int)Duration.TotalMinutes},
                 Text = Description,
                 Type = WorkType.ToApiEntity(),
