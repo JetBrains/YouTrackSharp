@@ -23,8 +23,7 @@ namespace YouTrackSharp.Issues
             var queryString = "project:" + projectId;
             if (updatedAfter.HasValue)
             {
-                var dateTime = updatedAfter ?? new DateTime(0);
-                queryString += " updated:" + dateTime.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss");
+                queryString += " updated:" + updatedAfter?.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss");
             }
             queryString += " " + filter ?? "";
 
