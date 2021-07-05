@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Issues
 {
@@ -19,12 +21,10 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(issueId));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}/comment?wikifyDescription={wikifyDescription}");
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response = await client.IssuesCommentsGetAsync(issueId, "id,author(id,login,fullName),issue(id),deleted,usesMarkdown,text,textPreview,created,updated", 0, -1);
 
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<IEnumerable<Comment>>(await response.Content.ReadAsStringAsync());
+            return response.Select(comment => Comment.FromApiEntity(comment, wikifyDescription));
         }
 
         /// <inheritdoc />
@@ -43,19 +43,9 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(text));
             }
 
-            var payload = new JObject(new JProperty("text", text));
-            var content = new StringContent(payload.ToString(Formatting.None));
-            content.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
-            
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PutAsync($"rest/issue/{issueId}/comment/{commentId}", content);
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return;
-            }
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            //TODO text could be too large to send w/o multipart, generated api needs to be checked
+            await client.IssuesCommentsPostAsync(issueId, commentId, "id", new IssueComment() {Text = text});
         }
 
         /// <inheritdoc />
@@ -70,15 +60,15 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(commentId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/issue/{issueId}/comment/{commentId}?permanently={permanent.ToString().ToLowerInvariant()}");
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            var client = await _connection.GetAuthenticatedApiClient();
+            if (permanent)
             {
-                return;
+                await client.IssuesCommentsDeleteAsync(issueId, commentId);
             }
-
-            response.EnsureSuccessStatusCode();
+            else
+            {
+                await client.IssuesCommentsPostAsync(issueId, commentId, "id", new IssueComment() {Deleted = true});
+            }
         }
     }
 }

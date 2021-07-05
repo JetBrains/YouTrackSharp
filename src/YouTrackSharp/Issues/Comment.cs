@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 using YouTrackSharp.Json;
+using YouTrackSharp.Internal;
 
 namespace YouTrackSharp.Issues
 {
@@ -11,11 +14,25 @@ namespace YouTrackSharp.Issues
     public class Comment
     {
         /// <summary>
-        /// Creates an instance of the <see cref="Comment" /> class.
+        /// Creates an instance of the <see cref="Comment" /> class from api client entity.
         /// </summary>
-        public Comment()
+        /// <param name="entity">Api client entity of type <see cref="IssueComment"/> to convert from.</param>
+        /// <param name="wikify">If set to <value>true</value>, then comment text will be formatted ("wikified"). Defaults to <value>false</value>.</param>
+        public static Comment FromApiEntity(IssueComment entity, bool wikify = false)
         {
-            Replies = new List<Comment>();
+            return new Comment()
+            {
+                Id = entity.Id,
+                Author = entity.Author?.Login,
+                AuthorFullName = entity.Author?.FullName,
+                IssueId = entity.Issue?.Id,
+                IsDeleted = entity.Deleted ?? false,
+                IsMarkdown = entity.UsesMarkdown ?? true,
+                Text = wikify ? entity.TextPreview : entity.Text,
+                Created = entity.Created?.TimestampToDateTime(),
+                Updated = entity.Updated?.TimestampToDateTime(),
+                PermittedGroup = entity.Visibility?.ToSinglePermittedGroup()
+            };
         }
 
         /// <summary>
@@ -43,12 +60,6 @@ namespace YouTrackSharp.Issues
         public string IssueId { get; set; }
 
         /// <summary>
-        /// Parent comment id.
-        /// </summary>
-        [JsonProperty("parentId")]
-        public string ParentId { get; set; }
-
-        /// <summary>
         /// Is the comment deleted?
         /// </summary>
         [JsonProperty("deleted")]
@@ -61,22 +72,10 @@ namespace YouTrackSharp.Issues
         public bool IsMarkdown { get; set; }
 
         /// <summary>
-        /// If comment was imported from JIRA, represents the Id it has in JIRA.
-        /// </summary>
-        [JsonProperty("jiraId")]
-        public string JiraId { get; set; }
-
-        /// <summary>
         /// Text of the comment.
         /// </summary>
         [JsonProperty("text")]
         public string Text { get; set; }
-
-        /// <summary>
-        /// Is the comment shown for the issue author?
-        /// </summary>
-        [JsonProperty("shownForIssueAuthor")]
-        public bool ShownForIssueAuthor { get; set; }
 
         /// <summary>
         /// Represents when the issue was created.
@@ -97,11 +96,5 @@ namespace YouTrackSharp.Issues
         /// </summary>
         [JsonProperty("permittedGroup")]
         public string PermittedGroup { get; set; }
-
-        /// <summary>
-        /// Replies.
-        /// </summary>
-        [JsonProperty("replies")]
-        public ICollection<Comment> Replies { get; set; }
     }
 }
