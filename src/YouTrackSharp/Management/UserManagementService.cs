@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Management
@@ -223,31 +221,63 @@ namespace YouTrackSharp.Management
         /// <inheritdoc />
         public async Task<ICollection<Group>> GetGroupsForUser(string username)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/admin/user/{username}/group");
-
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<List<Group>>(
-                await response.Content.ReadAsStringAsync());
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            var user = await GetUser(username);
+            
+            if (user == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + user, null, null);
+            }
+            
+            var response = await client.HubApiUsergroupsGetAsync("user:" + user.RingId + " or is:allUsers", "id");
+            
+            return response.Usergroups.Select(Group.FromApiEntity).ToList();
         }
 
         /// <inheritdoc />
         public async Task AddUserToGroup(string username, string group)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/admin/user/{username}/group/{Uri.EscapeDataString(group)}", new StringContent(string.Empty));
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            var user = await GetUser(username);
+            var apiGroup = (await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id,usergroup(id)")).Usergroups.FirstOrDefault();
+            
+            if (user == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + username, null, null);
+            }
+            if (apiGroup == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find group with name " + group, null, null);
+            }
 
-            response.EnsureSuccessStatusCode();
+            await client.HubUsergroupsPostAsync(apiGroup.Id, "id", new HubApiUser(){Id = user.RingId});
         }
 
         /// <inheritdoc />
         public async Task RemoveUserFromGroup(string username, string group)
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/admin/user/{username}/group/{Uri.EscapeDataString(group)}");
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            var user = await GetUser(username);
+            var apiGroup = (await client.HubApiUsergroupsGetAsync("name:{" + group + "}", "id")).Usergroups.FirstOrDefault();
+            
+            if (user == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find user with login " + username, null, null);
+            }
+            if (apiGroup == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.BadRequest,
+                    "Could not find group with name " + group, null, null);
+            }
 
-            response.EnsureSuccessStatusCode();
+            await client.HubUsergroupsUsersDeleteAsync(apiGroup.Id, user.RingId);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.Management
 {
@@ -8,21 +9,24 @@ namespace YouTrackSharp.Management
     public class Group
     {
         /// <summary>
+        /// Creates an instance of the <see cref="User" /> class from api client entity.
+        /// </summary>
+        /// <param name="entity">Api client entity of type <see cref="HubApiUser"/> to convert from.</param>
+        internal static Group FromApiEntity(HubApiUserGroup entity)
+        {
+            return new Group() {RingId = entity.Id};
+        }
+        
+        /// <summary>
         /// Id of the group.
         /// </summary>
-        [JsonProperty("entityId")]
-        public string Id { get; set; }
+        [JsonProperty("ringId")]
+        public string RingId { get; set; }
 
         /// <summary>
         /// Name of the group.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
-
-        /// <summary>
-        /// URL of the group.
-        /// </summary>
-        [JsonProperty("url")]
-        public string Url { get; set; }
     }
 }
