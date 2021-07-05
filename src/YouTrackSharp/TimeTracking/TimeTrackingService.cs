@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace YouTrackSharp.TimeTracking
 {
@@ -33,8 +31,6 @@ namespace YouTrackSharp.TimeTracking
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            //var response = await client.GetAsync($"rest/admin/project/{projectId}/timetracking/worktype");
-            //response = await client.ProjectGetAsync(id, "workItemTypes(id,name,ordinal,url)");
             var response =
                 await client.AdminProjectsTimetrackingsettingsWorkitemtypesGetAsync(projectId, "id,name,ordinal,url", 0, -1);
 
@@ -52,7 +48,7 @@ namespace YouTrackSharp.TimeTracking
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.IssuesTimetrackingWorkitemsGetAsync(
                                                         issueId, 
-                                                        "author(login),type(name,id),date,duration(id,minutes,presentation),text", 
+                                                        "id,author(id,login),type(id,name),date,duration(id,minutes,presentation),text", 
                                                         0, -1);
 
             return response.Select(WorkItem.FromApiEntity);
@@ -95,7 +91,7 @@ namespace YouTrackSharp.TimeTracking
 
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesTimetrackingWorkitemsPostAsync(issueId, workItemId, "", workItem.ToApiEntity());
+            await client.IssuesTimetrackingWorkitemsPostAsync(issueId, workItemId, "id", workItem.ToApiEntity());
         }
         
         /// <inheritdoc />
