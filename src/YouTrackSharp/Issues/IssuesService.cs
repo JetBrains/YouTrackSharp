@@ -41,16 +41,20 @@ namespace YouTrackSharp.Issues
             }
             
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}?wikifyDescription={wikifyDescription}");
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            try
             {
-                return null;
+                var response = await client.IssuesGetAsync(issueId, "", default(System.Threading.CancellationToken));
+                return Issue.FromApiEntity(response);
             }
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
 
-            response.EnsureSuccessStatusCode();
-            
-            return JsonConvert.DeserializeObject<Issue>(await response.Content.ReadAsStringAsync());
+                throw;
+            }
         }
 
         /// <inheritdoc />
@@ -64,7 +68,10 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             try
             {
-                await client.IssuesGetAsync(issueId, "", default(System.Threading.CancellationToken));
+                //TODO fields
+                await client.IssuesGetAsync(issueId,
+                    "id,idReadable,usesMarkdown,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
+                    default(System.Threading.CancellationToken));
             }
             catch (YouTrackErrorException e)
             {
@@ -168,26 +175,24 @@ namespace YouTrackSharp.Issues
                 return;
             }
             
-            var queryString = new List<string>(3);
+            var issue = new Generated.Issue();
+            
             if (!string.IsNullOrEmpty(summary))
             {
-                queryString.Add($"summary={Uri.EscapeDataString(summary)}");
+                issue.Summary = summary;
             }
             if (!string.IsNullOrEmpty(description))
             {
-                queryString.Add($"description={Uri.EscapeDataString(description)}");
+                issue.Description = description;
             }
             if (isMarkdown.HasValue)
             {
-                queryString.Add($"markdown={isMarkdown.ToString().ToLowerInvariant()}");
+                issue.UsesMarkdown = isMarkdown;
             }
             
-            var query = string.Join("&", queryString);
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{issueId}?{query}", new MultipartFormDataContent());
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.IssuesPostAsync(issueId, "id", issue);
         }
         
         /// <inheritdoc />
