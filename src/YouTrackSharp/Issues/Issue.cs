@@ -6,6 +6,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using YouTrackSharp.Generated;
+using YouTrackSharp.Internal;
 using YouTrackSharp.Json;
 
 namespace YouTrackSharp.Issues
@@ -50,14 +52,166 @@ namespace YouTrackSharp.Issues
             issue.SetField("commentsCount", entity.CommentsCount);
             issue.SetField("votes", entity.Votes);
             
-            /*
-            TODO field converters for every type -- SimpleCustomField etc 
             foreach (var customField in entity.CustomFields)
             {
-                customField.
+                switch (customField)
+                {
+                    case DateIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var dateTime = ((long)f.Value).TimestampToDateTime();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = dateTime, ValueId = dateTime});
+                        }
+                        break;
+                    case PeriodIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var period = f.Value.Id.Substring(1, f.Value.Id.Length - 1).ToLower();
+                            issue.SetField(f.Name,
+                                new Field() {Name = f.Name, Value = f.Value.Minutes, ValueId = period});
+                        }
+                        break;
+                    case TextIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field() {Name = f.Name, Value = f.Value.Text, ValueId = f.Value.Text});
+                        }
+                        break;
+                    //TODO use Assignee class and check if verified by are rendered as Assignee as well
+                    //TODO valueId and Value are not very appropriate atm it seems
+                    case SingleUserIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field() {Name = f.Name, Value = f.Value.Login, ValueId = f.Value.Login});
+                        }
+                        break;
+                    case SingleGroupIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field() {Name = f.Name, Value = f.Value.Name, ValueId = f.Value.Name});
+                        }
+                        break;
+                    //TODO could identical case bodies be optimized with switch over type? _3_ blocks below
+                    case SingleBuildIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field()
+                                {
+                                    Name = f.Name,
+                                    Value = f.Value.Name,
+                                    ValueId = f.Value.Name,
+                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                                });
+                        }
+                        break;
+                    case SingleOwnedIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field()
+                                {
+                                    Name = f.Name,
+                                    Value = f.Value.Name,
+                                    ValueId = f.Value.Name,
+                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                                });
+                        }
+                        break;
+                    case SingleVersionIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field()
+                                {
+                                    Name = f.Name,
+                                    Value = f.Value.Name,
+                                    ValueId = f.Value.Name,
+                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                                });
+                        }
+                        break;
+                    //^^ end TODO
+                    //TODO could identical case bodies be optimized with switch over type? _2_ blocks below
+                    case SingleEnumIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field()
+                                {
+                                    Name = f.Name,
+                                    Value = f.Value.LocalizedName ?? f.Value.Name,
+                                    ValueId = f.Value.Name,
+                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                                });
+                        }
+                        break;
+                    case StateIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            issue.SetField(f.Name,
+                                new Field()
+                                {
+                                    Name = f.Name,
+                                    Value = f.Value.LocalizedName ?? f.Value.Name,
+                                    ValueId = f.Value.Name,
+                                    Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                                });
+                        }
+                        break;
+                    //^^ end TODO
+                    case MultiUserIssueCustomField f:
+                        //TODO ^^ see TODO above for SingleUser 
+                        break;
+                    //TODO could identical case bodies be optimized with switch over type? _4_ blocks below
+                    case MultiGroupIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var values = f.Value.Select(v => v.Name).ToList();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                        }
+                        break;
+                    case MultiBuildIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var values = f.Value.Select(v => v.Name).ToList();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                        }
+                        break;
+                    case MultiOwnedIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var values = f.Value.Select(v => v.Name).ToList();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                        }
+                        break;
+                    case MultiVersionIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var values = f.Value.Select(v => v.Name).ToList();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = values, ValueId = values});
+                        }
+                        break;
+                    //^^ end TODO
+                    case MultiEnumIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var localizedValues = f.Value.Select(v => v.LocalizedName).ToList();
+                            var values = f.Value.Select(v => v.Name).ToList();
+                            issue.SetField(f.Name, new Field() {Name = f.Name, Value = localizedValues, ValueId = values});
+                        }
+                        break;
+                    case SimpleIssueCustomField f:
+                        //TODO
+                        break;
+                    default:
+                        //TODO
+                        break;
+                }
             }
-            issue.Fields.Append()
-            */
 
             return issue;
         }

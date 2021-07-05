@@ -14,6 +14,9 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService : IIssuesService
     {
         private readonly Connection _connection;
+
+        private static string ISSUES_FIELDS_QUERY =
+            "id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name,value(id,name,localizedName,text,login,minutes,color(id,background,foreground)))";
         
         private static readonly string[] ReservedFields = 
         {
@@ -40,9 +43,7 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             try
             {
-                //TODO custom fields customFields(value(id,name))
-                var response = await client.IssuesGetAsync(issueId,
-                    "id,idReadable,project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,votes,numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,comments(id,text),tags(id,name),customFields(id,name)",
+                var response = await client.IssuesGetAsync(issueId, ISSUES_FIELDS_QUERY,
                     default(System.Threading.CancellationToken));
                 return Issue.FromApiEntity(response);
             }
