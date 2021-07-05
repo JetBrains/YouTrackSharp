@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace YouTrackSharp.TimeTracking
 {
@@ -34,17 +32,13 @@ namespace YouTrackSharp.TimeTracking
                 throw new ArgumentNullException(nameof(projectId));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/admin/project/{projectId}/timetracking/worktype");
+            var client = await _connection.GetAuthenticatedApiClient();
+            //var response = await client.GetAsync($"rest/admin/project/{projectId}/timetracking/worktype");
+            //response = await client.ProjectGetAsync(id, "workItemTypes(id,name,ordinal,url)");
+            var response =
+                await client.AdminProjectsTimetrackingsettingsWorkitemtypesGetAsync(projectId, "id,name,ordinal,url", 0, -1);
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
-            }
-            
-            response.EnsureSuccessStatusCode();
-            
-            return JsonConvert.DeserializeObject<IEnumerable<WorkType>>(await response.Content.ReadAsStringAsync());
+            return response.Select(WorkType.FromApiEntity);
         }
        
         /// <inheritdoc />
@@ -55,17 +49,13 @@ namespace YouTrackSharp.TimeTracking
                 throw new ArgumentNullException(nameof(issueId));
             }
 
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}/timetracking/workitem");
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response = await client.IssuesTimetrackingWorkitemsGetAsync(
+                                                        issueId, 
+                                                        "author(login),type(name,id),date,duration(id,minutes,presentation),text", 
+                                                        0, -1);
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
-            }
-
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<IEnumerable<WorkItem>>(await response.Content.ReadAsStringAsync());
+            return response.Select(WorkItem.FromApiEntity);
         }
         
         /// <inheritdoc />
@@ -80,31 +70,11 @@ namespace YouTrackSharp.TimeTracking
                 throw new ArgumentNullException(nameof(workItem));
             }
 
-            var stringContent = new StringContent(JsonConvert.SerializeObject(workItem));
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PostAsync($"rest/issue/{issueId}/timetracking/workitem", stringContent);
-
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                // Try reading the error message
-                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-                if (responseJson["value"] != null)
-                {
-                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-                }
-
-                throw new YouTrackErrorException(Strings.Exception_UnknownError);
-            }
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            var response =
+                await client.IssuesTimetrackingWorkitemsPostAsync(issueId, "id", workItem.ToApiEntity());
             
-            // Extract work item id from Location header response
-            const string marker = "timetracking/workitem/";
-            var locationHeader = response.Headers.Location.ToString();
-            
-            return locationHeader.Substring(locationHeader.IndexOf(marker, StringComparison.OrdinalIgnoreCase) + marker.Length);
+            return response.Id;
         }
         
         /// <inheritdoc />
@@ -123,25 +93,9 @@ namespace YouTrackSharp.TimeTracking
                 throw new ArgumentNullException(nameof(workItem));
             }
 
-            var stringContent = new StringContent(JsonConvert.SerializeObject(workItem));
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue(Constants.HttpContentTypes.ApplicationJson);
-
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.PutAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}", stringContent);
-
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                // Try reading the error message
-                var responseJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-                if (responseJson["value"] != null)
-                {
-                    throw new YouTrackErrorException(responseJson["value"].Value<string>());
-                }
-
-                throw new YouTrackErrorException(Strings.Exception_UnknownError);
-            }
-
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.IssuesTimetrackingWorkitemsPostAsync(issueId, workItemId, "", workItem.ToApiEntity());
         }
         
         /// <inheritdoc />
@@ -152,20 +106,9 @@ namespace YouTrackSharp.TimeTracking
                 throw new ArgumentNullException(nameof(issueId));
             }
             
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.DeleteAsync($"rest/issue/{issueId}/timetracking/workitem/{workItemId}");
-
-            // ReSharper disable once SwitchStatementMissingSomeCases
-            switch (response.StatusCode)
-            {
-                case HttpStatusCode.NotFound:
-                    return;
-                case HttpStatusCode.BadRequest:
-                    throw new YouTrackErrorException(Strings.Exception_BadRequest, response);
-                default:
-                    response.EnsureSuccessStatusCode();
-                    break;
-            }
+            var client = await _connection.GetAuthenticatedApiClient();
+            
+            await client.IssuesTimetrackingWorkitemsDeleteAsync(issueId, workItemId);
         }
 	}
 }

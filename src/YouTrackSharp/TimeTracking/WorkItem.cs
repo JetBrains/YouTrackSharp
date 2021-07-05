@@ -33,6 +33,42 @@ namespace YouTrackSharp.TimeTracking
             WorkType = workType;
             Author = author;
         }
+        
+        /// <summary>
+        /// Creates an instance of the <see cref="WorkItem" /> class from api client entity.
+        /// </summary>
+        /// <param name="entity">Api client entity of type <see cref="IssueWorkItem"/> to convert from.</param>
+        public static WorkItem FromApiEntity(IssueWorkItem entity)
+        {
+            return new WorkItem(
+                new DateTime(entity.Date ?? 0),
+                new TimeSpan(0,
+                    entity.Duration.Minutes ?? 0, 0),
+                entity.Text,
+                WorkType.FromApiEntity(entity.Type),
+                Author.FromApiEntity(entity.Author));
+        }
+
+        /// <summary>
+        /// Converts to instance of the <see cref="IssueWorkItem" /> class used in api client.
+        /// </summary>
+        public IssueWorkItem ToApiEntity()
+        {
+            var entity = new IssueWorkItem()
+            {
+                Duration = new DurationValue() {Minutes = (int)Duration.TotalMinutes},
+                Text = Description,
+                Type = WorkType.ToApiEntity(),
+                Author = Author.ToApiEntity()
+            };
+            
+            if (Date != null)
+            {
+                entity.Date = ((DateTime)Date).Ticks;
+            }
+
+            return entity;
+        }
 
         
         /// <summary>
