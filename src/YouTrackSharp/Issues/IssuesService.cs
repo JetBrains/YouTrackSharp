@@ -250,7 +250,19 @@ namespace YouTrackSharp.Issues
             }
             
             var client = await _connection.GetAuthenticatedApiClient();
-            await client.IssuesDeleteAsync(issueId);
+            try
+            {
+                await client.IssuesDeleteAsync(issueId);
+            }
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return;
+                }
+
+                throw;
+            }
         }
 
         /// <inheritdoc />

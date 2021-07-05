@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using YouTrackSharp.Generated;
 
@@ -95,7 +96,19 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesAttachmentsDeleteAsync(issueId, attachmentId);
+            try
+            {
+                await client.IssuesAttachmentsDeleteAsync(issueId, attachmentId);
+            }
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return;
+                }
+
+                throw;
+            }
         }
     }
 }

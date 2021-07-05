@@ -58,7 +58,19 @@ namespace YouTrackSharp.Projects
             var client = await _connection.GetAuthenticatedApiClient();
             var field = await GetProjectCustomField(projectId, customFieldName);
 
-            await client.AdminProjectsCustomfieldsDeleteAsync(projectId, field.Id);
+            try
+            {
+                await client.AdminProjectsCustomfieldsDeleteAsync(projectId, field.Id);
+            }
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return;
+                }
+
+                throw;
+            }
         }
 
         /// <inheritdoc />

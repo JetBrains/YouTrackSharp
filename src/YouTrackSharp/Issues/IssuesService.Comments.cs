@@ -63,7 +63,19 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             if (permanent)
             {
-                await client.IssuesCommentsDeleteAsync(issueId, commentId);
+                try
+                {
+                    await client.IssuesCommentsDeleteAsync(issueId, commentId);
+                }
+                catch (YouTrackErrorException e)
+                {
+                    if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                    {
+                        return;
+                    }
+
+                    throw;
+                }
             }
             else
             {

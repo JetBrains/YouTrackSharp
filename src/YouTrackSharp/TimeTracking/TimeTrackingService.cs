@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using YouTrackSharp.Generated;
 
 namespace YouTrackSharp.TimeTracking
 {
@@ -104,7 +106,19 @@ namespace YouTrackSharp.TimeTracking
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesTimetrackingWorkitemsDeleteAsync(issueId, workItemId);
+            try
+            {
+                await client.IssuesTimetrackingWorkitemsDeleteAsync(issueId, workItemId);
+            }
+            catch (YouTrackErrorException e)
+            {
+                if (e.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return;
+                }
+
+                throw;
+            }
         }
 	}
 }
