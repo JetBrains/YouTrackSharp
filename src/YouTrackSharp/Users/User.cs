@@ -8,6 +8,19 @@ namespace YouTrackSharp.Users
     public class User
     {
         /// <summary>
+        /// Creates an instance of the <see cref="User" /> class based on API response.
+        /// </summary>
+        public User(Me me)
+        {
+            Login = me.Login;
+            FullName = me.FullName;
+            Email = me.Email;
+            IsGuest = me.Guest ?? false;
+            IsOnline = me.Online ?? false;
+            AvatarUrl = me.AvatarUrl;
+        }
+        
+        /// <summary>
         /// Login of the user.
         /// </summary>
         [JsonProperty("login")]

@@ -24,12 +24,10 @@ namespace YouTrackSharp.Users
         /// <inheritdoc />
         public async Task<User> GetCurrentUserInfo()
         {
-            var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync("api/admin/users/me");
-            
-            response.EnsureSuccessStatusCode();
+            var client = await _connection.GetAuthenticatedAPIClient();
+            var me = await client.MeAsync();
 
-            return JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
+            return new User(me);
         }
     }
 }

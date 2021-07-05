@@ -16,6 +16,7 @@ namespace YouTrackSharp
         : Connection
     {
         private HttpClient _httpClient;
+        private YouTrackClient _youtrackAPI;
         private bool _authenticated;
         
         private readonly string _bearerToken;
@@ -60,7 +61,7 @@ namespace YouTrackSharp
         } 
 
         /// <inheritdoc />
-        public override async Task<HttpClient> GetAuthenticatedHttpClient()
+        public override async Task<YouTrackClient> GetAuthenticatedAPIClient()
         {
             // Initialize HTTP client
             if (_httpClient == null)

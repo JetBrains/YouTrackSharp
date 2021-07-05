@@ -41,7 +41,8 @@ namespace YouTrackSharp.Issues
 
             var query = string.Join("&", queryString);
 
-            var client = await _connection.GetAuthenticatedHttpClient();
+            var client = await _connection.GetAuthenticatedAPIClient();
+            var response = await client.IssuesGetAsync(filter, fields, skip, take);
             var response = await client.GetAsync($"rest/issue/byproject/{projectId}?{query}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
@@ -97,11 +98,12 @@ namespace YouTrackSharp.Issues
                 ? $"filter={Uri.EscapeDataString(filter)}"
                 : string.Empty;
 
-            var client = await _connection.GetAuthenticatedHttpClient();
+            var client = await _connection.GetAuthenticatedAPIClient();
 
             var retryPolicy = new LinearRetryPolicy<long>(async () =>
                 {
                     var response = await client.GetAsync($"rest/issue/count?{query}");
+                    response = await client.Issues
 
                     if (response.StatusCode == HttpStatusCode.NotFound)
                     {
