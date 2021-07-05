@@ -16185,7 +16185,7 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundleElement : BundleElement
     {
-        [Newtonsoft.Json.JsonProperty("localizedName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LocalizedName { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
