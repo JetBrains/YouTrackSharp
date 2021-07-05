@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using YouTrackSharp.Generated;
 
@@ -80,11 +81,16 @@ namespace YouTrackSharp.Issues
             }
 
             var client = await _connection.GetAuthenticatedRawClient();
-            var response = await client.GetAsync(attachmentUrl);
-            
-            //TODO some handling is required here
-
-            response.EnsureSuccessStatusCode();
+            HttpResponseMessage response;
+            if (!attachmentUrl.IsAbsoluteUri)
+            {
+                var siteUrl = $"{client.BaseAddress.Scheme}://{client.BaseAddress.Authority}";
+                response = await client.GetAsync(siteUrl.TrimEnd('/') + "/" + attachmentUrl.ToString().TrimStart('/'));
+            }
+            else
+            {
+                response = await client.GetAsync(attachmentUrl);
+            }
 
             return await response.Content.ReadAsStreamAsync();
         }
