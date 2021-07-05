@@ -95,11 +95,15 @@ namespace YouTrackSharp.Issues
 
             if (entity.Visibility.GetType() == typeof(LimitedVisibility))
             {
-                issue._fields["permittedGroup"] = new Field()
+                var visibility = (LimitedVisibility)entity.Visibility;
+                if (visibility.PermittedGroups.Any())
                 {
-                    Name = "permittedGroup",
-                    Value = ((LimitedVisibility)entity.Visibility).PermittedGroups.First().Name
-                };
+                    issue._fields["permittedGroup"] = new Field()
+                    {
+                        Name = "permittedGroup",
+                        Value = visibility.PermittedGroups.First().Name
+                    };
+                }
             }
 
             var links = Link.FromApiEntities(entity.Links, entity.IdReadable);
@@ -325,9 +329,6 @@ namespace YouTrackSharp.Issues
                                 Name = f.Name, Value = localizedValues, ValueId = JArray.FromObject(values)
                             };
                         }
-                        break;
-                    default:
-                        //TODO
                         break;
                 }
             }
