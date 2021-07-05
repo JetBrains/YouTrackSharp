@@ -400,7 +400,7 @@ namespace YouTrackSharp.Generated
         /// Possible values: `scrum`, `kanban`.</param>
         /// <returns>single Project</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Project> AdminProjectsPostAsync(string template = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Project> AdminProjectsPostAsync__FromTemplate(string template = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Project</returns>
@@ -551,7 +551,7 @@ namespace YouTrackSharp.Generated
         /// <param name="template">The name of the board template that should be used. Possible values: `kanban`, `scrum`, `version`, `custom`, `personal`.</param>
         /// <returns>single Agile</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Agile> AgilesPostAsync(string template = null, string fields = null, Agile body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Agile> AgilesPostAsync__FromTemplate(string template = null, string fields = null, Agile body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Agile</returns>
@@ -678,7 +678,7 @@ namespace YouTrackSharp.Generated
         /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch.In this case, you must specify the project in the request payload.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> IssuesPostAsync(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Issue</returns>
@@ -763,7 +763,7 @@ namespace YouTrackSharp.Generated
         /// <param name="draftId">ID of an existing draft that should be published. This parameter is optional.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueComment</returns>
@@ -6442,7 +6442,7 @@ namespace YouTrackSharp.Generated
         /// Possible values: `scrum`, `kanban`.</param>
         /// <returns>single Project</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Project> AdminProjectsPostAsync(string template = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Project> AdminProjectsPostAsync__FromTemplate(string template = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/projects?");
@@ -8745,7 +8745,7 @@ namespace YouTrackSharp.Generated
         /// <param name="template">The name of the board template that should be used. Possible values: `kanban`, `scrum`, `version`, `custom`, `personal`.</param>
         /// <returns>single Agile</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Agile> AgilesPostAsync(string template = null, string fields = null, Agile body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Agile> AgilesPostAsync__FromTemplate(string template = null, string fields = null, Agile body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/agiles?");
@@ -10659,7 +10659,7 @@ namespace YouTrackSharp.Generated
         /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch.In this case, you must specify the project in the request payload.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues?");
@@ -11745,7 +11745,7 @@ namespace YouTrackSharp.Generated
         /// <param name="draftId">ID of an existing draft that should be published. This parameter is optional.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
