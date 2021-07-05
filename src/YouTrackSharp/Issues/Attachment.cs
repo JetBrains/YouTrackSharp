@@ -29,24 +29,6 @@ namespace YouTrackSharp.Issues
         }
         
         /// <summary>
-        /// Converts to instance of the <see cref="IssueAttachment" /> class used in api client.
-        /// </summary>
-        public IssueAttachment ToApiEntity()
-        {
-            return new IssueAttachment()
-            {
-                Id = Id,
-                Url = Url.ToString(),
-                Name = Name,
-                Author = new Me() {Login = Author},
-                Visibility = string.IsNullOrEmpty(Group) || Group == "All Users"
-                    ? new UnlimitedVisibility()
-                    : new LimitedVisibility() {PermittedGroups = new List<UserGroup> {new UserGroup() {Name = Group}}},
-                Created = new DateTimeOffset(Created).ToUnixTimeMilliseconds()
-            };
-        }
-        
-        /// <summary>
         /// Id.
         /// </summary>
         [JsonProperty("id")]
