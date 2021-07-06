@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Xunit;
@@ -32,6 +33,51 @@ namespace YouTrackSharp.Tests.Integration.Issues
                         Assert.Equal("demo1", issue.Assignee[0].UserName);
                         Assert.NotNull(issue.ProjectShortName);
                     }
+
+                    await temporaryIssueContext.Destroy();
+                }
+            }
+            
+            [Fact]
+            public async Task Valid_Connection_Returns_Updated_Issues()
+            {
+                // Arrange
+                var connection = Connections.Demo1Token;
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+
+                    var updated = DateTime.Now - TimeSpan.FromMinutes(1);
+                    
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");
+
+                    // Act
+                    var result = await service.GetIssuesInProject("DP1", "assignee: me", 0, take: 10, updated);
+
+                    // Assert
+                    Assert.True(result.Count > 0);
+
+                    await temporaryIssueContext.Destroy();
+                }
+            }
+            
+            [Fact]
+            public async Task Valid_Connection_Not_Returns_Issues_From_Future()
+            {
+                // Arrange
+                var connection = Connections.Demo1Token;
+                using (var temporaryIssueContext = await TemporaryIssueContext.Create(connection, GetType()))
+                {
+                    var service = connection.CreateIssuesService();
+
+                    await service.ApplyCommand(temporaryIssueContext.Issue.Id, "assignee me");
+
+                    // Act
+                    var result = await service.GetIssuesInProject("DP1", "assignee: me", 0, take: 1,
+                        DateTime.Now + TimeSpan.FromMinutes(2));
+
+                    // Assert
+                    Assert.Equal(0, result.Count);
 
                     await temporaryIssueContext.Destroy();
                 }
