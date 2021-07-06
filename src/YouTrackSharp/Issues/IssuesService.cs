@@ -23,7 +23,7 @@ namespace YouTrackSharp.Issues
 
         private static string ISSUES_FIELDS_QUERY_NO_DESCRIPTION = "comments(" + COMMENTS_FIELDS_QUERY + "),links(" +
                                                     LINKS_FIELDS_QUERY + "),attachments(" + ATTACHMENTS_FIELDS_QUERY +
-                                                    "),id,idReadable,externalIssue(id),project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
+                                                    "),id,idReadable,externalIssue(id),project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,markdownText,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
         
         private static readonly string[] ReservedFields = 
         {
@@ -40,7 +40,7 @@ namespace YouTrackSharp.Issues
         }
 
         /// <inheritdoc />
-        public async Task<Issue> GetIssue(string issueId, bool wikifyDescription = false)
+        public async Task<Issue> GetIssue(string issueId, bool wikifyDescription = false, bool wikifyContents = false)
         {
             if (string.IsNullOrEmpty(issueId))
             {
@@ -53,7 +53,7 @@ namespace YouTrackSharp.Issues
                 var response = await client.IssuesGetAsync(issueId,
                     (wikifyDescription ? ISSUES_FIELD_WIKIFIED_DESCRIPTION : ISSUES_FIELD_DESCRIPTION) + "," +
                     ISSUES_FIELDS_QUERY_NO_DESCRIPTION, default(System.Threading.CancellationToken));
-                return Issue.FromApiEntity(response);
+                return Issue.FromApiEntity(response, wikifyDescription, wikifyContents);
             }
             catch (YouTrackErrorException e)
             {

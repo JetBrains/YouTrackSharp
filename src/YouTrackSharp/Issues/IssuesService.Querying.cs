@@ -11,7 +11,8 @@ namespace YouTrackSharp.Issues
     {
         /// <inheritdoc />
         public async Task<ICollection<Issue>> GetIssuesInProject(string projectId, string filter = null,
-            int? skip = null, int? take = null, DateTime? updatedAfter = null, bool wikifyDescription = false)
+            int? skip = null, int? take = null, DateTime? updatedAfter = null,
+            bool wikifyDescription = false, bool wikifyContents = false)
         {
             if (string.IsNullOrEmpty(projectId))
             {
@@ -25,18 +26,19 @@ namespace YouTrackSharp.Issues
             }
             queryString += " " + filter ?? "";
 
-            return await GetIssues(queryString, skip, take, wikifyDescription);
+            return await GetIssues(queryString, skip, take, wikifyDescription, wikifyContents);
         }
 
         /// <inheritdoc />
-        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
+        public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null,
+            bool wikifyDescription = false, bool wikifyContents = false)
         {
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.IssuesGetAsync(filter,
                 (wikifyDescription ? ISSUES_FIELD_WIKIFIED_DESCRIPTION : ISSUES_FIELD_DESCRIPTION) + "," +
                 ISSUES_FIELDS_QUERY_NO_DESCRIPTION, skip, take);
             
-            return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription)).ToList();
+            return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription, wikifyContents)).ToList();
         }
 
         /// <inheritdoc />

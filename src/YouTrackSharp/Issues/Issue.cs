@@ -50,7 +50,8 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <param name="entity">Api client entity of type <see cref="Generated.Issue"/> to convert from.</param>
         /// <param name="wikify">If set to <value>true</value>, then issue description will be formatted ("wikified"). Defaults to <value>false</value>.</param>
-        internal static Issue FromApiEntity(Generated.Issue entity, bool wikify = false)
+        /// <param name="wikifyContents">If set to <value>true</value>, then comments and issue text fields in the response will be formatted ("wikified"). Defaults to <value>false</value>.</param>
+        internal static Issue FromApiEntity(Generated.Issue entity, bool wikify = false, bool wikifyContents = false)
         {
             var issue = new Issue
             {
@@ -60,7 +61,7 @@ namespace YouTrackSharp.Issues
                 Summary = entity.Summary,
                 Description = wikify ? entity.WikifiedDescription : entity.Description,
                 IsMarkdown = entity.UsesMarkdown ?? true,
-                Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, false)).ToList(),
+                Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, wikifyContents)).ToList(),
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };
 
@@ -165,7 +166,7 @@ namespace YouTrackSharp.Issues
                     case TextIssueCustomField f:
                         if (f.Value != null)
                         {
-                            var rawValue = new List<string>() {f.Value.Text};
+                            var rawValue = new List<string>() {wikifyContents ? f.Value.MarkdownText : f.Value.Text};
                             issue._fields[f.Name] = new Field()
                             {
                                 Name = f.Name, Value = rawValue, ValueId = JArray.FromObject(rawValue)
