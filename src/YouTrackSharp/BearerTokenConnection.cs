@@ -81,6 +81,8 @@ namespace YouTrackSharp
                 var handler = new BearerTokenHttpClientHandler(_bearerToken);
 
                 _configureHandler?.Invoke(handler);
+                
+                handler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 
                 _httpClient = new HttpClient(handler)
                 {

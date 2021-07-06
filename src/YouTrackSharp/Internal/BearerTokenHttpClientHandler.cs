@@ -27,7 +27,9 @@ namespace YouTrackSharp.Internal
             HttpRequestMessage request, CancellationToken cancellationToken)
         {
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
-            
+            request.Headers.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+            request.Headers.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+
             return base.SendAsync(request, cancellationToken);
         }
     }
