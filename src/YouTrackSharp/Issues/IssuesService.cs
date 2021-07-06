@@ -14,12 +14,16 @@ namespace YouTrackSharp.Issues
     public partial class IssuesService : IIssuesService
     {
         private readonly Connection _connection;
+
+        private static string ISSUES_FIELD_DESCRIPTION = "description";
+
+        private static string ISSUES_FIELD_WIKIFIED_DESCRIPTION = "wikifiedDescription";
         
         private static string LINKS_FIELDS_QUERY = "direction,linkType(name,targetToSource,localizedTargetToSource,sourceToTarget,localizedSourceToTarget),issues(id,idReadable)";
 
-        private static string ISSUES_FIELDS_QUERY = "comments(" + COMMENTS_FIELDS_QUERY + "),links(" +
+        private static string ISSUES_FIELDS_QUERY_NO_DESCRIPTION = "comments(" + COMMENTS_FIELDS_QUERY + "),links(" +
                                                     LINKS_FIELDS_QUERY + "),attachments(" + ATTACHMENTS_FIELDS_QUERY +
-                                                    "),id,idReadable,externalIssue(id),project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,description,wikifiedDescription,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
+                                                    "),id,idReadable,externalIssue(id),project(id,name,shortName),usesMarkdown,reporter(id,login,fullName),created,updated,resolved,votes,watchers(hasStar),numberInProject,updater(id,login,fullName),commentsCount,summary,tags(id,name),customFields(id,name,value(id,name,fullName,localizedName,text,login,minutes,color(id,background,foreground))),visibility(permittedGroups(id,name))";
         
         private static readonly string[] ReservedFields = 
         {
@@ -46,8 +50,9 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             try
             {
-                var response = await client.IssuesGetAsync(issueId, ISSUES_FIELDS_QUERY,
-                    default(System.Threading.CancellationToken));
+                var response = await client.IssuesGetAsync(issueId,
+                    (wikifyDescription ? ISSUES_FIELD_WIKIFIED_DESCRIPTION : ISSUES_FIELD_DESCRIPTION) + "," +
+                    ISSUES_FIELDS_QUERY_NO_DESCRIPTION, default(System.Threading.CancellationToken));
                 return Issue.FromApiEntity(response);
             }
             catch (YouTrackErrorException e)

@@ -32,7 +32,9 @@ namespace YouTrackSharp.Issues
         public async Task<ICollection<Issue>> GetIssues(string filter = null, int? skip = null, int? take = null, bool wikifyDescription = false)
         {
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesGetAsync(filter, ISSUES_FIELDS_QUERY, skip, take);
+            var response = await client.IssuesGetAsync(filter,
+                (wikifyDescription ? ISSUES_FIELD_WIKIFIED_DESCRIPTION : ISSUES_FIELD_DESCRIPTION) + "," +
+                ISSUES_FIELDS_QUERY_NO_DESCRIPTION, skip, take);
             
             return response.Select(issue => Issue.FromApiEntity(issue, wikifyDescription)).ToList();
         }
