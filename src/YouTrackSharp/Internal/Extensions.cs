@@ -7,11 +7,13 @@ namespace YouTrackSharp.Internal
     {
         public static string ConvertToBase64(this Stream stream)
         {
-            using var memoryStream = new MemoryStream();
-            stream.CopyTo(memoryStream);
-            var bytes = memoryStream.ToArray();
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                var bytes = memoryStream.ToArray();
 
-            return Convert.ToBase64String(bytes);
+                return Convert.ToBase64String(bytes);
+            }
         }
 
         public static DateTime TimestampToDateTime(this long timestamp)

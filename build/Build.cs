@@ -56,7 +56,7 @@ class Build : NukeBuild
     Target Restore => _ => _
         .Executes(() =>
         {
-            DotNetRestore(_ => _
+            DotNetRestore(__ => __
                 .SetProjectFile(Solution));
         });
 
@@ -64,7 +64,7 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() =>
         {
-            DotNetBuild(_ => _
+            DotNetBuild(__ => __
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
                 .SetAssemblyVersion(AssemblyVersion)
@@ -77,7 +77,7 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            DotNetTest(_ => _
+            DotNetTest(__ => __
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
@@ -89,7 +89,7 @@ class Build : NukeBuild
         {
             foreach (var project in Solution.AllProjects.Where(p => p.GetProperty<bool>("GeneratePackageOnBuild")).ToList())
             {
-                DotNetPack(_ => _
+                DotNetPack(__ => __
                     .SetProject(project)
                     .EnableIncludeSource()
                     .EnableIncludeSymbols()

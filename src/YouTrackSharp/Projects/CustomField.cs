@@ -59,17 +59,35 @@ namespace YouTrackSharp.Projects
                 fieldTypeId = fieldTypeId.Substring(0, pos);
             }
 
-            BundleProjectCustomField bundleField = fieldTypeId switch
+            BundleProjectCustomField bundleField;
+            switch (fieldTypeId)
             {
-                "enum" => new EnumProjectCustomField(),
-                "build" => new BuildProjectCustomField(),
-                "ownedField" => new OwnedProjectCustomField(),
-                "version" => new VersionProjectCustomField(),
-                "state" => new StateProjectCustomField(),
-                "user" => new UserProjectCustomField(),
-                "group" => new GroupProjectCustomField(),
-                _ => new SimpleProjectCustomField()
-            };
+                case "enum":
+                    bundleField = new EnumProjectCustomField();
+                    break;
+                case "build":
+                    bundleField = new BuildProjectCustomField();
+                    break;
+                case "ownedField":
+                    bundleField = new OwnedProjectCustomField();
+                    break;
+                case "version":
+                    bundleField = new VersionProjectCustomField();
+                    break;
+                case "state":
+                    bundleField = new StateProjectCustomField();
+                    break;
+                case "user":
+                    bundleField = new UserProjectCustomField();
+                    break;
+                case "group":
+                    bundleField = new GroupProjectCustomField();
+                    break;
+                default:
+                    bundleField = new SimpleProjectCustomField();
+                    break;
+            }
+            
             bundleField.Field = field;
             bundleField.CanBeEmpty = CanBeEmpty;
             bundleField.EmptyFieldText = EmptyText;
