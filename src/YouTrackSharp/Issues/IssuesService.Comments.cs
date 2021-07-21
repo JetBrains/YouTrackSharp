@@ -9,9 +9,6 @@ namespace YouTrackSharp.Issues
 {
     public partial class IssuesService
     {
-        private static string COMMENTS_FIELDS_QUERY =
-            "id,author(id,login,fullName),issue(idReadable),deleted,usesMarkdown,text,textPreview,created,updated,visibility(permittedGroups(name))";
-        
         /// <inheritdoc />
         public async Task<IEnumerable<Comment>> GetCommentsForIssue(string issueId, bool wikifyDescription = false)
         {
@@ -21,7 +18,7 @@ namespace YouTrackSharp.Issues
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesCommentsGetAsync(issueId, COMMENTS_FIELDS_QUERY, 0, -1);
+            var response = await client.IssuesCommentsGetAsync(issueId, Constants.FieldsQueryStrings.COMMENTS, 0, -1);
 
             return response.Select(comment => Comment.FromApiEntity(comment, wikifyDescription));
         }

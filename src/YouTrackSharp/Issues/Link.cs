@@ -10,8 +10,6 @@ namespace YouTrackSharp.Issues
     /// </summary>
     public class Link
     {
-        private static string LINKS_FIELDS_QUERY = "direction,linkType(name,targetToSource,localizedTargetToSource,sourceToTarget,localizedSourceToTarget),issues(id,idReadable)";
-        
         /// <summary>
         /// Creates a <see cref="T:System.Collections.Generic.ICollection`1" /> of <see cref="Link"/> class from api client entities.
         /// </summary>
