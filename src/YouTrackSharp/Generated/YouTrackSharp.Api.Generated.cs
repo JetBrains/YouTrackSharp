@@ -16758,6 +16758,7 @@ namespace YouTrackSharp.Generated
     [JsonInheritanceAttribute("SingleUserIssueCustomField", typeof(SingleUserIssueCustomField))]
     [JsonInheritanceAttribute("SingleVersionIssueCustomField", typeof(SingleVersionIssueCustomField))]
     [JsonInheritanceAttribute("StateIssueCustomField", typeof(StateIssueCustomField))]
+    [JsonInheritanceAttribute("StateMachineIssueCustomField", typeof(StateMachineIssueCustomField))]
     [JsonInheritanceAttribute("TextIssueCustomField", typeof(TextIssueCustomField))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCustomField 
@@ -18380,6 +18381,28 @@ namespace YouTrackSharp.Generated
     public partial class StateIssueCustomField : DatabaseSingleValueIssueCustomField
     {
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StateBundleElement Value { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents the issue field of the `state` type.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
+    {
+        [Newtonsoft.Json.JsonProperty("hasStateMachine", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HasStateMachine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundleElement Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
