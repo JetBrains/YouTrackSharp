@@ -237,7 +237,7 @@ namespace YouTrackSharp.Issues
                         }
                         break;
                     //^^ end TODO
-                    //TODO could identical case bodies be optimized with switch over type? _2_ blocks below
+                    //TODO could identical case bodies be optimized with switch over type? _3_ blocks below
                     case SingleEnumIssueCustomField f:
                         if (f.Value != null)
                         {
@@ -252,6 +252,19 @@ namespace YouTrackSharp.Issues
                         }
                         break;
                     case StateIssueCustomField f:
+                        if (f.Value != null)
+                        {
+                            var rawValue = new List<string>() {f.Value.Name};
+                            issue._fields[f.Name] = new Field()
+                            {
+                                Name = f.Name,
+                                Value = new List<string>() {f.Value.LocalizedName ?? f.Value.Name},
+                                ValueId = JArray.FromObject(rawValue),
+                                Color = YouTrackColor.FromApiEntity(f.Value.Color)
+                            };
+                        }
+                        break;
+                    case StateMachineIssueCustomField f:
                         if (f.Value != null)
                         {
                             var rawValue = new List<string>() {f.Value.Name};
