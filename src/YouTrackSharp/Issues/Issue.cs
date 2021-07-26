@@ -68,7 +68,15 @@ namespace YouTrackSharp.Issues
             if (entity.Watchers.HasStar ?? false)
             {
                 var starTag = new SubValue<string>() {Value = "Star"};
-                issue.Tags = issue.Tags == null ? new List<SubValue<string>>(){starTag} : issue.Tags.Append(starTag);
+
+                var tags = new List<SubValue<string>>();
+                if (issue.Tags != null)
+                {
+                    tags.AddRange(issue.Tags);
+                }
+                tags.Add(starTag);
+
+                issue.Tags = tags;
             }
             
             issue.SetField("projectShortName", entity.Project.ShortName);
