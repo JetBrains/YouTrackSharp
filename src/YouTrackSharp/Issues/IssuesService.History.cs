@@ -20,7 +20,7 @@ namespace YouTrackSharp.Issues
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.IssuesActivitiesGetAsync(issueId,
-                ACTIVITIES_CATEGORIES, false, null, null, null, Constants.FieldsQueryStrings.ACTIVITIES);
+                ACTIVITIES_CATEGORIES, false, null, null, null, Constants.FieldsQueryStrings.Activities);
             
             return response.Select(Change.FromApiEntity).ToList();
         }

@@ -18,7 +18,7 @@ namespace YouTrackSharp.Issues
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesCommentsGetAsync(issueId, Constants.FieldsQueryStrings.COMMENTS, 0, -1);
+            var response = await client.IssuesCommentsGetAsync(issueId, Constants.FieldsQueryStrings.Comments, 0, -1);
 
             return response.Select(comment => Comment.FromApiEntity(comment, wikifyDescription));
         }

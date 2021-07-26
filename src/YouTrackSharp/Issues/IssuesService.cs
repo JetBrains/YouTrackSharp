@@ -41,7 +41,7 @@ namespace YouTrackSharp.Issues
             try
             {
                 var response = await client.IssuesGetAsync(issueId,
-                    wikifyDescription ? Constants.FieldsQueryStrings.ISSUES_WIKIFIED : Constants.FieldsQueryStrings.ISSUES_NOT_WIKIFIED,
+                    wikifyDescription ? Constants.FieldsQueryStrings.IssuesWikified : Constants.FieldsQueryStrings.IssuesNotWikified,
                     default(System.Threading.CancellationToken));
                 return Issue.FromApiEntity(response, wikifyDescription, wikifyContents);
             }
@@ -261,7 +261,7 @@ namespace YouTrackSharp.Issues
             }
 
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesLinksGetAsync(issueId, Constants.FieldsQueryStrings.ISSUE_LINKS, 0, -1);
+            var response = await client.IssuesLinksGetAsync(issueId, Constants.FieldsQueryStrings.IssueLinks, 0, -1);
 
             return Link.FromApiEntities(response, issueId);
         }

@@ -82,7 +82,7 @@ namespace YouTrackSharp.Issues
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response =
-                await client.IssuesAttachmentsGetAsync(issueId, Constants.FieldsQueryStrings.ATTACHMENTS, 0, -1);
+                await client.IssuesAttachmentsGetAsync(issueId, Constants.FieldsQueryStrings.Attachments, 0, -1);
 
             return response.Select(Attachment.FromApiEntity);
         }
