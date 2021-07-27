@@ -63,7 +63,7 @@ namespace YouTrackSharp.TimeTracking
                 Date = Date.DateTimeToUnixTimestamp(),
                 Duration = new DurationValue() {Minutes = (int)Duration.TotalMinutes},
                 Text = Description,
-                Type = WorkType.ToApiEntity(),
+                Type = WorkType?.ToApiEntity(),
                 Author = Author?.ToApiEntity()
             };
 
