@@ -90,10 +90,7 @@ namespace YouTrackSharp
                     Timeout = _timeout
                 };
 
-                _youTrackClient = new YouTrackClient(_httpClient)
-                {
-                    BaseUrl = ServerUri.ToString().TrimEnd('/')  + "/api/"
-                };
+                _youTrackClient = new YouTrackClient(_httpClient);
             }
             
             // Authenticate?
