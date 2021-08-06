@@ -90,7 +90,12 @@ namespace YouTrackSharp.Issues
                 throw new ArgumentNullException(nameof(projectId));
             }
 
-            var apiIssue = new Generated.Issue {UsesMarkdown = issue.IsMarkdown};
+            var apiIssue = new Generated.Issue
+            {
+                Project = new Project() {ShortName = projectId},
+                UsesMarkdown = issue.IsMarkdown
+            };
+            
             if (!string.IsNullOrEmpty(issue.Summary))
             {
                 apiIssue.Summary = issue.Summary;
@@ -102,22 +107,10 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            var projects = await client.AdminProjectsGetAsync("id,name,shortName", 0, -1);
-            var project = projects.FirstOrDefault(p =>
-                p.Name.Equals(projectId, StringComparison.InvariantCultureIgnoreCase)
-                || p.ShortName.Equals(projectId, StringComparison.InvariantCultureIgnoreCase));
-            
-            if (project == null)
-            {
-                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.OK, 
-                    "Project " + projectId + " not found or not accesible", null, null);
-            }
-            
-            apiIssue.Project = new Project() {Id = project.Id};
-            
-            var response = await client.IssuesPostAsync__FromDraft(null, false, "id,idReadable", apiIssue);
-            var issueId = response.Id;
-            var issueIdReadable = response.IdReadable;
+            // Create and immediately update issue draft
+            var draft = await client.AdminUsersMeDraftsAsync("id", new object());
+            draft = await client.IssuesPostAsync(draft.Id, false, "id", apiIssue);
+            var draftId = draft.Id;
 
             // For every custom field, apply a command
             var customFields = issue.Fields
@@ -128,21 +121,25 @@ namespace YouTrackSharp.Issues
             {
                 if (!(customField.Value is string) && customField.Value is System.Collections.IEnumerable enumerable)
                 {
-                    await ApplyCommand(issueId, $"{customField.Key} {string.Join(" ", enumerable.OfType<string>())}", string.Empty);
+                    await ApplyCommand(draftId, $"{customField.Key} {string.Join(" ", enumerable.OfType<string>())}", string.Empty);
                 }
                 else switch (customField.Value)
                 {
                     case DateTime dateTime:
-                        await ApplyCommand(issueId, $"{customField.Key} {dateTime:s}", string.Empty);
+                        await ApplyCommand(draftId, $"{customField.Key} {dateTime:s}", string.Empty);
                         break;
                     case DateTimeOffset dateTimeOffset:
-                        await ApplyCommand(issueId, $"{customField.Key} {dateTimeOffset:s}", string.Empty);
+                        await ApplyCommand(draftId, $"{customField.Key} {dateTimeOffset:s}", string.Empty);
                         break;
                     default:
-                        await ApplyCommand(issueId, $"{customField.Key} {customField.Value}", string.Empty);
+                        await ApplyCommand(draftId, $"{customField.Key} {customField.Value}", string.Empty);
                         break;
                 }
             }
+            
+            var response = await client.IssuesPostAsync__FromDraft(draftId, false, "id,idReadable", apiIssue);
+            var issueId = response.Id;
+            var issueIdReadable = response.IdReadable;
             
             // Add comments?
             foreach (var issueComment in issue.Comments)
