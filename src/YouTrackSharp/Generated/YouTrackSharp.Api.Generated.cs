@@ -22098,7 +22098,7 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue field of the `state` type.</summary>
+    /// <summary>Represents the issue field with attached state machine.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
     {
@@ -22106,7 +22106,7 @@ namespace YouTrackSharp.Generated
         public bool? HasStateMachine { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StateBundleElement Value { get; set; }
+        public EnumBundleElement Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -22120,6 +22120,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCountRequest 
     {
@@ -22138,6 +22139,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCountResponse 
     {
@@ -22156,6 +22158,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FrontendConfig 
     {
@@ -22174,6 +22177,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RingFrontendConfig 
     {
@@ -22192,6 +22196,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityGroupsRequest 
     {
@@ -22222,6 +22227,7 @@ namespace YouTrackSharp.Generated
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityGroups 
     {

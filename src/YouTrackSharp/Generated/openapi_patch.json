@@ -312,7 +312,7 @@
         }
       },
       "StateMachineIssueCustomField": {
-        "description": "Represents the issue field of the `state` type.",
+        "description": "Represents the issue field with attached state machine.",
         "allOf": [
           {
             "$ref": "#/components/schemas/DatabaseSingleValueIssueCustomField"
@@ -325,7 +325,7 @@
                 "readOnly": true
               },
               "value": {
-                "$ref": "#/components/schemas/StateBundleElement"
+                "$ref": "#/components/schemas/EnumBundleElement"
               }
             }
           }
@@ -337,6 +337,9 @@
           "query": {
             "type": "string"
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       },
       "IssueCountResponse": {
@@ -346,6 +349,9 @@
             "type": "integer",
             "format": "int64"
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       },
       "FrontendConfig": {
@@ -354,6 +360,9 @@
           "ring": {
             "$ref": "#/components/schemas/RingFrontendConfig"
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       },
       "RingFrontendConfig": {
@@ -362,6 +371,9 @@
           "url": {
             "type": "string"
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       },
       "VisibilityGroupsRequest": {
@@ -390,6 +402,9 @@
             "type": "integer",
             "format": "int32"
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       },
       "VisibilityGroups": {
@@ -413,6 +428,9 @@
               "$ref": "#/components/schemas/User"
             }
           }
+        },
+        "discriminator" : {
+          "propertyName" : "$type"
         }
       }
     }
