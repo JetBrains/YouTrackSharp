@@ -27,17 +27,8 @@ namespace YouTrackSharp.Generated
 
         public string BaseUrl
         {
-            get
-            {
-                if (_baseUrl == null)
-                {
-                    _baseUrl = _httpClient.BaseAddress.ToString().TrimEnd('/') + "/api/";
-                }
-                
-                return _baseUrl;
-            }
-            
-            set { _baseUrl = value; }
+            get => _baseUrl ?? (_baseUrl = _httpClient.BaseAddress.ToString().TrimEnd('/') + "/api/");
+            set => _baseUrl = value;
         }
     }
 

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace YouTrackSharp.Generated
 {
@@ -6,10 +8,22 @@ namespace YouTrackSharp.Generated
     {
         private string _hubUrl;
         
-        internal string HubApiUrl
+        private async Task<string> GetHubApiUrl()
         {
-            get { return _hubUrl; }
-            set { _hubUrl = value; }
+            if (_hubUrl == null)
+            {
+                var response = await ConfigAsync("ring(url)");
+                var ringUrl = response.Ring?.Url;
+                
+                if (ringUrl == null)
+                {
+                    throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.OK,
+                        "Failed to find Hub url in YouTrack config", null, null);
+                }
+                
+                _hubUrl = ringUrl.TrimEnd('/') + "/api/rest/";
+            }
+            return _hubUrl;
         }
         
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -19,9 +33,11 @@ namespace YouTrackSharp.Generated
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
+
+            var hubApiUrl = await GetHubApiUrl();
             
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/{id}?");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -93,8 +109,10 @@ namespace YouTrackSharp.Generated
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         internal async System.Threading.Tasks.Task<HubApiUsersPage> HubApiUsersGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            var hubApiUrl = await GetHubApiUrl();
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users?");
+
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users?");
             if (query != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("query") + "=").Append(System.Uri.EscapeDataString(ConvertToString(query, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -178,7 +196,9 @@ namespace YouTrackSharp.Generated
         internal async System.Threading.Tasks.Task<HubApiUser> HubUsersPostAsync(string fields = null, HubApiUser body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users?failOnPermissionReduce=true&");
+            var hubApiUrl = await GetHubApiUrl();
+            
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users?failOnPermissionReduce=true&");
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -255,8 +275,10 @@ namespace YouTrackSharp.Generated
             if (id == null)
                 throw new System.ArgumentNullException("id");
             
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -334,8 +356,10 @@ namespace YouTrackSharp.Generated
             string banBadge = null, string banReason = null, string twoFactorAuthentication = null,
             ICollection<HubApiUser> body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/merge?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users/merge?failOnPermissionReduce=true&");
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -442,9 +466,11 @@ namespace YouTrackSharp.Generated
     
             if (successorId == null)
                 throw new System.ArgumentNullException("successorId");
+            
+            var hubApiUrl = await GetHubApiUrl();
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/users/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append(System.Uri.EscapeDataString("successor") + "=").Append(System.Uri.EscapeDataString(ConvertToString(successorId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
 
@@ -509,8 +535,10 @@ namespace YouTrackSharp.Generated
             if (id == null)
                 throw new System.ArgumentNullException("id");
             
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/userdetails/{id}?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/userdetails/{id}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -585,8 +613,10 @@ namespace YouTrackSharp.Generated
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         internal async System.Threading.Tasks.Task<HubApiUsergroupsPage> HubApiUsergroupsGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/usergroups?");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/usergroups?");
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -672,8 +702,10 @@ namespace YouTrackSharp.Generated
             if (id == null)
                 throw new System.ArgumentNullException("id");
             
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append("/usergroups/{id}/users?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append("/usergroups/{id}/users?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
@@ -754,8 +786,10 @@ namespace YouTrackSharp.Generated
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
             
+            var hubApiUrl = await GetHubApiUrl();
+            
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(HubApiUrl != null ? HubApiUrl.TrimEnd('/') : "").Append($"/usergroups/{id}/users/{userId}?failOnPermissionReduce=true&");
+            urlBuilder_.Append(hubApiUrl != null ? hubApiUrl.TrimEnd('/') : "").Append($"/usergroups/{id}/users/{userId}?failOnPermissionReduce=true&");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(ConvertToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
             var client_ = _httpClient;

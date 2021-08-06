@@ -117,15 +117,11 @@ namespace YouTrackSharp
 
             try
             {
-                var response = await _youTrackClient.ConfigAsync("ring(url)");
-
-                _youTrackClient.HubApiUrl = response.Ring.Url.TrimEnd('/') + "/api/rest/";
-
                 var me = await _youTrackClient.HubApiUserGetAsync("me", "guest");
                 if (me.Guest == true || me.Guest == null)
                 {
                     throw new UnauthorizedConnectionException(
-                        Strings.Exception_CouldNotAuthenticate, (HttpStatusCode)200, "Hub responds that current user is guest");
+                        Strings.Exception_CouldNotAuthenticate, HttpStatusCode.OK, "Hub responds that current user is guest");
                 }
             }
             catch (YouTrackErrorException e)
