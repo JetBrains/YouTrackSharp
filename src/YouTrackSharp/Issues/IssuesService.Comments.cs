@@ -41,7 +41,7 @@ namespace YouTrackSharp.Issues
 
             var client = await _connection.GetAuthenticatedApiClient();
             //TODO text could be too large to send w/o multipart, generated api needs to be checked
-            await client.IssuesCommentsPostAsync(issueId, commentId, "id", new IssueComment() {Text = text});
+            await client.IssuesCommentsPostAsync(issueId, commentId, false, "id", new IssueComment() {Text = text});
         }
 
         /// <inheritdoc />
@@ -75,7 +75,7 @@ namespace YouTrackSharp.Issues
             }
             else
             {
-                await client.IssuesCommentsPostAsync(issueId, commentId, "id", new IssueComment() {Deleted = true});
+                await client.IssuesCommentsPostAsync(issueId, commentId, false, "id", new IssueComment() {Deleted = true});
             }
         }
     }

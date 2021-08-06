@@ -117,7 +117,7 @@ namespace YouTrackSharp
 
             try
             {
-                var response = await _youTrackClient.ConfigGetAsync("ring(url)");
+                var response = await _youTrackClient.ConfigAsync("ring(url)");
 
                 _youTrackClient.HubApiUrl = response.Ring.Url.TrimEnd('/') + "/api/rest/";
 

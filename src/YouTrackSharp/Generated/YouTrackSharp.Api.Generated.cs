@@ -80,6 +80,31 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesBuildDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BuildBundleElement>> AdminCustomfieldsettingsBundlesBuildValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesPostAsync(string id, string fields = null, BuildBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesGetAsync(string id, string buildBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesPostAsync(string id, string buildBundleElementId, string fields = null, BuildBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesBuildValuesDeleteAsync(string id, string buildBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of EnumBundle</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EnumBundle>> AdminCustomfieldsettingsBundlesEnumGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -103,6 +128,31 @@ namespace YouTrackSharp.Generated
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesEnumDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EnumBundleElement>> AdminCustomfieldsettingsBundlesEnumValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesPostAsync(string id, string fields = null, EnumBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesGetAsync(string id, string enumBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesPostAsync(string id, string enumBundleElementId, string fields = null, EnumBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesEnumValuesDeleteAsync(string id, string enumBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of OwnedBundle</returns>
@@ -130,6 +180,31 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesOwnedfieldDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OwnedBundleElement>> AdminCustomfieldsettingsBundlesOwnedfieldValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesPostAsync(string id, string fields = null, OwnedBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesGetAsync(string id, string ownedBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesPostAsync(string id, string ownedBundleElementId, string fields = null, OwnedBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesOwnedfieldValuesDeleteAsync(string id, string ownedBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of StateBundle</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StateBundle>> AdminCustomfieldsettingsBundlesStateGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -153,6 +228,31 @@ namespace YouTrackSharp.Generated
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesStateDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StateBundleElement>> AdminCustomfieldsettingsBundlesStateValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesPostAsync(string id, string fields = null, StateBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesGetAsync(string id, string stateBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesPostAsync(string id, string stateBundleElementId, string fields = null, StateBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesStateValuesDeleteAsync(string id, string stateBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of UserBundle</returns>
@@ -248,6 +348,31 @@ namespace YouTrackSharp.Generated
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesVersionDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<VersionBundleElement>> AdminCustomfieldsettingsBundlesVersionValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesPostAsync(string id, string fields = null, VersionBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesGetAsync(string id, string versionBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesPostAsync(string id, string versionBundleElementId, string fields = null, VersionBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesVersionValuesDeleteAsync(string id, string versionBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of CustomField</returns>
@@ -448,9 +573,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> AdminProjectsIssuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Issue</returns>
@@ -458,9 +584,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<Issue> AdminProjectsIssuesGetAsync(string id, string issueId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string issueId, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string issueId, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -574,9 +701,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Sprint>> AgilesSprintsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Sprint</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Sprint> AgilesSprintsPostAsync(string id, string fields = null, Sprint body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Sprint> AgilesSprintsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Sprint body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Sprint</returns>
@@ -594,9 +722,15 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task AgilesSprintsDeleteAsync(string id, string sprintId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CommandList> CommandsAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CommandList> CommandsGetAsync(bool? muteUpdateNotifications = null, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single CommandList</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CommandList</returns>
@@ -675,10 +809,11 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch.In this case, you must specify the project in the request payload.</param>
+        /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch. In this case, you must specify the project in the request payload.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single Issue</returns>
@@ -686,9 +821,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<Issue> IssuesGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> IssuesPostAsync(string id, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> IssuesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -735,9 +871,9 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueAttachment>> IssuesAttachmentsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueAttachment</returns>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueAttachment> IssuesAttachmentsPostAsync(string id, string fields = null, IssueAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueAttachment>> IssuesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, FileParameter files0 = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueAttachment</returns>
@@ -761,9 +897,10 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="draftId">ID of an existing draft that should be published. This parameter is optional.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, bool? muteUpdateNotifications = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueComment</returns>
@@ -771,9 +908,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<IssueComment> IssuesCommentsGetAsync(string id, string issueCommentId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string issueCommentId, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string issueCommentId, bool? muteUpdateNotifications = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -791,9 +929,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<IssueCustomField> IssuesCustomfieldsGetAsync(string id, string issueCustomFieldId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueCustomField</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueCustomField> IssuesCustomfieldsPostAsync(string id, string issueCustomFieldId, string fields = null, IssueCustomField body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueCustomField> IssuesCustomfieldsPostAsync(string id, string issueCustomFieldId, bool? muteUpdateNotifications = null, string fields = null, IssueCustomField body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of IssueLink</returns>
@@ -811,9 +950,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesLinksIssuesGetAsync(string id, string issueLinkId, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> IssuesLinksIssuesPostAsync(string id, string issueLinkId, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> IssuesLinksIssuesPostAsync(string id, string issueLinkId, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -826,9 +966,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<Project> IssuesProjectGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Project</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Project> IssuesProjectPostAsync(string id, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Project> IssuesProjectPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueTimeTracker</returns>
@@ -841,9 +982,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueWorkItem>> IssuesTimetrackingWorkitemsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueWorkItem</returns>
@@ -851,9 +993,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsGetAsync(string id, string issueWorkItemId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. &lt;br/&gt;Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -965,6 +1108,21 @@ namespace YouTrackSharp.Generated
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<IssueWorkItem> WorkitemsGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single FrontendConfig</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<FrontendConfig> ConfigAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueCountResponse</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List of applicable users/groups</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VisibilityGroups> VisibilitygroupsAsync(string fields = null, int? skip = null, int? top = null, VisibilityGroupsRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1676,6 +1834,401 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BuildBundleElement>> AdminCustomfieldsettingsBundlesBuildValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/build/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<BuildBundleElement>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesPostAsync(string id, string fields = null, BuildBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/build/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<BuildBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesGetAsync(string id, string buildBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (buildBundleElementId == null)
+                throw new System.ArgumentNullException("buildBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/build/{id}/values/{buildBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{buildBundleElementId}", System.Uri.EscapeDataString(ConvertToString(buildBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<BuildBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single BuildBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<BuildBundleElement> AdminCustomfieldsettingsBundlesBuildValuesPostAsync(string id, string buildBundleElementId, string fields = null, BuildBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (buildBundleElementId == null)
+                throw new System.ArgumentNullException("buildBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/build/{id}/values/{buildBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{buildBundleElementId}", System.Uri.EscapeDataString(ConvertToString(buildBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<BuildBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesBuildValuesDeleteAsync(string id, string buildBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (buildBundleElementId == null)
+                throw new System.ArgumentNullException("buildBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/build/{id}/values/{buildBundleElementId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{buildBundleElementId}", System.Uri.EscapeDataString(ConvertToString(buildBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of EnumBundle</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EnumBundle>> AdminCustomfieldsettingsBundlesEnumGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1996,6 +2549,401 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EnumBundleElement>> AdminCustomfieldsettingsBundlesEnumValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EnumBundleElement>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesPostAsync(string id, string fields = null, EnumBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<EnumBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesGetAsync(string id, string enumBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (enumBundleElementId == null)
+                throw new System.ArgumentNullException("enumBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}/values/{enumBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{enumBundleElementId}", System.Uri.EscapeDataString(ConvertToString(enumBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<EnumBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single EnumBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<EnumBundleElement> AdminCustomfieldsettingsBundlesEnumValuesPostAsync(string id, string enumBundleElementId, string fields = null, EnumBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (enumBundleElementId == null)
+                throw new System.ArgumentNullException("enumBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}/values/{enumBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{enumBundleElementId}", System.Uri.EscapeDataString(ConvertToString(enumBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<EnumBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesEnumValuesDeleteAsync(string id, string enumBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (enumBundleElementId == null)
+                throw new System.ArgumentNullException("enumBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/enum/{id}/values/{enumBundleElementId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{enumBundleElementId}", System.Uri.EscapeDataString(ConvertToString(enumBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2426,6 +3374,401 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OwnedBundleElement>> AdminCustomfieldsettingsBundlesOwnedfieldValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/ownedField/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<OwnedBundleElement>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesPostAsync(string id, string fields = null, OwnedBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/ownedField/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<OwnedBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesGetAsync(string id, string ownedBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (ownedBundleElementId == null)
+                throw new System.ArgumentNullException("ownedBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/ownedField/{id}/values/{ownedBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{ownedBundleElementId}", System.Uri.EscapeDataString(ConvertToString(ownedBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<OwnedBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single OwnedBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<OwnedBundleElement> AdminCustomfieldsettingsBundlesOwnedfieldValuesPostAsync(string id, string ownedBundleElementId, string fields = null, OwnedBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (ownedBundleElementId == null)
+                throw new System.ArgumentNullException("ownedBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/ownedField/{id}/values/{ownedBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{ownedBundleElementId}", System.Uri.EscapeDataString(ConvertToString(ownedBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<OwnedBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesOwnedfieldValuesDeleteAsync(string id, string ownedBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (ownedBundleElementId == null)
+                throw new System.ArgumentNullException("ownedBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/ownedField/{id}/values/{ownedBundleElementId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{ownedBundleElementId}", System.Uri.EscapeDataString(ConvertToString(ownedBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of StateBundle</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StateBundle>> AdminCustomfieldsettingsBundlesStateGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -2746,6 +4089,401 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<StateBundleElement>> AdminCustomfieldsettingsBundlesStateValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<StateBundleElement>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesPostAsync(string id, string fields = null, StateBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<StateBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesGetAsync(string id, string stateBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (stateBundleElementId == null)
+                throw new System.ArgumentNullException("stateBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}/values/{stateBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{stateBundleElementId}", System.Uri.EscapeDataString(ConvertToString(stateBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<StateBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single StateBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<StateBundleElement> AdminCustomfieldsettingsBundlesStateValuesPostAsync(string id, string stateBundleElementId, string fields = null, StateBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (stateBundleElementId == null)
+                throw new System.ArgumentNullException("stateBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}/values/{stateBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{stateBundleElementId}", System.Uri.EscapeDataString(ConvertToString(stateBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<StateBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesStateValuesDeleteAsync(string id, string stateBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (stateBundleElementId == null)
+                throw new System.ArgumentNullException("stateBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/state/{id}/values/{stateBundleElementId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{stateBundleElementId}", System.Uri.EscapeDataString(ConvertToString(stateBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4204,6 +5942,401 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<VersionBundleElement>> AdminCustomfieldsettingsBundlesVersionValuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<VersionBundleElement>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesPostAsync(string id, string fields = null, VersionBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}/values?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VersionBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesGetAsync(string id, string versionBundleElementId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (versionBundleElementId == null)
+                throw new System.ArgumentNullException("versionBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}/values/{versionBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{versionBundleElementId}", System.Uri.EscapeDataString(ConvertToString(versionBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VersionBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VersionBundleElement</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VersionBundleElement> AdminCustomfieldsettingsBundlesVersionValuesPostAsync(string id, string versionBundleElementId, string fields = null, VersionBundleElement body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (versionBundleElementId == null)
+                throw new System.ArgumentNullException("versionBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}/values/{versionBundleElementId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{versionBundleElementId}", System.Uri.EscapeDataString(ConvertToString(versionBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VersionBundleElement>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task AdminCustomfieldsettingsBundlesVersionValuesDeleteAsync(string id, string versionBundleElementId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (versionBundleElementId == null)
+                throw new System.ArgumentNullException("versionBundleElementId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/customFieldSettings/bundles/version/{id}/values/{versionBundleElementId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{versionBundleElementId}", System.Uri.EscapeDataString(ConvertToString(versionBundleElementId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -7218,9 +9351,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7228,6 +9362,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/projects/{id}/issues?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -7377,9 +9515,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string issueId, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> AdminProjectsIssuesPostAsync(string id, string issueId, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7391,6 +9530,10 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/projects/{id}/issues/{issueId}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{issueId}", System.Uri.EscapeDataString(ConvertToString(issueId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -9126,9 +11269,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Sprint</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Sprint> AgilesSprintsPostAsync(string id, string fields = null, Sprint body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Sprint> AgilesSprintsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Sprint body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -9136,6 +11280,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/agiles/{id}/sprints?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -9437,9 +11585,86 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CommandList> CommandsAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CommandList> CommandsGetAsync(bool? muteUpdateNotifications = null, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands?");
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<CommandList>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single CommandList</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands?");
@@ -9455,7 +11680,10 @@ namespace YouTrackSharp.Generated
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -10656,16 +12884,21 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch.In this case, you must specify the project in the request payload.</param>
+        /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch. In this case, you must specify the project in the request payload.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync__FromDraft(string draftId = null, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues?");
             if (draftId != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("draftId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(draftId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (fields != null)
             {
@@ -10812,9 +13045,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync(string id, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> IssuesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -10822,6 +13056,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11347,9 +13585,9 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueAttachment</returns>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueAttachment> IssuesAttachmentsPostAsync(string id, string fields = null, IssueAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueAttachment>> IssuesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, FileParameter files0 = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -11357,6 +13595,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/attachments?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11369,8 +13611,19 @@ namespace YouTrackSharp.Generated
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
-                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    var boundary_ = System.Guid.NewGuid().ToString();
+                    var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);
+                    content_.Headers.Remove("Content-Type");
+                    content_.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary_);
+                    if (files0 == null)
+                        throw new System.ArgumentNullException("files0");
+                    else
+                    {
+                        var content_files0_ = new System.Net.Http.StreamContent(files0.Data);
+                        if (!string.IsNullOrEmpty(files0.ContentType))
+                            content_files0_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(files0.ContentType);
+                        content_.Add(content_files0_, "files[0]", files0.FileName ?? "files[0]");
+                    }
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
@@ -11398,7 +13651,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<IssueAttachment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<IssueAttachment>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -11743,9 +13996,10 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="draftId">ID of an existing draft that should be published. This parameter is optional.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync__FromDraft(string id, string draftId = null, bool? muteUpdateNotifications = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -11756,6 +14010,10 @@ namespace YouTrackSharp.Generated
             if (draftId != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("draftId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(draftId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (fields != null)
             {
@@ -11906,9 +14164,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueComment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string issueCommentId, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueComment> IssuesCommentsPostAsync(string id, string issueCommentId, bool? muteUpdateNotifications = null, string fields = null, IssueComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -11920,6 +14179,10 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/comments/{issueCommentId}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{issueCommentId}", System.Uri.EscapeDataString(ConvertToString(issueCommentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -12222,9 +14485,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueCustomField</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueCustomField> IssuesCustomfieldsPostAsync(string id, string issueCustomFieldId, string fields = null, IssueCustomField body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueCustomField> IssuesCustomfieldsPostAsync(string id, string issueCustomFieldId, bool? muteUpdateNotifications = null, string fields = null, IssueCustomField body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -12236,6 +14500,10 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/customFields/{issueCustomFieldId}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{issueCustomFieldId}", System.Uri.EscapeDataString(ConvertToString(issueCustomFieldId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -12557,9 +14825,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> IssuesLinksIssuesPostAsync(string id, string issueLinkId, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> IssuesLinksIssuesPostAsync(string id, string issueLinkId, bool? muteUpdateNotifications = null, string fields = null, Issue body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -12571,6 +14840,10 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/links/{issueLinkId}/issues?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{issueLinkId}", System.Uri.EscapeDataString(ConvertToString(issueLinkId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -12789,9 +15062,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single Project</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Project> IssuesProjectPostAsync(string id, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Project> IssuesProjectPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -12799,6 +15073,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/project?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -13028,9 +15306,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -13038,6 +15317,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/timeTracking/workItems?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -13187,9 +15470,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. &lt;br/&gt;Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -13201,6 +15485,10 @@ namespace YouTrackSharp.Generated
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/timeTracking/workItems/{issueWorkItemId}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{issueWorkItemId}", System.Uri.EscapeDataString(ConvertToString(issueWorkItemId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -14857,6 +17145,236 @@ namespace YouTrackSharp.Generated
             }
         }
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single FrontendConfig</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<FrontendConfig> ConfigAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/config?");
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<FrontendConfig>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueCountResponse</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issuesGetter/count?");
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<IssueCountResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List of applicable users/groups</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VisibilityGroups> VisibilitygroupsAsync(string fields = null, int? skip = null, int? top = null, VisibilityGroupsRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/visibilityGroups?");
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VisibilityGroups>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
         protected struct ObjectResponseResult<T>
         {
             public ObjectResponseResult(T responseObject, string responseText)
@@ -15053,11 +17571,11 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("timestamp", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? Timestamp { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Me Author { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timestamp", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Timestamp { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -15217,10 +17735,10 @@ namespace YouTrackSharp.Generated
         public bool? HasJobs { get; set; }
     
         [Newtonsoft.Json.JsonProperty("errors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Errors { get; set; }
+        public System.Collections.Generic.ICollection<string> Errors { get; set; }
     
         [Newtonsoft.Json.JsonProperty("warnings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Warnings { get; set; }
+        public System.Collections.Generic.ICollection<string> Warnings { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
@@ -15273,14 +17791,14 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueAttachment Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterField field { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueAttachment> Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -15897,14 +18415,14 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterField field { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -16152,7 +18670,7 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents a set of values of the enumeration type in YouTrack.</summary>
+    /// <summary>Represents an enumerated set of values in YouTrack.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundle : BaseBundle
     {
@@ -16337,11 +18855,11 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Presentation { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Presentation { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -16758,8 +19276,8 @@ namespace YouTrackSharp.Generated
     [JsonInheritanceAttribute("SingleUserIssueCustomField", typeof(SingleUserIssueCustomField))]
     [JsonInheritanceAttribute("SingleVersionIssueCustomField", typeof(SingleVersionIssueCustomField))]
     [JsonInheritanceAttribute("StateIssueCustomField", typeof(StateIssueCustomField))]
-    [JsonInheritanceAttribute("StateMachineIssueCustomField", typeof(StateMachineIssueCustomField))]
     [JsonInheritanceAttribute("TextIssueCustomField", typeof(TextIssueCustomField))]
+    [JsonInheritanceAttribute("StateMachineIssueCustomField", typeof(StateMachineIssueCustomField))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCustomField 
     {
@@ -17198,14 +19716,14 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterField field { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17939,7 +20457,7 @@ namespace YouTrackSharp.Generated
     public partial class RestCorsSettings 
     {
         [Newtonsoft.Json.JsonProperty("allowedOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AllowedOrigins { get; set; }
+        public System.Collections.Generic.ICollection<string> AllowedOrigins { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowAllOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AllowAllOrigins { get; set; }
@@ -18254,14 +20772,14 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterField field { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprint> Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18381,28 +20899,6 @@ namespace YouTrackSharp.Generated
     public partial class StateIssueCustomField : DatabaseSingleValueIssueCustomField
     {
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StateBundleElement Value { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
-    }
-    
-    /// <summary>Represents the issue field of the `state` type.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
-    {
-        [Newtonsoft.Json.JsonProperty("hasStateMachine", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? HasStateMachine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundleElement Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
@@ -18750,6 +21246,12 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Added { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
     
@@ -18816,9 +21318,6 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextMarkupActivityItem : SimpleValueActivityItem
     {
-        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterField field { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Removed { get; set; }
     
@@ -18827,6 +21326,9 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("markup", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Markup { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19081,6 +21583,9 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Me Author { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19515,6 +22020,154 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents the issue field of the `state` type.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
+    {
+        [Newtonsoft.Json.JsonProperty("hasStateMachine", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HasStateMachine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StateBundleElement Value { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class IssueCountRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Query { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class IssueCountResponse 
+    {
+        [Newtonsoft.Json.JsonProperty("count", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Count { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FrontendConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("ring", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public RingFrontendConfig Ring { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class RingFrontendConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VisibilityGroupsRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("projects", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Project> Projects { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("skip", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Skip { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("prefix", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Prefix { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("top", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Top { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VisibilityGroups 
+    {
+        [Newtonsoft.Json.JsonProperty("groupsWithoutRecommended", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> GroupsWithoutRecommended { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("recommendedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> RecommendedGroups { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibilityUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Me> VisibilityUsers { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public enum DatabaseBackupSettingsArchiveFormat
     {
@@ -19687,6 +22340,33 @@ namespace YouTrackSharp.Generated
     
             return objectType.Name;
         }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.11.3.0 (NJsonSchema v10.4.4.0 (Newtonsoft.Json v12.0.0.0))")]
+    public partial class FileParameter
+    {
+        public FileParameter(System.IO.Stream data)
+            : this (data, null, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string fileName)
+            : this (data, fileName, null)
+        {
+        }
+
+        public FileParameter(System.IO.Stream data, string fileName, string contentType)
+        {
+            Data = data;
+            FileName = fileName;
+            ContentType = contentType;
+        }
+
+        public System.IO.Stream Data { get; private set; }
+
+        public string FileName { get; private set; }
+
+        public string ContentType { get; private set; }
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.11.3.0 (NJsonSchema v10.4.4.0 (Newtonsoft.Json v12.0.0.0))")]

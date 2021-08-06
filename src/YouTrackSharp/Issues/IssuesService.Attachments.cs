@@ -36,8 +36,8 @@ namespace YouTrackSharp.Issues
             }
             if (!string.IsNullOrEmpty(group))
             {
-                var response = await client.VisibilityGroupsPostAsync(
-                    "groupsWithoutRecommended(id,name),recommendedGroups(id,name)",
+                var visibilityGroups = await client.VisibilitygroupsAsync(
+                    "groupsWithoutRecommended(id,name),recommendedGroups(id,name)", 0, -1,
                     new VisibilityGroupsRequest()
                     {
                         Prefix = group.ToLower(),
@@ -45,9 +45,9 @@ namespace YouTrackSharp.Issues
                         Issues = new List<Generated.Issue>() {new Generated.Issue() {IdReadable = issueId}}
                     });
                 var userGroup =
-                    response.RecommendedGroups.FirstOrDefault(g =>
+                    visibilityGroups.RecommendedGroups.FirstOrDefault(g =>
                         g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase)) ??
-                    response.GroupsWithoutRecommended.FirstOrDefault(g =>
+                    visibilityGroups.GroupsWithoutRecommended.FirstOrDefault(g =>
                         g.Name.Equals(group, StringComparison.InvariantCultureIgnoreCase));
                 if (userGroup == null)
                 {
@@ -66,9 +66,17 @@ namespace YouTrackSharp.Issues
                 attachment.MimeType = attachmentContentType;
             }
             
-            var apiAttachment =
-                await client.IssuesAttachmentsPostFromStreamAsync(issueId, attachmentStream, "id", attachment);
-            //TODO for some reason, group in the body above is ignored
+            var response = await client.IssuesAttachmentsPostAsync(issueId, false, "id",
+                new FileParameter(attachmentStream, attachmentName, attachmentContentType));
+
+            var apiAttachment = response.FirstOrDefault();
+            if (apiAttachment == null)
+            {
+                throw new YouTrackErrorException(Strings.Exception_BadRequest, (int)HttpStatusCode.OK,
+                    $"Failed to upload attachment: server returned HTTP OK with empty response",
+                    null, null);
+            }
+            
             await client.IssuesAttachmentsPostAsync(issueId, apiAttachment.Id, "id", attachment);
         }
 

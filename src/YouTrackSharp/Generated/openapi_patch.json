@@ -1,0 +1,386 @@
+{
+  "paths": {
+    "/commands": {
+      "post": {
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "commands(description),issues(fields(projectCustomField(field(name,localizedName,fieldType(valueType)))))"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "single CommandList",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config": {
+      "description": "",
+      "get": {
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ring(url)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "single FrontendConfig",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FrontendConfig"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/issues/{id}/attachments": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": "##drop##",
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files[0]": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "collection of IssueAttachment",
+                  "$ref": "##drop##",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssueAttachment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/issuesGetter/count": {
+      "description": "",
+      "post": {
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "count"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IssueCountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "single IssueCountResponse",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueCountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/visibilityGroups": {
+      "description": "",
+      "post": {
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "groupsWithoutRecommended(allUsersGroup,icon,id,name,ringId),recommendedGroups(allUsersGroup,icon,id,name,ringId),visibilityUsers(avatarUrl,email,fullName,guest,id,issueRelatedGroup(icon),login,ringId)"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VisibilityGroupsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of applicable users/groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisibilityGroups"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActivityItem": {
+        "properties": {
+          "author": {
+            "$ref": "#/components/schemas/User"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          }
+        }
+      },
+      "AttachmentActivityItem": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/components/schemas/FilterField"
+              }
+            }
+          }
+        ]
+      },
+      "CustomFieldActivityItem": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/components/schemas/FilterField"
+              }
+            }
+          }
+        ]
+      },
+      "LinksActivityItem": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/components/schemas/FilterField"
+              }
+            }
+          }
+        ]
+      },
+      "SprintActivityItem": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/components/schemas/FilterField"
+              }
+            }
+          }
+        ]
+      },
+      "TextMarkupActivityItem": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/components/schemas/FilterField"
+              }
+            }
+          }
+        ]
+      },
+      "FilterField": {
+        "properties": {
+          "presentation": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IssueCustomField" : {
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "readOnly" : true
+          }
+        }
+      },
+      "StateMachineIssueCustomField": {
+        "description": "Represents the issue field of the `state` type.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DatabaseSingleValueIssueCustomField"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hasStateMachine": {
+                "type": "boolean",
+                "readOnly": true
+              },
+              "value": {
+                "$ref": "#/components/schemas/StateBundleElement"
+              }
+            }
+          }
+        ]
+      },
+      "IssueCountRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "IssueCountResponse": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "FrontendConfig": {
+        "type": "object",
+        "properties": {
+          "ring": {
+            "$ref": "#/components/schemas/RingFrontendConfig"
+          }
+        }
+      },
+      "RingFrontendConfig": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "VisibilityGroupsRequest": {
+        "type": "object",
+        "properties": {
+          "issues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Issue"
+            }
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Project"
+            }
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "top": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "VisibilityGroups": {
+        "type": "object",
+        "properties": {
+          "groupsWithoutRecommended": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserGroup"
+            }
+          },
+          "recommendedGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserGroup"
+            }
+          },
+          "visibilityUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      }
+    }
+  }
+}

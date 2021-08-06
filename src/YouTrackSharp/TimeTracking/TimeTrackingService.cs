@@ -70,7 +70,7 @@ namespace YouTrackSharp.TimeTracking
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response =
-                await client.IssuesTimetrackingWorkitemsPostAsync(issueId, "id", workItem.ToApiEntity());
+                await client.IssuesTimetrackingWorkitemsPostAsync(issueId, false, "id", workItem.ToApiEntity());
             
             return response.Id;
         }
@@ -93,7 +93,7 @@ namespace YouTrackSharp.TimeTracking
 
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesTimetrackingWorkitemsPostAsync(issueId, workItemId, "id", workItem.ToApiEntity());
+            await client.IssuesTimetrackingWorkitemsPostAsync(issueId, workItemId, false, "id", workItem.ToApiEntity());
         }
         
         /// <inheritdoc />

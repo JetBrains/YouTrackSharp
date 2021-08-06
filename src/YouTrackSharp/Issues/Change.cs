@@ -24,7 +24,7 @@ namespace YouTrackSharp.Issues
             switch (entity)
             {
                 case CustomFieldActivityItem a:
-                    fieldChange.Name = a.field.Name ?? a.field.Presentation;
+                    fieldChange.Name = a.Field.Name ?? a.Field.Presentation;
 
                     fieldChange.From.Value = a.Removed == null
                         ? null
@@ -47,7 +47,7 @@ namespace YouTrackSharp.Issues
                     fieldChange.From.Value = a.Added == null ? null : new JArray() {JToken.FromObject(a.Added)};
                     break;
                 case TextMarkupActivityItem a:
-                    fieldChange.Name = a.field.Name ?? a.field.Presentation;
+                    fieldChange.Name = a.Field.Name ?? a.Field.Presentation;
                     fieldChange.From.Value = a.Removed == null ? null : new JArray() {JToken.FromObject(a.Removed)};
                     fieldChange.To.Value = a.Added == null ? null : new JArray() {JToken.FromObject(a.Added)};
                     break;
@@ -62,17 +62,17 @@ namespace YouTrackSharp.Issues
                     fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
                     break;
                 case SprintActivityItem a:
-                    fieldChange.Name = a.field.Name;
+                    fieldChange.Name = a.Field.Name;
                     fieldChange.From.Value = a.Removed == null ? new JArray() : JArray.FromObject(a.Removed);
                     fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
                     break;
                 case LinksActivityItem a:
-                    fieldChange.Name = a.field.Presentation;
+                    fieldChange.Name = a.Field.Presentation;
                     fieldChange.From.Value = a.Removed == null ? new JArray() : JArray.FromObject(a.Removed);
                     fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
                     break;
                 case AttachmentActivityItem a:
-                    fieldChange.Name = a.field.Presentation;
+                    fieldChange.Name = a.Field.Presentation;
                     fieldChange.From.Value = a.Removed == null ? new JArray() : JArray.FromObject(a.Removed);
                     fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
                     break;

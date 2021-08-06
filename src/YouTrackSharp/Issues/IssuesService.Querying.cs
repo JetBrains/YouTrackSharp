@@ -52,9 +52,9 @@ namespace YouTrackSharp.Issues
 
             var retryPolicy = new LinearRetryPolicy<long>(async () =>
                 {
-                    var response = await client.IssuesGetterCountPostAsync("count", new IssueCountRequest(){Query = filter});
+                    var response = await client.IssuesgetterCountAsync("count", new IssueCountRequest(){Query = filter});
 
-                    return response.Count;
+                    return response.Count ?? -1;
                 },
                 result => Task.FromResult(result < 0),
                 TimeSpan.FromSeconds(1),

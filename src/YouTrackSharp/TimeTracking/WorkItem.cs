@@ -45,6 +45,7 @@ namespace YouTrackSharp.TimeTracking
             return new WorkItem()
             {
                 Id = entity.Id,
+                //TODO null safety since date _really_ could be null due to quirks in old data
                 Date = entity.Date?.TimestampToDateTime(),
                 Duration = entity.Duration.Minutes.MinutesToTimeSpan(),
                 Description = entity.Text,
@@ -60,6 +61,7 @@ namespace YouTrackSharp.TimeTracking
         {
             var entity = new IssueWorkItem()
             {
+                //TODO null safety since it's user-provided data
                 Date = Date.DateTimeToUnixTimestamp(),
                 Duration = new DurationValue() {Minutes = (int)Duration.TotalMinutes},
                 Text = Description,

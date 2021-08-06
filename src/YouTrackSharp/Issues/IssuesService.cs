@@ -115,7 +115,7 @@ namespace YouTrackSharp.Issues
             
             apiIssue.Project = new Project() {Id = project.Id};
             
-            var response = await client.IssuesPostAsync__FromDraft(null, "id,idReadable", apiIssue);
+            var response = await client.IssuesPostAsync__FromDraft(null, false, "id,idReadable", apiIssue);
             var issueId = response.Id;
             var issueIdReadable = response.IdReadable;
 
@@ -189,7 +189,7 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.IssuesPostAsync(issueId, "id", issue);
+            await client.IssuesPostAsync(issueId, false, "id", issue);
         }
         
         /// <inheritdoc />
