@@ -50,7 +50,7 @@ namespace YouTrackSharp.TimeTracking
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.IssuesTimetrackingWorkitemsGetAsync(
                                                         issueId, 
-                                                        "id,author(id,login),type(id,name),date,duration(id,minutes,presentation),text", 
+                                                        "id,created,updated,author(id,login),type(id,name),date,duration(id,minutes,presentation),text", 
                                                         0, -1);
 
             return response.Select(WorkItem.FromApiEntity);

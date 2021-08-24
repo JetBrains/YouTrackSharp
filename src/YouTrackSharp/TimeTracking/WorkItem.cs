@@ -49,7 +49,9 @@ namespace YouTrackSharp.TimeTracking
                 Duration = entity.Duration.Minutes.MinutesToTimeSpan(),
                 Description = entity.Text,
                 WorkType = entity.Type == null ? null : WorkType.FromApiEntity(entity.Type),
-                Author = entity.Author == null ? null : Author.FromApiEntity(entity.Author)
+                Author = entity.Author == null ? null : Author.FromApiEntity(entity.Author),
+                Created = entity.Created?.TimestampToDateTime(),
+                Updated = entity.Updated?.TimestampToDateTime()
             };
         }
 

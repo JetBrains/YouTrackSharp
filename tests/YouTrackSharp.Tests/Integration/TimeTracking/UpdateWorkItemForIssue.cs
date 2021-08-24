@@ -33,6 +33,13 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                     workItem.Duration = TimeSpan.FromMinutes(1);
                     workItem.Description = originalDescription + " (edited)";
                     await service.UpdateWorkItemForIssue(temporaryIssueContext.Issue.Id, workItemId, workItem);
+                    
+                    var results = await service.GetWorkItemsForIssue(temporaryIssueContext.Issue.Id);
+
+                    var apiWorkItem = results.SingleOrDefault(w => w.Id == workItemId);
+                    
+                    Assert.NotNull(apiWorkItem);
+                    Assert.NotNull(apiWorkItem.Updated);
 
                     await temporaryIssueContext.Destroy();
                 }

@@ -41,6 +41,7 @@ namespace YouTrackSharp.Tests.Integration.TimeTracking
                         Assert.NotNull(workItem.WorkType);
                         Assert.NotNull(workItem.Author);
                         Assert.NotNull(workItem.Author.Login);
+                        Assert.NotNull(workItem.Created);
                     }
 
                     await temporaryIssueContext.Destroy();
