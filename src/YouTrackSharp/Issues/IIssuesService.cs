@@ -147,6 +147,16 @@ namespace YouTrackSharp.Issues
         Task<IEnumerable<Comment>> GetCommentsForIssue(string issueId, bool wikifyDescription = false);
 
         /// <summary>
+        /// Adds a comment for an issue on the server.
+        /// </summary>
+        /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-comments.html#create-IssueComment-method">Update a Comment</a>.</remarks>
+        /// <param name="issueId">Id of the issue to add comment to.</param>
+        /// <param name="text">The text of the new comment.</param>
+        /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> or <paramref name="text"/> is null or empty.</exception>
+        /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
+        Task AddCommentForIssue(string issueId, string text);
+
+        /// <summary>
         /// Updates a comment for an issue on the server.
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/standalone/Update-a-Comment.html">Update a Comment</a>.</remarks>
