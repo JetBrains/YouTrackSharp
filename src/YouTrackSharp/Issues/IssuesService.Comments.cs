@@ -24,6 +24,23 @@ namespace YouTrackSharp.Issues
         }
 
         /// <inheritdoc />
+        public async Task AddCommentForIssue(string issueId, string text)
+        {
+            if (string.IsNullOrEmpty(issueId))
+            {
+                throw new ArgumentNullException(nameof(issueId));
+            }
+            if (string.IsNullOrEmpty(text))
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            var client = await _connection.GetAuthenticatedApiClient();
+            //TODO text could be too large to send w/o multipart, generated api needs to be checked
+            await client.IssuesCommentsPostAsync__FromDraft(issueId, null, false, "id", new IssueComment() { Text = text });
+        }
+
+        /// <inheritdoc />
         public async Task UpdateCommentForIssue(string issueId, string commentId, string text)
         {
             if (string.IsNullOrEmpty(issueId))
