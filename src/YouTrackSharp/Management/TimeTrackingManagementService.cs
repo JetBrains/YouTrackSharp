@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace YouTrackSharp.Management
 {
 	/// <summary>
-    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-Settings-Methods.html">administering Time Tracking Settings in YouTrack</a>.
+    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-timeTrackingSettings.html">administering Time Tracking Settings in YouTrack</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
     public class TimeTrackingManagementService : ITimeTrackingManagementService

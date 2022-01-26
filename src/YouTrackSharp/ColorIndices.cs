@@ -3,13 +3,13 @@
 namespace YouTrackSharp
 {
     /// <summary>
-    /// Represents the color indices used by YouTrack, as explained on <a href="https://www.jetbrains.com/help/youtrack/standalone/Color-Indices.html">Color Indices List</a>.
+    /// Represents the color indices used by YouTrack, as explained on <a href="https://www.jetbrains.com/help/youtrack/devportal/Color-Indices.html">Color Indices List</a>.
     /// </summary>
     [PublicAPI]
     public static class ColorIndices
     {
         /// <summary>
-        /// Supported color indices. The array index corresponds to the documented <a href="https://www.jetbrains.com/help/youtrack/standalone/Color-Indices.html">color index</a>.
+        /// Supported color indices. The array index corresponds to the documented <a href="https://www.jetbrains.com/help/youtrack/devportal/Color-Indices.html">color index</a>.
         /// </summary>
         public static readonly YouTrackColor[] Colors = {
             new YouTrackColor { Foreground = "#444", Background = "#fff" },

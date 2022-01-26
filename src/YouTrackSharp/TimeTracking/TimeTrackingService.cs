@@ -8,7 +8,7 @@ using YouTrackSharp.Generated;
 namespace YouTrackSharp.TimeTracking
 {
     /// <summary>
-    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html">YouTrack Time Tracking User Methods</a>.
+    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-timeTracking.html">YouTrack Time Tracking User Methods</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
     public class TimeTrackingService : ITimeTrackingService

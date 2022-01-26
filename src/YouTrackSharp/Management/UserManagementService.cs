@@ -8,7 +8,7 @@ using YouTrackSharp.Generated;
 namespace YouTrackSharp.Management
 {
     /// <summary>
-    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/standalone/Users.html">administering user accounts in YouTrack</a>.
+    /// A class that represents a REST API client for <a href="https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Users.html">administering user accounts in YouTrack</a>.
     /// It uses a <see cref="Connection" /> implementation to connect to the remote YouTrack server instance.
     /// </summary>
     public class UserManagementService : IUserManagementService
