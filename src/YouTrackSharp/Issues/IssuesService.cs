@@ -92,8 +92,7 @@ namespace YouTrackSharp.Issues
 
             var apiIssue = new Generated.Issue
             {
-                Project = new Project() {ShortName = projectId},
-                UsesMarkdown = issue.IsMarkdown
+                Project = new Project() {ShortName = projectId}
             };
             
             if (!string.IsNullOrEmpty(issue.Summary))
@@ -108,7 +107,7 @@ namespace YouTrackSharp.Issues
             var client = await _connection.GetAuthenticatedApiClient();
             
             // Create and immediately update issue draft
-            var draft = await client.AdminUsersMeDraftsAsync("id", new object());
+            var draft = await client.UsersMeDraftsAsync("id", new object());
             draft = await client.IssuesPostAsync(draft.Id, false, "id", apiIssue);
             var draftId = draft.Id;
 
@@ -179,11 +178,7 @@ namespace YouTrackSharp.Issues
             {
                 issue.Description = description;
             }
-            if (isMarkdown.HasValue)
-            {
-                issue.UsesMarkdown = isMarkdown;
-            }
-            
+
             var client = await _connection.GetAuthenticatedApiClient();
             
             await client.IssuesPostAsync(issueId, false, "id", issue);
@@ -222,7 +217,7 @@ namespace YouTrackSharp.Issues
             
             var client = await _connection.GetAuthenticatedApiClient();
             
-            await client.CommandsPostAsync("id", commandList);
+            await client.CommandsAsync(false, "id", commandList);
         }
         
         /// <inheritdoc />

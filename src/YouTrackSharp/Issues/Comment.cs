@@ -25,7 +25,7 @@ namespace YouTrackSharp.Issues
                 AuthorFullName = entity.Author?.FullName,
                 IssueId = entity.Issue?.IdReadable,
                 IsDeleted = entity.Deleted ?? false,
-                IsMarkdown = entity.UsesMarkdown ?? true,
+                IsMarkdown = false,
                 Text = wikify ? entity.TextPreview : entity.Text,
                 Created = (entity.Created ?? 0).TimestampToDateTime(),
                 Updated = (entity.Updated ?? 0).TimestampToDateTime(),

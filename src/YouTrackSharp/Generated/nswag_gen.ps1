@@ -1,6 +1,10 @@
 #TODO all this sequence should most likely be moved to nuke
 # requires $Env:JQ_DIR to be set to location of jq-win64.exe binary
 # requires $Env:NSWAG_DIR to be set to root of NSwagStudio installation
+#
+# additional manual steps:
+# - delete `Id` property from all `BundleProjectCustomField` subclasses in `YouTrackSharp.Api.Generated.cs`
+# - delete `value` from `StateMachineIssueCustomField` in `openapi.json`
 
 $nswag_file = "$PSScriptRoot\YouTrackSharp.Api.nswag"
 $nswag_patched_file = "$PSScriptRoot\nswag.json"
@@ -27,4 +31,6 @@ rm $nswag_patched_file
     %{$_ -replace "AgilesPostAsync\(string template", "AgilesPostAsync__FromTemplate(string template"} |
     %{$_ -replace "IssuesPostAsync\(string draftId", "IssuesPostAsync__FromDraft(string draftId"} |
     %{$_ -replace "IssuesCommentsPostAsync\(string id, string draftId", "IssuesCommentsPostAsync__FromDraft(string id, string draftId"} |
+    %{$_ -replace "ArticlesPostAsync\(string draftId", "ArticlesPostAsync__FromDraft(string draftId"} |
+    %{$_ -replace "ArticlesCommentsPostAsync\(string id, string draftId", "ArticlesCommentsPostAsync__FromDraft(string id, string draftId"} |
     Set-Content $cs_file

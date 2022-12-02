@@ -34,7 +34,7 @@ namespace YouTrackSharp.Issues
             bool wikifyDescription = false, bool wikifyContents = false)
         {
             var client = await _connection.GetAuthenticatedApiClient();
-            var response = await client.IssuesGetAsync(filter,
+            var response = await client.IssuesGetAsync(filter, null,
                 wikifyDescription ? Constants.FieldsQueryStrings.IssuesWikified : Constants.FieldsQueryStrings.IssuesNotWikified,
                 skip, take);
             
@@ -52,7 +52,7 @@ namespace YouTrackSharp.Issues
 
             var retryPolicy = new LinearRetryPolicy<long>(async () =>
                 {
-                    var response = await client.IssuesgetterCountAsync("count", new IssueCountRequest(){Query = filter});
+                    var response = await client.IssuesgetterCountAsync("count", new IssueCountResponse(){Query = filter});
 
                     return response.Count ?? -1;
                 },

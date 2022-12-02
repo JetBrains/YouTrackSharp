@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/admin/users/me/drafts": {
+    "/users/me/drafts": {
       "post": {
         "parameters": [
           {
@@ -34,41 +34,6 @@
         }
       }
     },
-    "/commands": {
-      "post": {
-        "parameters": [
-          {
-            "name": "fields",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "example": "commands(description),issues(fields(projectCustomField(field(name,localizedName,fieldType(valueType)))))"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CommandList"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "single CommandList",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CommandList"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/config": {
       "description": "",
       "get": {
@@ -89,78 +54,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FrontendConfig"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/issues/{id}/attachments": {
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": "##drop##",
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "files[0]": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "collection of IssueAttachment",
-                  "$ref": "##drop##",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/IssueAttachment"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/issuesGetter/count": {
-      "description": "",
-      "post": {
-        "parameters": [
-          {
-            "name": "fields",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "example": "count"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/IssueCountRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "single IssueCountResponse",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IssueCountResponse"
                 }
               }
             }
@@ -223,18 +116,6 @@
   },
   "components": {
     "schemas": {
-      "ActivityItem": {
-        "properties": {
-          "author": {
-            "$ref": "#/components/schemas/User"
-          },
-          "timestamp": {
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          }
-        }
-      },
       "AttachmentActivityItem": {
         "allOf": [
           {
@@ -303,20 +184,9 @@
           }
         }
       },
-      "IssueCustomField" : {
-        "properties" : {
-          "name" : {
-            "type" : "string",
-            "readOnly" : true
-          }
-        }
-      },
       "StateMachineIssueCustomField": {
         "description": "Represents the issue field with attached state machine.",
         "allOf": [
-          {
-            "$ref": "#/components/schemas/DatabaseSingleValueIssueCustomField"
-          },
           {
             "type": "object",
             "properties": {
@@ -330,29 +200,6 @@
             }
           }
         ]
-      },
-      "IssueCountRequest": {
-        "type": "object",
-        "properties": {
-          "query": {
-            "type": "string"
-          }
-        },
-        "discriminator" : {
-          "propertyName" : "$type"
-        }
-      },
-      "IssueCountResponse": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "discriminator" : {
-          "propertyName" : "$type"
-        }
       },
       "FrontendConfig": {
         "type": "object",

@@ -10,17 +10,6 @@ using Newtonsoft.Json.Linq;
 
 namespace YouTrackSharp.Generated
 {
-    // class stub for exposing additional json attribute 
-    [JsonInheritanceAttribute("SimpleProjectCustomField", typeof(VersionProjectCustomField))]
-    public partial class BundleProjectCustomField
-    {
-    }
-
-    /// <summary>Represents project settings stub for fields not directly exposed in openapi model.</summary>
-    public class SimpleProjectCustomField : BundleProjectCustomField
-    {
-    }
-
     public partial class YouTrackClient
     {
         private string _baseUrl;

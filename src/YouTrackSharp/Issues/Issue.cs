@@ -60,7 +60,7 @@ namespace YouTrackSharp.Issues
                 JiraId = entity.ExternalIssue?.Id,
                 Summary = entity.Summary,
                 Description = wikify ? entity.WikifiedDescription : entity.Description,
-                IsMarkdown = entity.UsesMarkdown ?? true,
+                IsMarkdown = false,
                 Comments = entity.Comments?.Select(comment => Comment.FromApiEntity(comment, wikifyContents)).ToList(),
                 Tags = entity.Tags?.Select(tag => new SubValue<string>(){Value=tag.Name})
             };

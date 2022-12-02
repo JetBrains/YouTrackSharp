@@ -282,7 +282,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> AdminCustomfieldsettingsBundlesUserAggregatedusersAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> AdminCustomfieldsettingsBundlesUserAggregatedusersAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of UserGroup</returns>
@@ -307,17 +307,17 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Me> AdminCustomfieldsettingsBundlesUserIndividualsPostAsync(string id, string fields = null, Me body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> AdminCustomfieldsettingsBundlesUserIndividualsPostAsync(string id, string fields = null, User body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Me> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string userId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string userId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
@@ -402,12 +402,12 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CustomFieldDefaults</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BundleCustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CustomFieldDefaults</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BundleCustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsPostAsync(string id, string fields = null, BundleCustomFieldDefaults body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsPostAsync(string id, string fields = null, CustomFieldDefaults body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of ProjectCustomField</returns>
@@ -568,9 +568,10 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task AdminProjectsCustomfieldsDeleteAsync(string id, string projectCustomFieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> AdminProjectsIssuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> AdminProjectsIssuesGetAsync(string id, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
@@ -722,20 +723,129 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task AgilesSprintsDeleteAsync(string id, string sprintId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Article>> ArticlesGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="draftId">ID of a draft to publish as a new article. If no `draftId` is provided, the article is created from scratch. In this case, you must specify the project in the request payload.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesPostAsync__FromDraft(string draftId = null, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task ArticlesDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ArticleAttachment>> ArticlesAttachmentsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, ArticleAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsGetAsync(string id, string articleAttachmentId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsPostAsync(string id, string articleAttachmentId, string fields = null, ArticleAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task ArticlesAttachmentsDeleteAsync(string id, string articleAttachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Article>> ArticlesChildarticlesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesChildarticlesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesChildarticlesGetAsync(string id, string articleId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesChildarticlesPostAsync(string id, string articleId, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task ArticlesChildarticlesDeleteAsync(string id, string articleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ArticleComment>> ArticlesCommentsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="draftId">The ID of an existing draft that should be published. This parameter is optional.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsPostAsync__FromDraft(string id, string draftId = null, bool? muteUpdateNotifications = null, string fields = null, ArticleComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsGetAsync(string id, string articleCommentId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsPostAsync(string id, string articleCommentId, bool? muteUpdateNotifications = null, string fields = null, ArticleComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task ArticlesCommentsDeleteAsync(string id, string articleCommentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Article> ArticlesParentarticleAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CommandList> CommandsGetAsync(bool? muteUpdateNotifications = null, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CommandList> CommandsAsync(bool? muteUpdateNotifications = null, string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single CommandList</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CommandList> CommandsAssistAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CommandList> CommandsAssistAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of UserGroup</returns>
@@ -798,15 +908,17 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task IssuetagsDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuetagsIssuesAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuetagsIssuesAsync(string id, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/incloud/?Search-and-Command-Attributes"&gt;Search and Command Attributes&lt;/a&gt;</param>
+        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/cloud/?Search-and-Command-Attributes"&gt;Search Query Reference&lt;/a&gt;</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesGetAsync(string query = null, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="draftId">ID of a draft to report as the new issue. If no `draftId` is provided, the issue is created from scratch. In this case, you must specify the project in the request payload.</param>
@@ -872,6 +984,7 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>collection of IssueAttachment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueAttachment>> IssuesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, FileParameter files0 = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
@@ -972,6 +1085,31 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<Project> IssuesProjectPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Project body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of Sprint</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Sprint>> IssuesSprintsAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueTag>> IssuesTagsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IssueTag> IssuesTagsPostAsync(string id, string fields = null, IssueTag body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IssueTag> IssuesTagsGetAsync(string id, string issueTagId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task IssuesTagsDeleteAsync(string id, string issueTagId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueTimeTracker</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<IssueTimeTracker> IssuesTimetrackingAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -993,7 +1131,7 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsGetAsync(string id, string issueWorkItemId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. &lt;br/&gt;Available since 2021.3.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1002,6 +1140,38 @@ namespace YouTrackSharp.Generated
         /// <returns>OK</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task IssuesTimetrackingWorkitemsDeleteAsync(string id, string issueWorkItemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<VcsChange>> IssuesVcschangesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on issue changes caused by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VcsChange> IssuesVcschangesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, VcsChange body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VcsChange> IssuesVcschangesGetAsync(string id, string vcsChangeId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<VcsChange> IssuesVcschangesPostAsync(string id, string vcsChangeId, bool? muteUpdateNotifications = null, string fields = null, VcsChange body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task IssuesVcschangesDeleteAsync(string id, string vcsChangeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueCountResponse</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountResponse body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of SavedQuery</returns>
@@ -1031,17 +1201,17 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single SearchSuggestions</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<SearchSuggestions> SearchAssistAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchSuggestions> SearchAssistAsync(string fields = null, SearchSuggestions body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> UsersGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> UsersGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Me> UsersGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> UsersGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single GeneralUserProfile</returns>
@@ -1089,7 +1259,7 @@ namespace YouTrackSharp.Generated
         System.Threading.Tasks.Task<Me> UsersMeAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="query">Issues search query. Read more about search syntax here: @@Search-and-Command-Attributes</param>
+        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/cloud/?Search-and-Command-Attributes"&gt;Search Query Reference&lt;/a&gt;</param>
         /// <param name="startDate">The start date of the interval for work items date.</param>
         /// <param name="endDate">The end date of the interval for work items date.</param>
         /// <param name="start">The start timestamp of the interval for work items date.</param>
@@ -1111,17 +1281,12 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Issue> AdminUsersMeDraftsAsync(string fields = null, object body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Issue> UsersMeDraftsAsync(string fields = null, object body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single FrontendConfig</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<FrontendConfig> ConfigAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueCountResponse</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of applicable users/groups</returns>
@@ -4920,7 +5085,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> AdminCustomfieldsettingsBundlesUserAggregatedusersAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> AdminCustomfieldsettingsBundlesUserAggregatedusersAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4974,7 +5139,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Me>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<User>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5316,7 +5481,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5370,7 +5535,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Me>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<User>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5400,7 +5565,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Me> AdminCustomfieldsettingsBundlesUserIndividualsPostAsync(string id, string fields = null, Me body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> AdminCustomfieldsettingsBundlesUserIndividualsPostAsync(string id, string fields = null, User body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5449,7 +5614,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Me>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<User>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5479,7 +5644,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Me> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string userId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> AdminCustomfieldsettingsBundlesUserIndividualsGetAsync(string id, string userId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5529,7 +5694,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Me>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<User>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -6773,7 +6938,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CustomFieldDefaults</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BundleCustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6819,7 +6984,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<BundleCustomFieldDefaults>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<CustomFieldDefaults>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -6849,7 +7014,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CustomFieldDefaults</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BundleCustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsPostAsync(string id, string fields = null, BundleCustomFieldDefaults body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomFieldDefaults> AdminCustomfieldsettingsCustomfieldsFielddefaultsPostAsync(string id, string fields = null, CustomFieldDefaults body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -6898,7 +7063,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<BundleCustomFieldDefaults>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<CustomFieldDefaults>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -9271,9 +9436,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> AdminProjectsIssuesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> AdminProjectsIssuesGetAsync(string id, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -9281,6 +9447,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/projects/{id}/issues?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (customFields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("customFields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(customFields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11589,17 +11759,181 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
-        /// <returns>single CommandList</returns>
+        /// <returns>collection of Article</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CommandList> CommandsGetAsync(bool? muteUpdateNotifications = null, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Article>> ArticlesGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles?");
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Article>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="draftId">ID of a draft to publish as a new article. If no `draftId` is provided, the article is created from scratch. In this case, you must specify the project in the request payload.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesPostAsync__FromDraft(string draftId = null, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles?");
+            if (draftId != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("draftId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(draftId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (muteUpdateNotifications != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11638,7 +11972,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<CommandList>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -11666,12 +12000,1457 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task ArticlesDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ArticleAttachment>> ArticlesAttachmentsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/attachments?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ArticleAttachment>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, ArticleAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/attachments?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleAttachment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsGetAsync(string id, string articleAttachmentId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleAttachmentId == null)
+                throw new System.ArgumentNullException("articleAttachmentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/attachments/{articleAttachmentId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleAttachmentId}", System.Uri.EscapeDataString(ConvertToString(articleAttachmentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleAttachment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleAttachment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleAttachment> ArticlesAttachmentsPostAsync(string id, string articleAttachmentId, string fields = null, ArticleAttachment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleAttachmentId == null)
+                throw new System.ArgumentNullException("articleAttachmentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/attachments/{articleAttachmentId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleAttachmentId}", System.Uri.EscapeDataString(ConvertToString(articleAttachmentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleAttachment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task ArticlesAttachmentsDeleteAsync(string id, string articleAttachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleAttachmentId == null)
+                throw new System.ArgumentNullException("articleAttachmentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/attachments/{articleAttachmentId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleAttachmentId}", System.Uri.EscapeDataString(ConvertToString(articleAttachmentId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Article>> ArticlesChildarticlesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/childArticles?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Article>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesChildarticlesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/childArticles?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesChildarticlesGetAsync(string id, string articleId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleId == null)
+                throw new System.ArgumentNullException("articleId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/childArticles/{articleId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleId}", System.Uri.EscapeDataString(ConvertToString(articleId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires Apply Commands Silently permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesChildarticlesPostAsync(string id, string articleId, bool? muteUpdateNotifications = null, string fields = null, Article body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleId == null)
+                throw new System.ArgumentNullException("articleId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/childArticles/{articleId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleId}", System.Uri.EscapeDataString(ConvertToString(articleId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task ArticlesChildarticlesDeleteAsync(string id, string articleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleId == null)
+                throw new System.ArgumentNullException("articleId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/childArticles/{articleId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleId}", System.Uri.EscapeDataString(ConvertToString(articleId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ArticleComment>> ArticlesCommentsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/comments?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ArticleComment>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="draftId">The ID of an existing draft that should be published. This parameter is optional.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsPostAsync__FromDraft(string id, string draftId = null, bool? muteUpdateNotifications = null, string fields = null, ArticleComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/comments?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (draftId != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("draftId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(draftId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleComment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsGetAsync(string id, string articleCommentId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleCommentId == null)
+                throw new System.ArgumentNullException("articleCommentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/comments/{articleCommentId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleCommentId}", System.Uri.EscapeDataString(ConvertToString(articleCommentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleComment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single ArticleComment</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ArticleComment> ArticlesCommentsPostAsync(string id, string articleCommentId, bool? muteUpdateNotifications = null, string fields = null, ArticleComment body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleCommentId == null)
+                throw new System.ArgumentNullException("articleCommentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/comments/{articleCommentId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleCommentId}", System.Uri.EscapeDataString(ConvertToString(articleCommentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ArticleComment>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task ArticlesCommentsDeleteAsync(string id, string articleCommentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (articleCommentId == null)
+                throw new System.ArgumentNullException("articleCommentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/comments/{articleCommentId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{articleCommentId}", System.Uri.EscapeDataString(ConvertToString(articleCommentId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single Article</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Article> ArticlesParentarticleAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/articles/{id}/parentArticle?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Article>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CommandList> CommandsPostAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CommandList> CommandsAsync(bool? muteUpdateNotifications = null, string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands?");
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11743,7 +13522,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single CommandList</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CommandList> CommandsAssistAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CommandList> CommandsAssistAsync(string fields = null, CommandList body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/commands/assist?");
@@ -11759,7 +13538,10 @@ namespace YouTrackSharp.Generated
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -12719,9 +14501,10 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuetagsIssuesAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuetagsIssuesAsync(string id, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -12729,6 +14512,10 @@ namespace YouTrackSharp.Generated
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issueTags/{id}/issues?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (customFields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("customFields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(customFields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -12803,16 +14590,21 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/incloud/?Search-and-Command-Attributes"&gt;Search and Command Attributes&lt;/a&gt;</param>
+        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/cloud/?Search-and-Command-Attributes"&gt;Search Query Reference&lt;/a&gt;</param>
+        /// <param name="customFields">&lt;p&gt;The name of the custom field to show in the response. When you use this parameter and request the custom field data in the request URL, the response only shows the requested custom fields instead of all of them.&lt;/p&gt;&lt;p&gt;To show more than one custom field, use this parameter several times.&lt;/p&gt;&lt;p&gt;See Sample 2 for reference.&lt;/p&gt;</param>
         /// <returns>collection of Issue</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesGetAsync(string query = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Issue>> IssuesGetAsync(string query = null, string customFields = null, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues?");
             if (query != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("query") + "=").Append(System.Uri.EscapeDataString(ConvertToString(query, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (customFields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("customFields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(customFields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (fields != null)
             {
@@ -13590,6 +15382,7 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>collection of IssueAttachment</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueAttachment>> IssuesAttachmentsPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, FileParameter files0 = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15150,6 +16943,402 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of Sprint</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Sprint>> IssuesSprintsAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/sprints?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Sprint>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IssueTag>> IssuesTagsGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/tags?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<IssueTag>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<IssueTag> IssuesTagsPostAsync(string id, string fields = null, IssueTag body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/tags?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<IssueTag>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueTag</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<IssueTag> IssuesTagsGetAsync(string id, string issueTagId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (issueTagId == null)
+                throw new System.ArgumentNullException("issueTagId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/tags/{issueTagId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{issueTagId}", System.Uri.EscapeDataString(ConvertToString(issueTagId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<IssueTag>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task IssuesTagsDeleteAsync(string id, string issueTagId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (issueTagId == null)
+                throw new System.ArgumentNullException("issueTagId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/tags/{issueTagId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{issueTagId}", System.Uri.EscapeDataString(ConvertToString(issueTagId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single IssueTimeTracker</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<IssueTimeTracker> IssuesTimetrackingAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -15474,7 +17663,7 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. &lt;br/&gt;Available since 2021.3.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
         /// <returns>single IssueWorkItem</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<IssueWorkItem> IssuesTimetrackingWorkitemsPostAsync(string id, string issueWorkItemId, bool? muteUpdateNotifications = null, string fields = null, IssueWorkItem body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -15609,6 +17798,486 @@ namespace YouTrackSharp.Generated
                         if (status_ == 200)
                         {
                             return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>collection of VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<VcsChange>> IssuesVcschangesGetAsync(string id, string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/vcsChanges?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<VcsChange>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on issue changes caused by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VcsChange> IssuesVcschangesPostAsync(string id, bool? muteUpdateNotifications = null, string fields = null, VcsChange body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/vcsChanges?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VcsChange>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VcsChange> IssuesVcschangesGetAsync(string id, string vcsChangeId, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (vcsChangeId == null)
+                throw new System.ArgumentNullException("vcsChangeId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/vcsChanges/{vcsChangeId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{vcsChangeId}", System.Uri.EscapeDataString(ConvertToString(vcsChangeId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VcsChange>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="muteUpdateNotifications">Set this parameter to `true` if no notifications should be sent on changes made by this request. This doesn't mute notifications sent by any workflow rules. Using this parameter requires &lt;control&gt;Apply Commands Silently&lt;/control&gt; permission in all projects affected by the request. Available since 2021.3.</param>
+        /// <returns>single VcsChange</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VcsChange> IssuesVcschangesPostAsync(string id, string vcsChangeId, bool? muteUpdateNotifications = null, string fields = null, VcsChange body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (vcsChangeId == null)
+                throw new System.ArgumentNullException("vcsChangeId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/vcsChanges/{vcsChangeId}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{vcsChangeId}", System.Uri.EscapeDataString(ConvertToString(vcsChangeId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (muteUpdateNotifications != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("muteUpdateNotifications") + "=").Append(System.Uri.EscapeDataString(ConvertToString(muteUpdateNotifications, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VcsChange>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task IssuesVcschangesDeleteAsync(string id, string vcsChangeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            if (vcsChangeId == null)
+                throw new System.ArgumentNullException("vcsChangeId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issues/{id}/vcsChanges/{vcsChangeId}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{vcsChangeId}", System.Uri.EscapeDataString(ConvertToString(vcsChangeId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>single IssueCountResponse</returns>
+        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountResponse body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issuesGetter/count?");
+            if (fields != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+    
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+    
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<IssueCountResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
                         }
                         else
                         {
@@ -16008,7 +18677,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single SearchSuggestions</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<SearchSuggestions> SearchAssistAsync(string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchSuggestions> SearchAssistAsync(string fields = null, SearchSuggestions body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/search/assist?");
@@ -16024,7 +18693,10 @@ namespace YouTrackSharp.Generated
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -16080,7 +18752,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>collection of User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Me>> UsersGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> UsersGetAsync(string fields = null, int? skip = null, int? top = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users?");
@@ -16130,7 +18802,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Me>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<User>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -16160,7 +18832,7 @@ namespace YouTrackSharp.Generated
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>single User</returns>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Me> UsersGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> UsersGetAsync(string id, string fields = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -16206,7 +18878,7 @@ namespace YouTrackSharp.Generated
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Me>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<User>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -16939,7 +19611,7 @@ namespace YouTrackSharp.Generated
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <param name="query">Issues search query. Read more about search syntax here: @@Search-and-Command-Attributes</param>
+        /// <param name="query">Issues search query. Read more about search syntax here: &lt;a href="https://www.jetbrains.com/help/youtrack/cloud/?Search-and-Command-Attributes"&gt;Search Query Reference&lt;/a&gt;</param>
         /// <param name="startDate">The start date of the interval for work items date.</param>
         /// <param name="endDate">The end date of the interval for work items date.</param>
         /// <param name="start">The start timestamp of the interval for work items date.</param>
@@ -17151,10 +19823,10 @@ namespace YouTrackSharp.Generated
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Issue> AdminUsersMeDraftsAsync(string fields = null, object body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Issue> UsersMeDraftsAsync(string fields = null, object body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/admin/users/me/drafts?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/me/drafts?");
             if (fields != null)
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -17269,81 +19941,6 @@ namespace YouTrackSharp.Generated
                         if (status_ == 200)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<FrontendConfig>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            return objectResponse_.Object;
-                        }
-                        else
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new YouTrackErrorException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (disposeResponse_)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (disposeClient_)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>single IssueCountResponse</returns>
-        /// <exception cref="YouTrackErrorException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<IssueCountResponse> IssuesgetterCountAsync(string fields = null, IssueCountRequest body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/issuesGetter/count?");
-            if (fields != null)
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("fields") + "=").Append(System.Uri.EscapeDataString(ConvertToString(fields, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            urlBuilder_.Length--;
-    
-            var client_ = _httpClient;
-            var disposeClient_ = false;
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
-                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-    
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-    
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    var disposeResponse_ = true;
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        if (response_.Content != null && response_.Content.Headers != null)
-                        {
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-                        }
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<IssueCountResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new YouTrackErrorException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -17576,13 +20173,16 @@ namespace YouTrackSharp.Generated
     }
     
     /// <summary>Represents a page object that wraps a list of issue activities.
-    /// The main advantage of the page in comparision to a list of activities is cursors.
+    /// The main advantage of the page in comparison to a list of activities is cursors.
     /// The page provides boundary marks that allow continuous iteration over the activities from the place
     /// the page is finished.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ActivityCursorPage 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("reverse", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Reverse { get; set; }
     
@@ -17601,9 +20201,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("activities", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ActivityItem> Activities { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -17620,29 +20217,32 @@ namespace YouTrackSharp.Generated
     /// the Activity stream. It shows a feed of all updates of the issue: issue history, comments, attachments,
     /// VCS changes, work items, and so on.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("VcsChangeActivityItem", typeof(VcsChangeActivityItem))]
+    [JsonInheritanceAttribute("CreatedDeletedActivityItem", typeof(CreatedDeletedActivityItem))]
+    [JsonInheritanceAttribute("WorkItemActivityItem", typeof(WorkItemActivityItem))]
+    [JsonInheritanceAttribute("WorkItemAuthorActivityItem", typeof(WorkItemAuthorActivityItem))]
+    [JsonInheritanceAttribute("SingleValueActivityItem", typeof(SingleValueActivityItem))]
+    [JsonInheritanceAttribute("WorkItemDurationActivityItem", typeof(WorkItemDurationActivityItem))]
+    [JsonInheritanceAttribute("WorkItemTypeActivityItem", typeof(WorkItemTypeActivityItem))]
+    [JsonInheritanceAttribute("MultiValueActivityItem", typeof(MultiValueActivityItem))]
+    [JsonInheritanceAttribute("SprintActivityItem", typeof(SprintActivityItem))]
     [JsonInheritanceAttribute("AttachmentActivityItem", typeof(AttachmentActivityItem))]
     [JsonInheritanceAttribute("CommentActivityItem", typeof(CommentActivityItem))]
-    [JsonInheritanceAttribute("CommentAttachmentsActivityItem", typeof(CommentAttachmentsActivityItem))]
-    [JsonInheritanceAttribute("CustomFieldActivityItem", typeof(CustomFieldActivityItem))]
     [JsonInheritanceAttribute("IssueCreatedActivityItem", typeof(IssueCreatedActivityItem))]
     [JsonInheritanceAttribute("IssueResolvedActivityItem", typeof(IssueResolvedActivityItem))]
     [JsonInheritanceAttribute("SimpleValueActivityItem", typeof(SimpleValueActivityItem))]
-    [JsonInheritanceAttribute("LinksActivityItem", typeof(LinksActivityItem))]
-    [JsonInheritanceAttribute("ProjectActivityItem", typeof(ProjectActivityItem))]
-    [JsonInheritanceAttribute("SprintActivityItem", typeof(SprintActivityItem))]
-    [JsonInheritanceAttribute("TagsActivityItem", typeof(TagsActivityItem))]
-    [JsonInheritanceAttribute("TextCustomFieldActivityItem", typeof(TextCustomFieldActivityItem))]
     [JsonInheritanceAttribute("TextMarkupActivityItem", typeof(TextMarkupActivityItem))]
     [JsonInheritanceAttribute("UsesMarkupActivityItem", typeof(UsesMarkupActivityItem))]
-    [JsonInheritanceAttribute("VcsChangeActivityItem", typeof(VcsChangeActivityItem))]
+    [JsonInheritanceAttribute("ProjectActivityItem", typeof(ProjectActivityItem))]
+    [JsonInheritanceAttribute("CommentAttachmentsActivityItem", typeof(CommentAttachmentsActivityItem))]
+    [JsonInheritanceAttribute("LinksActivityItem", typeof(LinksActivityItem))]
+    [JsonInheritanceAttribute("TagsActivityItem", typeof(TagsActivityItem))]
+    [JsonInheritanceAttribute("VotersActivityItem", typeof(VotersActivityItem))]
     [JsonInheritanceAttribute("VisibilityActivityItem", typeof(VisibilityActivityItem))]
     [JsonInheritanceAttribute("VisibilityGroupActivityItem", typeof(VisibilityGroupActivityItem))]
     [JsonInheritanceAttribute("VisibilityUserActivityItem", typeof(VisibilityUserActivityItem))]
-    [JsonInheritanceAttribute("VotersActivityItem", typeof(VotersActivityItem))]
-    [JsonInheritanceAttribute("WorkItemActivityItem", typeof(WorkItemActivityItem))]
-    [JsonInheritanceAttribute("WorkItemAuthorActivityItem", typeof(WorkItemAuthorActivityItem))]
-    [JsonInheritanceAttribute("WorkItemDurationActivityItem", typeof(WorkItemDurationActivityItem))]
-    [JsonInheritanceAttribute("WorkItemTypeActivityItem", typeof(WorkItemTypeActivityItem))]
+    [JsonInheritanceAttribute("CustomFieldActivityItem", typeof(CustomFieldActivityItem))]
+    [JsonInheritanceAttribute("TextCustomFieldActivityItem", typeof(TextCustomFieldActivityItem))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ActivityItem 
     {
@@ -17650,10 +20250,28 @@ namespace YouTrackSharp.Generated
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
+        public User Author { get; set; }
     
         [Newtonsoft.Json.JsonProperty("timestamp", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Target { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TargetMember { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterField Field { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("category", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ActivityCategory Category { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17672,11 +20290,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Agile 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Owner { get; set; }
+        public User Owner { get; set; }
     
         [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup VisibleFor { get; set; }
@@ -17689,6 +20310,12 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("updateableByProjectBased", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UpdateableByProjectBased { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("readSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AgileSharingSettings ReadSharingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AgileSharingSettings UpdateSharingSettings { get; set; }
     
         [Newtonsoft.Json.JsonProperty("orphansAtTheTop", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? OrphansAtTheTop { get; set; }
@@ -17726,9 +20353,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("status", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AgileStatus Status { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -17746,6 +20370,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileColumn 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
@@ -17764,9 +20391,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("fieldValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AgileColumnFieldValue> FieldValues { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -17783,6 +20407,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileColumnFieldValue : DatabaseAttributeValue
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -17801,11 +20428,40 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Stores users and groups that have access to an agile board.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class AgileSharingSettings 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<User> PermittedUsers { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Shows if the board has any configuration problems.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AgileStatus 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("valid", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Valid { get; set; }
     
@@ -17817,9 +20473,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("warnings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Warnings { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17838,6 +20491,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AppearanceSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("timeZone", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TimeZoneDescriptor TimeZone { get; set; }
     
@@ -17847,8 +20503,184 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("logo", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Logo Logo { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents an article.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class Article : BaseArticle
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("reporter", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Reporter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UnlimitedVisibility Visibility { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("summary", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Summary { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("content", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Content { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("attachments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ArticleAttachment> Attachments { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Project Project { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("parentArticle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Article ParentArticle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("childArticles", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Article> ChildArticles { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hasChildren", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HasChildren { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updatedBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User UpdatedBy { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Updated { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Created { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("idReadable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdReadable { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Ordinal { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("comments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ArticleComment> Comments { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hasStar", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HasStar { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("externalArticle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ExternalArticle ExternalArticle { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a file that is attached to an article or a comment to an article.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ArticleAttachment 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Author { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Created { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Updated { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("size", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Size { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("charset", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Charset { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mimeType", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MimeType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("metaData", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetaData { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("draft", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Draft { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("base64Content", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Base64Content { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UnlimitedVisibility Visibility { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("article", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BaseArticle Article { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("comment", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ArticleComment Comment { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a comment to an article.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ArticleComment 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Text { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Created { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updated", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Updated { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Author { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("article", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Article Article { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("attachments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ArticleAttachment> Attachments { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UnlimitedVisibility Visibility { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17864,8 +20696,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the list of attachments of an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AttachmentActivityItem : ActivityItem
+    public partial class AttachmentActivityItem : CreatedDeletedActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueAttachment Target { get; set; }
     
@@ -17893,6 +20728,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AttributeBasedSwimlaneSettings : SwimlaneSettings
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterField Field { get; set; }
     
@@ -17916,14 +20754,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupError 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("date", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Date { get; set; }
     
         [Newtonsoft.Json.JsonProperty("errorMessage", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ErrorMessage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17942,6 +20780,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupFile 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -17953,9 +20794,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("link", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Link { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -17974,6 +20812,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BackupStatus 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("backupInProgress", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? BackupInProgress { get; set; }
     
@@ -17983,6 +20824,82 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("backupError", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BackupError BackupError { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a base article entity.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("Article", typeof(Article))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BaseArticle 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("reporter", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Reporter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibility", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UnlimitedVisibility Visibility { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("summary", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Summary { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("content", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Content { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("attachments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ArticleAttachment> Attachments { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a set of field values in YouTrack.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BaseBundle : Bundle
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BundleElement> Values { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a basic ancestor for work items.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("IssueWorkItem", typeof(IssueWorkItem))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BaseWorkItem 
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
@@ -17998,22 +20915,81 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents a set of custom field values in YouTrack.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("BuildBundle", typeof(BuildBundle))]
-    [JsonInheritanceAttribute("EnumBundle", typeof(EnumBundle))]
-    [JsonInheritanceAttribute("OwnedBundle", typeof(OwnedBundle))]
-    [JsonInheritanceAttribute("StateBundle", typeof(StateBundle))]
-    [JsonInheritanceAttribute("UserBundle", typeof(UserBundle))]
-    [JsonInheritanceAttribute("VersionBundle", typeof(VersionBundle))]
+    /// <summary>Represents an integration with a VCS repository hosted on bitbucket.org.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class BaseBundle 
+    public partial class BitBucketChangesProcessor : VcsHostingChangesProcessor
     {
-        [Newtonsoft.Json.JsonProperty("isUpdateable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsUpdateable { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BitBucketServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a cloud Bitbucket server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BitBucketServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents an integration with a VCS repository on a self-hosted Bitbucket server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BitbucketStandaloneChangesProcessor : VcsHostingChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BitbucketStandaloneServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a self-hosted Bitbucket server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BitbucketStandaloneServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18031,6 +21007,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundle : BaseBundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> Values { get; set; }
     
@@ -18050,6 +21029,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BuildBundle Bundle { get; set; }
     
@@ -18072,6 +21054,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildBundleElement : BundleElement
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("assembleDate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? AssembleDate { get; set; }
     
@@ -18087,10 +21072,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for the build field.</summary>
+    /// <summary>Represents project settings for a build field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BuildProjectCustomField : BundleProjectCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BuildBundle Bundle { get; set; }
     
@@ -18109,29 +21097,40 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents default project-related settings of the custom field. These settings are applied at the moment when the custom field is attached to a project. After that, any changes in default settings do not affect the field settings for this project.</summary>
+    /// <summary>Represents a set of custom field values in YouTrack.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("BuildBundleCustomFieldDefaults", typeof(BuildBundleCustomFieldDefaults))]
-    [JsonInheritanceAttribute("EnumBundleCustomFieldDefaults", typeof(EnumBundleCustomFieldDefaults))]
-    [JsonInheritanceAttribute("OwnedBundleCustomFieldDefaults", typeof(OwnedBundleCustomFieldDefaults))]
-    [JsonInheritanceAttribute("StateBundleCustomFieldDefaults", typeof(StateBundleCustomFieldDefaults))]
-    [JsonInheritanceAttribute("UserCustomFieldDefaults", typeof(UserCustomFieldDefaults))]
-    [JsonInheritanceAttribute("VersionBundleCustomFieldDefaults", typeof(VersionBundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("BaseBundle", typeof(BaseBundle))]
+    [JsonInheritanceAttribute("StateBundle", typeof(StateBundle))]
+    [JsonInheritanceAttribute("EnumBundle", typeof(EnumBundle))]
+    [JsonInheritanceAttribute("UserBundle", typeof(UserBundle))]
+    [JsonInheritanceAttribute("OwnedBundle", typeof(OwnedBundle))]
+    [JsonInheritanceAttribute("VersionBundle", typeof(VersionBundle))]
+    [JsonInheritanceAttribute("BuildBundle", typeof(BuildBundle))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class BundleCustomFieldDefaults 
+    public partial class Bundle 
     {
-        [Newtonsoft.Json.JsonProperty("canBeEmpty", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? CanBeEmpty { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emptyFieldText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EmptyFieldText { get; set; }
+        [Newtonsoft.Json.JsonProperty("isUpdateable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsUpdateable { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("isPublic", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsPublic { get; set; }
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
-        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CustomField Parent { get; set; }
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     
+    
+    }
+    
+    /// <summary>Represents custom field default settings for enumerated fields.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class BundleCustomFieldDefaults : CustomFieldDefaults
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
@@ -18149,22 +21148,29 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a field value in YouTrack.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("BuildBundleElement", typeof(BuildBundleElement))]
+    [JsonInheritanceAttribute("StateBundleElement", typeof(StateBundleElement))]
+    [JsonInheritanceAttribute("LocalizableBundleElement", typeof(LocalizableBundleElement))]
     [JsonInheritanceAttribute("EnumBundleElement", typeof(EnumBundleElement))]
     [JsonInheritanceAttribute("OwnedBundleElement", typeof(OwnedBundleElement))]
-    [JsonInheritanceAttribute("StateBundleElement", typeof(StateBundleElement))]
     [JsonInheritanceAttribute("VersionBundleElement", typeof(VersionBundleElement))]
+    [JsonInheritanceAttribute("BuildBundleElement", typeof(BuildBundleElement))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BundleElement 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BaseBundle Bundle { get; set; }
+        public Bundle Bundle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("archived", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Archived { get; set; }
     
         [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Ordinal { get; set; }
@@ -18174,9 +21180,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18190,18 +21193,24 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents custom field settings for the particular project.</summary>
+    /// <summary>Represents settings for custom fields in a particular project.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("BuildProjectCustomField", typeof(BuildProjectCustomField))]
-    [JsonInheritanceAttribute("EnumProjectCustomField", typeof(EnumProjectCustomField))]
     [JsonInheritanceAttribute("GroupProjectCustomField", typeof(GroupProjectCustomField))]
-    [JsonInheritanceAttribute("OwnedProjectCustomField", typeof(OwnedProjectCustomField))]
-    [JsonInheritanceAttribute("StateProjectCustomField", typeof(StateProjectCustomField))]
     [JsonInheritanceAttribute("UserProjectCustomField", typeof(UserProjectCustomField))]
+    [JsonInheritanceAttribute("BuildProjectCustomField", typeof(BuildProjectCustomField))]
+    [JsonInheritanceAttribute("StateProjectCustomField", typeof(StateProjectCustomField))]
     [JsonInheritanceAttribute("VersionProjectCustomField", typeof(VersionProjectCustomField))]
+    [JsonInheritanceAttribute("OwnedProjectCustomField", typeof(OwnedProjectCustomField))]
+    [JsonInheritanceAttribute("EnumProjectCustomField", typeof(EnumProjectCustomField))]
+    [JsonInheritanceAttribute("SimpleProjectCustomField", typeof(SimpleProjectCustomField))]
+    [JsonInheritanceAttribute("PeriodProjectCustomField", typeof(PeriodProjectCustomField))]
+    [JsonInheritanceAttribute("TextProjectCustomField", typeof(TextProjectCustomField))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class BundleProjectCustomField 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Field { get; set; }
     
@@ -18223,8 +21232,60 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("condition", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomFieldCondition Condition { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>The basic entity that represents a VCS or a build server integration configured for a project.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("VcsHostingChangesProcessor", typeof(VcsHostingChangesProcessor))]
+    [JsonInheritanceAttribute("GitHubChangesProcessor", typeof(GitHubChangesProcessor))]
+    [JsonInheritanceAttribute("GogsChangesProcessor", typeof(GogsChangesProcessor))]
+    [JsonInheritanceAttribute("GiteaChangesProcessor", typeof(GiteaChangesProcessor))]
+    [JsonInheritanceAttribute("SpaceChangesProcessor", typeof(SpaceChangesProcessor))]
+    [JsonInheritanceAttribute("GitLabChangesProcessor", typeof(GitLabChangesProcessor))]
+    [JsonInheritanceAttribute("BitBucketChangesProcessor", typeof(BitBucketChangesProcessor))]
+    [JsonInheritanceAttribute("BitbucketStandaloneChangesProcessor", typeof(BitbucketStandaloneChangesProcessor))]
+    [JsonInheritanceAttribute("TeamcityChangesProcessor", typeof(TeamcityChangesProcessor))]
+    [JsonInheritanceAttribute("JenkinsChangesProcessor", typeof(JenkinsChangesProcessor))]
+    [JsonInheritanceAttribute("UpsourceChangesProcessor", typeof(UpsourceChangesProcessor))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ChangesProcessor 
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public VcsServer Server { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Project Project { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relatedProjects", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Project> RelatedProjects { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Enabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibleForGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> VisibleForGroups { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("addComments", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? AddComments { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lookupIssuesInBranchName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? LookupIssuesInBranchName { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18265,14 +21326,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ColumnSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Field { get; set; }
     
         [Newtonsoft.Json.JsonProperty("columns", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AgileColumn> Columns { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18290,11 +21351,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommandLimitedVisibility : CommandUnlimitedVisibility
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
     
         [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> PermittedUsers { get; set; }
+        public System.Collections.Generic.ICollection<User> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18314,6 +21378,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CommandList 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("comment", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Comment { get; set; }
     
@@ -18329,9 +21396,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("silent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Silent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? UsesMarkdown { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("runAs", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RunAs { get; set; }
     
@@ -18343,9 +21407,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("suggestions", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Suggestion> Suggestions { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18382,8 +21443,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the comments of an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class CommentActivityItem : ActivityItem
+    public partial class CommentActivityItem : CreatedDeletedActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueComment Target { get; set; }
     
@@ -18410,8 +21474,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the `attachments` attribute of an IssueComment.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class CommentAttachmentsActivityItem : ActivityItem
+    public partial class CommentAttachmentsActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueComment Target { get; set; }
     
@@ -18433,11 +21500,33 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents an action when an entity is created or deleted in an issue. For example, a new comment is created in the issue.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class CreatedDeletedActivityItem : ActivityItem
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents a custom field in YouTrack.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomField 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -18460,7 +21549,7 @@ namespace YouTrackSharp.Generated
         public string Aliases { get; set; }
     
         [Newtonsoft.Json.JsonProperty("fieldDefaults", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BundleCustomFieldDefaults FieldDefaults { get; set; }
+        public CustomFieldDefaults FieldDefaults { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasRunningJob", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasRunningJob { get; set; }
@@ -18470,9 +21559,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("instances", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BundleProjectCustomField> Instances { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18490,6 +21576,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomFieldActivityItem : ActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -18514,10 +21603,76 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents the condition for showing a custom field.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("FieldBasedCondition", typeof(FieldBasedCondition))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class CustomFieldCondition 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BundleProjectCustomField Parent { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents default project-related settings of the custom field. These settings are applied at the moment when the custom field is attached to a project. After that, any changes in default settings do not affect the field settings for this project.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("BundleCustomFieldDefaults", typeof(BundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("UserCustomFieldDefaults", typeof(UserCustomFieldDefaults))]
+    [JsonInheritanceAttribute("BuildBundleCustomFieldDefaults", typeof(BuildBundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("StateBundleCustomFieldDefaults", typeof(StateBundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("VersionBundleCustomFieldDefaults", typeof(VersionBundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("EnumBundleCustomFieldDefaults", typeof(EnumBundleCustomFieldDefaults))]
+    [JsonInheritanceAttribute("OwnedBundleCustomFieldDefaults", typeof(OwnedBundleCustomFieldDefaults))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class CustomFieldDefaults 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("canBeEmpty", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? CanBeEmpty { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("emptyFieldText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmptyFieldText { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isPublic", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsPublic { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomField Parent { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents a custom field of the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CustomFilterField : FilterField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("customField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField CustomField { get; set; }
     
@@ -18560,6 +21715,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseBackupSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("location", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Location { get; set; }
     
@@ -18580,13 +21738,10 @@ namespace YouTrackSharp.Generated
         public long? AvailableDiskSpace { get; set; }
     
         [Newtonsoft.Json.JsonProperty("notifiedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> NotifiedUsers { get; set; }
+        public System.Collections.Generic.ICollection<User> NotifiedUsers { get; set; }
     
         [Newtonsoft.Json.JsonProperty("backupStatus", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BackupStatus BackupStatus { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18605,6 +21760,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DateFormatDescriptor 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
@@ -18613,9 +21771,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("datePattern", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DatePattern { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18629,10 +21784,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `date` type.</summary>
+    /// <summary>Represents a date-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DateIssueCustomField : SimpleIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Value { get; set; }
     
@@ -18653,14 +21811,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DuplicateVote 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
         [Newtonsoft.Json.JsonProperty("user", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me User { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        public User User { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18679,14 +21837,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DurationValue 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("minutes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Minutes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18705,6 +21863,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EmailSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("isEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsEnabled { get; set; }
     
@@ -18733,9 +21894,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("replyTo", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReplyTo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -18752,6 +21910,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundle : BaseBundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> Values { get; set; }
     
@@ -18771,6 +21932,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class EnumBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EnumBundle Bundle { get; set; }
     
@@ -18789,12 +21953,12 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents field value that can be localized.</summary>
+    /// <summary>Represents an enumeration value in YouTrack.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EnumBundleElement : BundleElement
+    public partial class EnumBundleElement : LocalizableBundleElement
     {
-        [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LocalizedName { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18830,11 +21994,37 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>For an issue that was imported from another service, represents the reference to the issue in the external system.</summary>
+    /// <summary>Represents a transition from one value to another for a custom field that is managed by a state-machine rule in workflow.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class ExternalIssue 
+    public partial class Event 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Presentation { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>For an article that was imported from another service, this entity represents the reference to the article in the external system.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ExternalArticle 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -18844,8 +22034,34 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("key", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Key { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>For an issue that was imported from another service, represents the reference to the issue in the external system.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ExternalIssue 
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("key", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Key { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18863,8 +22079,39 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FieldBasedColorCoding : ColorCoding
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("prototype", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomField Prototype { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents the condition for showing a custom field.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FieldBasedCondition : CustomFieldCondition
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BundleProjectCustomField Field { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BundleElement> Values { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("showForNullValue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? ShowForNullValue { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18883,14 +22130,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FieldStyle 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("background", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Background { get; set; }
     
         [Newtonsoft.Json.JsonProperty("foreground", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Foreground { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18926,18 +22173,19 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents an issue property, which can be a predefined field, a custom field, a link, and so on.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("PredefinedFilterField", typeof(PredefinedFilterField))]
     [JsonInheritanceAttribute("CustomFilterField", typeof(CustomFilterField))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FilterField 
     {
-        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18956,6 +22204,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GeneralUserProfile 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("dateFieldFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DateFormatDescriptor DateFieldFormat { get; set; }
     
@@ -18965,8 +22216,137 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocaleDescriptor Locale { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a GitHub integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GitHubChangesProcessor : VcsHostingChangesProcessor
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GitHubServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a GitHub server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GitHubServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a GitLab integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GitLabChangesProcessor : VcsHostingChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GitLabServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a GitLab server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GitLabServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Gitea integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GiteaChangesProcessor : VcsHostingChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GiteaServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Gitea server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GiteaServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -18985,6 +22365,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GlobalSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("systemSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SystemSettings SystemSettings { get; set; }
     
@@ -19003,9 +22386,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("license", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public License License { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -19023,14 +22403,17 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GlobalTimeTrackingSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("workItemTypes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WorkItemType> WorkItemTypes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("workTimeSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public WorkTimeSettings WorkTimeSettings { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("attributePrototypes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemAttributePrototype> AttributePrototypes { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19044,7 +22427,51 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for group custom field.</summary>
+    /// <summary>Represents a Gogs integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GogsChangesProcessor : VcsHostingChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GogsServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Gogs server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class GogsServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents project settings for a group custom field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class GroupProjectCustomField : BundleProjectCustomField
     {
@@ -19068,6 +22495,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Issue 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("idReadable", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdReadable { get; set; }
     
@@ -19092,20 +22522,17 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? UsesMarkdown { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("wikifiedDescription", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WikifiedDescription { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reporter", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Reporter { get; set; }
+        public User Reporter { get; set; }
     
         [Newtonsoft.Json.JsonProperty("updater", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Updater { get; set; }
+        public User Updater { get; set; }
     
         [Newtonsoft.Json.JsonProperty("draftOwner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me DraftOwner { get; set; }
+        public User DraftOwner { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isDraft", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsDraft { get; set; }
@@ -19149,9 +22576,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("parent", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueLink Parent { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -19169,11 +22593,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueAttachment 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
+        public User Author { get; set; }
     
         [Newtonsoft.Json.JsonProperty("created", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Created { get; set; }
@@ -19220,9 +22647,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("thumbnailURL", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThumbnailURL { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -19239,6 +22663,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueBasedSwimlaneSettings : SwimlaneSettings
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("field", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterField Field { get; set; }
     
@@ -19265,11 +22692,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueComment 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? UsesMarkdown { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textPreview", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TextPreview { get; set; }
@@ -19281,7 +22708,7 @@ namespace YouTrackSharp.Generated
         public long? Updated { get; set; }
     
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
+        public User Author { get; set; }
     
         [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
@@ -19295,8 +22722,37 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("deleted", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents the number of issues in a search result.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class IssueCountResponse 
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("count", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Count { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("unresolvedOnly", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? UnresolvedOnly { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Query { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("folder", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public IssueFolder Folder { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19312,8 +22768,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents an event when a user creates a new issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class IssueCreatedActivityItem : ActivityItem
+    public partial class IssueCreatedActivityItem : CreatedDeletedActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -19336,26 +22795,26 @@ namespace YouTrackSharp.Generated
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("DateIssueCustomField", typeof(DateIssueCustomField))]
-    [JsonInheritanceAttribute("SimpleIssueCustomField", typeof(SimpleIssueCustomField))]
-    [JsonInheritanceAttribute("MultiBuildIssueCustomField", typeof(MultiBuildIssueCustomField))]
-    [JsonInheritanceAttribute("DatabaseMultiValueIssueCustomField", typeof(DatabaseMultiValueIssueCustomField))]
-    [JsonInheritanceAttribute("MultiEnumIssueCustomField", typeof(MultiEnumIssueCustomField))]
-    [JsonInheritanceAttribute("MultiGroupIssueCustomField", typeof(MultiGroupIssueCustomField))]
-    [JsonInheritanceAttribute("MultiOwnedIssueCustomField", typeof(MultiOwnedIssueCustomField))]
-    [JsonInheritanceAttribute("MultiUserIssueCustomField", typeof(MultiUserIssueCustomField))]
-    [JsonInheritanceAttribute("MultiVersionIssueCustomField", typeof(MultiVersionIssueCustomField))]
     [JsonInheritanceAttribute("PeriodIssueCustomField", typeof(PeriodIssueCustomField))]
-    [JsonInheritanceAttribute("SingleBuildIssueCustomField", typeof(SingleBuildIssueCustomField))]
-    [JsonInheritanceAttribute("DatabaseSingleValueIssueCustomField", typeof(DatabaseSingleValueIssueCustomField))]
-    [JsonInheritanceAttribute("SingleEnumIssueCustomField", typeof(SingleEnumIssueCustomField))]
-    [JsonInheritanceAttribute("SingleGroupIssueCustomField", typeof(SingleGroupIssueCustomField))]
-    [JsonInheritanceAttribute("SingleOwnedIssueCustomField", typeof(SingleOwnedIssueCustomField))]
-    [JsonInheritanceAttribute("SingleUserIssueCustomField", typeof(SingleUserIssueCustomField))]
-    [JsonInheritanceAttribute("SingleVersionIssueCustomField", typeof(SingleVersionIssueCustomField))]
+    [JsonInheritanceAttribute("SimpleIssueCustomField", typeof(SimpleIssueCustomField))]
+    [JsonInheritanceAttribute("DateIssueCustomField", typeof(DateIssueCustomField))]
+    [JsonInheritanceAttribute("SingleValueIssueCustomField", typeof(DatabaseSingleValueIssueCustomField))]
     [JsonInheritanceAttribute("StateIssueCustomField", typeof(StateIssueCustomField))]
-    [JsonInheritanceAttribute("TextIssueCustomField", typeof(TextIssueCustomField))]
+    [JsonInheritanceAttribute("SingleBuildIssueCustomField", typeof(SingleBuildIssueCustomField))]
+    [JsonInheritanceAttribute("SingleUserIssueCustomField", typeof(SingleUserIssueCustomField))]
+    [JsonInheritanceAttribute("SingleGroupIssueCustomField", typeof(SingleGroupIssueCustomField))]
+    [JsonInheritanceAttribute("SingleVersionIssueCustomField", typeof(SingleVersionIssueCustomField))]
+    [JsonInheritanceAttribute("SingleOwnedIssueCustomField", typeof(SingleOwnedIssueCustomField))]
+    [JsonInheritanceAttribute("SingleEnumIssueCustomField", typeof(SingleEnumIssueCustomField))]
+    [JsonInheritanceAttribute("MultiValueIssueCustomField", typeof(DatabaseMultiValueIssueCustomField))]
+    [JsonInheritanceAttribute("MultiBuildIssueCustomField", typeof(MultiBuildIssueCustomField))]
+    [JsonInheritanceAttribute("MultiGroupIssueCustomField", typeof(MultiGroupIssueCustomField))]
+    [JsonInheritanceAttribute("MultiVersionIssueCustomField", typeof(MultiVersionIssueCustomField))]
+    [JsonInheritanceAttribute("MultiOwnedIssueCustomField", typeof(MultiOwnedIssueCustomField))]
+    [JsonInheritanceAttribute("MultiEnumIssueCustomField", typeof(MultiEnumIssueCustomField))]
+    [JsonInheritanceAttribute("MultiUserIssueCustomField", typeof(MultiUserIssueCustomField))]
     [JsonInheritanceAttribute("StateMachineIssueCustomField", typeof(StateMachineIssueCustomField))]
+    [JsonInheritanceAttribute("TextIssueCustomField", typeof(TextIssueCustomField))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueCustomField 
     {
@@ -19364,6 +22823,12 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BundleProjectCustomField ProjectCustomField { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19381,16 +22846,16 @@ namespace YouTrackSharp.Generated
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [JsonInheritanceAttribute("IssueTag", typeof(IssueTag))]
     [JsonInheritanceAttribute("WatchFolder", typeof(WatchFolder))]
-    [JsonInheritanceAttribute("Project", typeof(Project))]
     [JsonInheritanceAttribute("SavedQuery", typeof(SavedQuery))]
+    [JsonInheritanceAttribute("Project", typeof(Project))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueFolder 
     {
-        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19409,6 +22874,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueLink 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("direction", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public IssueLinkDirection? Direction { get; set; }
@@ -19421,9 +22889,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("trimmedIssues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> TrimmedIssues { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19442,6 +22907,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueLinkType 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -19469,9 +22937,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("readOnly", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? ReadOnly { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -19488,6 +22953,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueResolvedActivityItem : SimpleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Removed { get; set; }
     
@@ -19510,6 +22978,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueTag : WatchFolder
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
     
@@ -19518,6 +22989,21 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("untagOnResolve", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? UntagOnResolve { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserGroup VisibleFor { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateableBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserGroup UpdateableBy { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("readSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings ReadSharingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tagSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TagSharingSettings TagSharingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings UpdateSharingSettings { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19536,14 +23022,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueTimeTracker 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("workItems", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWorkItem> WorkItems { get; set; }
     
         [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19562,17 +23048,17 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueVoters 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("hasVote", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasVote { get; set; }
     
         [Newtonsoft.Json.JsonProperty("original", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Original { get; set; }
+        public System.Collections.Generic.ICollection<User> Original { get; set; }
     
         [Newtonsoft.Json.JsonProperty("duplicate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DuplicateVote> Duplicate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19591,17 +23077,17 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueWatcher 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("user", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me User { get; set; }
+        public User User { get; set; }
     
         [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isStarred", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsStarred { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19620,6 +23106,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class IssueWatchers 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("hasStar", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HasStar { get; set; }
     
@@ -19628,9 +23117,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("duplicateWatchers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueWatcher> DuplicateWatchers { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19645,15 +23131,17 @@ namespace YouTrackSharp.Generated
     }
     
     /// <summary>Represents a work item in an issue.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class IssueWorkItem 
+    public partial class IssueWorkItem : BaseWorkItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
+        public User Author { get; set; }
     
         [Newtonsoft.Json.JsonProperty("creator", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Creator { get; set; }
+        public User Creator { get; set; }
     
         [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
@@ -19679,11 +23167,8 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Issue { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("usesMarkdown", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? UsesMarkdown { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("attributes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemAttribute> Attributes { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19702,6 +23187,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class JabberSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("isEnabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsEnabled { get; set; }
     
@@ -19717,8 +23205,49 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("serviceName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceName { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Jenkins integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class JenkinsChangesProcessor : ChangesProcessor
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public JenkinsServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Jenkins server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class JenkinsServer : VcsServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19737,6 +23266,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class License 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("username", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Username { get; set; }
     
@@ -19745,9 +23277,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("error", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19765,11 +23294,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LimitedVisibility : UnlimitedVisibility
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
     
         [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> PermittedUsers { get; set; }
+        public System.Collections.Generic.ICollection<User> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19789,8 +23321,11 @@ namespace YouTrackSharp.Generated
     /// For example, a set of issues to which the target one is linked as "Duplicated by".
     /// The change in the list of these issues is represented by `LinksActivityItem` entity.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class LinksActivityItem : ActivityItem
+    public partial class LinksActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -19820,6 +23355,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LocaleDescriptor 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Locale { get; set; }
     
@@ -19831,9 +23369,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19852,14 +23387,36 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LocaleSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("locale", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocaleDescriptor Locale { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isRTL", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsRTL { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents field value that can be localized.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class LocalizableBundleElement : BundleElement
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("localizedName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LocalizedName { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -19878,12 +23435,12 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Logo 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -19896,50 +23453,10 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents a user in YouTrack. Please note that the read-only properties of a user account, like 
-    ///             credentials, or email and so on, you can only change in  
-    ///             &lt;a href="https://www.jetbrains.com/help/youtrack/devportal/?Hub-REST-API"&gt;Hub REST API&lt;/a&gt;.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [JsonInheritanceAttribute("VcsUnresolvedUser", typeof(VcsUnresolvedUser))]
+    /// <summary>Represents the currently logged in user in YouTrack.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Me 
+    public partial class Me : User
     {
-        [Newtonsoft.Json.JsonProperty("login", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Login { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fullName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FullName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("email", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("jabberAccountName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string JabberAccountName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ringId", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RingId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("guest", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Guest { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("online", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Online { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("banned", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Banned { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tags", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<IssueTag> Tags { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("savedQueries", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SavedQuery> SavedQueries { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("avatarUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AvatarUrl { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("profiles", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserProfiles Profiles { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
@@ -19955,10 +23472,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `build` type that can have multiple values.</summary>
+    /// <summary>Represents a multi-value build-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiBuildIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BuildBundleElement> Value { get; set; }
     
@@ -19974,10 +23494,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `enum` type that can have multiple values.</summary>
+    /// <summary>Represents a multi-value enum-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiEnumIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<EnumBundleElement> Value { get; set; }
     
@@ -19993,10 +23516,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `group` type that can have multiple values.</summary>
+    /// <summary>Represents a multi-value group-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiGroupIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Value { get; set; }
     
@@ -20012,10 +23538,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `ownedField` type that can have multiple values. The predefined Subsystem field is the example of the owned fields.</summary>
+    /// <summary>Represents a multi-value owned-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiOwnedIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> Value { get; set; }
     
@@ -20031,12 +23560,15 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `user` type that can have multiple values.</summary>
+    /// <summary>Represents a multi-value user-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiUserIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Value { get; set; }
+        public System.Collections.Generic.ICollection<User> Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20050,12 +23582,37 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the all custom fields that may have multiple values in the issue.</summary>
+    /// <summary>Represents a change in an entity attribute that has type of `Array of &amp;lt;Entities&amp;gt;`.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class MultiValueActivityItem : ActivityItem
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Added { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a custom field that may have multiple values in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseMultiValueIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BundleProjectCustomField ProjectCustomField { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Value { get; set; }
@@ -20072,10 +23629,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `version` type that can have multiple values.</summary>
+    /// <summary>Represents a multi-value version-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class MultiVersionIssueCustomField : DatabaseMultiValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> Value { get; set; }
     
@@ -20096,14 +23656,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class NotificationSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("emailSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EmailSettings EmailSettings { get; set; }
     
         [Newtonsoft.Json.JsonProperty("jabberSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public JabberSettings JabberSettings { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20122,6 +23682,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class NotificationsUserProfile 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("notifyOnOwnChanges", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? NotifyOnOwnChanges { get; set; }
     
@@ -20155,9 +23718,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("autoWatchOnUpdate", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoWatchOnUpdate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -20175,11 +23735,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OnlineUsers 
     {
-        [Newtonsoft.Json.JsonProperty("users", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Users { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("users", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Users { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20197,6 +23757,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundle : BaseBundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnedBundleElement> Values { get; set; }
     
@@ -20216,6 +23779,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OwnedBundle Bundle { get; set; }
     
@@ -20238,8 +23804,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedBundleElement : BundleElement
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Owner { get; set; }
+        public User Owner { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20253,7 +23822,7 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for the owned field.</summary>
+    /// <summary>Represents project settings for an owned field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class OwnedProjectCustomField : BundleProjectCustomField
     {
@@ -20280,6 +23849,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ParsedCommand 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
@@ -20288,9 +23860,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("delete", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Delete { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20328,9 +23897,28 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class PeriodIssueCustomField : IssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PeriodValue Value { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents project settings for the period field.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PeriodProjectCustomField : BundleProjectCustomField
+    {
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -20348,12 +23936,33 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class PeriodValue 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("minutes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Minutes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a predefined field of the issue. Predefined fields are always present in an issue and
+    ///             |cannot be customized in a project. For example, `project`, `created`,
+    ///             |`updated`, `tags`, and so on.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PredefinedFilterField : FilterField
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
@@ -20373,6 +23982,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Project : IssueFolder
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("startingNumber", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? StartingNumber { get; set; }
     
@@ -20383,10 +23995,10 @@ namespace YouTrackSharp.Generated
         public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("leader", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Leader { get; set; }
+        public User Leader { get; set; }
     
         [Newtonsoft.Json.JsonProperty("createdBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me CreatedBy { get; set; }
+        public User CreatedBy { get; set; }
     
         [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
@@ -20426,8 +24038,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents the change in the project attribute on an Issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class ProjectActivityItem : ActivityItem
+    public partial class ProjectActivityItem : SingleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -20453,6 +24068,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectBasedColorCoding : ColorCoding
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("projectColors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ProjectColor> ProjectColors { get; set; }
     
@@ -20473,14 +24091,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectColor 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
         [Newtonsoft.Json.JsonProperty("color", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FieldStyle Color { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20499,6 +24117,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class ProjectTimeTrackingSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
@@ -20514,8 +24135,8 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("project", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project Project { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("attributes", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemProjectAttribute> Attributes { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20534,14 +24155,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RestCorsSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("allowedOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> AllowedOrigins { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowAllOrigins", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AllowAllOrigins { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20559,11 +24180,26 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SavedQuery : WatchFolder
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Query { get; set; }
     
         [Newtonsoft.Json.JsonProperty("issues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Issue> Issues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserGroup VisibleFor { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateableBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserGroup UpdateableBy { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("readSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings ReadSharingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings UpdateSharingSettings { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20582,6 +24218,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchSuggestions 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("caret", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Caret { get; set; }
     
@@ -20597,9 +24236,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("folders", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IssueFolder> Folders { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -20612,12 +24248,12 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the field of simple type in the issue.</summary>
+    /// <summary>Represents a simple-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SimpleIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BundleProjectCustomField ProjectCustomField { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Value { get; set; }
@@ -20634,11 +24270,30 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents project settings for the fields of the following types: `integer`, `float`, `date`, `date and time`, `string`.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SimpleProjectCustomField : BundleProjectCustomField
+    {
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents the change in attributes of a simple type in the target entity:
     /// Issue, IssueComment, WorkItem, IssueAttachment.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class SimpleValueActivityItem : ActivityItem
+    public partial class SimpleValueActivityItem : SingleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Removed { get; set; }
     
@@ -20657,10 +24312,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `build` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value build-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleBuildIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BuildBundleElement Value { get; set; }
     
@@ -20676,10 +24334,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `enum` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value enum-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleEnumIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public EnumBundleElement Value { get; set; }
     
@@ -20695,10 +24356,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `group` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value group-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleGroupIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup Value { get; set; }
     
@@ -20714,10 +24378,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `ownedField` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value owned-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleOwnedIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OwnedBundleElement Value { get; set; }
     
@@ -20733,12 +24400,15 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `user` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value user-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleUserIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Value { get; set; }
+        public User Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20752,12 +24422,37 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the all fields of with a single value in the issue.</summary>
+    /// <summary>Describe change of properties that can have single value.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SingleValueActivityItem : ActivityItem
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Added { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a a single-value custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class DatabaseSingleValueIssueCustomField : IssueCustomField
     {
-        [Newtonsoft.Json.JsonProperty("projectCustomField", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BundleProjectCustomField ProjectCustomField { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Value { get; set; }
@@ -20774,12 +24469,59 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue custom field of the `version` type that can only have a single value.</summary>
+    /// <summary>Represents a single-value version-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SingleVersionIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundleElement Value { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Space integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpaceChangesProcessor : VcsHostingChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpaceServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a Space server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpaceServer : VcsHostingServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -20798,6 +24540,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Sprint 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("agile", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Agile Agile { get; set; }
     
@@ -20828,9 +24573,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("previousSprint", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Sprint PreviousSprint { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -20845,8 +24587,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the issue when it was added to or removed from an agile board sprint.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class SprintActivityItem : ActivityItem
+    public partial class SprintActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -20876,6 +24621,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SprintsSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("isExplicit", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsExplicit { get; set; }
     
@@ -20897,9 +24645,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("hideSubtasksOfCards", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? HideSubtasksOfCards { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -20916,6 +24661,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateBundle : BaseBundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<StateBundleElement> Values { get; set; }
     
@@ -20935,6 +24683,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundle Bundle { get; set; }
     
@@ -20955,8 +24706,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents the state of an issue in YouTrack.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class StateBundleElement : EnumBundleElement
+    public partial class StateBundleElement : LocalizableBundleElement
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("isResolved", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsResolved { get; set; }
     
@@ -20972,10 +24726,13 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents the issue field of the `state` type.</summary>
+    /// <summary>Represents a single-value state-type custom field in the issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateIssueCustomField : DatabaseSingleValueIssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StateBundleElement Value { get; set; }
     
@@ -20991,7 +24748,38 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for the state field.</summary>
+    /// <summary>Represents the issue field with attached state machine.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("event", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Event Event { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("possibleEvents", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Event> PossibleEvents { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hasStateMachine", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HasStateMachine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public EnumBundleElement Value { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents project settings for a state field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StateProjectCustomField : BundleProjectCustomField
     {
@@ -21018,11 +24806,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class StorageEntry 
     {
-        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21041,6 +24829,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Suggestion 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("completionStart", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CompletionStart { get; set; }
     
@@ -21080,9 +24871,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("className", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ClassName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -21099,6 +24887,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneEntityAttributeValue : DatabaseAttributeValue
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -21124,11 +24915,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneSettings 
     {
-        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Enabled { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("enabled", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Enabled { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21147,11 +24938,11 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SwimlaneValue 
     {
-        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21170,6 +24961,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SystemSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("baseUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
@@ -21188,8 +24982,31 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("isApplicationReadOnly", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IsApplicationReadOnly { get; set; }
     
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Stores users and groups that have access to a tag.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class TagSharingSettings 
+    {
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<User> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21205,8 +25022,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the list of tags of an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TagsActivityItem : ActivityItem
+    public partial class TagsActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -21228,11 +25048,58 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents a TeamCity integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class TeamcityChangesProcessor : ChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TeamcityServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a TeamCity server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class TeamcityServer : VcsServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Telemetry data of the YouTrack installation.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Telemetry 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("installationFolder", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InstallationFolder { get; set; }
     
@@ -21302,9 +25169,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("notificationAnalyzerThreads", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? NotificationAnalyzerThreads { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -21321,6 +25185,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextCustomFieldActivityItem : CustomFieldActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
@@ -21350,14 +25217,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextFieldValue 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Text { get; set; }
     
         [Newtonsoft.Json.JsonProperty("markdownText", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MarkdownText { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21375,6 +25242,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextIssueCustomField : IssueCustomField
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TextFieldValue Value { get; set; }
     
@@ -21396,6 +25266,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TextMarkupActivityItem : SimpleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Removed { get; set; }
     
@@ -21420,16 +25293,35 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents settings of the text-type field in the project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class TextProjectCustomField : SimpleProjectCustomField
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents time tracking settings in the user's profile.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TimeTrackingUserProfile 
     {
-        [Newtonsoft.Json.JsonProperty("periodFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PeriodFieldFormat PeriodFormat { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("periodFormat", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PeriodFieldFormat PeriodFormat { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21448,14 +25340,14 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class TimeZoneDescriptor 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("presentation", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Presentation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("offset", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Offset { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21469,7 +25361,7 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Describes visibility settings for an entity (issue, comment, etc.)</summary>
+    /// <summary>Represents visibility settings of an entity, for example, an issue or a comment.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [JsonInheritanceAttribute("LimitedVisibility", typeof(LimitedVisibility))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
@@ -21490,18 +25382,125 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents an Upsource integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class UpsourceChangesProcessor : ChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UpsourceServer Server { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents an Upsource server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class UpsourceServer : VcsServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a user in YouTrack. Please note that the read-only properties of a user account, like 
+    ///             credentials, or email and so on, you can only change in  
+    ///             &lt;a href="https://www.jetbrains.com/help/youtrack/devportal/?Hub-REST-API"&gt;Hub REST API&lt;/a&gt;.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("VcsUnresolvedUser", typeof(VcsUnresolvedUser))]
+    [JsonInheritanceAttribute("Me", typeof(Me))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class User 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("login", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Login { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fullName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FullName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("email", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("jabberAccountName", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string JabberAccountName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ringId", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RingId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("guest", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Guest { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("online", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Online { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("banned", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Banned { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tags", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<IssueTag> Tags { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("savedQueries", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SavedQuery> SavedQueries { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("avatarUrl", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AvatarUrl { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("profiles", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserProfiles Profiles { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents a set of values that contains users. You can add to the set both individual user accounts and groups of users.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class UserBundle : BaseBundle
+    public partial class UserBundle : Bundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("groups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserGroup> Groups { get; set; }
     
         [Newtonsoft.Json.JsonProperty("individuals", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Individuals { get; set; }
+        public System.Collections.Generic.ICollection<User> Individuals { get; set; }
     
         [Newtonsoft.Json.JsonProperty("aggregatedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> AggregatedUsers { get; set; }
+        public System.Collections.Generic.ICollection<User> AggregatedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21517,13 +25516,16 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents default settings for the user-type field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class UserCustomFieldDefaults : BundleCustomFieldDefaults
+    public partial class UserCustomFieldDefaults : CustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserBundle Bundle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> DefaultValues { get; set; }
+        public System.Collections.Generic.ICollection<User> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21542,6 +25544,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserGroup 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -21560,9 +25565,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("teamForProject", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Project TeamForProject { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -21575,10 +25577,14 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents a group of settings of a user profile in YouTrack.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserProfiles 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("general", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeneralUserProfile General { get; set; }
     
@@ -21588,9 +25594,6 @@ namespace YouTrackSharp.Generated
         [Newtonsoft.Json.JsonProperty("timetracking", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TimeTrackingUserProfile Timetracking { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
         [Newtonsoft.Json.JsonExtensionData]
@@ -21603,7 +25606,7 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for the user field.</summary>
+    /// <summary>Represents project settings for a user field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UserProjectCustomField : BundleProjectCustomField
     {
@@ -21611,7 +25614,7 @@ namespace YouTrackSharp.Generated
         public UserBundle Bundle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("defaultValues", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> DefaultValues { get; set; }
+        public System.Collections.Generic.ICollection<User> DefaultValues { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21631,6 +25634,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class UsesMarkupActivityItem : SimpleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Removed { get; set; }
     
@@ -21652,18 +25658,43 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents an update in the list of VCSChanges of an issue.</summary>
+    /// <summary>Represents a VCS change linked to an issue.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class VcsChangeActivityItem : ActivityItem
+    public partial class VcsChange 
     {
-        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Removed { get; set; }
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Added { get; set; }
+        [Newtonsoft.Json.JsonProperty("date", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Date { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fetched", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Fetched { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("files", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Files { get; set; }
     
         [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Author { get; set; }
+        public User Author { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processors", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ChangesProcessor> Processors { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("text", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Text { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("urls", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Urls { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("issue", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Issue Issue { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("state", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? State { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21677,10 +25708,128 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents an author of a VCS change that could not be found in the list of YouTrack users.</summary>
+    /// <summary>Represents an update in the list of VCS changes of an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class VcsUnresolvedUser : Me
+    public partial class VcsChangeActivityItem : CreatedDeletedActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<VcsChange> Removed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<VcsChange> Added { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("author", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Author { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>The basic entity that represents a VCS integration configured for a project.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VcsHostingChangesProcessor : ChangesProcessor
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("server", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public VcsHostingServer Server { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("path", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("branchSpecification", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BranchSpecification { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("committers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserGroup Committers { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>The basic entity that represents a VCS server.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VcsHostingServer : VcsServer
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>The basic entity that represents a VCS or a build server.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [JsonInheritanceAttribute("VcsHostingServer", typeof(VcsHostingServer))]
+    [JsonInheritanceAttribute("JenkinsServer", typeof(JenkinsServer))]
+    [JsonInheritanceAttribute("GogsServer", typeof(GogsServer))]
+    [JsonInheritanceAttribute("GiteaServer", typeof(GiteaServer))]
+    [JsonInheritanceAttribute("SpaceServer", typeof(SpaceServer))]
+    [JsonInheritanceAttribute("GitHubServer", typeof(GitHubServer))]
+    [JsonInheritanceAttribute("GitLabServer", typeof(GitLabServer))]
+    [JsonInheritanceAttribute("BitBucketServer", typeof(BitBucketServer))]
+    [JsonInheritanceAttribute("BitbucketStandaloneServer", typeof(BitbucketStandaloneServer))]
+    [JsonInheritanceAttribute("UpsourceServer", typeof(UpsourceServer))]
+    [JsonInheritanceAttribute("TeamcityServer", typeof(TeamcityServer))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VcsServer 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a VCS change author who could not be associated with any YouTrack user account.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VcsUnresolvedUser : User
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -21700,6 +25849,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundle : BaseBundle
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<VersionBundleElement> Values { get; set; }
     
@@ -21719,6 +25871,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundleCustomFieldDefaults : BundleCustomFieldDefaults
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundle Bundle { get; set; }
     
@@ -21741,6 +25896,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionBundleElement : BundleElement
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("archived", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Archived { get; set; }
     
@@ -21762,10 +25920,10 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>Represents project settings for the version field.</summary>
+    /// <summary>Represents project settings for a version field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionProjectCustomField : BundleProjectCustomField
-    {
+    { 
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundle Bundle { get; set; }
     
@@ -21787,10 +25945,16 @@ namespace YouTrackSharp.Generated
     /// <summary>Represents the changes of properties responsible for visibility restriction.
     /// Can be &lt;a href="api-entity-VisibilityGroupActivityItem.xml"&gt;VisibilityGroupActivityItem&lt;/a&gt; or &lt;a href="api-entity-VisibilityUserActivityItem.xml"&gt;VisibilityUserActivityItem&lt;/a&gt;</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class VisibilityActivityItem : ActivityItem
+    public partial class VisibilityActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("targetSubMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TargetSubMember { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21808,6 +25972,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityGroupActivityItem : VisibilityActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
     
@@ -21836,6 +26003,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisibilityUserActivityItem : VisibilityActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("targetMember", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetMember { get; set; }
     
@@ -21843,10 +26013,10 @@ namespace YouTrackSharp.Generated
         public string TargetSubMember { get; set; }
     
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Removed { get; set; }
+        public System.Collections.Generic.ICollection<User> Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Added { get; set; }
+        public System.Collections.Generic.ICollection<User> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21862,16 +26032,19 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the list of voters of an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class VotersActivityItem : ActivityItem
+    public partial class VotersActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issue Target { get; set; }
     
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Removed { get; set; }
+        public System.Collections.Generic.ICollection<User> Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> Added { get; set; }
+        public System.Collections.Generic.ICollection<User> Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21890,6 +26063,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WIPLimit 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("max", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Max { get; set; }
     
@@ -21898,9 +26074,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("column", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AgileColumn Column { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21914,19 +26087,54 @@ namespace YouTrackSharp.Generated
     
     }
     
-    /// <summary>A `WatchFolder` is an `IssueFolder` that let you enable notifications for a set 
+    /// <summary>A `WatchFolder` is an `IssueFolder` that lets you enable notifications for a set 
     /// of issues that it enfolds. It is a common abstract ancestor for saved searches and issue tags.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WatchFolder : IssueFolder
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("owner", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Owner { get; set; }
+        public User Owner { get; set; }
     
         [Newtonsoft.Json.JsonProperty("visibleFor", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup VisibleFor { get; set; }
     
         [Newtonsoft.Json.JsonProperty("updateableBy", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserGroup UpdateableBy { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("readSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings ReadSharingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateSharingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WatchFolderSharingSettings UpdateSharingSettings { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Stores users and groups that have access to a tag or a saved search.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class WatchFolderSharingSettings 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedGroups", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserGroup> PermittedGroups { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("permittedUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<User> PermittedUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21942,8 +26150,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in a list of work items in an issue.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class WorkItemActivityItem : ActivityItem
+    public partial class WorkItemActivityItem : CreatedDeletedActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
@@ -21965,18 +26176,114 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents the attribute of a specific work item.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class WorkItemAttribute 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("workItem", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BaseWorkItem WorkItem { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("projectAttribute", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WorkItemProjectAttribute ProjectAttribute { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WorkItemAttributeValue Value { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a work item attribute prototype that is common for all projects. The project-related settings for work item attributes are stored in the `WorkItemProjectAttribute` entities.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class WorkItemAttributePrototype 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("instances", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemProjectAttribute> Instances { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemAttributeValue> Values { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
+    /// <summary>Represents a value of a work item attribute.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class WorkItemAttributeValue 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("description", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("autoAttach", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? AutoAttach { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("prototype", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WorkItemAttributePrototype Prototype { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents a change in the `author` attribute of a work item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class WorkItemAuthorActivityItem : ActivityItem
+    public partial class WorkItemAuthorActivityItem : SingleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
         [Newtonsoft.Json.JsonProperty("removed", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Removed { get; set; }
+        public User Removed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("added", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Me Added { get; set; }
+        public User Added { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -21992,8 +26299,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the `duration` attribute of a work item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class WorkItemDurationActivityItem : ActivityItem
+    public partial class WorkItemDurationActivityItem : SingleValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
@@ -22015,19 +26325,54 @@ namespace YouTrackSharp.Generated
     
     }
     
+    /// <summary>Represents the project-related settings of a work item attribute.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class WorkItemProjectAttribute 
+    {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timeTrackingSettings", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ProjectTimeTrackingSettings TimeTrackingSettings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("prototype", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public WorkItemAttributePrototype Prototype { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("values", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WorkItemAttributeValue> Values { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ordinal", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Ordinal { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
+    
     /// <summary>Represents a work type that can be assigned to a work item.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkItemType 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("name", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("autoAttached", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AutoAttached { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -22043,8 +26388,11 @@ namespace YouTrackSharp.Generated
     
     /// <summary>Represents a change in the `type` attribute of the work item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class WorkItemTypeActivityItem : ActivityItem
+    public partial class WorkItemTypeActivityItem : MultiValueActivityItem
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("target", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IssueWorkItem Target { get; set; }
     
@@ -22071,6 +26419,9 @@ namespace YouTrackSharp.Generated
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class WorkTimeSettings 
     {
+        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("minutesADay", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinutesADay { get; set; }
     
@@ -22082,69 +26433,6 @@ namespace YouTrackSharp.Generated
     
         [Newtonsoft.Json.JsonProperty("daysAWeek", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? DaysAWeek { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
-    }
-    
-    /// <summary>Represents the issue field with attached state machine.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class StateMachineIssueCustomField : DatabaseSingleValueIssueCustomField
-    {
-        [Newtonsoft.Json.JsonProperty("hasStateMachine", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? HasStateMachine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EnumBundleElement Value { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class IssueCountRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("query", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Query { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "$type")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class IssueCountResponse 
-    {
-        [Newtonsoft.Json.JsonProperty("count", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? Count { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -22238,7 +26526,7 @@ namespace YouTrackSharp.Generated
         public System.Collections.Generic.ICollection<UserGroup> RecommendedGroups { get; set; }
     
         [Newtonsoft.Json.JsonProperty("visibilityUsers", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Me> VisibilityUsers { get; set; }
+        public System.Collections.Generic.ICollection<User> VisibilityUsers { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
