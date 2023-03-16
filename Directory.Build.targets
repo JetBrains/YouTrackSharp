@@ -10,7 +10,7 @@
         <RepositoryUrl>https://github.com/JetBrains/YouTrackSharp.git</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>YouTrack JetBrains SDK</PackageTags>
-        <AssemblyVersion>2022.3.0</AssemblyVersion>
+        <AssemblyVersion>2022.3.1</AssemblyVersion>
         <FileVersion>$(AssemblyVersion)</FileVersion>
         <Description>A .NET Library to talk to JetBrains YouTrack.</Description>
         <Authors>JetBrains</Authors>
