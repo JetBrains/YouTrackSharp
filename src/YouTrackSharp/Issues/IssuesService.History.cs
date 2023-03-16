@@ -7,11 +7,11 @@ namespace YouTrackSharp.Issues
 {
     public partial class IssuesService
     {
-        private static string ACTIVITIES_CATEGORIES =
-            "AttachmentsCategory,CustomFieldCategory,DescriptionCategory,IssueResolvedCategory,LinksCategory,ProjectCategory,IssueVisibilityCategory,SprintCategory,SummaryCategory,TagsCategory";
+        private const string ACTIVITIES_CATEGORIES =
+            "AttachmentsCategory,CustomFieldCategory,DescriptionCategory,IssueResolvedCategory,LinksCategory,ProjectCategory,IssueVisibilityCategory,SprintCategory,SummaryCategory,TagsCategory,VcsChangeCategory";
         
         /// <inheritdoc />
-        public async Task<IEnumerable<Change>> GetChangeHistoryForIssue(string issueId)
+        public async Task<IEnumerable<Change>> GetChangeHistoryForIssue(string issueId, string categories = ACTIVITIES_CATEGORIES)
         {
             if (string.IsNullOrEmpty(issueId))
             {
@@ -20,7 +20,7 @@ namespace YouTrackSharp.Issues
 
             var client = await _connection.GetAuthenticatedApiClient();
             var response = await client.IssuesActivitiesGetAsync(issueId,
-                ACTIVITIES_CATEGORIES, false, null, null, null, Constants.FieldsQueryStrings.Activities);
+                categories, false, null, null, null, Constants.FieldsQueryStrings.Activities);
             
             return response.Select(Change.FromApiEntity).ToList();
         }

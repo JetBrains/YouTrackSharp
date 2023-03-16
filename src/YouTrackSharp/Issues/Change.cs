@@ -81,6 +81,11 @@ namespace YouTrackSharp.Issues
                     fieldChange.From.Value = a.Removed == null ? new JArray() : JArray.FromObject(a.Removed);
                     fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
                     break;
+                case VcsChangeActivityItem a:
+                    fieldChange.Name = "vcs";
+                    fieldChange.From.Value = a.Removed == null ? new JArray() : JArray.FromObject(a.Removed);
+                    fieldChange.To.Value = a.Added == null ? new JArray() : JArray.FromObject(a.Added);
+                    break;
                 case ProjectActivityItem a:
                     fieldChange.Name = "project";
                     fieldChange.From.Value = new JArray() {JObject.FromObject(a.Removed)};

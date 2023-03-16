@@ -130,11 +130,12 @@ namespace YouTrackSharp.Issues
         /// </summary>
         /// <remarks>Uses the REST API <a href="https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-activities.html#get_all-ActivityItem-method">Get Changes of an Issue</a>.</remarks>
         /// <param name="issueId">Id of the issue to get change history for.</param>
+        /// <param name="categories">Comma separated category types e.g. IssueResolvedCategory.</param>
         /// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="Change" /> for the requested issue <paramref name="issueId"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">When the <paramref name="issueId"/> is null or empty.</exception>
         /// <exception cref="T:System.Net.HttpRequestException">When the call to the remote YouTrack server instance failed.</exception>
-        Task<IEnumerable<Change>> GetChangeHistoryForIssue(string issueId);
-
+        Task<IEnumerable<Change>> GetChangeHistoryForIssue(string issueId, string categories = "AttachmentsCategory,CustomFieldCategory,DescriptionCategory,IssueResolvedCategory,LinksCategory,ProjectCategory,IssueVisibilityCategory,SprintCategory,SummaryCategory,TagsCategory,VcsChangeCategory");
+        
         /// <summary>
         /// Get comments for a specific issue from the server.
         /// </summary>
