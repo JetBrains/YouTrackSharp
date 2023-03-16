@@ -195,7 +195,7 @@
                 "readOnly": true
               },
               "value": {
-                "$ref": "#/components/schemas/EnumBundleElement"
+                "$ref": "#/components/schemas/LocalizableBundleElement"
               }
             }
           }

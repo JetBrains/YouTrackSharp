@@ -24765,7 +24765,7 @@ namespace YouTrackSharp.Generated
         public bool? HasStateMachine { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EnumBundleElement Value { get; set; }
+        public LocalizableBundleElement Value { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -25923,7 +25923,7 @@ namespace YouTrackSharp.Generated
     /// <summary>Represents project settings for a version field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VersionProjectCustomField : BundleProjectCustomField
-    { 
+    {
         [Newtonsoft.Json.JsonProperty("bundle", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public VersionBundle Bundle { get; set; }
     
