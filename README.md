@@ -29,7 +29,7 @@ var projectsService = connection.CreateProjectsService();
 var projectsForCurrentUser = await projectsService.GetAccessibleProjects();
 ```
 
-Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/incloud/deprecated-rest-api-reference.html) endpoints and operations that are available.
+Other services are available as well, mapping to the [YouTrack REST API](https://www.jetbrains.com/help/youtrack/devportal/youtrack-rest-api.html) endpoints and operations that are available.
 
 ## Supported operations
 
@@ -41,13 +41,13 @@ YouTrackSharp is a .NET Library to access the YouTrack API. Main features:
 * Comes with a color indices list.
 
 The following API's are currently supported:
-* [User-related methods](https://www.jetbrains.com/help/youtrack/standalone/User-Related-Methods.html) through `UserService`
-* [Projects-related methods](https://www.jetbrains.com/help/youtrack/standalone/Projects-Related-Methods.html) through `ProjectsService`
-* [Issues-related methods](https://www.jetbrains.com/help/youtrack/standalone/Issues-Related-Methods.html) through `IssuesService`
-* [Time-tracking-related methods](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-User-Methods.html) through `TimeTrackingService`
+* [User-related methods](https://www.jetbrains.com/help/youtrack/devportal/resource-api-users-me.html) through `UserService`
+* [Projects-related methods](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html) through `ProjectsService`
+* [Issues-related methods](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html) through `IssuesService`
+* [Time-tracking-related methods](https://www.jetbrains.com/help/youtrack/devportal/resource-api-workItems.html) through `TimeTrackingService`
 * Administration API's
-  * [User management](https://www.jetbrains.com/help/youtrack/standalone/Users.html) through `UserManagementService`
-  * [Time Tracker management](https://www.jetbrains.com/help/youtrack/standalone/Time-Tracking-Settings-Methods.html) through `TimeTrackingManagementService`
+  * [User management](https://www.jetbrains.com/help/youtrack/devportal/HUB-REST-API_Users.html) through `UserManagementService`
+  * [Time Tracker management](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-timeTrackingSettings.html) through `TimeTrackingManagementService`
   
 Many other API's are not included yet - feel free to [tackle one of the `UpForGrabs` issues](https://github.com/JetBrains/YouTrackSharp/issues?q=is%3Aissue+is%3Aopen+label%3AUpForGrabs) and make YouTrackSharp better!
 
